@@ -1,13 +1,52 @@
-.gradient-hover {
-  position: relative;
-  overflow: hidden;
-  background-size: 100% 2px;
+.gradient-layer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 10px;
-  background: linear-gradient(to right, #0080ff, #083d73);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  padding: 0;
+  height: 100%;
   &:hover {
-    background: linear-gradient(to right, #0080ff, #083d73);
-    background-size: 100% 100%;
+    padding: 0.2em;
+    animation: grd infinite;
+  }
+}
+
+.gradient-hover__content {
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  display: flex;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+@keyframes grd {
+  0% {
+    background: linear-gradient(0deg, #ff7a18, #af002d 41.07%, #319197 76.05%);
+  }
+  25% {
+    background: linear-gradient(45deg, #ff7a18, #af002d 41.07%, #319197 76.05%);
+  }
+  50% {
+    background: linear-gradient(90deg, #ff7a18, #af002d 41.07%, #319197 76.05%);
+  }
+  75% {
+    background: linear-gradient(
+      180deg,
+      #ff7a18,
+      #af002d 41.07%,
+      #319197 76.05%
+    );
+  }
+  100% {
+    background: linear-gradient(
+      360deg,
+      #ff7a18,
+      #af002d 41.07%,
+      #319197 76.05%
+    );
   }
 }
 
