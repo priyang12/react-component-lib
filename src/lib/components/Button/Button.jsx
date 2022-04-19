@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import "./Button.scss";
 
-const Button = ({ label, style }) => {
+const Button = ({ label, style, StyleClass }) => {
   return (
-    <button className="btn" style={style}>
+    <button className={`btn ${StyleClass}`} style={style}>
       {label}
     </button>
   );
