@@ -1,7 +1,7 @@
 import "./ShadowAnimation.scss";
 
-const ShadowAnimation = ({ children }) => {
-  return <div className="neon-bg">{children}</div>;
+const ShadowAnimation = ({ children, AnimationCss }) => {
+  return <div className={`neon-bg ${AnimationCss}`}>{children}</div>;
 };
 
 export default ShadowAnimation;
