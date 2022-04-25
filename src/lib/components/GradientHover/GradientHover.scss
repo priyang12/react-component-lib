@@ -1,68 +1,68 @@
 .gradient-layer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  transition: all 0.1s ease-in-out;
-  background: linear-gradient(
-    0deg,
-    var(--grad-color-1),
-    var(--grad-color-2) 41.07%,
-    var(--grad-color-3) 76.05%
-  );
-}
-
-.gradient-hover__content {
-  display: flex;
-  border-radius: 10px;
-  align-items: center;
-  justify-content: center;
-  background-color: black;
-}
-
-@keyframes grd {
-  0% {
-    background: linear-gradient(
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 10px;
+   transition: all 0.1s ease-in-out;
+   background: linear-gradient(
       0deg,
       var(--grad-color-1),
       var(--grad-color-2) 41.07%,
       var(--grad-color-3) 76.05%
-    );
-  }
-  25% {
-    background: linear-gradient(
-      45deg,
-      var(--grad-color-1),
-      var(--grad-color-2) 41.07%,
-      var(--grad-color-3) 76.05%
-    );
-  }
-  50% {
-    background: linear-gradient(
-      90deg,
-      var(--grad-color-1),
-      var(--grad-color-2) 41.07%,
-      var(--grad-color-3) 76.05%
-    );
-  }
-  75% {
-    background: linear-gradient(
-      180deg,
-      var(--grad-color-1),
-      var(--grad-color-2) 41.07%,
-      var(--grad-color-3) 76.05%
-    );
-  }
-  100% {
-    background: linear-gradient(
-      360deg,
-      var(--grad-color-1),
-      var(--grad-color-2) 41.07%,
-      var(--grad-color-3) 76.05%
-    );
-  }
+   );
 }
 
 .gradient-hover__content {
-  z-index: 1;
+   display: flex;
+   border-radius: 10px;
+   align-items: center;
+   justify-content: center;
+   background-color: black;
+}
+
+@keyframes grd {
+   0% {
+      background: linear-gradient(
+         0deg,
+         var(--grad-color-1),
+         var(--grad-color-2) 41.07%,
+         var(--grad-color-3) 76.05%
+      );
+   }
+   25% {
+      background: linear-gradient(
+         45deg,
+         var(--grad-color-1),
+         var(--grad-color-2) 41.07%,
+         var(--grad-color-3) 76.05%
+      );
+   }
+   50% {
+      background: linear-gradient(
+         90deg,
+         var(--grad-color-1),
+         var(--grad-color-2) 41.07%,
+         var(--grad-color-3) 76.05%
+      );
+   }
+   75% {
+      background: linear-gradient(
+         180deg,
+         var(--grad-color-1),
+         var(--grad-color-2) 41.07%,
+         var(--grad-color-3) 76.05%
+      );
+   }
+   100% {
+      background: linear-gradient(
+         360deg,
+         var(--grad-color-1),
+         var(--grad-color-2) 41.07%,
+         var(--grad-color-3) 76.05%
+      );
+   }
+}
+
+.gradient-hover__content {
+   z-index: 1;
 }
