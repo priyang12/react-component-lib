@@ -4,17 +4,9 @@
   justify-content: center;
   border-radius: 10px;
   transition: all 0.1s ease-in-out;
-  padding: 0;
-  height: 100%;
-  &:hover {
-    padding: 0.2em;
-    animation: grd infinite;
-  }
 }
 
 .gradient-hover__content {
-  width: calc(100% - 10px);
-  height: calc(100% - 10px);
   display: flex;
   border-radius: 10px;
   align-items: center;

@@ -2,7 +2,7 @@ import { LongText as Button } from "../Button/Button.stories";
 import ShadowAnimation from "./ShadowAnimation";
 
 export default {
-  title: "ReverserEngineer/VercelButton",
+  title: "Atoms/ReverserEngineer/VercelButton",
   component: ShadowAnimation,
   args: {
     children: (
@@ -50,7 +50,7 @@ Border.args = {
     <Button
       style={{
         background: "black",
-        width: "calc(100% - 10px)",
+        width: "calc(100% - 12px)",
         height: "calc(100% - 10px)",
       }}
     />

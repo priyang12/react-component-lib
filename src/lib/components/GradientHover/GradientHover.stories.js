@@ -2,9 +2,11 @@ import { Default as Button } from "../Button/Button.stories";
 import GradientHover from "./GradientHover";
 
 export default {
-  title: "GradientHover/Border",
+  title: "Atoms/GradientBorder/Border",
   component: GradientHover,
   args: {
+    animation: " grd 0.2s ease-in-out infinite",
+    BorderSize: "0.2em",
     children: (
       <Button
         style={{
@@ -12,7 +14,6 @@ export default {
         }}
       />
     ),
-    animationTime: "0.2s",
   },
   decorators: [
     (story) => (
@@ -38,4 +39,10 @@ export const Faster = Template.bind({});
 
 Faster.args = {
   animationTime: "0.1s",
+};
+
+export const BorderSize = Template.bind({});
+
+BorderSize.args = {
+  BorderSize: "0.5em",
 };
