@@ -1,5 +1,8 @@
 :root {
   --color-primary: #67615d;
+  --grad-color-1: #ff7a18;
+  --grad-color-2: #af002d;
+  --grad-color-3: #319197;
 }
 .container {
   width: 100%;
