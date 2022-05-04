@@ -1,0 +1,19 @@
+.card {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: #fff;
+   border-radius: var(--card-radius);
+   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+   margin: 0.5rem;
+}
+.card__image {
+   img {
+      display: block;
+      width: 15rem;
+      height: 10rem;
+      border-top-left-radius: var(--card-radius);
+      border-top-right-radius: var(--card-radius);
+   }
+}
