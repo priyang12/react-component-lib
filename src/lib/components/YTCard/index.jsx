@@ -7,7 +7,8 @@ import './YTCard.scss';
 function YTCard() {
    const [Show, setShow] = useState(false);
 
-   // Interval for the video
+   // Todo: Add a timeout to hide the card
+   // Todo: Preview the video
 
    const debouncedHandleMouseEnter = () => {
       setShow(true);

@@ -44,6 +44,13 @@
    border-radius: var(--card-radius);
    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
    margin: 0.5rem;
+   opacity: 0.5;
+   transform: scale(0.7);
+   transition: transform 0.1s ease-in-out, opacity 0.3s ease-in-out;
+   &:hover {
+      transform: scale(1);
+      opacity: 1;
+   }
    .buttons {
       display: flex;
       flex-direction: column;
