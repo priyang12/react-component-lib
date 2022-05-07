@@ -2,7 +2,7 @@ import GradientBG from './index';
 import Button from '../Button/Button';
 
 export default {
-   title: 'Atoms/GradientBG',
+   title: 'Effects/GradientBG',
    component: GradientBG,
    args: {
       children: 'Background',
@@ -32,5 +32,15 @@ Focused.args = {
 
 export const Animate = Template.bind({});
 Animate.args = {
+   children: (
+      <Button
+         style={{
+            background: 'transparent',
+            color: '#333',
+         }}
+      >
+         <span>Animate</span>
+      </Button>
+   ),
    Animate: 'animation',
 };

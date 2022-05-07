@@ -2,7 +2,7 @@ import { Default as Button } from '../Button/Button.stories';
 import GradientHover from './GradientHover';
 
 export default {
-   title: 'Atoms/GradientBorder',
+   title: 'Effects/GradientBorder',
    component: GradientHover,
    args: {
       BorderSize: '0.2em',
