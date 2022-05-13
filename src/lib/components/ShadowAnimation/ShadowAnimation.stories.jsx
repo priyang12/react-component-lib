@@ -2,7 +2,7 @@ import { LongText as Button } from '../Button/Button.stories';
 import ShadowAnimation from './ShadowAnimation';
 
 export default {
-   title: 'Atoms/ReverserEngineer/VercelButton',
+   title: 'Atoms/VercelButton',
    component: ShadowAnimation,
    args: {
       children: (
