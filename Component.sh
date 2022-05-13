@@ -34,7 +34,7 @@ Story() {
 Test() {
     # Test Boilerplate
     echo "import React from 'react';" >>$Path/$1/$1.test.jsx
-    echo "import $1 from './$1';" >>$Path/$1/$1.test.jsx
+    echo "import $1 from './index.jsx';" >>$Path/$1/$1.test.jsx
     echo "import { render, fireEvent, screen } from '@testing-library/react';" >>$Path/$1/$1.test.jsx
     echo "import '@testing-library/jest-dom/extend-expect';" >>$Path/$1/$1.test.jsx
     echo "describe('$1', () => {" >>$Path/$1/$1.test.jsx

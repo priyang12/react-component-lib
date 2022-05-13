@@ -1,0 +1,40 @@
+.container {
+   position: relative;
+}
+.Gradtext {
+   background: -webkit-linear-gradient(#e91e63, #201f55);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   animation: GradText 2s ease infinite;
+   //    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.NormalText {
+   position: absolute;
+   animation: NormalText 2s ease infinite;
+}
+@keyframes NormalText {
+   0% {
+      opacity: 1;
+   }
+   50% {
+      opacity: 0;
+      display: none;
+   }
+   100% {
+      opacity: 1;
+   }
+}
+
+@keyframes GradText {
+   0% {
+      opacity: 0;
+      display: none;
+   }
+   50% {
+      opacity: 1;
+   }
+   100% {
+      opacity: 0;
+      display: none;
+   }
+}
