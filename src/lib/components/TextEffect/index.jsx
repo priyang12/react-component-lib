@@ -1,13 +1,26 @@
 import React from 'react';
 import './TextEffect.scss';
-function TextEffect({ Element, size, ContainerText, Delay }) {
+function TextEffect({
+   Element,
+   size,
+   ContainerText,
+   Delay,
+   animateTime = '2',
+   color1 = '#e91e63',
+   color2 = '#201f55',
+}) {
    return (
       <div className="container">
          <Element
             className="Gradtext"
             style={{
                fontSize: `${size}`,
+               background: `-webkit-linear-gradient(${color1}, ${color2})`,
+               WebkitBackgroundClip: 'text',
+               backgroundClip: 'text',
+               color: 'transparent',
                animationDelay: `${Delay}`,
+               animation: `GradTextAnimation ${animateTime}s ease infinite`,
             }}
          >
             {ContainerText}
@@ -17,6 +30,7 @@ function TextEffect({ Element, size, ContainerText, Delay }) {
             style={{
                fontSize: `${size}`,
                animationDelay: `${Delay}`,
+               animation: `NormalText ${animateTime}s ease infinite`,
             }}
          >
             {ContainerText}

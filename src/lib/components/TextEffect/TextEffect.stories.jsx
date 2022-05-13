@@ -19,6 +19,12 @@ LargeText.args = {
    size: '5rem',
 };
 
+export const AnimateTime = Template.bind({});
+AnimateTime.args = {
+   size: '5rem',
+   animateTime: '1',
+};
+
 export const DifferentDelay = Template.bind({});
 DifferentDelay.args = {
    size: '3rem',

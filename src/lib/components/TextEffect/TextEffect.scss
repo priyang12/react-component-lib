@@ -1,16 +1,14 @@
 .container {
    position: relative;
+   font-weight: 900;
 }
 .Gradtext {
-   background: -webkit-linear-gradient(#e91e63, #201f55);
-   -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
-   animation: GradText 2s ease infinite;
-   //    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+   animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .NormalText {
    position: absolute;
-   animation: NormalText 2s ease infinite;
+   animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 @keyframes NormalText {
    0% {
