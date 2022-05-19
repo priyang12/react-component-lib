@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # variables
-Path="src/lib/components/Template"
+Path="src/lib/Template"
 
 # Take User Input for Creating Component or deleting Component
 echo "Enter 1 to create Template"

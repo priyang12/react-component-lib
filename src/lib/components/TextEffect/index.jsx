@@ -15,7 +15,7 @@ function TextEffect({
             className="Gradtext"
             style={{
                fontSize: `${size}`,
-               background: `-webkit-linear-gradient(${color1}, ${color2})`,
+               background: `linear-gradient(90deg,${color1}, ${color2})`,
                WebkitBackgroundClip: 'text',
                backgroundClip: 'text',
                color: 'transparent',
