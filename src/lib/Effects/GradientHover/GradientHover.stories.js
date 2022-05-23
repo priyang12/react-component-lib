@@ -14,20 +14,7 @@ export default {
          />
       ),
    },
-   decorators: [
-      (story) => (
-         <div
-            className="container"
-            style={{
-               height: '100px',
-               padding: '20px',
-               backgroundColor: '#f5f5f5',
-            }}
-         >
-            {story()}
-         </div>
-      ),
-   ],
+   decorators: [(story) => <div className="container">{story()}</div>],
 };
 
 const Template = (args) => <GradientHover {...args} />;
