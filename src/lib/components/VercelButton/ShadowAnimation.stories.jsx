@@ -1,9 +1,9 @@
 import { LongText as Button } from '../Button/Button.stories';
-import ShadowAnimation from './ShadowAnimation';
+import VercelButton from './index';
 
 export default {
    title: 'Atoms/VercelButton',
-   component: ShadowAnimation,
+   component: VercelButton,
    args: {
       children: (
          <Button
@@ -33,7 +33,7 @@ export default {
    ],
 };
 
-const Template = (args) => <ShadowAnimation {...args} />;
+const Template = (args) => <VercelButton {...args} />;
 
 export const Default = Template.bind({});
 

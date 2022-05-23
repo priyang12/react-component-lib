@@ -1,4 +1,4 @@
-import { Default as Button } from '../Button/Button.stories';
+import { Default as Button } from '../../components/Button/Button.stories';
 import GradientHover from './GradientHover';
 
 export default {

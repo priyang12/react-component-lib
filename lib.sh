@@ -8,6 +8,7 @@ echo "Enter 2 to Module"
 echo "Enter 3 to Organisms"
 echo "Enter 4 to Templates"
 echo "Enter 5 to Pages"
+echo "Enter 6 to Effects"
 
 read choice
 
@@ -117,6 +118,7 @@ case $choice in
     echo "Enter 1 to create Organisms"
     echo "Enter 2 to delete Organisms"
     read InputChoise
+    action $InputChoise
     ;;
 4)
     Path="src/lib/Templates"
@@ -124,6 +126,7 @@ case $choice in
     echo "Enter 1 to create Templates"
     echo "Enter 2 to delete Templates"
     read InputChoise
+    action $InputChoise
     ;;
 5)
     Path="src/lib/Pages"
@@ -131,6 +134,15 @@ case $choice in
     echo "Enter 1 to create Pages"
     echo "Enter 2 to delete Pagesnent"
     read InputChoise
+    action $InputChoise
+    ;;
+6)
+    Path="src/lib/Effects"
+    # Take User Input for Creating Component or deleting Component
+    echo "Enter 1 to create Effects"
+    echo "Enter 2 to delete Effects"
+    read InputChoise
+    action $InputChoise
     ;;
 *)
     echo "Invalid Input"
