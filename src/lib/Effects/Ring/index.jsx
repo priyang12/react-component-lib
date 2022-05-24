@@ -13,9 +13,9 @@ function Ring({
          <div
             className="ring"
             style={{
-               '--tw-ring-color': ringColor,
+               '--ring-color': ringColor,
                '--ring-width': `calc(${ringWidth} + 2px)`,
-               '--tw-ring-offset-color': OuterRingColor,
+               '--ring-offset-color': OuterRingColor,
                borderRadius: radius,
             }}
          >

@@ -3,17 +3,17 @@
 *,
 ::before,
 ::after {
-  box-sizing: border-box;
+   box-sizing: border-box;
 }
 
 html {
-  -moz-tab-size: 4;
-  tab-size: 4;
+   -moz-tab-size: 4;
+   tab-size: 4;
 }
 
 html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+   line-height: 1.15; /* 1 */
+   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 /*
@@ -26,7 +26,7 @@ Remove the margin in all browsers.
 */
 
 body {
-  margin: 0;
+   margin: 0;
 }
 
 /**
@@ -34,9 +34,9 @@ Improve consistency of default fonts in all browsers. (https://github.com/sindre
 */
 
 body {
-  font-family: system-ui, -apple-system,
-    /* Firefox supports this but not yet `system-ui` */ "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+   font-family: system-ui, -apple-system,
+      /* Firefox supports this but not yet `system-ui` */ 'Segoe UI', Roboto,
+      Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 }
 
 /*
@@ -50,8 +50,8 @@ Grouping content
 */
 
 hr {
-  height: 0; /* 1 */
-  color: inherit; /* 2 */
+   height: 0; /* 1 */
+   color: inherit; /* 2 */
 }
 
 /*
@@ -64,8 +64,8 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 */
 
 abbr[title] {
-  -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted;
+   -webkit-text-decoration: underline dotted;
+   text-decoration: underline dotted;
 }
 
 /**
@@ -74,35 +74,35 @@ Add the correct font weight in Edge and Safari.
 
 b,
 strong {
-  font-weight: bolder;
+   font-weight: bolder;
 }
 
 code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo,
-    monospace; /* 1 */
-  font-size: 1em; /* 2 */
+   font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo,
+      monospace; /* 1 */
+   font-size: 1em; /* 2 */
 }
 small {
-  font-size: 80%;
+   font-size: 80%;
 }
 
 sub,
 sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
+   font-size: 75%;
+   line-height: 0;
+   position: relative;
+   vertical-align: baseline;
 }
 
 sub {
-  bottom: -0.25em;
+   bottom: -0.25em;
 }
 
 sup {
-  top: -0.5em;
+   top: -0.5em;
 }
 
 /*
@@ -116,8 +116,8 @@ Tabular data
 */
 
 table {
-  text-indent: 0; /* 1 */
-  border-color: inherit; /* 2 */
+   text-indent: 0; /* 1 */
+   border-color: inherit; /* 2 */
 }
 
 /*
@@ -135,10 +135,10 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
+   font-family: inherit; /* 1 */
+   font-size: 100%; /* 1 */
+   line-height: 1.15; /* 1 */
+   margin: 0; /* 2 */
 }
 
 /**
@@ -148,8 +148,8 @@ Remove the inheritance of text transform in Edge and Firefox.
 
 button,
 select {
-  /* 1 */
-  text-transform: none;
+   /* 1 */
+   text-transform: none;
 }
 
 /**
@@ -157,7 +157,7 @@ Correct the inability to style clickable types in iOS and Safari.
 */
 
 button {
-  -webkit-appearance: button;
+   -webkit-appearance: button;
 }
 
 /**
@@ -178,7 +178,7 @@ Remove the padding so developers are not caught out when they zero out 'fieldset
 */
 
 legend {
-  padding: 0;
+   padding: 0;
 }
 
 /**
@@ -186,7 +186,7 @@ Add the correct vertical alignment in Chrome and Firefox.
 */
 
 progress {
-  vertical-align: baseline;
+   vertical-align: baseline;
 }
 
 /**
@@ -217,7 +217,7 @@ Add the correct display in Chrome and Safari.
 */
 
 summary {
-  display: list-item;
+   display: list-item;
 }
 
 /**
@@ -243,24 +243,24 @@ hr,
 figure,
 p,
 pre {
-  margin: 0;
+   margin: 0;
 }
 
 button {
-  background-color: transparent;
-  background-image: none;
+   background-color: transparent;
+   background-image: none;
 }
 
 fieldset {
-  margin: 0;
-  padding: 0;
+   margin: 0;
+   padding: 0;
 }
 
 ol,
 ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+   list-style: none;
+   margin: 0;
+   padding: 0;
 }
 
 /**
@@ -275,10 +275,11 @@ ul {
  */
 
 html {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
-  line-height: 1.5; /* 2 */
+   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+      'Noto Color Emoji'; /* 1 */
+   line-height: 1.5; /* 2 */
 }
 
 /**
@@ -287,8 +288,8 @@ html {
  */
 
 body {
-  font-family: inherit;
-  line-height: inherit;
+   font-family: inherit;
+   line-height: inherit;
 }
 
 /**
@@ -320,10 +321,10 @@ body {
 *,
 ::before,
 ::after {
-  box-sizing: border-box; /* 1 */
-  border-width: 0; /* 2 */
-  border-style: solid; /* 2 */
-  border-color: currentColor; /* 2 */
+   box-sizing: border-box; /* 1 */
+   border-width: 0; /* 2 */
+   border-style: solid; /* 2 */
+   border-color: currentColor; /* 2 */
 }
 
 /*
@@ -331,7 +332,7 @@ body {
  */
 
 hr {
-  border-top-width: 1px;
+   border-top-width: 1px;
 }
 
 /**
@@ -345,37 +346,37 @@ hr {
  */
 
 img {
-  border-style: solid;
+   border-style: solid;
 }
 
 textarea {
-  resize: vertical;
+   resize: vertical;
 }
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  opacity: 1;
-  color: #9ca3af;
+   opacity: 1;
+   color: #9ca3af;
 }
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  opacity: 1;
-  color: #9ca3af;
+   opacity: 1;
+   color: #9ca3af;
 }
 
 input::placeholder,
 textarea::placeholder {
-  opacity: 1;
-  color: #9ca3af;
+   opacity: 1;
+   color: #9ca3af;
 }
 
 button {
-  cursor: pointer;
+   cursor: pointer;
 }
 
 table {
-  border-collapse: collapse;
+   border-collapse: collapse;
 }
 
 h1,
@@ -384,8 +385,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: inherit;
-  font-weight: inherit;
+   font-size: inherit;
+   font-weight: inherit;
 }
 
 /**
@@ -394,8 +395,8 @@ h6 {
  */
 
 a {
-  color: inherit;
-  text-decoration: inherit;
+   color: inherit;
+   text-decoration: inherit;
 }
 
 /**
@@ -411,9 +412,9 @@ input,
 optgroup,
 select,
 textarea {
-  padding: 0;
-  line-height: inherit;
-  color: inherit;
+   padding: 0;
+   line-height: inherit;
+   color: inherit;
 }
 
 /**
@@ -427,8 +428,8 @@ pre,
 code,
 kbd,
 samp {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      'Liberation Mono', 'Courier New', monospace;
 }
 
 /**
@@ -456,8 +457,8 @@ audio,
 iframe,
 embed,
 object {
-  display: block; /* 1 */
-  vertical-align: middle; /* 2 */
+   display: block; /* 1 */
+   vertical-align: middle; /* 2 */
 }
 
 /**
@@ -469,8 +470,8 @@ object {
 
 img,
 video {
-  max-width: 100%;
-  height: auto;
+   max-width: 100%;
+   height: auto;
 }
 
 /**
@@ -480,146 +481,140 @@ video {
 *,
 ::before,
 ::after {
-  --tw-border-opacity: 1;
-  border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+   --tw-border-opacity: 1;
+   border-color: rgba(229, 231, 235, var(--tw-border-opacity));
 }
 
 .table {
-  display: table;
+   display: table;
 }
 
 @-webkit-keyframes spin {
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+   to {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+   }
 }
 
 @keyframes spin {
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+   to {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+   }
 }
 
 @-webkit-keyframes ping {
-  75%,
-  100% {
-    -webkit-transform: scale(2);
-    transform: scale(2);
-    opacity: 0;
-  }
+   75%,
+   100% {
+      -webkit-transform: scale(2);
+      transform: scale(2);
+      opacity: 0;
+   }
 }
 
 @keyframes ping {
-  75%,
-  100% {
-    -webkit-transform: scale(2);
-    transform: scale(2);
-    opacity: 0;
-  }
+   75%,
+   100% {
+      -webkit-transform: scale(2);
+      transform: scale(2);
+      opacity: 0;
+   }
 }
 
 @-webkit-keyframes pulse {
-  50% {
-    opacity: 0.5;
-  }
+   50% {
+      opacity: 0.5;
+   }
 }
 
 @keyframes pulse {
-  50% {
-    opacity: 0.5;
-  }
+   50% {
+      opacity: 0.5;
+   }
 }
 
 @-webkit-keyframes bounce {
-  0%,
-  100% {
-    -webkit-transform: translateY(-25%);
-    transform: translateY(-25%);
-    -webkit-animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
+   0%,
+   100% {
+      -webkit-transform: translateY(-25%);
+      transform: translateY(-25%);
+      -webkit-animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+   }
 
-  50% {
-    -webkit-transform: none;
-    transform: none;
-    -webkit-animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
+   50% {
+      -webkit-transform: none;
+      transform: none;
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+   }
 }
 
 @keyframes bounce {
-  0%,
-  100% {
-    -webkit-transform: translateY(-25%);
-    transform: translateY(-25%);
-    -webkit-animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
+   0%,
+   100% {
+      -webkit-transform: translateY(-25%);
+      transform: translateY(-25%);
+      -webkit-animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+   }
 
-  50% {
-    -webkit-transform: none;
-    transform: none;
-    -webkit-animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
+   50% {
+      -webkit-transform: none;
+      transform: none;
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+   }
 }
 
 .rounded-md {
-  border-radius: 0.375rem;
+   border-radius: 0.375rem;
 }
 
 .bg-red-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(254, 202, 202, var(--tw-bg-opacity));
+   --tw-bg-opacity: 1;
+   background-color: rgba(254, 202, 202, var(--tw-bg-opacity));
 }
 
 .bg-red-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
+   --tw-bg-opacity: 1;
+   background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
 }
 
 .px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
+   padding-left: 2rem;
+   padding-right: 2rem;
 }
 
 .py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+   padding-top: 1rem;
+   padding-bottom: 1rem;
 }
 
 .text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+   font-size: 1.25rem;
+   line-height: 1.75rem;
 }
 
 .text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
+   font-size: 1.5rem;
+   line-height: 2rem;
 }
 
 .text-white {
-  --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
+   --tw-text-opacity: 1;
+   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
 *,
 ::before,
 ::after {
-  --tw-shadow: 0 0 #0000;
+   --tw-shadow: 0 0 #0000;
 }
 
 *,
 ::before,
 ::after {
-  --tw-ring-inset: var(--tw-empty, /*!*/ /*!*/);
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgba(59, 130, 246, 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
 }
 
 @media (min-width: 640px) {
