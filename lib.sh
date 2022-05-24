@@ -25,7 +25,9 @@ Rfce() {
     echo "}" >>$Path/$1/index.jsx
     echo "export default $1" >>$Path/$1/index.jsx
 }
-
+scss() {
+    echo "@import '../../styles/variable.scss';" >>$Path/$1/$1.scss
+}
 Story() {
     # Write Story For Component
     echo "import $1 from './index';" >>$Path/$1/$1.stories.jsx
@@ -78,6 +80,7 @@ action() {
                 Rfce $NAME
                 Story $NAME
                 Test $NAME
+                scss $NAME
                 echo "Component Created"
             else
                 echo "Component Already Exists"
