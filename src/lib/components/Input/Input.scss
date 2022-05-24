@@ -1,0 +1,24 @@
+@import '../../styles/variable.scss';
+input {
+   display: block;
+   border: 2px solid var(--input-border);
+   border-radius: var(--input-border-radius);
+   padding: 0.3em;
+
+   &:focus {
+      outline: none;
+      border-color: darken($color: $input-color, $amount: 20);
+   }
+   &:hover {
+      border-color: $input-color;
+   }
+}
+.small {
+   font-size: var(--font-size-small);
+}
+.medium {
+   font-size: var(--font-size-medium);
+}
+.large {
+   font-size: var(--font-size-large);
+}
