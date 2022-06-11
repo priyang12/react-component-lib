@@ -1,15 +1,18 @@
 @import './variable.scss';
 :root {
-   --color-primary: #67615d;
+   --color-primary: #3b51c9;
+   --color-secondary: #ff66e0;
+   --color-success: #00b300;
    --grad-color-1: #ff7a18;
    --grad-color-2: #af002d;
    --grad-color-3: #319197;
    --card-image-border: #f5f5f5;
+   --btn-background-color: #fff;
    --card-radius: 10px;
-   --btn-radius: 20px;
+   --btn-radius: 15px;
    --input-border: #333;
    --input-border-focus: #666dff;
-   --input-darken-border: $input-darken-border;
+   --input-darken-border: $input-color;
    --input-border-radius: 10px;
    --font-size-small: 1rem;
    --font-size-medium: 1.5rem;
@@ -28,11 +31,55 @@
    background-color: #f5f5f5;
 }
 
-// @media (prefers-color-scheme: dark) {
-//    :root {
-//       --input-border: pink;
-//    }
-//    .container {
-//       background-color: #333;
-//    }
-// }
+.primary {
+   background-color: var(--color-primary);
+   color: var(--btn-background-color);
+   border: none;
+}
+
+.primary-border {
+   color: var(--color-primary);
+   background-color: var(--btn-background-color);
+   border: 2px solid var(--color-primary);
+}
+
+.secondary {
+   color: var(--btn-background-color);
+   background-color: var(--color-secondary);
+   border: none;
+}
+
+.secondary-border {
+   color: var(--color-secondary);
+   background-color: var(--btn-background-color);
+   border: 2px solid var(--color-secondary);
+   transition: all 0.3s ease-in-out;
+   &:hover {
+      background-color: var(--color-secondary);
+      color: #fff;
+   }
+}
+
+.success {
+   color: var(--btn-background-color);
+   background-color: var(--color-success);
+   border: none;
+}
+
+.success-border {
+   color: var(--color-success);
+   background-color: var(--btn-background-color);
+   border: 2px solid var(--color-success);
+}
+
+.failure {
+   color: var(--btn-background-color);
+   background-color: #ff0000;
+   border: none;
+}
+
+.failure-border {
+   color: #ff0000;
+   background-color: var(--btn-background-color);
+   border: 2px solid #ff0000;
+}

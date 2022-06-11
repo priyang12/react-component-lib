@@ -1,20 +1,27 @@
 import PropTypes from 'prop-types';
 import './Button.scss';
 
-const Button = ({ label, style, StyleClass }) => {
+const Button = ({ text, style, StyleClass, ellipsis, variant, radius }) => {
    return (
-      <button className={`btn ${StyleClass}`} style={style}>
-         {label}
+      <button
+         className={`btn ${StyleClass} ${variant} ${ellipsis && 'ellipsis'}`}
+         style={{
+            ...style,
+            borderRadius: radius,
+         }}
+      >
+         {text}
       </button>
    );
 };
 
 Button.propTypes = {
-   label: PropTypes.string.isRequired,
+   text: PropTypes.string.isRequired,
 };
 
 Button.defaultProps = {
-   label: 'Button',
+   text: 'Button',
+   variant: 'primary',
 };
 
 export default Button;

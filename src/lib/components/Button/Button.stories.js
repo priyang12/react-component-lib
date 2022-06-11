@@ -3,34 +3,49 @@ import Button from './Button';
 export default {
    title: 'Atoms/Button',
    component: Button,
-   decorators: [
-      (story) => (
-         <div
-            className="container"
-            style={{
-               height: '100px',
-               width: '200px',
-               padding: '20px',
-               backgroundColor: '#f5f5f5',
-            }}
-         >
-            {story()}
-         </div>
-      ),
-   ],
+   decorators: [(story) => <div className="container">{story()}</div>],
 };
 
 const Template = (args) => <Button {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-   label: 'Button',
+   text: 'Button',
 };
 
-export const LongText = (args) => (
-   <Button
-      {...args}
-      label={'long long long long Button'}
-      StyleClass="ellipsis"
-   />
-);
+export const variant = Template.bind({});
+variant.args = {
+   text: 'Primary Button',
+   radius: '10px',
+   variant: 'primary',
+};
+
+export const BorderVariant = Template.bind({});
+BorderVariant.args = {
+   text: 'Border Variant Button',
+   variant: 'primary-border',
+};
+
+export const CustomColorVariant = Template.bind({});
+CustomColorVariant.args = {
+   text: 'Custom Color Variant Button',
+   variant: 'primary-border',
+   style: {
+      color: '#333',
+   },
+};
+
+export const Radius = Template.bind({});
+Radius.args = {
+   text: 'Radius Button',
+   radius: '10px',
+};
+
+export const LongText = Template.bind({});
+LongText.args = {
+   text: 'This is a very long text that should be truncated',
+   ellipsis: true,
+   style: {
+      width: '30%',
+   },
+};
