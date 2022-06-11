@@ -1,4 +1,3 @@
-import '../src/lib/styles/main.css';
 import '../src/lib/styles/Global.scss';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faClock, faEye } from '@fortawesome/free-regular-svg-icons';
