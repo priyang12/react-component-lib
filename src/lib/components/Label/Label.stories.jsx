@@ -15,3 +15,8 @@ export const hiddenLabel = Template.bind({});
 hiddenLabel.args = {
    hidden: true,
 };
+
+export const SizeLabel = Template.bind({});
+SizeLabel.args = {
+   size: 'large',
+};

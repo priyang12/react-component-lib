@@ -1,5 +1,6 @@
 .form-control {
    position: relative;
+   display: block;
    border-radius: 0;
    font-size: 1rem;
    line-height: 1.5;
@@ -13,7 +14,7 @@
 
    .over-label {
       position: absolute;
-      top: 15%;
+      top: 10%;
       left: 5%;
       line-height: 1.5;
       color: #333;
