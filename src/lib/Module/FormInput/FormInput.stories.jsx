@@ -9,7 +9,7 @@ export default {
 };
 export const Template = (args) => (
    <FormInput {...args}>
-      <Label htmlFor="Search" size="medium">
+      <Label htmlFor="Search" size="medium" alert="Alert">
          Search
       </Label>
       <Input type="text" id="Search" size="large" />

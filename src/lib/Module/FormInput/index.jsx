@@ -3,6 +3,10 @@ import Input from '../../components/Input';
 import Label from '../../components/Label';
 import './FormInput.scss';
 function FormInput({ style, overlay, check, children, ...restProps }) {
+   const callAll =
+      (...fns) =>
+      (...args) =>
+         fns.forEach((fn) => fn?.(...args));
    const [LabelCheck, setLabelCheck] = useState(false);
 
    const [Alert, setAlert] = useState('');
@@ -24,7 +28,6 @@ function FormInput({ style, overlay, check, children, ...restProps }) {
             switch (child.type) {
                case Label:
                   return React.cloneElement(child, {
-                     check: LabelCheck,
                      alert: Alert,
                      className: `${child.props.className} ${
                         LabelCheck ? 'active' : ''
@@ -33,7 +36,8 @@ function FormInput({ style, overlay, check, children, ...restProps }) {
                   });
                case Input:
                   return React.cloneElement(child, {
-                     onChange: inputChange,
+                     alert: Alert ? true : false,
+                     onChange: callAll(child.props.onChange, inputChange),
                      onFocus: onFocus,
                   });
                default:

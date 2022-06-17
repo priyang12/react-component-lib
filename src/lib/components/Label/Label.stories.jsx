@@ -20,3 +20,8 @@ export const SizeLabel = Template.bind({});
 SizeLabel.args = {
    size: 'large',
 };
+
+export const AlertLabel = Template.bind({});
+AlertLabel.args = {
+   alert: 'Alert',
+};

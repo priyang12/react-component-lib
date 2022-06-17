@@ -13,6 +13,9 @@ input {
       border-color: $input-color;
    }
 }
+.alert {
+   border-color: red;
+}
 .small {
    font-size: var(--font-size-small);
 }
