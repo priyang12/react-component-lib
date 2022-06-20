@@ -1,0 +1,31 @@
+@import '../../styles/variable.scss';
+
+.border {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   width: 20%;
+   margin: 10px;
+   cursor: default;
+   background-color: #29257b;
+   border-radius: 38px;
+   padding: 10px;
+   //    height: 80px;
+   transition: height 1s, border-radius 0.4s 0.5s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.description {
+   margin: 10px;
+   cursor: default;
+   color: #fff;
+   background-color: #29257b;
+   border-radius: 38px;
+   padding: 10px;
+
+   //    height: 80px;
+   transition: height 1s, border-radius 0.4s 0.5s cubic-bezier(0.4, 0, 1, 1);
+   //    white-space: nowrap;
+   //    overflow: hidden;
+   //    text-overflow: ellipsis;
+}

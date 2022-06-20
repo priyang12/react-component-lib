@@ -1,7 +1,16 @@
 import PropTypes from 'prop-types';
 import './Button.scss';
 
-const Button = ({ text, style, StyleClass, ellipsis, variant, radius }) => {
+const Button = ({
+   text,
+   style,
+   StyleClass,
+   ellipsis,
+   variant,
+   radius,
+   children,
+   ...props
+}) => {
    return (
       <button
          className={`btn ${StyleClass} ${variant} ${ellipsis && 'ellipsis'}`}
@@ -9,8 +18,9 @@ const Button = ({ text, style, StyleClass, ellipsis, variant, radius }) => {
             ...style,
             borderRadius: radius,
          }}
+         {...props}
       >
-         {text}
+         {text ? text : children}
       </button>
    );
 };
@@ -20,7 +30,6 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-   text: 'Button',
    variant: 'primary',
 };
 
