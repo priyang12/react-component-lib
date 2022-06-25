@@ -6,13 +6,7 @@ export default {
    component: GradientHover,
    args: {
       BorderSize: '0.2em',
-      children: (
-         <Button
-            style={{
-               background: 'transparent',
-            }}
-         />
-      ),
+      children: <Button>Border Wall</Button>,
    },
    decorators: [(story) => <div className="container">{story()}</div>],
 };

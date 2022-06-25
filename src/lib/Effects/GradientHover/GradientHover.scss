@@ -2,7 +2,7 @@
    display: flex;
    align-items: center;
    justify-content: center;
-   border-radius: 10px;
+   border-radius: var(--btn-radius);
    transition: all 0.1s ease-in-out;
    background: linear-gradient(
       0deg,
@@ -14,10 +14,10 @@
 
 .gradient-hover__content {
    display: flex;
-   border-radius: 10px;
+   border-radius: inherit;
    align-items: center;
    justify-content: center;
-   background-color: black;
+   background-color: inherit;
 }
 
 @keyframes grd {

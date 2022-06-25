@@ -24,4 +24,9 @@ function Ring({
       </Element>
    );
 }
+
+Ring.defaultProps = {
+   Element: 'div',
+};
+
 export default Ring;

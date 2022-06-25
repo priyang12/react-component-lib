@@ -4,14 +4,7 @@ export default {
    title: 'Effects/Ring',
    component: Ring,
    args: {
-      children: (
-         <Button
-            style={{
-               backgroundColor: '#333',
-            }}
-         />
-      ),
-      Element: 'div',
+      children: <Button>Ring it Ring</Button>,
    },
    decorators: [(story) => <div className="container">{story()}</div>],
 };
