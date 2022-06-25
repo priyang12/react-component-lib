@@ -34,6 +34,7 @@ Story() {
     echo "export default { " >>$Path/$1/$1.stories.jsx
     echo "title: 'Atoms/$1'," >>$Path/$1/$1.stories.jsx
     echo " component: $1 };" >>$Path/$1/$1.stories.jsx
+    echo "decorators: [(story) => <div className="container">{story()}</div>]," >>$Path/$1/$1.stories.jsx
     echo "export const Template = (args) => <$1 {...args} />;" >>$Path/$1/$1.stories.jsx
 }
 
@@ -41,14 +42,12 @@ Test() {
     # Test Boilerplate
     echo "import React from 'react';" >>$Path/$1/$1.test.jsx
     echo "import $1 from './index.jsx';" >>$Path/$1/$1.test.jsx
-    echo "import { render, fireEvent, screen } from '@testing-library/react';" >>$Path/$1/$1.test.jsx
+    echo "import { render, screen } from '@testing-library/react';" >>$Path/$1/$1.test.jsx
     echo "import '@testing-library/jest-dom/extend-expect';" >>$Path/$1/$1.test.jsx
-    echo "describe('$1', () => {" >>$Path/$1/$1.test.jsx
     echo "    it('should render without crashing', () => {" >>$Path/$1/$1.test.jsx
     echo "        const div = document.createElement('div');" >>$Path/$1/$1.test.jsx
     echo "        render(<$1 />, div);" >>$Path/$1/$1.test.jsx
     echo "    });" >>$Path/$1/$1.test.jsx
-    echo "});" >>$Path/$1/$1.test.jsx
 }
 
 # if user input is 1 then create component

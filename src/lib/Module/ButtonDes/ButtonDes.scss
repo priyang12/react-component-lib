@@ -1,31 +1,57 @@
 @import '../../styles/variable.scss';
 
-.border {
+.Button-container {
    display: flex;
-   justify-content: center;
-   align-items: center;
    flex-direction: column;
-   width: 20%;
-   margin: 10px;
    cursor: default;
+   padding: 1em;
    background-color: #29257b;
    border-radius: 38px;
-   padding: 10px;
-   //    height: 80px;
-   transition: height 1s, border-radius 0.4s 0.5s cubic-bezier(0.4, 0, 1, 1);
 }
 
 .description {
-   margin: 10px;
    cursor: default;
    color: #fff;
    background-color: #29257b;
-   border-radius: 38px;
-   padding: 10px;
+   padding: 1em;
+   border-end-start-radius: inherit;
+   border-end-end-radius: inherit;
+   z-index: 2000;
+   & > * {
+      overflow: hidden;
+      text-overflow: ellipsis;
+   }
+}
 
-   //    height: 80px;
-   transition: height 1s, border-radius 0.4s 0.5s cubic-bezier(0.4, 0, 1, 1);
-   //    white-space: nowrap;
-   //    overflow: hidden;
-   //    text-overflow: ellipsis;
+.show {
+   border-radius: 0;
+   animation: display 2s ease-in-out;
+}
+.hide {
+   animation: hideAnimation 1s ease-in-out;
+}
+.hidden {
+   display: none;
+}
+
+@keyframes display {
+   0% {
+      opacity: 0;
+      height: 0px;
+   }
+   100% {
+      opacity: 1;
+      height: 160px;
+   }
+}
+
+@keyframes hideAnimation {
+   0% {
+      opacity: 1;
+      height: 160px;
+   }
+   100% {
+      opacity: 0;
+      height: 0px;
+   }
 }

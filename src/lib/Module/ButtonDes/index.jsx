@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
 import Button from '../../components/Button';
 import './ButtonDes.scss';
-function ButtonDes() {
+function ButtonDes({ exitFunction, width, children }) {
    const [show, setshow] = useState(false);
+   const [hidden, sethidden] = useState(true);
    return (
-      <div className="border">
+      <div
+         className="Button-container"
+         style={{
+            width: width,
+         }}
+         onMouseLeave={() => {
+            setshow(false);
+            // Creating Race Conditions Need to replace with Debounce
+            setTimeout(() => {
+               sethidden(true);
+               exitFunction();
+            }, 1000);
+         }}
+      >
          <Button
             style={{
                backgroundColor: '#ee37dc',
@@ -12,18 +26,24 @@ function ButtonDes() {
                padding: '.5rem 2rem',
             }}
             radius={'1.5rem'}
-            onClick={() => setshow(!show)}
+            onMouseEnter={() => {
+               setshow(true);
+               sethidden(false);
+            }}
          >
             Click
          </Button>
-         {show && (
-            <p className="description">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit.
-               Necessitatibus voluptatem ex possimus delectus ipsum saepe quam
-               soluta, aspernatur perspiciatis laudantium!
-            </p>
-         )}
+
+         <div className={`description ${hidden ? 'hidden' : ''}`}>
+            <div className={`${show ? 'show' : 'hide'}`}>{children}</div>
+         </div>
       </div>
    );
 }
+
+ButtonDes.defaultProps = {
+   width: '20%',
+   exitFunction: () => {},
+};
+
 export default ButtonDes;
