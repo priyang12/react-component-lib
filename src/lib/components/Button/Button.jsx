@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import './Button.scss';
 
 const Button = ({
@@ -23,10 +22,6 @@ const Button = ({
          {text ? text : children}
       </button>
    );
-};
-
-Button.propTypes = {
-   text: PropTypes.string.isRequired,
 };
 
 Button.defaultProps = {

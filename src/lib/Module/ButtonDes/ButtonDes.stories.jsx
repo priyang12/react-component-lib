@@ -1,17 +1,8 @@
+import Button from '../../components/Button';
 import ButtonDes from './index';
 export default {
    title: 'Module/ButtonDes',
    component: ButtonDes,
-   args: {
-      children: (
-         <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Consectetur aliquid repellendus magni aliquam consequatur, odit
-            placeat quibusdam cum, amet obcaecati, omnis itaque possimus
-            necessitatibus nam inventore? Itaque hic ducimus soluta.
-         </p>
-      ),
-   },
    decorators: [
       (story) => (
          <div
@@ -25,7 +16,26 @@ export default {
       ),
    ],
 };
-export const Template = (args) => <ButtonDes {...args} />;
+export const Template = (args) => (
+   <ButtonDes {...args}>
+      <Button
+         style={{
+            backgroundColor: '#ee37dc',
+            fontSize: '1.5rem',
+            padding: '.5rem 2rem',
+         }}
+         radius={'1.5rem'}
+      >
+         Hover
+      </Button>
+      <p>
+         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur
+         aliquid repellendus magni aliquam consequatur, odit placeat quibusdam
+         cum, amet obcaecati, omnis itaque possimus necessitatibus nam
+         inventore? Itaque hic ducimus soluta.
+      </p>
+   </ButtonDes>
+);
 
 export const ContainerWidth = Template.bind();
 ContainerWidth.args = {

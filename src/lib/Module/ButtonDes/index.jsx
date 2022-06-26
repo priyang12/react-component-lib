@@ -1,42 +1,56 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import Button from '../../components/Button';
+import lodash from 'lodash.debounce';
 import './ButtonDes.scss';
 function ButtonDes({ exitFunction, width, children }) {
-   const [show, setshow] = useState(false);
-   const [hidden, sethidden] = useState(true);
+   const [show, setShow] = useState(false);
+   const [hidden, setHidden] = useState(true);
+
+   const debouncedHandleMouseExit = useMemo(
+      () =>
+         lodash(() => {
+            setHidden(true);
+            exitFunction();
+         }, 1000),
+      [setHidden, exitFunction]
+   );
+
+   const Enter = () => {
+      debouncedHandleMouseExit.cancel();
+      setShow(true);
+      setHidden(false);
+   };
+   const handleExit = () => {
+      setShow(false);
+      debouncedHandleMouseExit();
+   };
+   console.log(width);
    return (
       <div
          className="Button-container"
          style={{
             width: width,
          }}
-         onMouseLeave={() => {
-            setshow(false);
-            // Creating Race Conditions Need to replace with Debounce
-            setTimeout(() => {
-               sethidden(true);
-               exitFunction();
-            }, 1000);
-         }}
+         onMouseLeave={handleExit}
       >
-         <Button
-            style={{
-               backgroundColor: '#ee37dc',
-               fontSize: '1.5rem',
-               padding: '.5rem 2rem',
-            }}
-            radius={'1.5rem'}
-            onMouseEnter={() => {
-               setshow(true);
-               sethidden(false);
-            }}
-         >
-            Click
-         </Button>
-
-         <div className={`description ${hidden ? 'hidden' : ''}`}>
-            <div className={`${show ? 'show' : 'hide'}`}>{children}</div>
-         </div>
+         {React.Children.map(children, (child) => {
+            switch (child.type) {
+               case Button:
+                  return React.cloneElement(child, {
+                     onMouseEnter: Enter,
+                  });
+               default:
+                  return (
+                     <div
+                        className={`hidden-container ${hidden ? 'hidden' : ''}`}
+                     >
+                        <div className={`${show ? 'show' : 'hide'}`}>
+                           {child}
+                        </div>
+                     </div>
+                  );
+            }
+         })}
       </div>
    );
 }

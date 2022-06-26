@@ -3,35 +3,34 @@
 .Button-container {
    display: flex;
    flex-direction: column;
+   width: fit-content;
    cursor: default;
    padding: 1em;
-   background-color: #29257b;
+   background-color: var(--color-primary);
    border-radius: 38px;
-}
-
-.description {
-   cursor: default;
-   color: #fff;
-   background-color: #29257b;
-   padding: 1em;
-   border-end-start-radius: inherit;
-   border-end-end-radius: inherit;
-   z-index: 2000;
-   & > * {
-      overflow: hidden;
-      text-overflow: ellipsis;
+   .hidden-container {
+      cursor: default;
+      background-color: var(--color-primary);
+      padding: 1em;
+      border-end-start-radius: inherit;
+      border-end-end-radius: inherit;
+      z-index: 2000;
+      & > * {
+         overflow: hidden;
+         text-overflow: ellipsis;
+      }
    }
-}
 
-.show {
-   border-radius: 0;
-   animation: display 2s ease-in-out;
-}
-.hide {
-   animation: hideAnimation 1s ease-in-out;
-}
-.hidden {
-   display: none;
+   .show {
+      border-radius: 0;
+      animation: display 2s ease-in-out;
+   }
+   .hide {
+      animation: hideAnimation 1s ease-in-out;
+   }
+   .hidden {
+      display: none;
+   }
 }
 
 @keyframes display {
