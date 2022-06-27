@@ -5,6 +5,11 @@
 /.pnp
 .pnp.js
 
+.vscode
+
+storybook-static
+/dist
+
 # testing
 /coverage
 

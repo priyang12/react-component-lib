@@ -1,23 +1,21 @@
-import './Search.scss';
-import Input from '../../components/Input';
-import Label from '../../components/Label';
+import React from 'react';
 import Button from '../../components/Button/Button';
-function Search() {
+import { chakra } from '@chakra-ui/system';
+import './Search.scss';
+
+function Search({ SearchBtnHide, children, ...props }) {
+   // Maybe Later Debounce Search Input Can Be Used
    return (
-      <div className="search-container">
-         <Label htmlFor="Search" hidden>
-            Search Product
-         </Label>
-         <Input
-            type="text"
-            placeholder="Find your Product"
-            id="Search"
-            style={{
-               width: '100%',
-            }}
-         />
-         <Button label="Search" />
-      </div>
+      <chakra.div className="search-container" {...props}>
+         {React.Children.map(children, (child) => {
+            if (child.type === 'button' || Button) {
+               return React.cloneElement(child, {
+                  className: `search-btn ${SearchBtnHide ? 'hide' : ''}`,
+               });
+            }
+            return child;
+         })}
+      </chakra.div>
    );
 }
 export default Search;

@@ -8,11 +8,16 @@ const Button = ({
    variant,
    radius,
    children,
+   className,
    ...props
 }) => {
+   const btnClass = `btn ${StyleClass} ${className} ${variant} ${
+      ellipsis && 'ellipsis'
+   }`;
+
    return (
       <button
-         className={`btn ${StyleClass} ${variant} ${ellipsis && 'ellipsis'}`}
+         className={btnClass}
          style={{
             ...style,
             borderRadius: radius,

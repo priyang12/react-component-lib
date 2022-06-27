@@ -1,7 +1,32 @@
 @import '../../styles/variable.scss';
+
 .search-container {
    display: flex;
    gap: 1em;
    padding: 1em;
-   background-color: #333;
+   background-color: var(--color-primary);
+
+   .search-btn {
+      cursor: pointer;
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: var(--input-border);
+      transition: all 0.3s ease-in-out;
+      &:hover {
+         color: var(--color-primary);
+         background-color: #fff;
+         border: 2px solid var(--color-primary);
+      }
+   }
+   .hide {
+      transform: translateX(-140%);
+      z-index: -1;
+   }
+   input:hover ~ .search-btn,
+   input:focus ~ .search-btn,
+   input:active ~ .search-btn,
+   .search-btn:hover {
+      z-index: 1;
+      transform: translateX(0%);
+   }
 }

@@ -14,16 +14,21 @@ read choice
 
 Rfce() {
     # Write the Component Name
-    echo "import React from 'react';" >>$Path/$1/index.jsx
-    echo "import './$1.scss';" >>$Path/$1/index.jsx
-    echo "function $1() {" >>$Path/$1/index.jsx
-    echo "    return ( " >>$Path/$1/index.jsx
-    echo "        <div>" >>$Path/$1/index.jsx
-    echo "           $1" >>$Path/$1/index.jsx
-    echo "        </div>" >>$Path/$1/index.jsx
-    echo "    )" >>$Path/$1/index.jsx
-    echo "}" >>$Path/$1/index.jsx
-    echo "export default $1" >>$Path/$1/index.jsx
+    echo "import React from 'react';" >>$Path/$1/$1.jsx
+    echo "import './$1.scss';" >>$Path/$1/$1.jsx
+    echo "function $1() {" >>$Path/$1/$1.jsx
+    echo "    return ( " >>$Path/$1/$1.jsx
+    echo "        <div>" >>$Path/$1/$1.jsx
+    echo "           $1" >>$Path/$1/$1.jsx
+    echo "        </div>" >>$Path/$1/$1.jsx
+    echo "    )" >>$Path/$1/$1.jsx
+    echo "}" >>$Path/$1/$1.jsx
+    echo "export default $1" >>$Path/$1/$1.jsx
+}
+index(){
+    # Write the Component Name
+    echo "import $1 from './$1';" >>$Path/$1/index.jsx
+    echo "export default $1;" >>$Path/$1/index.jsx
 }
 scss() {
     echo "@import '../../styles/variable.scss';" >>$Path/$1/$1.scss
@@ -33,8 +38,9 @@ Story() {
     echo "import $1 from './index';" >>$Path/$1/$1.stories.jsx
     echo "export default { " >>$Path/$1/$1.stories.jsx
     echo "title: 'Atoms/$1'," >>$Path/$1/$1.stories.jsx
-    echo " component: $1 };" >>$Path/$1/$1.stories.jsx
+    echo " component: $1," >>$Path/$1/$1.stories.jsx
     echo "decorators: [(story) => <div className="container">{story()}</div>]," >>$Path/$1/$1.stories.jsx
+    echo "};" >>$Path/$1/$1.stories.jsx
     echo "export const Template = (args) => <$1 {...args} />;" >>$Path/$1/$1.stories.jsx
 }
 
@@ -80,6 +86,7 @@ action() {
                 Story $NAME
                 Test $NAME
                 scss $NAME
+                index $NAME
                 echo "Component Created"
             else
                 echo "Component Already Exists"
