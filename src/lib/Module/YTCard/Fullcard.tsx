@@ -2,7 +2,7 @@ import { faClock, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
-const Fullcard = ({ handlOnMouseLeave, Show, url }) => {
+const Fullcard = ({ handlOnMouseLeave, Show, url }: any) => {
    return (
       <div
          className="Full_card"

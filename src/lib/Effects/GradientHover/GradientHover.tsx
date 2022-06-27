@@ -1,7 +1,11 @@
 import React from 'react';
 import './GradientHover.scss';
 
-const GradientHover = ({ children, BorderSize, animation }) => {
+const GradientHover: React.FC<{
+   children: React.ReactNode;
+   BorderSize: string;
+   animation: string;
+}> = ({ children, BorderSize, animation }) => {
    return (
       <div
          className="gradient-layer"

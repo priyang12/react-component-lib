@@ -1,18 +1,22 @@
 import React from 'react';
+import { chakra } from '@chakra-ui/system';
 import './Ring.scss';
-function Ring({
-   Element,
-   children,
-   radius,
-   ringColor,
-   ringWidth = '5px',
-   OuterRingColor,
-}) {
+
+function Ring(props: any): React.ReactElement {
+   const {
+      Element,
+      children,
+      radius,
+      ringColor,
+      ringWidth = '5px',
+      OuterRingColor,
+   } = props;
    return (
-      <Element>
+      <chakra.div as={Element}>
          <div
             className="ring"
             style={{
+               // @ts-ignore
                '--ring-color': ringColor,
                '--ring-width': `calc(${ringWidth} + 2px)`,
                '--ring-offset-color': OuterRingColor,
@@ -21,7 +25,7 @@ function Ring({
          >
             {children}
          </div>
-      </Element>
+      </chakra.div>
    );
 }
 

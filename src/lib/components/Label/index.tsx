@@ -1,6 +1,6 @@
 import React from 'react';
 import './Label.scss';
-function Label(props) {
+function Label(props: any) {
    const { children, hidden, size, alert, ...restProps } = props;
 
    return (

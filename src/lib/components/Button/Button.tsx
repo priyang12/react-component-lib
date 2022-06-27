@@ -1,6 +1,17 @@
 import './Button.scss';
 
-const Button = ({
+interface IProps {
+   text: string;
+   style: any;
+   StyleClass: any;
+   ellipsis: string;
+   variant: string;
+   radius: string;
+   className: any;
+   children: React.ReactNode;
+}
+
+const Button: React.FC<IProps> = ({
    text,
    style,
    StyleClass,

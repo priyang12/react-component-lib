@@ -2,7 +2,8 @@ import React, { useMemo, useState } from 'react';
 import Button from '../../components/Button';
 import lodash from 'lodash.debounce';
 import './ButtonDes.scss';
-function ButtonDes({ exitFunction, width, children }) {
+
+function ButtonDes({ exitFunction, width, children }: any) {
    const [show, setShow] = useState(false);
    const [hidden, setHidden] = useState(true);
 

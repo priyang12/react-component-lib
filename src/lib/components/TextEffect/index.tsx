@@ -1,5 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 import './TextEffect.scss';
+
 function TextEffect({
    Element,
    size,
@@ -8,7 +9,7 @@ function TextEffect({
    animateTime = '2',
    color1 = '#e91e63',
    color2 = '#201f55',
-}) {
+}: any) {
    return (
       <div className="container">
          <Element

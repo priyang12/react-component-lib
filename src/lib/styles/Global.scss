@@ -1,22 +1,26 @@
 @import './variable.scss';
+
 :root {
    --color-primary: #3b51c9;
    --color-secondary: #ff66e0;
    --color-success: #00b300;
-   --grad-color-1: #ff7a18;
-   --grad-color-2: #af002d;
-   --grad-color-3: #319197;
+   --grad-color-1: #0a20ff;
+   --grad-color-2: #0aff7b;
+   --grad-color-3: #0a20ff;
    --card-image-border: #f5f5f5;
    --btn-background-color: #fff;
    --card-radius: 10px;
    --btn-radius: 15px;
    --input-border: #333;
    --input-border-focus: #666dff;
-   --input-darken-border: $input-color;
+   --input-darken-border: #{$input-color};
    --input-border-radius: 10px;
    --font-size-small: 1rem;
    --font-size-medium: 1.5rem;
    --font-size-large: 2rem;
+   --color-primary-h: 220;
+   --color-primary-s: 90%;
+   --color-primary-l: 56%;
 }
 
 .container {

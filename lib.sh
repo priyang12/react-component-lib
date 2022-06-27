@@ -14,7 +14,7 @@ read choice
 
 Rfce() {
     # Write the Component Name
-    echo "import React from 'react';" >>$Path/$1/$1.jsx
+    echo "import * as React from 'react';" >>$Path/$1/$1.jsx
     echo "import './$1.scss';" >>$Path/$1/$1.jsx
     echo "function $1() {" >>$Path/$1/$1.jsx
     echo "    return ( " >>$Path/$1/$1.jsx
