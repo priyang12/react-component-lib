@@ -1,3 +1,4 @@
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Button from '../../components/Button';
 import ButtonDes from './index';
 export default {
@@ -15,8 +16,9 @@ export default {
          </div>
       ),
    ],
-};
-export const Template = (args) => (
+} as ComponentMeta<typeof ButtonDes>;
+
+export const Template: ComponentStory<typeof ButtonDes> = (args) => (
    <ButtonDes {...args}>
       <Button
          style={{
@@ -37,7 +39,12 @@ export const Template = (args) => (
    </ButtonDes>
 );
 
-export const ContainerWidth = Template.bind();
+export const HiddenContainerHeight = Template.bind({});
+HiddenContainerHeight.args = {
+   HiddenContainerHeight: '200px',
+};
+
+export const ContainerWidth = Template.bind({});
 ContainerWidth.args = {
    width: '50%',
 };

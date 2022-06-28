@@ -3,7 +3,20 @@ import Button from '../../components/Button';
 import lodash from 'lodash.debounce';
 import './ButtonDes.scss';
 
-function ButtonDes({ exitFunction, width, children }: any) {
+type ButtonProps = {
+   children: React.ReactNode;
+   style?: React.CSSProperties;
+   width?: string;
+   HiddenContainerHeight?: string;
+   exitFunction?: () => void;
+};
+
+function ButtonDes({
+   exitFunction,
+   width,
+   children,
+   HiddenContainerHeight,
+}: ButtonProps) {
    const [show, setShow] = useState(false);
    const [hidden, setHidden] = useState(true);
 
@@ -11,7 +24,9 @@ function ButtonDes({ exitFunction, width, children }: any) {
       () =>
          lodash(() => {
             setHidden(true);
-            exitFunction();
+            if (typeof exitFunction !== 'undefined') {
+               exitFunction();
+            }
          }, 1000),
       [setHidden, exitFunction]
    );
@@ -25,7 +40,6 @@ function ButtonDes({ exitFunction, width, children }: any) {
       setShow(false);
       debouncedHandleMouseExit();
    };
-   console.log(width);
    return (
       <div
          className="Button-container"
@@ -34,16 +48,21 @@ function ButtonDes({ exitFunction, width, children }: any) {
          }}
          onMouseLeave={handleExit}
       >
-         {React.Children.map(children, (child) => {
+         {React.Children.map(children, (child: any) => {
             switch (child.type) {
                case Button:
                   return React.cloneElement(child, {
                      onMouseEnter: Enter,
                   });
+
                default:
                   return (
                      <div
                         className={`hidden-container ${hidden ? 'hidden' : ''}`}
+                        style={{
+                           // @ts-ignore
+                           '--Description-height': HiddenContainerHeight,
+                        }}
                      >
                         <div className={`${show ? 'show' : 'hide'}`}>
                            {child}
