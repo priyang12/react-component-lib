@@ -1,3 +1,4 @@
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Label from './index';
 export default {
    title: 'Atoms/Label',
@@ -8,8 +9,11 @@ export default {
       id: 'search',
    },
    decorators: [(story) => <div className="container">{story()}</div>],
-};
-export const Template = (args) => <Label {...args} />;
+} as ComponentMeta<typeof Label>;
+
+export const Template: ComponentStory<typeof Label> = (args) => (
+   <Label {...args} />
+);
 
 export const hiddenLabel = Template.bind({});
 hiddenLabel.args = {

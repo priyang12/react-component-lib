@@ -1,3 +1,4 @@
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Default as Button } from '../../components/Button/Button.stories';
 import GradientHover from './GradientHover';
 
@@ -9,9 +10,11 @@ export default {
       children: <Button>Border Wall</Button>,
    },
    decorators: [(story) => <div className="container">{story()}</div>],
-};
+} as ComponentMeta<typeof GradientHover>;
 
-const Template = (args) => <GradientHover {...args} />;
+const Template: ComponentStory<typeof GradientHover> = (args) => (
+   <GradientHover {...args} />
+);
 
 export const Default = Template.bind({});
 

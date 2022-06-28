@@ -1,13 +1,15 @@
 import FormInput from './index';
 import Label from '../../components/Label';
 import Input from '../../components/Input';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
    title: 'Module/FormInput',
    component: FormInput,
    decorators: [(story) => <div className="container">{story()}</div>],
-};
-export const Template = (args) => (
+} as ComponentMeta<typeof FormInput>;
+
+export const Template: ComponentStory<typeof FormInput> = (args) => (
    <FormInput {...args}>
       <Label htmlFor="Search" size="medium" alert="Alert">
          Search

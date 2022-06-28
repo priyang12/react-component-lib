@@ -1,7 +1,7 @@
 import React from 'react';
 import TextEffect from '../../components/TextEffect';
 import './TextLanding.scss';
-function TextLanding() {
+function TextLanding(props: any) {
    return (
       <div>
          <TextEffect

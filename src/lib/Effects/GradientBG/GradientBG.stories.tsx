@@ -1,5 +1,6 @@
 import GradientBG from './index';
 import Button from '../../components/Button/Button';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
    title: 'Effects/GradientBG',
@@ -21,8 +22,11 @@ export default {
          </div>
       ),
    ],
-};
-export const Template = (args) => <GradientBG {...args} />;
+} as ComponentMeta<typeof GradientBG>;
+
+export const Template: ComponentStory<typeof GradientBG> = (args) => (
+   <GradientBG {...args} />
+);
 
 export const Focused = Template.bind({});
 Focused.args = {

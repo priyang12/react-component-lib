@@ -1,14 +1,14 @@
 import './Button.scss';
 
 interface IProps {
-   text: string;
-   style: any;
-   StyleClass: any;
-   ellipsis: string;
-   variant: string;
-   radius: string;
-   className: any;
-   children: React.ReactNode;
+   text?: string;
+   style?: any;
+   StyleClass?: any;
+   ellipsis?: boolean;
+   variant?: string;
+   radius?: string;
+   className?: any;
+   children?: React.ReactNode;
 }
 
 const Button: React.FC<IProps> = ({

@@ -1,19 +1,20 @@
 import Button from '../../components/Button/Button';
 import Search from './index';
-import { chakra } from '@chakra-ui/system';
 import Input from '../../components/Input';
 import Label from '../../components/Label';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
    title: 'Module/Search',
    component: Search,
    decorators: [(story) => <div className="container">{story()}</div>],
-};
-export const Template = (args) => (
+} as ComponentMeta<typeof Search>;
+
+export const Template: ComponentStory<typeof Search> = (args) => (
    <Search
       as="form"
       bgColor="#20bcf0"
-      onSubmit={(e) => {
+      onSubmit={(e: any) => {
          e.preventDefault();
          console.log('Search');
       }}

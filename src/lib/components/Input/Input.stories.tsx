@@ -1,4 +1,6 @@
 import Input from './index';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 export default {
    title: 'Atoms/Input',
    component: Input,
@@ -7,8 +9,11 @@ export default {
       placeholder: 'Search the Product',
       id: 'search',
    },
-};
-export const Template = (args) => <Input {...args} />;
+} as ComponentMeta<typeof Input>;
+
+export const Template: ComponentStory<typeof Input> = (args) => (
+   <Input {...args} />
+);
 
 export const Medium = Template.bind({});
 Medium.args = {

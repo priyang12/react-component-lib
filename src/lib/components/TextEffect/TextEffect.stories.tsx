@@ -1,4 +1,6 @@
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import TextEffect from './index';
+
 export default {
    title: 'Atoms/TextEffect',
    component: TextEffect,
@@ -10,8 +12,10 @@ export default {
    },
 
    decorators: [(story) => <div className="container">{story()}</div>],
-};
-export const Template = (args) => <TextEffect {...args} />;
+} as ComponentMeta<typeof TextEffect>;
+export const Template: ComponentStory<typeof TextEffect> = (args) => (
+   <TextEffect {...args} />
+);
 
 export const LargeText = Template.bind({});
 

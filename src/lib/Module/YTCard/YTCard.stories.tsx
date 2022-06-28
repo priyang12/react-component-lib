@@ -1,3 +1,4 @@
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import YTCard from './index';
 export default {
    title: 'Module/YTCard',
@@ -17,5 +18,8 @@ export default {
          </div>
       ),
    ],
-};
-export const Template = (args) => <YTCard {...args} />;
+} as ComponentMeta<typeof YTCard>;
+
+export const Template: ComponentStory<typeof YTCard> = (args) => (
+   <YTCard {...args} />
+);

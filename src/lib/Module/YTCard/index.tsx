@@ -4,7 +4,7 @@ import { faClock, faEye, faPlay } from '@fortawesome/free-solid-svg-icons';
 import Fullcard from './Fullcard';
 import './YTCard.scss';
 
-function YTCard() {
+function YTCard(props: any) {
    const [Show, setShow] = useState(false);
 
    // Todo: Add a timeout to hide the card

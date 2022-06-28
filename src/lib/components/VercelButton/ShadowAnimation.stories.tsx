@@ -1,3 +1,4 @@
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { LongText as Button } from '../Button/Button.stories';
 import VercelButton from './index';
 
@@ -6,7 +7,7 @@ export default {
    component: VercelButton,
    args: {
       children: (
-         <Button
+         <button
             style={{
                background: 'black',
                width: 'calc(100% + 10px)',
@@ -31,9 +32,11 @@ export default {
          </div>
       ),
    ],
-};
+} as ComponentMeta<typeof VercelButton>;
 
-const Template = (args) => <VercelButton {...args} />;
+const Template: ComponentStory<typeof VercelButton> = (args) => (
+   <VercelButton {...args} />
+);
 
 export const Default = Template.bind({});
 
