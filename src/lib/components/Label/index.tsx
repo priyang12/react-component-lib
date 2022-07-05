@@ -1,6 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import './Label.scss';
-function Label(props: any) {
+
+function Label(props: any): React.ReactElement {
    const { children, hidden, size, alert, ...restProps } = props;
 
    return (

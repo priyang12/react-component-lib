@@ -1,13 +1,19 @@
-import Button from '../../components/Button/Button';
-import Search from './index';
+import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Label from '../../components/Label';
+import Search from './index';
+
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
    title: 'Module/Search',
    component: Search,
    decorators: [(story) => <div className="container">{story()}</div>],
+   subcomponents: {
+      Button,
+      Input,
+      Label,
+   },
 } as ComponentMeta<typeof Search>;
 
 export const Template: ComponentStory<typeof Search> = (args) => (

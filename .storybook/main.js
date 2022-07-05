@@ -1,3 +1,4 @@
+const path = require('path');
 module.exports = {
    typescript: {
       check: false,
@@ -18,4 +19,13 @@ module.exports = {
       'storybook-design-token',
       'storybook-dark-mode',
    ],
+   webpackFinal: async (config) => {
+      config.module.rules.push({
+         test: /\.scss$/,
+         use: ['style-loader', 'css-loader', 'sass-loader'],
+         include: path.resolve(__dirname, '../src/lib/**/*.scss'),
+      });
+
+      return config;
+   },
 };

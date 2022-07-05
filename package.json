@@ -1,100 +1,110 @@
 {
-    "name": "react-storybook-tailwind",
-    "version": "0.1.4",
-    "private": false,
-    "main": "dist/index.js",
-    "module": "dist/index.js",
-    "files": [
-        "dist",
-        "README.md"
+  "name": "priyang-react-component-lib",
+  "version": "0.1.4",
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "dependencies": {
+    "@chakra-ui/system": "^2.1.3",
+    "@emotion/react": "^11.9.3",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "babel-loader": "8.1.0",
+    "framesync": "^6.1.0",
+    "lodash.debounce": "^4.0.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "react-scripts": "4.0.3",
+    "sass": "^1.50.1",
+    "typescript": "^4.7.4",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006 -s public",
+    "pretty-Component": "yarn prettier -w ./src/lib/components",
+    "lib": "bash lib.sh",
+    "build-storybook": "build-storybook -s public",
+    "build:tailwind": "postcss src/lib/styles/tailwind.css -o src/lib/styles/main.css",
+    "build:tailwind-prod": "cross-env NODE_ENV=production postcss src/lib/styles/tailwind.css -o src/lib/styles/main.css",
+    "clean": "rimraf dist",
+    "compile": "npm run clean && cross-env NODE_ENV=production babel src/lib/ --out-dir dist --copy-files",
+    "chromatic": "npx chromatic --project-token=16626241d43e"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
     ],
-    "dependencies": {
-        "@chakra-ui/system": "^2.1.3",
-        "@emotion/react": "^11.9.3",
-        "@fortawesome/fontawesome-svg-core": "^6.1.1",
-        "@fortawesome/free-regular-svg-icons": "^6.1.1",
-        "@fortawesome/free-solid-svg-icons": "^6.1.1",
-        "@fortawesome/react-fontawesome": "^0.1.18",
-        "@testing-library/jest-dom": "^5.14.1",
-        "@testing-library/react": "^11.2.7",
-        "@testing-library/user-event": "^12.8.3",
-        "@types/jest": "^28.1.3",
-        "@types/node": "^18.0.0",
-        "@types/react": "^18.0.14",
-        "@types/react-dom": "^18.0.5",
-        "babel-loader": "8.1.0",
-        "framesync": "^6.1.0",
-        "lodash.debounce": "^4.0.8",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "react-icons": "^4.3.1",
-        "react-scripts": "4.0.3",
-        "sass": "^1.50.1",
-        "typescript": "^4.7.4",
-        "web-vitals": "^1.1.2"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "storybook": "start-storybook -p 6006 -s public",
-        "pretty-Component": "yarn prettier -w ./src/lib/components",
-        "lib": "bash lib.sh",
-        "build-storybook": "build-storybook -s public",
-        "build:tailwind": "postcss src/lib/styles/tailwind.css -o src/lib/styles/main.css",
-        "build:tailwind-prod": "cross-env NODE_ENV=production postcss src/lib/styles/tailwind.css -o src/lib/styles/main.css",
-        "clean": "rimraf dist",
-        "compile": "npm run clean && cross-env NODE_ENV=production babel src/lib/ --out-dir dist --copy-files"
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
         ],
-        "overrides": [
-            {
-                "files": [
-                    "**/*.stories.*"
-                ],
-                "rules": {
-                    "import/no-anonymous-default-export": "off"
-                }
-            }
-        ]
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "@babel/cli": "^7.14.8",
-        "@babel/preset-env": "^7.15.0",
-        "@babel/preset-react": "^7.14.5",
-        "@storybook/addon-a11y": "^6.4.22",
-        "@storybook/addon-actions": "^6.3.7",
-        "@storybook/addon-essentials": "^6.3.7",
-        "@storybook/addon-links": "^6.3.7",
-        "@storybook/node-logger": "^6.3.7",
-        "@storybook/preset-create-react-app": "^3.2.0",
-        "@storybook/react": "^6.3.7",
-        "@types/lodash.debounce": "^4.0.7",
-        "autoprefixer": "^10.3.1",
-        "cross-env": "^7.0.3",
-        "storybook-dark-mode": "^1.1.0",
-        "storybook-design-token": "^2.2.0"
-    },
-    "peerDependencies": {
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "react-scripts": "4.0.3"
-    }
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "@storybook/addon-a11y": "^6.4.22",
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-links": "^6.3.7",
+    "@storybook/node-logger": "^6.3.7",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/react": "^6.3.7",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^28.1.3",
+    "@types/lodash.debounce": "^4.0.7",
+    "@types/node": "^18.0.0",
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
+    "autoprefixer": "^10.4.7",
+    "chromatic": "^6.6.4",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.1",
+    "postcss": "^8.4.14",
+    "sass": "^1.50.1",
+    "sass-loader": "^13.0.2",
+    "storybook-dark-mode": "^1.1.0",
+    "storybook-design-token": "^2.2.0",
+    "style-loader": "^3.3.1"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "sass": "^1.50.1"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "react-storybook-tailwind@0.1.4"
 }
