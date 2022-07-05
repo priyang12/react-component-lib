@@ -1,17 +1,13 @@
-import React, { FormEvent, FormEventHandler, useState } from 'react';
+import * as React from 'react';
 import Input from '../../components/Input';
 import Label from '../../components/Label';
+import { callAll } from '../../Utils/AllFunctionsCall';
 import './FormInput.scss';
 function FormInput({ style, overlay, check, children, ...restProps }: any) {
-   const callAll =
-      (...fns: any) =>
-      (...args: any) =>
-         fns.forEach((fn: any) => fn?.(...args));
+   const [LabelCheck, setLabelCheck] = React.useState(false);
 
-   const [LabelCheck, setLabelCheck] = useState(false);
-
-   const [Alert, setAlert] = useState('');
-   const inputChange = (e: FormEvent<HTMLInputElement> | any) => {
+   const [Alert, setAlert] = React.useState('');
+   const inputChange = (e: React.FormEvent<HTMLInputElement> | any) => {
       if (e.target.value.length > 0) {
          setLabelCheck(true);
          setAlert('');

@@ -1,7 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import TextEffect from '../../components/TextEffect';
 import './TextLanding.scss';
-function TextLanding(props: any) {
+
+function TextLanding(props: any): React.ReactElement {
+   console.log('TextLanding props: ', props);
    return (
       <div>
          <TextEffect

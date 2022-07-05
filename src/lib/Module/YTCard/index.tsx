@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faEye, faPlay } from '@fortawesome/free-solid-svg-icons';
 import Fullcard from './Fullcard';
 import './YTCard.scss';
 
@@ -36,11 +34,11 @@ function YTCard(props: any) {
             <div className="info">
                <h2>Ed Sheeran</h2>
                <div className="card__info-item">
-                  <FontAwesomeIcon icon={faClock} />
+                  {/* <FontAwesomeIcon icon={faClock} /> */}
                   <span>Сегодня, 14:00</span>
                </div>
                <div className="card__info-item">
-                  <FontAwesomeIcon icon={faEye} size="xs" />
+                  {/* <FontAwesomeIcon icon={faEye} size="xs" /> */}
                   <span>1.5 min</span>
                </div>
             </div>

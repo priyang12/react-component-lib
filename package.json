@@ -2,8 +2,9 @@
   "name": "priyang-react-component-lib",
   "version": "0.1.4",
   "private": false,
+  "module": "dist/priyang-react-component-lib.esm.js",
   "main": "dist/index.js",
-  "module": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist",
     "README.md"
@@ -11,26 +12,18 @@
   "dependencies": {
     "@chakra-ui/system": "^2.1.3",
     "@emotion/react": "^11.9.3",
-    "@fortawesome/fontawesome-svg-core": "^6.1.1",
-    "@fortawesome/free-regular-svg-icons": "^6.1.1",
-    "@fortawesome/free-solid-svg-icons": "^6.1.1",
-    "@fortawesome/react-fontawesome": "^0.1.18",
-    "babel-loader": "8.1.0",
+    "@emotion/styled": "^11.9.3",
     "framesync": "^6.1.0",
-    "lodash.debounce": "^4.0.8",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1",
-    "react-scripts": "4.0.3",
-    "sass": "^1.50.1",
-    "typescript": "^4.7.4",
-    "web-vitals": "^1.1.2"
+    "lodash.debounce": "^4.0.8"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006 -s public",
     "pretty-Component": "yarn prettier -w ./src/lib/components",
     "lib": "bash lib.sh",
@@ -69,14 +62,28 @@
       "last 1 safari version"
     ]
   },
+  "size-limit": [
+    {
+      "path": "dist/priyang-react-component-lib.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/priyang-react-component-lib.esm.js",
+      "limit": "10 KB"
+    }
+  ],
   "devDependencies": {
     "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.18.6",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
+    "@size-limit/preset-small-lib": "^7.0.8",
     "@storybook/addon-a11y": "^6.4.22",
     "@storybook/addon-actions": "^6.3.7",
     "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-links": "^6.3.7",
+    "@storybook/addons": "^6.5.9",
     "@storybook/node-logger": "^6.3.7",
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.3.7",
@@ -88,22 +95,35 @@
     "@types/node": "^18.0.0",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
-    "autoprefixer": "^10.4.7",
+    "autoprefixer": "^10.3.1",
+    "babel-loader": "^8.2.5",
     "chromatic": "^6.6.4",
     "cross-env": "^7.0.3",
-    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.12",
+    "eslint-config-react-app": "^7.0.1",
+    "husky": "^8.0.1",
     "postcss": "^8.4.14",
-    "sass": "^1.50.1",
-    "sass-loader": "^13.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.3.1",
+    "react-is": "^18.2.0",
+    "react-scripts": "4.0.3",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-sass": "^1.2.12",
+    "sass": "^1.53.0",
+    "size-limit": "^7.0.8",
     "storybook-dark-mode": "^1.1.0",
     "storybook-design-token": "^2.2.0",
-    "style-loader": "^3.3.1"
+    "tsdx": "^0.14.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4",
+    "web-vitals": "^1.1.2"
   },
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "sass": "^1.50.1"
+    "@emotion/styled": "^11.9.3",
+    "react": ">=16",
+    "react-dom": ">=16",
+    "react-icons": "^4.3.1"
   },
   "readme": "ERROR: No README data found!",
   "_id": "react-storybook-tailwind@0.1.4"

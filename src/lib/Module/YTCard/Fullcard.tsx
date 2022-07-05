@@ -1,6 +1,4 @@
-import { faClock, faPlay } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import * as React from 'react';
 
 const Fullcard = ({ handlOnMouseLeave, Show, url }: any) => {
    return (
@@ -21,11 +19,11 @@ const Fullcard = ({ handlOnMouseLeave, Show, url }: any) => {
 
             <div className="buttons">
                <button className="button">
-                  <FontAwesomeIcon icon={faPlay} />
+                  {/* <FontAwesomeIcon icon={faPlay} /> */}
                   <span>Add to Playlist</span>
                </button>
                <button>
-                  <FontAwesomeIcon icon={faClock} />
+                  {/* <FontAwesomeIcon icon={faClock} /> */}
                   <span>watch Later</span>
                </button>
             </div>

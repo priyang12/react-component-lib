@@ -7,9 +7,7 @@ function Label(props: any): React.ReactElement {
    return (
       <label
          {...restProps}
-         className={`${size} ${hidden ? 'visually-hidden' : 'show'} ${
-            restProps?.className
-         }`}
+         className={`${size} ${hidden ? 'visually-hidden' : 'show'} `}
          style={alert ? { color: 'red' } : {}}
       >
          {alert ? alert : children}
