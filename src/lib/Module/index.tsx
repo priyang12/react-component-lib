@@ -1,3 +1,5 @@
-export * as ButtonDes from './ButtonDes';
-export * as FormInput from './FormInput';
-export * as Search from './Search';
+import ButtonDes from './ButtonDes';
+import FormInput from './FormInput';
+import Search from './Search';
+
+export { ButtonDes, FormInput, Search };

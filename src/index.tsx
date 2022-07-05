@@ -1,5 +1,11 @@
 import './lib/styles/Global.scss';
-export * from './lib/Effects';
-export * from './lib/components';
+export { GradientBG, GradientHover, Ring } from './lib/Effects';
+export {
+   Button,
+   Input,
+   Label,
+   TextEffect,
+   VercelButton,
+} from './lib/components';
 export * from './lib/Template';
-export * from './lib/Module';
+export { ButtonDes, FormInput, Search } from './lib/Module';

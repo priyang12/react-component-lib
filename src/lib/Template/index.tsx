@@ -1,1 +1,3 @@
-export * as TextLanding from './TextLanding';
+import TextLanding from './TextLanding';
+
+export default TextLanding;

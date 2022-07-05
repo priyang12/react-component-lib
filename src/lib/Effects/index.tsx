@@ -1,3 +1,5 @@
-export * as GradientBG from './GradientBG';
-export * as GradientHover from './GradientHover';
-export * as Ring from './Ring';
+import GradientBG from './GradientBG';
+import GradientHover from './GradientHover';
+import Ring from './Ring';
+
+export { GradientBG, GradientHover, Ring };
