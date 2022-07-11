@@ -21,7 +21,7 @@ function FormInput({ style, overlay, check, children, ...restProps }: any) {
    };
    return (
       <div className="form-control" style={style} {...restProps}>
-         {React.Children.map(children, (child) => {
+         {React.Children.map(children, child => {
             switch (child.type) {
                case Label:
                   return React.cloneElement(child, {

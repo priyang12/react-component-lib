@@ -31,7 +31,8 @@ yarn-debug.log*
 yarn-error.log*
 
 *.log
-.DS_Store
 node_modules
 .cache
 dist
+storybook-static
+build-storybook.log

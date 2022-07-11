@@ -4,11 +4,11 @@ import * as ReactDOM from 'react-dom';
 import { Button } from '../dist';
 
 const App = () => {
-  return (
-    <div>
-      <Button radius="30px">asdadasd</Button>
-    </div>
-  );
+   return (
+      <div>
+         <Button radius="30px">asdadasd</Button>
+      </div>
+   );
 };
 
 ReactDOM.render(<App />, document.getElementById('root'));
