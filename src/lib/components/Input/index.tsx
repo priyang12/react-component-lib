@@ -3,8 +3,8 @@ import './Input.scss';
 
 function Input(props: {
    size: 'small' | 'medium' | 'large';
-   type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url';
-   alert?: any;
+   type: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | any;
+   alert?: boolean | string;
    [x: string]: any;
 }): React.ReactElement {
    const { size, alert, ...rest } = props;

@@ -1,10 +1,9 @@
-import React from 'react';
-import Label from './index.jsx';
-import { render, fireEvent, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-describe('Label', () => {
-    it('should render without crashing', () => {
-        const div = document.createElement('div');
-        render(<Label />, div);
-    });
+import { render } from '@testing-library/react';
+import { composeStories } from '@storybook/testing-react';
+import * as LabelStories from './Label.stories';
+
+const { Template } = composeStories(LabelStories);
+
+it('render Input', () => {
+   render(<Template />);
 });
