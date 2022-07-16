@@ -3,10 +3,12 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Button } from '../dist';
 
+import '../dist/priyang-react-component-lib.cjs.development.css';
+
 const App = () => {
    return (
       <div>
-         <Button radius="30px">asdadasd</Button>
+         <Button variant="primary">Hello</Button>
       </div>
    );
 };

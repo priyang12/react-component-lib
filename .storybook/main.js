@@ -13,6 +13,6 @@ module.exports = {
       },
    ],
    typescript: {
-      check: true, // type-check stories during Storybook build
+      check: false, // type-check stories during Storybook build
    },
 };
