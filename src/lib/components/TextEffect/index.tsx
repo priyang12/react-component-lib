@@ -3,12 +3,12 @@ import './TextEffect.scss';
 
 interface TextEffectProps {
    Element: React.ElementType;
-   size?: 'small' | 'medium' | 'large';
+   size?: string;
    ContainerText?: string;
-   Delay?: number;
-   animateTime?: number;
-   color1: string;
-   color2: string;
+   Delay?: string;
+   animateTime?: string;
+   color1?: string;
+   color2?: string;
 }
 
 function TextEffect({

@@ -11,12 +11,12 @@
     "README.md"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "export TS_JEST_DISABLE_VER_CHECKER=true && tsdx test  --passWithNoTests --watch",
+    "test": "CI=true tsdx test  --passWithNoTests --watchAll",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",

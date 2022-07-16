@@ -2,7 +2,7 @@ import * as React from 'react';
 import { chakra, HTMLChakraProps } from '@chakra-ui/system';
 import './Label.scss';
 
-interface LabelProps {
+interface LabelProps extends HTMLChakraProps<any> {
    children: React.ReactNode;
    className?: string;
    htmlFor?: string;

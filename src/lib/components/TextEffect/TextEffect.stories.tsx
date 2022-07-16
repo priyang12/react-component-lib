@@ -9,10 +9,12 @@ export default {
       Element: 'p',
       Delay: '2s',
       ContainerText: 'Text Fade',
+      animateTime: '1s',
    },
 
    decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof TextEffect>;
+} as ComponentMeta<any>;
+
 export const Template: ComponentStory<typeof TextEffect> = args => (
    <TextEffect {...args} />
 );
