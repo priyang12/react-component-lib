@@ -4,18 +4,18 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 export default {
    title: 'Atoms/Button',
    component: Button,
-   decorators: [(story) => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof Button>;
+   decorators: [story => <div className="container">{story()}</div>],
+} as ComponentMeta<any>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
    text: 'Button',
 };
 
-export const variant = Template.bind({});
-variant.args = {
+export const Variant = Template.bind({});
+Variant.args = {
    text: 'Primary Button',
    radius: '10px',
    variant: 'primary',

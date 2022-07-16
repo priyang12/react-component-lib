@@ -8,7 +8,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 export default {
    title: 'Module/Search',
    component: Search,
-   decorators: [(story) => <div className="container">{story()}</div>],
+   decorators: [story => <div className="container">{story()}</div>],
    subcomponents: {
       Button,
       Input,
@@ -16,7 +16,7 @@ export default {
    },
 } as ComponentMeta<typeof Search>;
 
-export const Template: ComponentStory<typeof Search> = (args) => (
+export const Template: ComponentStory<typeof Search> = args => (
    <Search
       as="form"
       bgColor="#20bcf0"

@@ -11,17 +11,11 @@ export default {
    },
 } as ComponentMeta<typeof Input>;
 
-export const Template: ComponentStory<typeof Input> = (args) => (
+export const Template: ComponentStory<typeof Input> = args => (
    <Input {...args} />
 );
 
-export const Medium = Template.bind({});
-Medium.args = {
+export const Size = Template.bind({});
+Size.args = {
    size: 'medium',
-};
-
-export const Large = Template.bind({});
-Large.args = {
-   size: 'large',
-   required: true,
 };

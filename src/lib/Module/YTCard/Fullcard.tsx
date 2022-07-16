@@ -1,6 +1,4 @@
-import * as React from 'react';
-
-const Fullcard = ({ handlOnMouseLeave, Show, url }: any) => {
+const Fullcard = ({ handlOnMouseLeave, Show }: any) => {
    return (
       <div
          className="Full_card"

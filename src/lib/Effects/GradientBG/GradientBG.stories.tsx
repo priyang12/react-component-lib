@@ -10,7 +10,7 @@ export default {
       Element: 'li',
    },
    decorators: [
-      (story) => (
+      story => (
          <div
             className="container"
             style={{
@@ -24,7 +24,7 @@ export default {
    ],
 } as ComponentMeta<typeof GradientBG>;
 
-export const Template: ComponentStory<typeof GradientBG> = (args) => (
+export const Template: ComponentStory<typeof GradientBG> = args => (
    <GradientBG {...args} />
 );
 

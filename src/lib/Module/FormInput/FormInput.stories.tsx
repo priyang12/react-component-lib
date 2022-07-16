@@ -6,10 +6,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 export default {
    title: 'Module/FormInput',
    component: FormInput,
-   decorators: [(story) => <div className="container">{story()}</div>],
+   decorators: [story => <div className="container">{story()}</div>],
 } as ComponentMeta<typeof FormInput>;
 
-export const Template: ComponentStory<typeof FormInput> = (args) => (
+export const Template: ComponentStory<typeof FormInput> = args => (
    <FormInput {...args}>
       <Label htmlFor="Search" size="medium" alert="Alert">
          Search

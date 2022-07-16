@@ -11,9 +11,9 @@ export default {
       ContainerText: 'Text Fade',
    },
 
-   decorators: [(story) => <div className="container">{story()}</div>],
+   decorators: [story => <div className="container">{story()}</div>],
 } as ComponentMeta<typeof TextEffect>;
-export const Template: ComponentStory<typeof TextEffect> = (args) => (
+export const Template: ComponentStory<typeof TextEffect> = args => (
    <TextEffect {...args} />
 );
 

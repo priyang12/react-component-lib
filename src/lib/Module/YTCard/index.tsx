@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import Fullcard from './Fullcard';
 import './YTCard.scss';
 
-function YTCard(props: any) {
+function YTCard() {
    const [Show, setShow] = useState(false);
 
    // Todo: Add a timeout to hide the card

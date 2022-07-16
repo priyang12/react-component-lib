@@ -4,7 +4,7 @@ export default {
    title: 'Module/YTCard',
    component: YTCard,
    decorators: [
-      (story) => (
+      story => (
          <div
             className="container"
             style={{
@@ -20,6 +20,6 @@ export default {
    ],
 } as ComponentMeta<typeof YTCard>;
 
-export const Template: ComponentStory<typeof YTCard> = (args) => (
+export const Template: ComponentStory<typeof YTCard> = args => (
    <YTCard {...args} />
 );

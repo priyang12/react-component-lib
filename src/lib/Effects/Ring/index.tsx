@@ -1,8 +1,17 @@
 import React from 'react';
-import { chakra } from '@chakra-ui/system';
+import { chakra, HTMLChakraProps } from '@chakra-ui/system';
 import './Ring.scss';
 
-function Ring(props: any): React.ReactElement {
+interface RingProps extends HTMLChakraProps<any> {
+   radius?: string;
+   ringColor?: string;
+   ringWidth?: string;
+   OuterRingColor?: string;
+   Element?: React.ElementType;
+   children: React.ReactNode;
+}
+
+function Ring(props: RingProps) {
    const {
       Element,
       children,
@@ -10,9 +19,10 @@ function Ring(props: any): React.ReactElement {
       ringColor,
       ringWidth = '5px',
       OuterRingColor,
+      ...restProps
    } = props;
    return (
-      <chakra.div as={Element}>
+      <chakra.div as={Element} {...restProps}>
          <div
             className="ring"
             style={{

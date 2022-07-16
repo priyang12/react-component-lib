@@ -9,10 +9,10 @@ export default {
       BorderSize: '0.2em',
       children: <Button>Border Wall</Button>,
    },
-   decorators: [(story) => <div className="container">{story()}</div>],
+   decorators: [story => <div className="container">{story()}</div>],
 } as ComponentMeta<typeof GradientHover>;
 
-const Template: ComponentStory<typeof GradientHover> = (args) => (
+const Template: ComponentStory<typeof GradientHover> = args => (
    <GradientHover {...args} />
 );
 

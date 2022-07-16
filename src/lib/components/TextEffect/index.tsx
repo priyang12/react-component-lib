@@ -1,15 +1,25 @@
 import * as React from 'react';
 import './TextEffect.scss';
 
+interface TextEffectProps {
+   Element: React.ElementType;
+   size?: 'small' | 'medium' | 'large';
+   ContainerText?: string;
+   Delay?: number;
+   animateTime?: number;
+   color1: string;
+   color2: string;
+}
+
 function TextEffect({
    Element,
    size,
    ContainerText,
    Delay,
-   animateTime = '2',
+   animateTime,
    color1 = '#e91e63',
    color2 = '#201f55',
-}: any): React.ReactElement {
+}: TextEffectProps): React.ReactElement {
    return (
       <div className="container">
          <Element
@@ -39,4 +49,8 @@ function TextEffect({
       </div>
    );
 }
+TextEffect.defaultProps = {
+   animateTime: '2',
+};
+
 export default TextEffect;

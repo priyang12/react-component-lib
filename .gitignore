@@ -29,6 +29,7 @@ New.md
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+__report__
 
 *.log
 node_modules

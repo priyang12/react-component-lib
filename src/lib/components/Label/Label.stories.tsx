@@ -8,10 +8,10 @@ export default {
       htmlFor: 'search',
       id: 'search',
    },
-   decorators: [(story) => <div className="container">{story()}</div>],
+   decorators: [story => <div className="container">{story()}</div>],
 } as ComponentMeta<typeof Label>;
 
-export const Template: ComponentStory<typeof Label> = (args) => (
+export const Template: ComponentStory<typeof Label> = args => (
    <Label {...args} />
 );
 

@@ -5,7 +5,7 @@ export default {
    title: 'Module/ButtonDes',
    component: ButtonDes,
    decorators: [
-      (story) => (
+      story => (
          <div
             className="container"
             style={{
@@ -18,7 +18,7 @@ export default {
    ],
 } as ComponentMeta<typeof ButtonDes>;
 
-export const Template: ComponentStory<typeof ButtonDes> = (args) => (
+export const Template: ComponentStory<typeof ButtonDes> = args => (
    <ButtonDes {...args}>
       <Button
          style={{

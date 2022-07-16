@@ -7,12 +7,10 @@ export default {
    args: {
       children: <Button>Ring it Ring</Button>,
    },
-   decorators: [(story) => <div className="container">{story()}</div>],
+   decorators: [story => <div className="container">{story()}</div>],
 } as ComponentMeta<typeof Ring>;
 
-export const Template: ComponentStory<typeof Ring> = (args) => (
-   <Ring {...args} />
-);
+export const Template: ComponentStory<typeof Ring> = args => <Ring {...args} />;
 
 export const BoderRadius = Template.bind({});
 BoderRadius.args = {

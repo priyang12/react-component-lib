@@ -1,17 +1,27 @@
 import * as React from 'react';
+import { chakra, HTMLChakraProps } from '@chakra-ui/system';
 import './Label.scss';
 
-function Label(props: any): React.ReactElement {
+interface LabelProps {
+   children: React.ReactNode;
+   className?: string;
+   htmlFor?: string;
+   hidden?: boolean;
+   size?: 'small' | 'medium' | 'large';
+   alert?: boolean | string;
+}
+
+function Label(props: LabelProps) {
    const { children, hidden, size, alert, ...restProps } = props;
 
    return (
-      <label
+      <chakra.label
          {...restProps}
          className={`${size} ${hidden ? 'visually-hidden' : 'show'} `}
          style={alert ? { color: 'red' } : {}}
       >
          {alert ? alert : children}
-      </label>
+      </chakra.label>
    );
 }
 export default Label;

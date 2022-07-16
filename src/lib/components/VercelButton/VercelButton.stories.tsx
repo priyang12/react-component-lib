@@ -7,14 +7,16 @@ export default {
    component: VercelButton,
    args: {
       children: (
-         <button
+         <Button
             style={{
                background: 'black',
                width: 'calc(100% + 10px)',
                height: 'calc(100% + 10px)',
                transition: 'all 0.5s ease',
             }}
-         />
+         >
+            TEXT
+         </Button>
       ),
       AnimationCss: 'none',
    },
