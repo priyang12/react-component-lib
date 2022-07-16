@@ -16,7 +16,8 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "CI=true tsdx test  --passWithNoTests --watchAll",
+    "test": "CI=true tsdx test  --passWithNoTests",
+    "test-WatchAll": "tsdx test --watchAll",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
