@@ -19,7 +19,7 @@ export default {
       AnimationCss: 'none',
    },
    decorators: [
-      (story) => (
+      story => (
          <div
             className="container"
             style={{
@@ -34,7 +34,7 @@ export default {
    ],
 } as ComponentMeta<typeof VercelButton>;
 
-const Template: ComponentStory<typeof VercelButton> = (args) => (
+const Template: ComponentStory<typeof VercelButton> = args => (
    <VercelButton {...args} />
 );
 

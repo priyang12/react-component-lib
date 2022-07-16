@@ -9,7 +9,7 @@ function TextEffect({
    animateTime = '2',
    color1 = '#e91e63',
    color2 = '#201f55',
-}: any) {
+}: any): React.ReactElement {
    return (
       <div className="container">
          <Element

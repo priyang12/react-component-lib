@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './ShadowAnimation.scss';
+import './VercelButton.scss';
 
 const ShadowAnimation: React.FC<{
    children: React.ReactNode;

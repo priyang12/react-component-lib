@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 import { composeStories } from '@storybook/testing-react';
-import * as TextEffectStories from './TextEffect.stories';
+import * as InputStories from './Button.stories';
 
-const { Template } = composeStories(TextEffectStories);
+const { Default } = composeStories(InputStories);
 
 it('render Input', () => {
-   render(<Template />);
+   render(<Default />);
 });
