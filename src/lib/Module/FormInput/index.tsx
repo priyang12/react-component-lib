@@ -1,8 +1,11 @@
 import * as React from 'react';
 import Input from '../../components/Input';
 import Label from '../../components/Label';
+import TextArea from '../../components/TextArea';
+import { cx } from '@chakra-ui/utils';
 import { callAll } from '../../Utils/AllFunctionsCall';
 import './FormInput.scss';
+
 function FormInput({ style, overlay, check, children, ...restProps }: any) {
    const [LabelCheck, setLabelCheck] = React.useState(false);
 
@@ -26,10 +29,18 @@ function FormInput({ style, overlay, check, children, ...restProps }: any) {
                case Label:
                   return React.cloneElement(child, {
                      alert: Alert,
-                     className: `${child.props.className} ${
-                        LabelCheck ? 'active' : ''
-                     } ${overlay && 'over-label'}`,
+                     className: cx(
+                        child.props.className,
+                        LabelCheck && 'active',
+                        overlay && 'overlay'
+                     ),
                      'data-valid': LabelCheck,
+                  });
+               case TextArea:
+                  return React.cloneElement(child, {
+                     alert: Alert ? true : false,
+                     onChange: callAll(child.props.onChange, inputChange),
+                     onFocus: onFocus,
                   });
                case Input:
                   return React.cloneElement(child, {

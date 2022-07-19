@@ -8,27 +8,23 @@
    background: transparent;
    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
    &:focus {
-      border-color: blue;
+      border-color: var(--input-border-focus);
       box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
    }
-
-   .over-label {
+   .overlay {
       position: absolute;
       top: 10%;
       left: 5%;
       line-height: 1.5;
-      color: #333;
       transition: transform 0.15s ease-in-out;
    }
-   .over-label[data-valid='true'] {
+   .overlay[data-valid='true'] {
       transform: translate(-10%, -110%);
    }
-   input:hover ~ .over-label {
+   input:hover ~ .overlay,
+   input:focus ~ .overlay,
+   textarea:hover ~ .overlay,
+   textarea:focus ~ .overlay {
       transform: translate(-10%, -100%);
-   }
-   input:focus ~ .over-label {
-      transform: translate(-10%, -110%);
-   }
-   input:valid ~ .over-label {
    }
 }

@@ -1,0 +1,27 @@
+textarea {
+   display: block;
+   border: 2px solid var(--input-border);
+   border-radius: var(--input-border-radius);
+   &:focus {
+      outline: none;
+      border-color: var(--input-border-focus);
+   }
+   &:hover {
+      border-color: var(--input-border);
+   }
+   transition: border 200ms;
+   .small {
+      width: 100px;
+   }
+   .medium {
+      width: 200px;
+   }
+   .large {
+      width: 300px;
+   }
+}
+
+.Alert-Border {
+   border: 2px solid var(--color-alert);
+   border-radius: var(--input-border-radius);
+}

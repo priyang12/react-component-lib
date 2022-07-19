@@ -14,46 +14,47 @@ read choice
 
 Rfce() {
     # Write the Component Name
-    echo "import * as React from 'react';" >>$Path/$1/$1.jsx
-    echo "import './$1.scss';" >>$Path/$1/$1.jsx
-    echo "function $1() {" >>$Path/$1/$1.jsx
-    echo "    return ( " >>$Path/$1/$1.jsx
-    echo "        <div>" >>$Path/$1/$1.jsx
-    echo "           $1" >>$Path/$1/$1.jsx
-    echo "        </div>" >>$Path/$1/$1.jsx
-    echo "    )" >>$Path/$1/$1.jsx
-    echo "}" >>$Path/$1/$1.jsx
-    echo "export default $1" >>$Path/$1/$1.jsx
+    echo "import * as React from 'react';" >>$Path/$1/$1.tsx
+    echo "import './$1.scss';" >>$Path/$1/$1.tsx
+    echo "function $1() {" >>$Path/$1/$1.tsx
+    echo "    return ( " >>$Path/$1/$1.tsx
+    echo "        <div>" >>$Path/$1/$1.tsx
+    echo "           $1" >>$Path/$1/$1.tsx
+    echo "        </div>" >>$Path/$1/$1.tsx
+    echo "    )" >>$Path/$1/$1.tsx
+    echo "}" >>$Path/$1/$1.tsx
+    echo "export default $1" >>$Path/$1/$1.tsx
 }
 index(){
     # Write the Component Name
-    echo "import $1 from './$1';" >>$Path/$1/index.jsx
-    echo "export default $1;" >>$Path/$1/index.jsx
+    echo "import $1 from './$1';" >>$Path/$1/index.tsx
+    echo "export default $1;" >>$Path/$1/index.tsx
 }
 scss() {
     echo "@import '../../styles/variable.scss';" >>$Path/$1/$1.scss
 }
 Story() {
     # Write Story For Component
-    echo "import $1 from './index';" >>$Path/$1/$1.stories.jsx
-    echo "export default { " >>$Path/$1/$1.stories.jsx
-    echo "title: 'Atoms/$1'," >>$Path/$1/$1.stories.jsx
-    echo " component: $1," >>$Path/$1/$1.stories.jsx
-    echo "decorators: [(story) => <div className="container">{story()}</div>]," >>$Path/$1/$1.stories.jsx
-    echo "};" >>$Path/$1/$1.stories.jsx
-    echo "export const Template = (args) => <$1 {...args} />;" >>$Path/$1/$1.stories.jsx
+    echo "import $1 from './index';" >>$Path/$1/$1.stories.tsx
+    echo "import { ComponentStory, ComponentMeta } from '@storybook/react';" >>$Path/$1/$1.stories.tsx
+    echo "export default { " >>$Path/$1/$1.stories.tsx
+    echo "title: 'Atoms/$1'," >>$Path/$1/$1.stories.tsx
+    echo " component: $1," >>$Path/$1/$1.stories.tsx
+    echo "decorators: [(story) => <div className="container">{story()}</div>]," >>$Path/$1/$1.stories.tsx
+    echo "} as ComponentMeta<typeof $1>;" >>$Path/$1/$1.stories.tsx
+    echo "export const Template : ComponentStory<typeof $1> = (args) => <$1 {...args} />;" >>$Path/$1/$1.stories.tsx
 }
 
 Test() {
     # Test Boilerplate
-    echo "import React from 'react';" >>$Path/$1/$1.test.jsx
-    echo "import $1 from './index.jsx';" >>$Path/$1/$1.test.jsx
-    echo "import { render, screen } from '@testing-library/react';" >>$Path/$1/$1.test.jsx
-    echo "import '@testing-library/jest-dom/extend-expect';" >>$Path/$1/$1.test.jsx
-    echo "    it('should render without crashing', () => {" >>$Path/$1/$1.test.jsx
-    echo "        const div = document.createElement('div');" >>$Path/$1/$1.test.jsx
-    echo "        render(<$1 />, div);" >>$Path/$1/$1.test.jsx
-    echo "    });" >>$Path/$1/$1.test.jsx
+    echo "import { render, screen } from '@testing-library/react';" >>$Path/$1/$1.test.tsx
+    echo "import { composeStories } from '@storybook/testing-react';';" >>$Path/$1/$1.test.tsx
+    echo "import * as $1Stories from './$1.stories';" >>$Path/$1/$1.test.tsx
+    echo "const { Template } = composeStories($1Stories);" >>$Path/$1/$1.test.tsx
+    echo "" >>$Path/$1/$1.test.tsx
+    echo "    it('should render without crashing', () => {" >>$Path/$1/$1.test.tsx
+    echo "        render(<Template/>);" >>$Path/$1/$1.test.tsx
+    echo "    });" >>$Path/$1/$1.test.tsx
 }
 
 # if user input is 1 then create component
@@ -76,10 +77,10 @@ action() {
             DIRECTORY='/home/data'
             if [ ! -d "$Path/$NAME" ]; then
                 mkdir -p $Path/$NAME
-                touch $Path/$NAME/index.jsx
+                touch $Path/$NAME/index.tsx
                 touch $Path/$NAME/$NAME.scss
-                touch $Path/$NAME/$NAME.test.jsx
-                touch $Path/$NAME/$NAME.stories.jsx
+                touch $Path/$NAME/$NAME.test.tsx
+                touch $Path/$NAME/$NAME.stories.tsx
 
                 # Write in Component Files
                 Rfce $NAME
