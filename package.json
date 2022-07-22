@@ -1,6 +1,6 @@
 {
-  "name": "priyang-react-component-lib",
-  "version": "0.0.1",
+  "name": "@priyang/react-component-lib",
+  "version": "0.1.0",
   "private": false,
   "module": "dist/priyang-react-component-lib.esm.js",
   "main": "dist/index.js",
@@ -22,7 +22,7 @@
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyzeMapper": "source-map-explorer 'dist/*.production.min.js'",
-    "analyze": "size-limit --why",
+    "version": "yarn changeset version",
     "storybook": "start-storybook -p 6006 -s public",
     "pretty-Component": "yarn prettier -w ./src/lib/**/*.{ts,tsx}",
     "lib": "bash lib.sh",
@@ -40,11 +40,7 @@
   },
   "size-limit": [
     {
-      "path": "dist/priyang-react-component-lib.cjs.production.min.js",
-      "limit": "50 KB"
-    },
-    {
-      "path": "dist/priyang-react-component-lib.esm.js",
+      "path": "dist/react-component-lib.cjs.production.min.js",
       "limit": "50 KB"
     }
   ],
@@ -54,6 +50,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.6",
     "@chakra-ui/system": "^2.2.1",
+    "@changesets/cli": "^2.24.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@size-limit/preset-small-lib": "^7.0.8",
