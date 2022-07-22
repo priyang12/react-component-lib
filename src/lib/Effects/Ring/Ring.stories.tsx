@@ -1,12 +1,16 @@
 import Ring from './index';
 import Button from '../../components/Button/Button';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { STORYBOOK_EXCLUDE_CHAKRA_PROPS } from '../../Utils/ChakraExlude';
+
 export default {
    title: 'Effects/Ring',
    component: Ring,
    args: {
       children: <Button>Ring it Ring</Button>,
    },
+   argTypes: STORYBOOK_EXCLUDE_CHAKRA_PROPS,
+
    decorators: [story => <div className="container">{story()}</div>],
 } as ComponentMeta<typeof Ring>;
 

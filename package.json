@@ -1,6 +1,6 @@
 {
   "name": "priyang-react-component-lib",
-  "version": "0.1.8",
+  "version": "0.0.1",
   "private": false,
   "module": "dist/priyang-react-component-lib.esm.js",
   "main": "dist/index.js",

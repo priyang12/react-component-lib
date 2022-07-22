@@ -1,8 +1,8 @@
 import React from 'react';
-import { chakra, HTMLChakraProps } from '@chakra-ui/system';
+import { chakra, ChakraProps } from '@chakra-ui/system';
 import './Ring.scss';
 
-interface RingProps extends HTMLChakraProps<any> {
+interface RingProps extends ChakraProps {
    radius?: string;
    ringColor?: string;
    ringWidth?: string;

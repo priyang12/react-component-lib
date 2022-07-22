@@ -1,9 +1,33 @@
 export const STORYBOOK_DISABLE_CONTROL = { table: { disable: true } };
 
 export const STORYBOOK_EXCLUDE_CHAKRA_PROPS = {
+   children: STORYBOOK_DISABLE_CONTROL,
    as: STORYBOOK_DISABLE_CONTROL,
-   _hover: STORYBOOK_DISABLE_CONTROL,
-   _active: STORYBOOK_DISABLE_CONTROL,
+   _hover: {
+      table: {
+         disable: true,
+      },
+   },
+   _active: {
+      table: {
+         disable: true,
+      },
+   },
+   _activeStep: STORYBOOK_DISABLE_CONTROL,
+   _peerHover: STORYBOOK_DISABLE_CONTROL,
+   _peerFocus: STORYBOOK_DISABLE_CONTROL,
+   _groupFocusVisible: STORYBOOK_DISABLE_CONTROL,
+   _peerFocusVisible: STORYBOOK_DISABLE_CONTROL,
+   _peerActive: STORYBOOK_DISABLE_CONTROL,
+   _peerDisabled: STORYBOOK_DISABLE_CONTROL,
+   _peerInvalid: STORYBOOK_DISABLE_CONTROL,
+   _peerChecked: STORYBOOK_DISABLE_CONTROL,
+   _groupFocusWithin: STORYBOOK_DISABLE_CONTROL,
+   _peerFocusWithin: STORYBOOK_DISABLE_CONTROL,
+   _peerPlaceholderShown: STORYBOOK_DISABLE_CONTROL,
+   _placeholderShown: STORYBOOK_DISABLE_CONTROL,
+   _ltr: STORYBOOK_DISABLE_CONTROL,
+   _mediaReduceMotion: STORYBOOK_DISABLE_CONTROL,
    _focus: STORYBOOK_DISABLE_CONTROL,
    _highlighted: STORYBOOK_DISABLE_CONTROL,
    _focusWithin: STORYBOOK_DISABLE_CONTROL,
