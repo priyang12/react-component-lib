@@ -1,0 +1,42 @@
+@import '../../styles/variable.scss';
+
+.Timer {
+   display: flex;
+   flex-direction: column;
+
+   .Hidden {
+      transform: translate(0, 100%);
+      z-index: -1;
+   }
+   .TimeDisplay {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-width: var(--border-width);
+      border-radius: var(--border-radius);
+      border-style: solid;
+      background-color: var(--color-primary);
+      color: var(--btn-background-color);
+      font-size: var(--font-size-large);
+      font-family: var(--font-family-primary);
+      font-weight: bold;
+      text-align: center;
+      transition: all 1s ease-in-out;
+      z-index: 2;
+      .counter {
+         order: 2;
+         span {
+            order: 1;
+         }
+      }
+      p {
+         margin: 0.5em;
+      }
+      @media (max-width: 768px) {
+         font-size: var(--font-size-medium);
+      }
+   }
+   .Heading {
+      text-align: center;
+   }
+}

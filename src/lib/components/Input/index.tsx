@@ -1,15 +1,4 @@
-import * as React from 'react';
-import './Input.scss';
+import { withChakraProps } from '../../Utils/withChakraProps';
+import Input from './Input';
 
-function Input(props: {
-   size: 'small' | 'medium' | 'large';
-   type: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | any;
-   alert?: boolean | string;
-   [x: string]: any;
-}): React.ReactElement {
-   const { size, alert, ...rest } = props;
-
-   return <input {...rest} className={`${size} ${alert ? 'alert' : ''}`} />;
-}
-
-export default Input;
+export default withChakraProps(Input);

@@ -1,12 +1,4 @@
-import * as React from 'react';
-import './VercelButton.scss';
+import VercelButton from './VercelButton';
+import { withChakraProps } from '../../Utils/withChakraProps';
 
-const ShadowAnimation: React.FC<{
-   children: React.ReactNode;
-   className?: string;
-   AnimationCss: string;
-}> = ({ children, AnimationCss }) => {
-   return <div className={`neon-bg ${AnimationCss}`}>{children}</div>;
-};
-
-export default ShadowAnimation;
+export default withChakraProps(VercelButton);

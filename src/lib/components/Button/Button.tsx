@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { cx } from '@chakra-ui/utils';
-import './Button.scss';
 import { Variant } from '../interface';
+import './Button.scss';
 
-interface IProps {
+export interface IProps {
    text?: string;
    style?: any;
+   as?: string;
    StyleClass?: any;
    ellipsis?: boolean;
    variant?: Variant['variant'];
@@ -16,15 +17,16 @@ interface IProps {
 
 function Button({
    text,
+   as,
    style,
    StyleClass,
    ellipsis,
-   variant,
+   variant = 'primary',
    radius,
    children,
    className,
    ...props
-}: IProps): JSX.Element {
+}: React.ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> & IProps) {
    const btnClass = cx(
       'btn',
       ellipsis && 'ellipsis',
@@ -47,9 +49,5 @@ function Button({
       </button>
    );
 }
-
-Button.defaultProps = {
-   variant: 'primary',
-};
 
 export default Button;

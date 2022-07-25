@@ -28,7 +28,8 @@ Rfce() {
 index(){
     # Write the Component Name
     echo "import $1 from './$1';" >>$Path/$1/index.tsx
-    echo "export default $1;" >>$Path/$1/index.tsx
+    echo "import { withChakraProps } from '../../Utils/withChakraProps';" >>$Path/$1/index.tsx
+    echo "export default withChakraProps($1);" >>$Path/$1/index.tsx
 }
 scss() {
     echo "@import '../../styles/variable.scss';" >>$Path/$1/$1.scss

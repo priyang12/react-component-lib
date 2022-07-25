@@ -2,14 +2,20 @@ import Timer from './index';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
-   title: 'Atoms/Timer',
+   title: 'Organisms/Timer',
    component: Timer,
    args: {
-      StartTime: 0,
+      StartTime: 456,
    },
    decorators: [story => <div className="container">{story()}</div>],
 } as ComponentMeta<typeof Timer>;
 
-const Template: ComponentStory<typeof Timer> = args => <Timer {...args} />;
+export const Template: ComponentStory<typeof Timer> = args => (
+   <Timer {...args} />
+);
 
-export const Default = Template.bind({});
+export const CounterHidden = Template.bind({});
+CounterHidden.args = {
+   StartTime: 456,
+   Hidden: true,
+};

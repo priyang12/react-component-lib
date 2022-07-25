@@ -5,7 +5,7 @@ export default {
    title: 'Atoms/Button',
    component: Button,
    decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<any>;
+} as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
 

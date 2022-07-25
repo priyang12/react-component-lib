@@ -1,4 +1,5 @@
-import ButtonGroup from './index';
+import ChakraButtonGroup from './index';
+import ButtonGroup from './ButtonGroup';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from '../../components';
 
@@ -8,8 +9,8 @@ export default {
    decorators: [story => <div className="container">{story()}</div>],
 } as ComponentMeta<typeof ButtonGroup>;
 
-export const Template: ComponentStory<typeof ButtonGroup> = args => (
-   <ButtonGroup {...args}>
+export const Template: ComponentStory<typeof ChakraButtonGroup> = args => (
+   <ChakraButtonGroup {...args}>
       <Button>
          <span>Button 1</span>
       </Button>
@@ -19,7 +20,7 @@ export const Template: ComponentStory<typeof ButtonGroup> = args => (
       <Button>
          <span>Button 3</span>
       </Button>
-   </ButtonGroup>
+   </ChakraButtonGroup>
 );
 
 export const Gap = Template.bind({});
@@ -29,10 +30,10 @@ Gap.args = {
 };
 
 export const Icon: ComponentStory<typeof ButtonGroup> = args => (
-   <ButtonGroup {...args} withIcon>
+   <ChakraButtonGroup {...args} withIcon>
       <div>$</div>
       <Button bg="transparent" color="red">
          <span>Button 1</span>
       </Button>
-   </ButtonGroup>
+   </ChakraButtonGroup>
 );
