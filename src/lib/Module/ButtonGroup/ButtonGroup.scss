@@ -1,0 +1,14 @@
+@import '../../styles/variable.scss';
+
+.ButtonGroup {
+   display: flex;
+   padding: 1em;
+   gap: var(--gap-small);
+   border-width: var(--border-width);
+   border-radius: var(--border-radius);
+   border-style: solid;
+}
+.ButtonGroup__icon {
+   align-items: center;
+   gap: 0;
+}
