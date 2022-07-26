@@ -1,13 +1,12 @@
-import Input from './index';
+import Input from './Input';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
    title: 'Atoms/Input',
    component: Input,
    args: {
+      InputSize: 'medium',
       type: 'text',
-      placeholder: 'Search the Product',
-      id: 'search',
    },
 } as ComponentMeta<typeof Input>;
 
@@ -17,5 +16,5 @@ export const Template: ComponentStory<typeof Input> = args => (
 
 export const Size = Template.bind({});
 Size.args = {
-   size: 'medium',
+   InputSize: 'small',
 };

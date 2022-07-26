@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 export default {
    title: 'Atoms/Button',
    component: Button,
+
    decorators: [story => <div className="container">{story()}</div>],
 } as ComponentMeta<typeof Button>;
 

@@ -1,15 +1,22 @@
 import * as React from 'react';
+import { cx } from '@chakra-ui/utils';
 import './Input.scss';
 
-function Input(props: {
-   size: 'small' | 'medium' | 'large';
-   type: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | any;
+export interface InputProps {
+   InputSize: 'small' | 'medium' | 'large';
    alert?: boolean | string;
-   [x: string]: any;
-}): React.ReactElement {
-   const { size, alert, ...rest } = props;
+   className?: string;
+}
 
-   return <input {...rest} className={`${size} ${alert ? 'alert' : ''}`} />;
+function Input({
+   InputSize = 'medium',
+   alert,
+   className,
+   ...props
+}: React.InputHTMLAttributes<HTMLInputElement> & InputProps) {
+   const InputClass = cx('input', InputSize, alert && 'alert', className);
+
+   return <input className={InputClass} {...props} />;
 }
 
 export default Input;

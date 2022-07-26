@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { chakra, HTMLChakraProps } from '@chakra-ui/system';
+import { chakra, ChakraProps } from '@chakra-ui/system';
 import { cx } from '@chakra-ui/utils';
 import './Label.scss';
 
-export interface LabelProps extends HTMLChakraProps<any> {
+export interface LabelProps extends ChakraProps {
    children: React.ReactNode;
    className?: string;
    htmlFor?: string;
@@ -12,7 +12,9 @@ export interface LabelProps extends HTMLChakraProps<any> {
    alert?: boolean | string;
 }
 
-function Label(props: LabelProps) {
+function Label(
+   props: React.LabelHTMLAttributes<HTMLLabelElement> & LabelProps
+) {
    const { children, hidden, size, alert, className, ...restProps } = props;
 
    const LabelClass = cx(
@@ -24,7 +26,7 @@ function Label(props: LabelProps) {
    );
 
    return (
-      <chakra.label {...restProps} className={LabelClass}>
+      <chakra.label className={LabelClass} {...restProps}>
          {alert ? alert : children}
       </chakra.label>
    );
