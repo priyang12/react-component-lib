@@ -1,7 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Button, ButtonGroup, Input, Label } from '../dist';
+import { Button, TextArea, Input, Label } from '../dist';
 
 import '../dist/react-component-lib.cjs.development.css';
 
@@ -9,6 +9,7 @@ const App = () => {
    return (
       <div>
          <Label htmlFor="input-1">Label</Label>
+         <TextArea />
 
          <Input type="password" disabled InputSize="medium" />
          <Button variant="secondary" ellipsis={true}>

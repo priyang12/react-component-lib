@@ -6,7 +6,7 @@ function TextArea(props: {
    alert?: boolean | string;
    resize?: 'none' | 'both' | 'horizontal' | 'vertical';
    [x: string]: any;
-}): React.ReactElement {
+}): React.ReactElement<HTMLFormElement> {
    const { Size, alert, ...rest } = props;
 
    return (

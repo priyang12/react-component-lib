@@ -1,0 +1,27 @@
+.counter {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+   border-radius: 5px;
+   padding: 20px;
+   font-size: 30px;
+   font-weight: bold;
+   color: #000;
+   cursor: pointer;
+}
+
+.counter-increment {
+   transform: translateY(-20%);
+   transition: all 0s ease-in-out;
+   opacity: 0;
+}
+.counter-decrement {
+   transform: translateY(20%);
+   transition: all 0s ease-in-out;
+   opacity: 0;
+}
+.show {
+   transition: all 0.2s ease-in-out;
+}

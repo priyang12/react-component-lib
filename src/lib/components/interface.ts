@@ -4,8 +4,8 @@ export interface Variant {
       | 'primary-border'
       | 'secondary'
       | 'secondary-border'
-      | 'alert'
-      | 'alert-border'
+      | 'failure'
+      | 'failure-border'
       | 'success'
       | 'success-border';
 }
