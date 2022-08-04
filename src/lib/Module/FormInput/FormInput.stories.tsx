@@ -1,8 +1,8 @@
 import FormInput from './FormInput';
-import Label from '../../components/Label';
-import Input from '../../components/Input';
+import Label from '../../Atoms/Label';
+import Input from '../../Atoms/Input';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import TextArea from '../../components/TextArea';
+import TextArea from '../../Atoms/TextArea';
 
 export default {
    title: 'Module/FormInput',

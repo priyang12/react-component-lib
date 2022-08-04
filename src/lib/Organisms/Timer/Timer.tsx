@@ -1,5 +1,5 @@
 import { useTimer } from '../../../Hooks/useTimer';
-import Button from '../../components/Button';
+import Button from '../../Atoms/Button';
 import { ButtonGroup } from '../../Module';
 import './Timer.scss';
 

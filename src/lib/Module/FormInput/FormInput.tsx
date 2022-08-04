@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Input from '../../components/Input';
-import Label from '../../components/Label';
-import TextArea from '../../components/TextArea';
+import Input from '../../Atoms/Input';
+import Label from '../../Atoms/Label';
+import TextArea from '../../Atoms/TextArea';
 import { cx } from '@chakra-ui/utils';
 import { callAll } from '../../Utils/AllFunctionsCall';
 import './FormInput.scss';

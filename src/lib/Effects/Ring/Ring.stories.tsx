@@ -1,5 +1,5 @@
 import Ring from './index';
-import Button from '../../components/Button/Button';
+import Button from '../../Atoms/Button/Button';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { STORYBOOK_EXCLUDE_CHAKRA_PROPS } from '../../Utils/ChakraExlude';
 

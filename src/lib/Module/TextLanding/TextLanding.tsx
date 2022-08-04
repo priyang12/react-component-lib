@@ -1,5 +1,5 @@
 import * as React from 'react';
-import TextEffect from '../../components/TextEffect';
+import TextEffect from '../../Atoms/TextEffect';
 import './TextLanding.scss';
 
 function TextLanding(props: any): React.ReactElement {

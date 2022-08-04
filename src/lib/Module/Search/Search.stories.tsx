@@ -1,6 +1,6 @@
-import Button from '../../components/Button';
-import Input from '../../components/Input';
-import Label from '../../components/Label';
+import Button from '../../Atoms/Button';
+import Input from '../../Atoms/Input';
+import Label from '../../Atoms/Label';
 import Search from './index';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';

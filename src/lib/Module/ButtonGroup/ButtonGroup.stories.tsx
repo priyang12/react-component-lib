@@ -1,7 +1,7 @@
 import ChakraButtonGroup from './index';
 import ButtonGroup from './ButtonGroup';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Button } from '../../components';
+import { Button } from '../../Atoms';
 
 export default {
    title: 'Module/ButtonGroup',

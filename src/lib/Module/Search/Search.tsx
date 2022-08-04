@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../components/Button/Button';
+import Button from '../../Atoms/Button/Button';
 import { chakra } from '@chakra-ui/system';
 import './Search.scss';
 
