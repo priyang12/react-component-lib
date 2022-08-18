@@ -49,7 +49,7 @@ Story() {
 Test() {
     # Test Boilerplate
     echo "import { render, screen } from '@testing-library/react';" >>$Path/$1/$1.test.tsx
-    echo "import { composeStories } from '@storybook/testing-react';';" >>$Path/$1/$1.test.tsx
+    echo "import { composeStories } from '@storybook/testing-react';" >>$Path/$1/$1.test.tsx
     echo "import * as $1Stories from './$1.stories';" >>$Path/$1/$1.test.tsx
     echo "const { Template } = composeStories($1Stories);" >>$Path/$1/$1.test.tsx
     echo "" >>$Path/$1/$1.test.tsx
