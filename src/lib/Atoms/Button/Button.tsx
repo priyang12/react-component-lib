@@ -3,7 +3,7 @@ import { cx } from '@chakra-ui/utils';
 import { Variant } from '../interface';
 import './Button.scss';
 
-export interface IProps {
+export interface IButtonProps {
    text?: string;
    style?: any;
    as?: string;
@@ -26,28 +26,25 @@ function Button({
    children,
    className,
    ...props
-}: React.ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> & IProps) {
-   const btnClass = cx(
-      'btn',
-      ellipsis && 'ellipsis',
-      StyleClass,
+}: React.ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> &
+   IButtonProps) {
+   const WithIcon = React.Children.count('svg');
+
+   const classes = cx(
+      'Button',
       variant,
+      StyleClass,
       radius,
+      ellipsis && 'Button-ellipsis',
+      WithIcon && 'Button-icon',
       className
    );
 
    return (
-      <button
-         className={btnClass}
-         style={{
-            ...style,
-            borderRadius: radius,
-         }}
-         {...props}
-      >
-         {text ? text : children}
+      <button className={classes} style={style} {...props}>
+         {text}
+         {children}
       </button>
    );
 }
-
 export default Button;

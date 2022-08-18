@@ -1,12 +1,21 @@
-.btn {
+.Button {
    cursor: pointer;
    padding: 1em;
    text-align: center;
    border-radius: var(--btn-radius);
    z-index: 1;
+   svg {
+      width: var(--btn-icon-size);
+      height: var(--btn-icon-size);
+      margin-right: 0.5em;
+   }
 }
-
-.ellipsis {
+.Button-icon {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.Button-ellipsis {
    white-space: nowrap;
    overflow: hidden;
    text-overflow: ellipsis;

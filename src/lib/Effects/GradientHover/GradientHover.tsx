@@ -12,6 +12,7 @@ function GradientHover({
    BorderSize?: string;
    animation: string;
 }) {
+   // const Element = as || 'button';
    const { className } = props as any;
    const gradientClass = cx('gradient-layer', className);
    return (
