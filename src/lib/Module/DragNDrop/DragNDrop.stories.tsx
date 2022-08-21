@@ -1,7 +1,6 @@
 import DragNDrop from './index';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { GradientHover } from '../../Effects';
-import { Button } from '../../Atoms';
 
 export default {
    title: 'Module/DragNDrop',

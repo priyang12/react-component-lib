@@ -34,14 +34,20 @@ function Button({
       'Button',
       variant,
       StyleClass,
-      radius,
       ellipsis && 'Button-ellipsis',
       WithIcon && 'Button-icon',
       className
    );
 
    return (
-      <button className={classes} style={style} {...props}>
+      <button
+         className={classes}
+         style={{
+            borderRadius: radius,
+            ...style,
+         }}
+         {...props}
+      >
          {text}
          {children}
       </button>

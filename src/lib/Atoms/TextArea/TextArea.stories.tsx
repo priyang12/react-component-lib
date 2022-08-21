@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
-import TextArea from './index';
+import TextArea from './TextArea';
 
 export default {
    title: 'Atoms/TextArea',

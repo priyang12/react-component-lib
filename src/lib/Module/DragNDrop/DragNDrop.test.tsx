@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { composeStories } from '@storybook/testing-react';
 import * as DragNDropStories from './DragNDrop.stories';
 const { Template } = composeStories(DragNDropStories);
