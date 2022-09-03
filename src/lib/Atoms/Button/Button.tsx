@@ -3,7 +3,7 @@ import { cx } from '@chakra-ui/utils';
 import { Variant } from '../interface';
 import './Button.scss';
 
-export interface IButtonProps {
+export interface IButtonProps extends React.ComponentPropsWithoutRef<'button'> {
    text?: string;
    style?: any;
    as?: string;
@@ -26,10 +26,8 @@ function Button({
    children,
    className,
    ...props
-}: React.ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> &
-   IButtonProps) {
+}: IButtonProps) {
    const WithIcon = React.Children.count('svg');
-
    const classes = cx(
       'Button',
       variant,
