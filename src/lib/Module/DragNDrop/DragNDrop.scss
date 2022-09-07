@@ -13,17 +13,59 @@
       background-color: #000;
    }
 
-   input[type='file'] {
-      color: red;
-   }
    .DragNDropContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 500px;
+      padding: 1em;
+      color: #fff;
+      font-size: 3rem;
+   }
+   .DragNDropOverlay {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 500px;
-      padding: 1em;
-
       color: #fff;
       font-size: 3rem;
+      transition: all 0.2s ease-in;
+      pointer-events: none;
+      &.DragNDropOverlay--active {
+         opacity: 1;
+         pointer-events: all;
+      }
+      .DragNDropOverlayContent {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 500px;
+         padding: 1em;
+         color: #fff;
+         font-size: 3rem;
+         .DragNDropOverlayContentIcon {
+            font-size: 5rem;
+         }
+         .DragNDropOverlayContentText {
+            font-size: 2rem;
+         }
+      }
+   }
+   .DragNDropContent {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1em;
+      color: #fff;
+      font-size: 3rem;
+   }
+   input[type='file'] {
+      color: red;
+   }
+   .DragNDropInput {
+      display: none;
    }
 }
