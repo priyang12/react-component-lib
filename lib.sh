@@ -3,7 +3,7 @@
 # variables
 
 # Take User Input for Creating Component or deleting Component
-echo "Enter 1 to Component"
+echo "Enter 1 to Atoms"
 echo "Enter 2 to Module"
 echo "Enter 3 to Organisms"
 echo "Enter 4 to Templates"
@@ -108,7 +108,7 @@ action() {
 
 case $choice in
 1)
-    Path="src/lib/components"
+    Path="src/lib/Atoms"
     # Take User Input for Creating Component or deleting Component
     echo "Enter 1 to create Component"
     echo "Enter 2 to delete Component"
