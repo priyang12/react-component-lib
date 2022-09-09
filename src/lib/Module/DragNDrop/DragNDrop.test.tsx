@@ -10,7 +10,7 @@ it('should render without crashing with styles with default overlay', () => {
       1
    );
    expect(container.getElementsByClassName('DragNDropInput').length).toBe(1);
-   expect(container.getElementsByClassName('DragNDropContent').length).toBe(1);
+   expect(container.getElementsByClassName('DragNDropContent').length).toBe(2);
 });
 
 it('Check UnStyled', () => {

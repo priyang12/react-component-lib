@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { composeStories } from '@storybook/testing-react';
-import * as FormInputStories from './FormInput.stories';
+import * as FromControlStories from './FormControl.stories';
 import { ReactElement, JSXElementConstructor } from 'react';
 
-const { Template } = composeStories(FormInputStories);
+const { Template } = composeStories(FromControlStories);
 
 function setup(jsx: ReactElement<any, string | JSXElementConstructor<any>>) {
    return {

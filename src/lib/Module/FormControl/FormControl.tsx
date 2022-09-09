@@ -4,11 +4,27 @@ import Label from '../../Atoms/Label';
 import TextArea from '../../Atoms/TextArea';
 import { cx } from '@chakra-ui/utils';
 import { callAll } from '../../Utils/AllFunctionsCall';
-import './FormInput.scss';
+import './FormControl.scss';
 
-function FormInput({ style, overlay, check, children, ...restProps }: any) {
+export type FormControl = {
+   style?: React.CSSProperties;
+   overlay?: boolean;
+   check?: boolean;
+   children?: React.ReactNode;
+};
+
+function FormControl({
+   style,
+   overlay,
+   check,
+   children,
+   ...restProps
+}: FormControl) {
+   const FormControlClass = cx('form-control', {
+      'FormControl--overlay': overlay,
+      'FormControl--check': check,
+   });
    const [LabelCheck, setLabelCheck] = React.useState(false);
-
    const [Alert, setAlert] = React.useState('');
    const inputChange = (e: React.FormEvent<HTMLInputElement> | any) => {
       if (e.target.value.length > 0) {
@@ -24,8 +40,8 @@ function FormInput({ style, overlay, check, children, ...restProps }: any) {
       setLabelCheck(true);
    };
    return (
-      <div className="form-control" style={style} {...restProps}>
-         {React.Children.map(children, child => {
+      <div className={FormControlClass} style={style} {...restProps}>
+         {React.Children.map(children, (child: any) => {
             switch (child.type) {
                case Label:
                   return React.cloneElement(child, {
@@ -56,4 +72,4 @@ function FormInput({ style, overlay, check, children, ...restProps }: any) {
       </div>
    );
 }
-export default FormInput;
+export default FormControl;
