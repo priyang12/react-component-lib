@@ -10,6 +10,7 @@ export type FormControl = {
    style?: React.CSSProperties;
    overlay?: boolean;
    check?: boolean;
+   className?: string;
    children?: React.ReactNode;
 };
 
@@ -18,12 +19,10 @@ function FormControl({
    overlay,
    check,
    children,
+   className,
    ...restProps
 }: FormControl) {
-   const FormControlClass = cx('form-control', {
-      'FormControl--overlay': overlay,
-      'FormControl--check': check,
-   });
+   const FormControlClass = cx('form-control', className);
    const [LabelCheck, setLabelCheck] = React.useState(false);
    const [Alert, setAlert] = React.useState('');
    const inputChange = (e: React.FormEvent<HTMLInputElement> | any) => {

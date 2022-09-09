@@ -1,9 +1,21 @@
 import { useTimer } from '../../../Hooks/useTimer';
 import Button from '../../Atoms/Button';
 import { ButtonGroup } from '../../Module';
+import { cx } from '@chakra-ui/utils';
 import './Timer.scss';
 
-function Timer({ StartTime, Hidden }: { StartTime: number; Hidden: boolean }) {
+function Timer({
+   StartTime,
+   Hidden,
+   ...props
+}: {
+   StartTime: number;
+   Hidden: boolean;
+}) {
+   const { className } = props as any;
+
+   const TimerClass = cx('Timer', Hidden && 'hide', className);
+
    const {
       Hour,
       Minute,
@@ -14,7 +26,7 @@ function Timer({ StartTime, Hidden }: { StartTime: number; Hidden: boolean }) {
    } = useTimer(StartTime);
 
    return (
-      <div className="Timer">
+      <div className={TimerClass}>
          <h1 className="Heading">Timer</h1>
          <div className={Hidden ? 'TimeDisplay Hidden' : 'TimeDisplay'}>
             <p className="counter">

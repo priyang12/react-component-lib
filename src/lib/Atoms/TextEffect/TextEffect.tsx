@@ -9,6 +9,7 @@ export interface TextEffectProps {
    animateTime?: string;
    color1?: string;
    color2?: string;
+   className?: string;
 }
 
 function TextEffect({
@@ -19,9 +20,11 @@ function TextEffect({
    animateTime,
    color1 = '#e91e63',
    color2 = '#201f55',
+   className,
+   ...props
 }: TextEffectProps): React.ReactElement {
    return (
-      <div className="container">
+      <div className={className} {...props}>
          <Element
             className="Gradtext"
             style={{

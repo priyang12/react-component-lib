@@ -1,13 +1,21 @@
 import React from 'react';
 import Button from '../../Atoms/Button/Button';
-import { chakra } from '@chakra-ui/system';
+import { cx } from '@chakra-ui/utils';
 import './Search.scss';
 
-function Search({ SearchBtnHide, children, ...props }: any) {
-   // Maybe Later Debounce Search Input Can Be Used
+function Search({
+   SearchBtnHide,
+   children,
+   ...props
+}: {
+   SearchBtnHide?: boolean;
+   children?: React.ReactNode;
+}) {
+   const { className } = props as any;
+   const SerachClass = cx('search-container', SearchBtnHide, className);
    return (
-      <chakra.div className="search-container" {...props}>
-         {React.Children.map(children, child => {
+      <div className={SerachClass} {...props}>
+         {React.Children.map(children, (child: any) => {
             if (child.type === 'button' || child.type === Button) {
                return React.cloneElement(child, {
                   className: `search-btn ${SearchBtnHide ? 'hide' : ''}`,
@@ -15,7 +23,7 @@ function Search({ SearchBtnHide, children, ...props }: any) {
             }
             return child;
          })}
-      </chakra.div>
+      </div>
    );
 }
 export default Search;

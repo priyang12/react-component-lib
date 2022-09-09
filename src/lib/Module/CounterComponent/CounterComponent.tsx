@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { useCounter } from '../../../Hooks/useCounter';
 import Counter from '../../Atoms/Counter/Counter';
 import './CounterComponent.scss';
@@ -24,11 +25,11 @@ function CounterComponent({ initialValue = 0 }) {
       }
    };
    return (
-      <div>
+      <>
          <button onClick={() => onTrigger('increment')}>+</button>
          <Counter ref={ref} Count={Count} PreviousState={PreviousState} />
          <button onClick={() => onTrigger('decrement')}>-</button>
-      </div>
+      </>
    );
 }
 export default CounterComponent;
