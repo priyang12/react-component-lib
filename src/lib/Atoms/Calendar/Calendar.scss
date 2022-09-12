@@ -1,0 +1,86 @@
+.calender-title {
+   font-size: 1.5rem;
+   font-weight: 600;
+   color: var(--color-primary);
+   font-family: Arial, Helvetica, sans-serif;
+   display: flex;
+   justify-content: space-around;
+   .icons {
+      display: flex;
+      .iconContainer {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin: 0 0.5rem;
+         cursor: pointer;
+      }
+   }
+}
+.Months {
+   width: 100%;
+   margin-top: 1rem;
+   background-color: #000;
+   border-radius: var(--border-radius);
+   thead {
+      tr {
+         width: 100%;
+         display: flex;
+         justify-content: space-around;
+         align-items: center;
+         height: var(--calender-width);
+         th {
+            width: var(--calender-width);
+         }
+         abbr {
+            text-decoration: underline dotted;
+            letter-spacing: 3px;
+            font-weight: 600;
+            font-size: var(--font-size-medium);
+            color: var(--color-primary);
+         }
+      }
+   }
+}
+
+.calendar-days {
+   width: 100%;
+   .box {
+      width: var(--calender-width);
+   }
+   .week {
+      display: flex;
+      font-size: var(--font-size-medium);
+      font-weight: 600;
+      color: var(--color-primary);
+      text-transform: uppercase;
+
+      .day {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         padding: 1rem;
+         font-size: var(--font-size-medium);
+         font-weight: 600;
+         color: var(--color-primary);
+         cursor: pointer;
+         &.today {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+         }
+         &.selected {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+         }
+      }
+      .empty {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         padding: 1rem;
+         font-size: var(--font-size-medium);
+         font-weight: 600;
+         color: var(--color-primary);
+         cursor: pointer;
+      }
+   }
+}
