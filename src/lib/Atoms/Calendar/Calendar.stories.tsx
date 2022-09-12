@@ -1,4 +1,4 @@
-import { Calendar, CalendarDays } from './Calendar';
+import { Calendar } from './Calendar';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {

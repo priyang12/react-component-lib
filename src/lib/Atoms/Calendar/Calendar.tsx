@@ -1,10 +1,14 @@
 import {
+   addMonths,
+   addYears,
    endOfMonth,
    format,
    getDay,
    getDaysInMonth,
    setDate,
    startOfMonth,
+   subMonths,
+   subYears,
 } from 'date-fns';
 import { chunk } from 'lodash';
 import * as React from 'react';
@@ -81,15 +85,32 @@ function CalendarBody({
    );
 }
 
-function CalendarTitle({ selectedDate }: { selectedDate?: Date }) {
+function CalendarTitle({
+   selectedDate,
+   handleKeyPress,
+   setPreviousYear,
+   setNextMonth,
+   setPreviousMonth,
+   setNextYear,
+}: {
+   selectedDate?: Date;
+   handleKeyPress: (
+      event: React.KeyboardEvent<HTMLDivElement>,
+      fn: () => void
+   ) => void;
+   setPreviousYear: () => void;
+   setNextMonth: () => void;
+   setPreviousMonth: () => void;
+   setNextYear: () => void;
+}) {
    return (
       <div className="calender-title">
          <div className="icons">
             <div
                className="iconContainer"
                tabIndex={0}
-               //   onClick={setPreviousYear}
-               //   onKeyPress={e => handleKeyPress(e, setPreviousYear)}
+               onClick={setPreviousYear}
+               onKeyPress={e => handleKeyPress(e, setPreviousYear)}
                role="button"
                aria-label="Previous year"
             >
@@ -98,8 +119,8 @@ function CalendarTitle({ selectedDate }: { selectedDate?: Date }) {
             <div
                tabIndex={0}
                className="iconContainer"
-               //   onClick={setPreviousMonth}
-               //   onKeyPress={e => handleKeyPress(e, setPreviousMonth)}
+               onClick={setPreviousMonth}
+               onKeyPress={e => handleKeyPress(e, setPreviousMonth)}
                role="button"
                aria-label="Previous month"
             >
@@ -113,8 +134,8 @@ function CalendarTitle({ selectedDate }: { selectedDate?: Date }) {
             <div
                className="iconContainer"
                tabIndex={0}
-               //   onClick={setNextMonth}
-               //   onKeyPress={e => handleKeyPress(e, setNextMonth)}
+               onClick={setNextMonth}
+               onKeyPress={e => handleKeyPress(e, setNextMonth)}
                role="button"
                aria-label="Next year"
             >
@@ -123,8 +144,8 @@ function CalendarTitle({ selectedDate }: { selectedDate?: Date }) {
             <div
                className="iconContainer"
                tabIndex={0}
-               //   onClick={setNextYear}
-               //   onKeyPress={e => handleKeyPress(e, setNextYear)}
+               onClick={setNextYear}
+               onKeyPress={e => handleKeyPress(e, setNextYear)}
                role="button"
                aria-label="Next year"
             >
@@ -158,48 +179,70 @@ const Calendar = ({ date, ...props }: CalendarProps) => {
       return gridDays as Date[][];
    };
 
-   //    const setPreviousMonth = () => {
-   //       const previousMonth = subMonths(selectedDate, 1);
-   //       setStartDate(startOfMonth(previousMonth));
-   //    };
-   //    const setNextMonth = () => {
-   //       const nextMonth = addMonths(selectedDate, 1);
-   //       setStartDate(startOfMonth(nextMonth));
-   //    };
-   //    const setPreviousYear = () => {
-   //       const previousYear = subYears(selectedDate, 1);
-   //       setStartDate(startOfMonth(previousYear));
-   //    };
-   //    const setNextYear = () => {
-   //       const nextYear = addYears(selectedDate, 1);
-   //       setStartDate(startOfMonth(nextYear));
-   //    };
-   //    const handleKeyPress = (e, cb) => {
-   //       const charCode = e.charCode;
-   //       if (charCode === 13 || charCode === 32) {
-   //          cb();
-   //       }
-   //    };
+   const setPreviousMonth = () => {
+      const previousMonth = subMonths(selectedDate, 1);
+      setSelectedDate(previousMonth);
+   };
+   const setNextMonth = () => {
+      const nextMonth = addMonths(selectedDate, 1);
+      // console.log(startOfMonth(nextMonth));
+      setSelectedDate(nextMonth);
+   };
+   const setPreviousYear = () => {
+      const previousYear = subYears(selectedDate, 1);
+      setSelectedDate(previousYear);
+   };
+   const setNextYear = () => {
+      const nextYear = addYears(selectedDate, 1);
+      setSelectedDate(nextYear);
+   };
+   const handleKeyPress = (e: any, cb: any) => {
+      const charCode = e.charCode;
+      if (charCode === 13 || charCode === 32) {
+         cb();
+      }
+   };
 
-   console.log(generateMonth());
+   const SelectNewDate = (date: Date) => {
+      setSelectedDate(date);
+   };
 
    return (
       <div className="calendar" {...props}>
-         <CalendarTitle selectedDate={selectedDate} />
+         <CalendarTitle
+            selectedDate={selectedDate}
+            handleKeyPress={handleKeyPress}
+            setPreviousYear={setPreviousYear}
+            setNextMonth={setNextMonth}
+            setPreviousMonth={setPreviousMonth}
+            setNextYear={setNextYear}
+         />
          <CalendarBody>
             <tbody className="calendar-days">
                {generateMonth().map((week, index) => (
                   <tr key={index} role="row" className="week">
                      {week.map((day, index) =>
                         day ? (
-                           <td
-                              key={index}
-                              role="gridcell"
-                              aria-label={day && format(day, 'dd MMMM yyyy')}
-                              className="box day"
-                           >
-                              {day && format(day, 'd')}
-                           </td>
+                           day.getDate() === selectedDate.getDate() ? (
+                              <td
+                                 key={index}
+                                 role="gridcell"
+                                 aria-label={day && format(day, 'dd MMMM yyyy')}
+                                 className="box day CurrentDay"
+                              >
+                                 {day.getDate()}
+                              </td>
+                           ) : (
+                              <td
+                                 key={index}
+                                 role="gridcell"
+                                 aria-label={day && format(day, 'dd MMMM yyyy')}
+                                 className="box day"
+                                 onClick={() => SelectNewDate(day)}
+                              >
+                                 {day.getDate()}
+                              </td>
+                           )
                         ) : (
                            <td
                               key={index}
@@ -209,17 +252,6 @@ const Calendar = ({ date, ...props }: CalendarProps) => {
                            ></td>
                         )
                      )}
-                     {/* <div key={index} className="week">
-                     {week.map((day, index) =>
-                        day ? (
-                           <div key={index} className="day box">
-                              {format(day, 'd')}
-                           </div>
-                        ) : (
-                           <div key={index} className="empty box"></div>
-                        )
-                     )}
-                  </div> */}
                   </tr>
                ))}
             </tbody>

@@ -46,6 +46,11 @@
    width: 100%;
    .box {
       width: var(--calender-width);
+      border: 2px solid var(--color-primary);
+   }
+   .CurrentDay {
+      background-color: var(--color-secondary);
+      color: #fff;
    }
    .week {
       display: flex;
