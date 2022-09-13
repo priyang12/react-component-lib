@@ -41,6 +41,8 @@ function FormControl({
    return (
       <div className={FormControlClass} style={style} {...restProps}>
          {React.Children.map(children, (child: any) => {
+            console.log(child.type);
+
             switch (child.type) {
                case Label:
                   return React.cloneElement(child, {

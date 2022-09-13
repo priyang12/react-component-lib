@@ -1,4 +1,11 @@
-.calender-title {
+.calendar {
+   .calendar-footer {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 1rem;
+   }
+}
+.calendar-title {
    font-size: 1.5rem;
    font-weight: 600;
    color: var(--color-primary);
@@ -50,6 +57,7 @@
    }
    .CurrentDay {
       background-color: var(--color-secondary);
+      border-radius: 50%;
       color: #fff;
    }
    .week {
@@ -58,7 +66,6 @@
       font-weight: 600;
       color: var(--color-primary);
       text-transform: uppercase;
-
       .day {
          display: flex;
          justify-content: center;

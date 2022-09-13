@@ -12,13 +12,16 @@ import {
 } from 'date-fns';
 import { chunk } from 'lodash';
 import * as React from 'react';
+import { cx } from '@chakra-ui/utils';
 import {
    FaAngleDoubleLeft,
    FaAngleLeft,
    FaAngleRight,
    FaAngleDoubleRight,
+   FaCalendarAlt,
 } from 'react-icons/fa';
 import './Calendar.scss';
+import { withChakraProps } from '../../Utils/withChakraProps';
 
 const DefaultDaysFormate = [
    {
@@ -51,40 +54,6 @@ const DefaultDaysFormate = [
    },
 ];
 
-function CalendarBody({
-   DaysFormate = DefaultDaysFormate,
-   children,
-}: {
-   DaysFormate?: typeof DefaultDaysFormate;
-   children: React.ReactNode;
-}) {
-   return (
-      <table
-         id="grid"
-         tabIndex={0}
-         role="grid"
-         aria-label="Month"
-         className="Months"
-      >
-         <thead>
-            <tr role="row">
-               {DaysFormate.map((day, index) => (
-                  <th
-                     key={index}
-                     role="columnheader"
-                     aria-label={day.value}
-                     className="box"
-                  >
-                     <abbr title={day.value}>{day.name}</abbr>
-                  </th>
-               ))}
-            </tr>
-         </thead>
-         {children}
-      </table>
-   );
-}
-
 function CalendarTitle({
    selectedDate,
    handleKeyPress,
@@ -92,8 +61,11 @@ function CalendarTitle({
    setNextMonth,
    setPreviousMonth,
    setNextYear,
+   className,
+   ...props
 }: {
    selectedDate?: Date;
+   id?: string;
    handleKeyPress: (
       event: React.KeyboardEvent<HTMLDivElement>,
       fn: () => void
@@ -102,9 +74,11 @@ function CalendarTitle({
    setNextMonth: () => void;
    setPreviousMonth: () => void;
    setNextYear: () => void;
+   className?: string;
+   [key: string]: any;
 }) {
    return (
-      <div className="calender-title">
+      <div className={cx('calendar-title', className)} {...props}>
          <div className="icons">
             <div
                className="iconContainer"
@@ -156,12 +130,55 @@ function CalendarTitle({
    );
 }
 
-export type CalendarProps = {
-   date: Date;
-};
+function CalendarMonths({
+   DaysFormate = DefaultDaysFormate,
+   children,
+   className,
+   ...props
+}: {
+   DaysFormate?: typeof DefaultDaysFormate;
+   children: React.ReactNode;
+   className?: string;
+}) {
+   return (
+      <table
+         id="grid"
+         tabIndex={0}
+         role="grid"
+         aria-label="Month"
+         className={cx('Months', className)}
+         {...props}
+      >
+         <thead>
+            <tr role="row">
+               {DaysFormate.map((day, index) => (
+                  <th
+                     key={index}
+                     role="columnheader"
+                     aria-label={day.value}
+                     className="box"
+                  >
+                     <abbr title={day.value}>{day.name}</abbr>
+                  </th>
+               ))}
+            </tr>
+         </thead>
+         {children}
+      </table>
+   );
+}
 
-const Calendar = ({ date, ...props }: CalendarProps) => {
-   const [selectedDate, setSelectedDate] = React.useState(new Date(date));
+function CalendarDays({
+   selectedDate,
+   setSelectedDate,
+   className,
+   ...props
+}: {
+   selectedDate: Date;
+   id?: string;
+   setSelectedDate: (date: Date) => void;
+   className?: string;
+}) {
    const generateMonth = () => {
       const daysInMonth = getDaysInMonth(selectedDate);
       const startWeekday = getDay(startOfMonth(selectedDate));
@@ -178,7 +195,93 @@ const Calendar = ({ date, ...props }: CalendarProps) => {
       );
       return gridDays as Date[][];
    };
+   return (
+      <tbody className={cx('calendar-days', className)} {...props}>
+         {generateMonth().map((week, index) => (
+            <tr key={index} role="row" className="week">
+               {week.map((day, index) =>
+                  day ? (
+                     day.getDate() === selectedDate.getDate() ? (
+                        <td
+                           key={index}
+                           role="gridcell"
+                           aria-label={day && format(day, 'dd MMMM yyyy')}
+                           className="box day CurrentDay"
+                        >
+                           {day.getDate()}
+                        </td>
+                     ) : (
+                        <td
+                           key={index}
+                           role="gridcell"
+                           aria-label={day && format(day, 'dd MMMM yyyy')}
+                           className="box day"
+                           onClick={() => setSelectedDate(day)}
+                        >
+                           {day.getDate()}
+                        </td>
+                     )
+                  ) : (
+                     <td
+                        key={index}
+                        role="gridcell"
+                        aria-label={day && format(day, 'dd MMMM yyyy')}
+                        className="box empty"
+                     ></td>
+                  )
+               )}
+            </tr>
+         ))}
+      </tbody>
+   );
+}
 
+function CalendarFooter({
+   setSelectedDate,
+   className,
+   ...props
+}: {
+   setSelectedDate: (date: Date) => void;
+   className?: string;
+}) {
+   return (
+      <div className={cx('calendar-footer', className)} {...props}>
+         <div className="footer-text">
+            <div className="footer-text-container-title">
+               <FaCalendarAlt />
+               <span>Today</span>
+            </div>
+            <div className="footer-text-container-date">
+               {format(new Date(), 'dd MMMM yyyy')}
+            </div>
+         </div>
+         <div className="footer-text">
+            <button
+               className="footer-text-container-title"
+               onClick={() => {
+                  setSelectedDate(new Date());
+               }}
+            >
+               Clear
+            </button>
+         </div>
+      </div>
+   );
+}
+export type CalendarProps = {
+   selectedDate: Date;
+   setSelectedDate: (date: Date) => void;
+   children?: React.ReactNode;
+   className?: string;
+};
+
+const Calendar = ({
+   selectedDate,
+   setSelectedDate,
+   children,
+   className,
+   ...props
+}: CalendarProps) => {
    const setPreviousMonth = () => {
       const previousMonth = subMonths(selectedDate, 1);
       setSelectedDate(previousMonth);
@@ -208,55 +311,29 @@ const Calendar = ({ date, ...props }: CalendarProps) => {
    };
 
    return (
-      <div className="calendar" {...props}>
-         <CalendarTitle
-            selectedDate={selectedDate}
-            handleKeyPress={handleKeyPress}
-            setPreviousYear={setPreviousYear}
-            setNextMonth={setNextMonth}
-            setPreviousMonth={setPreviousMonth}
-            setNextYear={setNextYear}
-         />
-         <CalendarBody>
-            <tbody className="calendar-days">
-               {generateMonth().map((week, index) => (
-                  <tr key={index} role="row" className="week">
-                     {week.map((day, index) =>
-                        day ? (
-                           day.getDate() === selectedDate.getDate() ? (
-                              <td
-                                 key={index}
-                                 role="gridcell"
-                                 aria-label={day && format(day, 'dd MMMM yyyy')}
-                                 className="box day CurrentDay"
-                              >
-                                 {day.getDate()}
-                              </td>
-                           ) : (
-                              <td
-                                 key={index}
-                                 role="gridcell"
-                                 aria-label={day && format(day, 'dd MMMM yyyy')}
-                                 className="box day"
-                                 onClick={() => SelectNewDate(day)}
-                              >
-                                 {day.getDate()}
-                              </td>
-                           )
-                        ) : (
-                           <td
-                              key={index}
-                              role="gridcell"
-                              aria-label={day && format(day, 'dd MMMM yyyy')}
-                              className="box empty"
-                           ></td>
-                        )
-                     )}
-                  </tr>
-               ))}
-            </tbody>
-         </CalendarBody>
+      <div className={cx('calendar', className)} {...props}>
+         {React.Children.map(children, (child: any) => {
+            switch (child.props.id) {
+               case 'CalendarTitle':
+                  return React.cloneElement(child, {
+                     setPreviousMonth,
+                     setNextMonth,
+                     setPreviousYear,
+                     setNextYear,
+                     handleKeyPress,
+                  });
+               default:
+                  return child;
+            }
+         })}
       </div>
    );
 };
-export { Calendar, CalendarBody, CalendarTitle };
+
+export {
+   Calendar,
+   CalendarTitle,
+   CalendarDays,
+   CalendarFooter,
+   CalendarMonths,
+};

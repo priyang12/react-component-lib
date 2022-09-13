@@ -1,12 +1,22 @@
-import { Calendar, CalendarMounts, CalendarTitle } from './Calendar';
 import { withChakraProps } from '../../Utils/withChakraProps';
+import {
+   Calendar,
+   CalendarDays,
+   CalendarFooter,
+   CalendarMonths,
+   CalendarTitle,
+} from './Calendar';
 
 const ChakraCalendar = withChakraProps(Calendar);
-const ChakraCalendarMounts = withChakraProps(CalendarMounts);
-const ChakraCalendarTitle = withChakraProps(CalendarTitle);
+const ChakraTitle = withChakraProps(CalendarTitle);
+const ChakraMonths = withChakraProps(CalendarMonths);
+const ChakraDays = withChakraProps(CalendarDays);
+const ChakraFooter = withChakraProps(CalendarFooter);
 
 export {
    ChakraCalendar as Calendar,
-   ChakraCalendarMounts as CalendarDays,
-   ChakraCalendarTitle as CalendarTitle,
+   ChakraTitle as Title,
+   ChakraMonths as Months,
+   ChakraDays as Days,
+   ChakraFooter as Footer,
 };
