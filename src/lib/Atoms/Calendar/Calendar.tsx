@@ -21,7 +21,6 @@ import {
    FaCalendarAlt,
 } from 'react-icons/fa';
 import './Calendar.scss';
-import { withChakraProps } from '../../Utils/withChakraProps';
 
 const DefaultDaysFormate = [
    {
@@ -53,6 +52,23 @@ const DefaultDaysFormate = [
       value: 'Saturday',
    },
 ];
+
+const generateMonth = (selectedDate: Date) => {
+   const daysInMonth = getDaysInMonth(selectedDate);
+   const startWeekday = getDay(startOfMonth(selectedDate));
+   const endWeekday = getDay(endOfMonth(selectedDate));
+   const gridDays = chunk(
+      [
+         ...Array.from({ length: startWeekday }).fill(null),
+         ...Array.from({ length: daysInMonth }, (_, i) =>
+            setDate(selectedDate, i + 1)
+         ),
+         ...Array.from({ length: 6 - endWeekday }).fill(null),
+      ],
+      7
+   );
+   return gridDays as Date[][];
+};
 
 function CalendarTitle({
    selectedDate,
@@ -130,13 +146,11 @@ function CalendarTitle({
    );
 }
 
-function CalendarMonths({
-   DaysFormate = DefaultDaysFormate,
+function CalendarBody({
    children,
    className,
    ...props
 }: {
-   DaysFormate?: typeof DefaultDaysFormate;
    children: React.ReactNode;
    className?: string;
 }) {
@@ -145,26 +159,38 @@ function CalendarMonths({
          id="grid"
          tabIndex={0}
          role="grid"
-         aria-label="Month"
-         className={cx('Months', className)}
+         aria-label="calendar-body"
+         className={cx('calendar-body', className)}
          {...props}
       >
-         <thead>
-            <tr role="row">
-               {DaysFormate.map((day, index) => (
-                  <th
-                     key={index}
-                     role="columnheader"
-                     aria-label={day.value}
-                     className="box"
-                  >
-                     <abbr title={day.value}>{day.name}</abbr>
-                  </th>
-               ))}
-            </tr>
-         </thead>
          {children}
       </table>
+   );
+}
+
+function CalendarMonths({
+   DaysFormate = DefaultDaysFormate,
+   className,
+   ...props
+}: {
+   DaysFormate?: typeof DefaultDaysFormate;
+   className?: string;
+}) {
+   return (
+      <thead className={cx('Months', className)} {...props}>
+         <tr role="row">
+            {DaysFormate.map((day, index) => (
+               <th
+                  key={index}
+                  role="columnheader"
+                  aria-label={day.value}
+                  className="box"
+               >
+                  <abbr title={day.value}>{day.name}</abbr>
+               </th>
+            ))}
+         </tr>
+      </thead>
    );
 }
 
@@ -172,32 +198,20 @@ function CalendarDays({
    selectedDate,
    setSelectedDate,
    className,
+   DaysStyles,
+   CurrentDayStyles,
    ...props
 }: {
    selectedDate: Date;
    id?: string;
    setSelectedDate: (date: Date) => void;
+   DaysStyles?: {};
+   CurrentDayStyles?: {};
    className?: string;
 }) {
-   const generateMonth = () => {
-      const daysInMonth = getDaysInMonth(selectedDate);
-      const startWeekday = getDay(startOfMonth(selectedDate));
-      const endWeekday = getDay(endOfMonth(selectedDate));
-      const gridDays = chunk(
-         [
-            ...Array.from({ length: startWeekday }).fill(null),
-            ...Array.from({ length: daysInMonth }, (_, i) =>
-               setDate(selectedDate, i + 1)
-            ),
-            ...Array.from({ length: 6 - endWeekday }).fill(null),
-         ],
-         7
-      );
-      return gridDays as Date[][];
-   };
    return (
       <tbody className={cx('calendar-days', className)} {...props}>
-         {generateMonth().map((week, index) => (
+         {generateMonth(selectedDate).map((week, index) => (
             <tr key={index} role="row" className="week">
                {week.map((day, index) =>
                   day ? (
@@ -207,6 +221,7 @@ function CalendarDays({
                            role="gridcell"
                            aria-label={day && format(day, 'dd MMMM yyyy')}
                            className="box day CurrentDay"
+                           style={CurrentDayStyles}
                         >
                            {day.getDate()}
                         </td>
@@ -217,6 +232,7 @@ function CalendarDays({
                            aria-label={day && format(day, 'dd MMMM yyyy')}
                            className="box day"
                            onClick={() => setSelectedDate(day)}
+                           style={DaysStyles}
                         >
                            {day.getDate()}
                         </td>
@@ -227,6 +243,7 @@ function CalendarDays({
                         role="gridcell"
                         aria-label={day && format(day, 'dd MMMM yyyy')}
                         className="box empty"
+                        style={DaysStyles}
                      ></td>
                   )
                )}
@@ -257,7 +274,7 @@ function CalendarFooter({
          </div>
          <div className="footer-text">
             <button
-               className="footer-text-container-title"
+               className="clear-btn"
                onClick={() => {
                   setSelectedDate(new Date());
                }}
@@ -306,10 +323,6 @@ const Calendar = ({
       }
    };
 
-   const SelectNewDate = (date: Date) => {
-      setSelectedDate(date);
-   };
-
    return (
       <div className={cx('calendar', className)} {...props}>
          {React.Children.map(children, (child: any) => {
@@ -336,4 +349,5 @@ export {
    CalendarDays,
    CalendarFooter,
    CalendarMonths,
+   CalendarBody,
 };
