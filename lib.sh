@@ -90,6 +90,9 @@ action() {
                 Test $NAME
                 scss $NAME
                 index $NAME
+
+                # Write in index.tsx
+                echo "export * from './$NAME';" >>$Path/index.tsx
                 echo "Component Created"
             else
                 echo "Component Already Exists"
@@ -100,7 +103,13 @@ action() {
     else
         echo "Deleting Component"
         read -p "Enter Component Name: " NAME
+        echo "Component Name: $NAME"
         rm -rf $Path/$NAME
+
+        # Delete in index.tsx
+        # sed -i "/'./$NAME'/d" $Path/index.tsx // need to fix this
+        
+        echo "Component Deleted"
     fi
 
 }

@@ -1,8 +1,8 @@
 import Button from '../../Atoms/Button/Button';
 import Input from '../../Atoms/Input/Input';
+import Label from '../../Atoms/Label/Label';
 import { Search as ChakraSearch } from './index';
 import Search from './Search';
-import Label from '../../Atoms/Label';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 

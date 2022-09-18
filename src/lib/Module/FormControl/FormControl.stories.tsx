@@ -1,8 +1,8 @@
 import FormControl from './FormControl';
-import Label from '../../Atoms/Label';
-import { Input } from '../../Atoms/Input';
+import Label from '../../Atoms/Label/Label';
+import Input from '../../Atoms/Input/Input';
+import TextArea from '../../Atoms/TextArea/TextArea';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { TextArea } from '../../Atoms/TextArea';
 
 export default {
    title: 'Module/FormControl',

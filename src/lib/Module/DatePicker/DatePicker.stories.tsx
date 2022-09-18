@@ -1,6 +1,6 @@
+import * as React from 'react';
 import DatePicker from './DatePicker';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 import { Input } from '../../Atoms/Input';
 import { BsFillCalendarCheckFill, BsDoorClosed } from 'react-icons/bs';
 import { Button } from '../../Atoms';
