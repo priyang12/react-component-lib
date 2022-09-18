@@ -72,27 +72,36 @@ const generateMonth = (selectedDate: Date) => {
 
 function CalendarTitle({
    selectedDate,
-   handleKeyPress,
-   setPreviousYear,
-   setNextMonth,
-   setPreviousMonth,
-   setNextYear,
+   setSelectedDate,
    className,
    ...props
 }: {
-   selectedDate?: Date;
-   id?: string;
-   handleKeyPress: (
-      event: React.KeyboardEvent<HTMLDivElement>,
-      fn: () => void
-   ) => void;
-   setPreviousYear: () => void;
-   setNextMonth: () => void;
-   setPreviousMonth: () => void;
-   setNextYear: () => void;
    className?: string;
    [key: string]: any;
 }) {
+   const setPreviousMonth = () => {
+      const previousMonth = subMonths(selectedDate, 1);
+      setSelectedDate(previousMonth);
+   };
+   const setNextMonth = () => {
+      const nextMonth = addMonths(selectedDate, 1);
+      // console.log(startOfMonth(nextMonth));
+      setSelectedDate(nextMonth);
+   };
+   const setPreviousYear = () => {
+      const previousYear = subYears(selectedDate, 1);
+      setSelectedDate(previousYear);
+   };
+   const setNextYear = () => {
+      const nextYear = addYears(selectedDate, 1);
+      setSelectedDate(nextYear);
+   };
+   const handleKeyPress = (e: any, cb: any) => {
+      const charCode = e.charCode;
+      if (charCode === 13 || charCode === 32) {
+         cb();
+      }
+   };
    return (
       <div className={cx('calendar-title', className)} {...props}>
          <div className="icons">
@@ -203,7 +212,6 @@ function CalendarDays({
    ...props
 }: {
    selectedDate: Date;
-   id?: string;
    setSelectedDate: (date: Date) => void;
    DaysStyles?: {};
    CurrentDayStyles?: {};
@@ -258,8 +266,8 @@ function CalendarFooter({
    className,
    ...props
 }: {
-   setSelectedDate: (date: Date) => void;
    className?: string;
+   [key: string]: any;
 }) {
    return (
       <div className={cx('calendar-footer', className)} {...props}>
@@ -299,46 +307,16 @@ const Calendar = ({
    className,
    ...props
 }: CalendarProps) => {
-   // move functions to Title component
-   const setPreviousMonth = () => {
-      const previousMonth = subMonths(selectedDate, 1);
-      setSelectedDate(previousMonth);
-   };
-   const setNextMonth = () => {
-      const nextMonth = addMonths(selectedDate, 1);
-      // console.log(startOfMonth(nextMonth));
-      setSelectedDate(nextMonth);
-   };
-   const setPreviousYear = () => {
-      const previousYear = subYears(selectedDate, 1);
-      setSelectedDate(previousYear);
-   };
-   const setNextYear = () => {
-      const nextYear = addYears(selectedDate, 1);
-      setSelectedDate(nextYear);
-   };
-   const handleKeyPress = (e: any, cb: any) => {
-      const charCode = e.charCode;
-      if (charCode === 13 || charCode === 32) {
-         cb();
-      }
-   };
-
    return (
       <div className={cx('calendar', className)} {...props}>
-         {React.Children.map(children, (child: any) => {
-            switch (child.props.id) {
-               case 'CalendarTitle':
-                  return React.cloneElement(child, {
-                     setPreviousMonth,
-                     setNextMonth,
-                     setPreviousYear,
-                     setNextYear,
-                     handleKeyPress,
-                  });
-               default:
-                  return child;
+         {React.Children.map(children, child => {
+            if (React.isValidElement(child)) {
+               return React.cloneElement(child, {
+                  selectedDate,
+                  setSelectedDate,
+               });
             }
+            return child;
          })}
       </div>
    );

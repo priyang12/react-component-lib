@@ -26,22 +26,21 @@ export const Template: ComponentStory<typeof Calendar> = args => {
          selectedDate={selectedDate}
          setSelectedDate={setSelectedDate}
       >
-         {/* @ts-ignore */}
-         <CalendarTitle selectedDate={selectedDate} id="CalendarTitle" />
+         <CalendarTitle />
          <CalendarBody>
             <CalendarMonths />
             <CalendarDays
-               id="CalendarDays"
                selectedDate={selectedDate}
                setSelectedDate={setSelectedDate}
             />
          </CalendarBody>
-         <CalendarFooter setSelectedDate={setSelectedDate} />
+         <CalendarFooter />
       </Calendar>
    );
 };
 
 export const GlassCalendar = Template.bind({});
+
 GlassCalendar.args = {
    className: 'glass-calendar',
 };

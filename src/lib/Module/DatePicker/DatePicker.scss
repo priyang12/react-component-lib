@@ -2,16 +2,8 @@
    width: 100%;
    display: flex;
    align-items: center;
-   justify-content: space-evenly;
    position: relative;
-   .calendar-icon {
-      margin: 0;
-      font-size: var(--font-size-large);
-   }
-   .date-picker-cal {
-      position: absolute;
-      top: 80%;
-      left: 20%;
-      background-color: #fff;
+   .calendar-body {
+      user-select: none;
    }
 }
