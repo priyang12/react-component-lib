@@ -1,4 +1,5 @@
 import { withChakraProps } from '../../Utils/withChakraProps';
 import TextEffect from './TextEffect';
 
-export default withChakraProps(TextEffect);
+const ChakraTextEffect = withChakraProps(TextEffect);
+export { ChakraTextEffect as TextEffect };

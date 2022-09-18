@@ -299,6 +299,7 @@ const Calendar = ({
    className,
    ...props
 }: CalendarProps) => {
+   // move functions to Title component
    const setPreviousMonth = () => {
       const previousMonth = subMonths(selectedDate, 1);
       setSelectedDate(previousMonth);

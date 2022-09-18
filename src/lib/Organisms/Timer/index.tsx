@@ -1,4 +1,5 @@
 import { withChakraProps } from '../../Utils/withChakraProps';
 import Timer from './Timer';
 
-export default withChakraProps(Timer);
+const ChakraTimer = withChakraProps(Timer);
+export { ChakraTimer as Timer };

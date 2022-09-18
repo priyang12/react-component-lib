@@ -1,4 +1,4 @@
-import Timer from './index';
+import Timer from './Timer';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {

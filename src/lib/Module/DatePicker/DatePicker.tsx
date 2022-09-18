@@ -1,15 +1,15 @@
 import * as React from 'react';
-import Input from '../../Atoms/Input';
+import { Input } from '../../Atoms/Input';
 import { BsFillCalendarCheckFill } from 'react-icons/bs';
 import './DatePicker.scss';
 import { Button } from '../../Atoms';
 import {
    Calendar,
-   Days,
-   Footer,
-   Months,
-   Title,
-   Body,
+   CalendarBody,
+   CalendarDays,
+   CalendarFooter,
+   CalendarMonths,
+   CalendarTitle,
 } from '../../Atoms/Calendar';
 function DatePicker() {
    const [showCalendar, setShowCalendar] = React.useState(true);
@@ -38,16 +38,16 @@ function DatePicker() {
                selectedDate={selectedDate}
                setSelectedDate={setSelectedDate}
             >
-               <Title selectedDate={selectedDate} id="CalendarTitle" />
-               <Body>
-                  <Months />
-                  <Days
+               <CalendarTitle selectedDate={selectedDate} id="CalendarTitle" />
+               <CalendarBody>
+                  <CalendarMonths />
+                  <CalendarDays
                      id="CalendarDays"
                      selectedDate={selectedDate}
                      setSelectedDate={setSelectedDate}
                   />
-               </Body>
-               <Footer setSelectedDate={setSelectedDate} />
+               </CalendarBody>
+               <CalendarFooter setSelectedDate={setSelectedDate} />
             </Calendar>
          )}
       </div>

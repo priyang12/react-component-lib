@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Input from '../../Atoms/Input';
-import Label from '../../Atoms/Label';
-import TextArea from '../../Atoms/TextArea';
+import { Input } from '../../Atoms/Input';
+import { Label } from '../../Atoms/Label';
+import { TextArea } from '../../Atoms/TextArea';
 import { cx } from '@chakra-ui/utils';
 import { callAll } from '../../Utils/AllFunctionsCall';
 import './FormControl.scss';
@@ -41,8 +41,6 @@ function FormControl({
    return (
       <div className={FormControlClass} style={style} {...restProps}>
          {React.Children.map(children, (child: any) => {
-            console.log(child.type);
-
             switch (child.type) {
                case Label:
                   return React.cloneElement(child, {

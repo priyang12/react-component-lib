@@ -1,5 +1,5 @@
 import { useTimer } from '../../../Hooks/useTimer';
-import Button from '../../Atoms/Button';
+import Button from '../../Atoms/Button/Button';
 import { ButtonGroup } from '../../Module';
 import { cx } from '@chakra-ui/utils';
 import './Timer.scss';

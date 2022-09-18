@@ -1,4 +1,6 @@
 import Button from './Button';
 import { withChakraProps } from '../../Utils/withChakraProps';
 
-export default withChakraProps(Button);
+const ChakraButton = withChakraProps(Button);
+
+export { ChakraButton as Button };

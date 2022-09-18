@@ -1,4 +1,5 @@
-import DragNDrop from './index';
+// import { DragNDrop } from './index';
+import DragNDrop from './DragNDrop';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { GradientHover } from '../../Effects';
 import React from 'react';

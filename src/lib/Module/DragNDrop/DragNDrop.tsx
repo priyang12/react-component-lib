@@ -2,7 +2,7 @@ import { cx } from '@chakra-ui/utils';
 import * as React from 'react';
 import './DragNDrop.scss';
 
-type PropType = {
+export type PropType = {
    children: React.ReactNode;
    onUpload: (files: FileList | any) => void;
    unstyled?: boolean;

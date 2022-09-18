@@ -1,7 +1,8 @@
-import Button from '../../Atoms/Button';
-import Input from '../../Atoms/Input';
+import Button from '../../Atoms/Button/Button';
+import Input from '../../Atoms/Input/Input';
+import { Search as ChakraSearch } from './index';
+import Search from './Search';
 import Label from '../../Atoms/Label';
-import Search from './index';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
@@ -17,8 +18,9 @@ export default {
 } as ComponentMeta<typeof Search>;
 
 export const Template: ComponentStory<typeof Search> = args => (
-   <Search
+   <ChakraSearch
       as="form"
+      display="flex"
       bgColor="#20bcf0"
       onSubmit={(e: any) => {
          e.preventDefault();
@@ -33,12 +35,12 @@ export const Template: ComponentStory<typeof Search> = args => (
          type="text"
          placeholder="Find your Product"
          id="Search"
-         size="medium"
+         InputSize="medium"
       />
       <Button variant="primary" className="search-btn">
          Search
       </Button>
-   </Search>
+   </ChakraSearch>
 );
 
 export const SearchBtnHide = Template.bind({});

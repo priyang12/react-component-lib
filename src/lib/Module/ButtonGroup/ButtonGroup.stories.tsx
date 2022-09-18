@@ -1,4 +1,4 @@
-import ChakraButtonGroup from './index';
+import { ButtonGroup as ChakraButtonGroup } from './index';
 import ButtonGroup from './ButtonGroup';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from '../../Atoms';

@@ -1,4 +1,6 @@
 import { withChakraProps } from '../../Utils/withChakraProps';
 import Input from './Input';
 
-export default withChakraProps(Input);
+const ChakraInput = withChakraProps(Input);
+
+export { ChakraInput as Input };

@@ -1,4 +1,5 @@
 import { withChakraProps } from '../../Utils/withChakraProps';
 import TextLanding from './TextLanding';
 
-export default withChakraProps(TextLanding);
+const ChakraTextLanding = withChakraProps(TextLanding);
+export { ChakraTextLanding as TextLanding };

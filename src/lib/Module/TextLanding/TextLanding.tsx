@@ -1,11 +1,10 @@
 import * as React from 'react';
-import TextEffect from '../../Atoms/TextEffect';
+import { TextEffect } from '../../Atoms/TextEffect';
 import './TextLanding.scss';
 
 function TextLanding(props: any): React.ReactElement {
-   console.log('TextLanding props: ', props);
    return (
-      <div>
+      <div {...props}>
          <TextEffect
             ContainerText="First Test"
             Element="p"

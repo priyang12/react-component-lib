@@ -1,4 +1,4 @@
-import CounterComponent from './index';
+import CounterComponent from './CounterComponent';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 export default {
    title: 'Module/CounterComponent',

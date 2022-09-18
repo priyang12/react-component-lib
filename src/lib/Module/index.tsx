@@ -1,6 +1,8 @@
-import ButtonDes from './ButtonDes';
-import FormControl from './FormControl';
-import ButtonGroup from './ButtonGroup';
-import Search from './Search';
-
-export { ButtonDes, ButtonGroup, FormControl, Search };
+export * from './ButtonDes';
+export * from './FormControl';
+export * from './ButtonGroup';
+export * from './Search';
+export * from './TextLanding';
+export * from './DatePicker';
+export * from './TextLanding';
+export * from './DragNDrop';

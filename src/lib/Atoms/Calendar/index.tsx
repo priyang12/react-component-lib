@@ -17,9 +17,9 @@ const ChakraFooter = withChakraProps(CalendarFooter);
 
 export {
    ChakraCalendar as Calendar,
-   ChakraTitle as Title,
-   ChakraBody as Body,
-   ChakraMonths as Months,
-   ChakraDays as Days,
-   ChakraFooter as Footer,
+   ChakraTitle as CalendarTitle,
+   ChakraBody as CalendarBody,
+   ChakraMonths as CalendarMonths,
+   ChakraDays as CalendarDays,
+   ChakraFooter as CalendarFooter,
 };

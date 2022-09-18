@@ -1,4 +1,5 @@
 import VercelButton from './VercelButton';
 import { withChakraProps } from '../../Utils/withChakraProps';
 
-export default withChakraProps(VercelButton);
+const ChakraVercelButton = withChakraProps(VercelButton);
+export { ChakraVercelButton as VercelButton };

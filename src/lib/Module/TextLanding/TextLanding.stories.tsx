@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import TextLanding from './index';
+import TextLanding from './TextLanding';
+
 export default {
    title: 'Module/TextLanding',
    component: TextLanding,

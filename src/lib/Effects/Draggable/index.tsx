@@ -1,3 +1,6 @@
 import Draggable from './Draggable';
 import { withChakraProps } from '../../Utils/withChakraProps';
-export default withChakraProps(Draggable);
+
+const ChakraDraggable = withChakraProps(Draggable);
+
+export { ChakraDraggable as Draggable };

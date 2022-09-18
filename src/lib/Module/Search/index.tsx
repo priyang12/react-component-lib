@@ -1,4 +1,5 @@
 import { withChakraProps } from '../../Utils/withChakraProps';
 import Search from './Search';
 
-export default withChakraProps(Search);
+const ChakraSSearch = withChakraProps(Search);
+export { ChakraSSearch as Search };
