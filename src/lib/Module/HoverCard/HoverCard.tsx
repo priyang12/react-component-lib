@@ -1,11 +1,23 @@
-import { useMemo, useState } from 'react';
-import { FaClock, FaEye } from 'react-icons/fa';
-import HiddenCard from './HiddenCard';
+import React, { useContext, useMemo, useState } from 'react';
+import { cx } from '@chakra-ui/utils';
 import debounce from 'lodash.debounce';
 import './HoverCard.scss';
 
-function HoverCard({ PreviewTitle, ...props }: { PreviewTitle: string }) {
+export const CardContext = React.createContext(
+   {} as {
+      Show: boolean;
+      setShow: React.Dispatch<React.SetStateAction<boolean>>;
+      debouncedHandleMouseEnter: () => void;
+      handleOnMouseLeave: () => void;
+      cancelDebounce: () => void;
+   }
+);
+
+CardContext.displayName = 'CardContext';
+
+function CardWrapper({ children }: { children: React.ReactNode }) {
    const [Show, setShow] = useState(false);
+
    const debouncedHandleMouseEnter = useMemo(
       () =>
          debounce(() => {
@@ -18,46 +30,106 @@ function HoverCard({ PreviewTitle, ...props }: { PreviewTitle: string }) {
       setShow(false);
    };
 
+   const cancelDebounce = () => {
+      debouncedHandleMouseEnter.cancel();
+   };
+
    return (
-      <article className="card" {...props}>
+      <CardContext.Provider
+         value={{
+            Show,
+            setShow,
+            debouncedHandleMouseEnter,
+            handleOnMouseLeave,
+            cancelDebounce,
+         }}
+      >
+         {children}
+      </CardContext.Provider>
+   );
+}
+
+function CardImage({
+   PreviewTitle,
+   className,
+   children,
+}: {
+   PreviewTitle: string;
+   className?: string;
+   children?: React.ReactNode;
+}) {
+   const { cancelDebounce, debouncedHandleMouseEnter } = useContext(
+      CardContext
+   );
+   const CardImageClassName = cx('preview-img', className);
+   return (
+      <div
+         className={CardImageClassName}
+         style={
+            {
+               '--content': PreviewTitle,
+            } as React.CSSProperties
+         }
+         onMouseOver={debouncedHandleMouseEnter}
+         onMouseLeave={cancelDebounce}
+      >
+         {children}
+      </div>
+   );
+}
+
+function CardBottom({ children, ...props }: any) {
+   const CardBottomClassName = cx('card-bottom', props.className);
+   return (
+      <div className={CardBottomClassName} {...props}>
+         {children}
+      </div>
+   );
+}
+
+const HiddenCard = ({
+   children,
+   className,
+}: {
+   children: React.ReactNode;
+   className?: string;
+}) => {
+   const HiddenCardClassName = cx('hidden-card', className);
+   const { handleOnMouseLeave, Show } = useContext(CardContext);
+   return (
+      <div
+         className={HiddenCardClassName}
+         style={{
+            display: `${!Show ? 'none' : 'flex'}`,
+         }}
+         onMouseLeave={handleOnMouseLeave}
+      >
+         {children}
+      </div>
+   );
+};
+
+export interface HoverCardProps extends React.HTMLAttributes<HTMLElement> {
+   PreviewTitle: string;
+   className?: string;
+}
+
+function HoverCard({ className, children, ...props }: HoverCardProps) {
+   const CardClasses = cx('card', className);
+   const { Show, cancelDebounce } = useContext(CardContext);
+   return (
+      <article className={CardClasses} {...props}>
          <div
-            className="preview_Card"
+            className="preview-card"
             style={{
                display: !Show ? '' : 'none',
             }}
-            onMouseOver={() => {
-               debouncedHandleMouseEnter();
-            }}
-            onMouseLeave={() => {
-               debouncedHandleMouseEnter.cancel();
-            }}
+            onMouseLeave={cancelDebounce}
          >
-            <div
-               className="preview_Card_img"
-               style={{
-                  // @ts-ignore
-                  '--content': PreviewTitle,
-               }}
-            >
-               <img
-                  src="https://i.ytimg.com/vi/eHXcd_DfUmg/maxresdefault.jpg"
-                  alt="The Best of Ed Sheeran"
-               />
-            </div>
-            <div className="info">
-               <h2>Ed Sheena</h2>
-               <div className="card__info-item">
-                  <FaClock />
-                  <span>Time 14:00</span>
-               </div>
-               <div className="card__info-item">
-                  <FaEye />
-                  <span>1.5 min</span>
-               </div>
-            </div>
+            {children}
          </div>
-         <HiddenCard handleOnMouseLeave={handleOnMouseLeave} Show={Show} />
       </article>
    );
 }
-export default HoverCard;
+
+export { HoverCard, CardBottom, CardImage, CardWrapper, HiddenCard };

@@ -1,46 +1,42 @@
 import React from 'react';
-import { chakra, ChakraProps } from '@chakra-ui/system';
+import { cx } from '@chakra-ui/utils';
 import './Ring.scss';
 
-export interface RingProps extends ChakraProps {
+export interface RingProps extends React.ComponentPropsWithoutRef<'div'> {
    radius?: string;
    ringColor?: string;
    ringWidth?: string;
    OuterRingColor?: string;
-   Element?: React.ElementType;
+   className?: string;
    children: React.ReactNode;
 }
 
-function Ring(props: RingProps) {
-   const {
-      Element,
-      children,
-      radius,
-      ringColor,
-      ringWidth = '5px',
-      OuterRingColor,
-      ...restProps
-   } = props;
+function Ring({
+   children,
+   radius,
+   ringColor,
+   ringWidth = '5px',
+   OuterRingColor,
+   className,
+   ...props
+}: RingProps) {
+   const RingClass = cx('ring', className);
    return (
-      <chakra.div as={Element} {...restProps}>
-         <div
-            className="ring"
-            style={{
-               // @ts-ignore
+      <div
+         className={RingClass}
+         style={
+            {
                '--ring-color': ringColor,
                '--ring-width': `calc(${ringWidth} + 2px)`,
                '--ring-offset-color': OuterRingColor,
                borderRadius: radius,
-            }}
-         >
-            {children}
-         </div>
-      </chakra.div>
+            } as React.CSSProperties
+         }
+         {...props}
+      >
+         {children}
+      </div>
    );
 }
-
-Ring.defaultProps = {
-   Element: 'div',
-};
 
 export default Ring;

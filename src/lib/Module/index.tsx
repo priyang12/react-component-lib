@@ -6,3 +6,4 @@ export * from './TextLanding';
 export * from './DatePicker';
 export * from './TextLanding';
 export * from './DragNDrop';
+export * from './HoverCard';

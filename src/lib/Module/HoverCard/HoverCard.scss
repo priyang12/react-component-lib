@@ -1,13 +1,15 @@
 img {
    display: block;
-   height: 10rem;
+   width: 100%;
    border-top-left-radius: var(--card-radius);
    border-top-right-radius: var(--card-radius);
 }
-.preview_Card_img {
+.preview-img {
    position: relative;
    object-fit: cover;
    --content: 'Hover To Preview';
+   border-top-left-radius: var(--card-radius);
+   border-top-right-radius: var(--card-radius);
    &::after {
       content: var(--content);
       position: absolute;
@@ -31,7 +33,7 @@ img {
    height: 200px;
    object-fit: cover;
 }
-.preview_Card {
+.preview-card {
    cursor: pointer;
    width: 300px;
    padding-bottom: 2em;
@@ -45,7 +47,7 @@ img {
    justify-content: center;
    align-items: center;
 }
-.hidden_Card {
+.hidden-card {
    flex-direction: column;
    justify-content: center;
    align-items: center;
