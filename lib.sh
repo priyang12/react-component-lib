@@ -37,7 +37,7 @@ scss() {
 }
 Story() {
     # Write Story For Component
-    echo "import $1 from './index';" >>$Path/$1/$1.stories.tsx
+    echo "import $1 from './$1';" >>$Path/$1/$1.stories.tsx
     echo "import { ComponentStory, ComponentMeta } from '@storybook/react';" >>$Path/$1/$1.stories.tsx
     echo "export default { " >>$Path/$1/$1.stories.tsx
     echo "title: 'Atoms/$1'," >>$Path/$1/$1.stories.tsx
