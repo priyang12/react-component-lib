@@ -1,0 +1,11 @@
+.date {
+   display: flex;
+   & > * {
+      flex: 1;
+      padding: 1em;
+      cursor: pointer;
+      &:focus {
+         border: 2px solid var(--color-primary);
+      }
+   }
+}

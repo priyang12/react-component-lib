@@ -16,9 +16,9 @@ Rfce() {
     # Write the Component Name
     echo "import * as React from 'react';" >>$Path/$1/$1.tsx
     echo "import './$1.scss';" >>$Path/$1/$1.tsx
-    echo "function $1() {" >>$Path/$1/$1.tsx
+    echo "function $1({...props} : any) {" >>$Path/$1/$1.tsx
     echo "    return ( " >>$Path/$1/$1.tsx
-    echo "        <div>" >>$Path/$1/$1.tsx
+    echo "        <div {...props}>" >>$Path/$1/$1.tsx
     echo "           $1" >>$Path/$1/$1.tsx
     echo "        </div>" >>$Path/$1/$1.tsx
     echo "    )" >>$Path/$1/$1.tsx
@@ -42,7 +42,7 @@ Story() {
     echo "export default { " >>$Path/$1/$1.stories.tsx
     echo "title: 'Atoms/$1'," >>$Path/$1/$1.stories.tsx
     echo " component: $1," >>$Path/$1/$1.stories.tsx
-    echo "decorators: [(story) => <div className="container">{story()}</div>]," >>$Path/$1/$1.stories.tsx
+    echo "decorators: [(story) => <div className=\"container\">{story()}</div>]," >>$Path/$1/$1.stories.tsx
     echo "} as ComponentMeta<typeof $1>;" >>$Path/$1/$1.stories.tsx
     echo "export const Template : ComponentStory<typeof $1> = (args) => <$1 {...args} />;" >>$Path/$1/$1.stories.tsx
 }

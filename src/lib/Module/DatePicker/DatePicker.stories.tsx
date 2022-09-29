@@ -26,9 +26,7 @@ export const Template: ComponentStory<typeof DatePicker> = args => {
          <Input
             type={'text'}
             InputSize="large"
-            onClick={() => setShowCalendar(!showCalendar)}
             value={selectedDate.toDateString()}
-            disabled={showCalendar}
          />
          <Button
             variant="primary-border"

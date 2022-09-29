@@ -23,7 +23,13 @@ export const useCounter = (
       min: number | null;
    }
 ) => {
-   const [Count, setCount] = React.useState(MINMAX.min || initialCount);
+   const [Count, setCount] = React.useState(
+      MINMAX.min
+         ? MINMAX.min > initialCount
+            ? MINMAX.min
+            : initialCount
+         : initialCount
+   );
    const [PreviousState, setPreviousState] = React.useState(
       MINMAX.min || initialCount
    );
@@ -42,6 +48,15 @@ export const useCounter = (
       setCount(prevCount => prevCount + 1);
    }, [Count, Max]);
 
+   const RoundIncrement = React.useCallback(() => {
+      if (Count === Max) {
+         setCount(MINMAX.min || 1);
+      } else {
+         setPreviousState(Count);
+         setCount(prevCount => prevCount + 1);
+      }
+   }, [Count, Max]);
+
    const Decrement = React.useCallback(() => {
       if (
          (Min !== null && Count <= Min) ||
@@ -53,15 +68,27 @@ export const useCounter = (
       setCount(prevCount => prevCount - 1);
    }, [Count, Min]);
 
+   const RoundDecrement = React.useCallback(() => {
+      if (Count === Min) {
+         setCount(MINMAX.max || 31);
+      } else {
+         setPreviousState(Count);
+         setCount(prevCount => prevCount - 1);
+      }
+   }, [Count, Min]);
+
    const resetCounter = () => {
       setCount(initialCount);
       setMax(MINMAX.max);
       setMin(MINMAX.min);
    };
 
-   const setCounter = (value: number) => {
-      setCount(value);
-   };
+   const setCounter = React.useCallback(
+      (value: number) => {
+         setCount(value);
+      },
+      [Count]
+   );
 
    const setMaxCounter = (value: number) => {
       setMax(value);
@@ -82,6 +109,8 @@ export const useCounter = (
       PreviousState,
       NextState: Count + 1,
       Increment,
+      RoundIncrement,
+      RoundDecrement,
       Decrement,
       resetCounter,
       setCounter,
