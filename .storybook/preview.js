@@ -1,13 +1,9 @@
 import '../src/lib/styles/Global.scss';
 import { themes } from '@storybook/theming';
 import { setConsoleOptions } from '@storybook/addon-console';
-import { addons } from '@storybook/addons';
 
 setConsoleOptions({
    panelExclude: [],
-});
-addons.setConfig({
-   enableShortcuts: false,
 });
 
 export const parameters = {

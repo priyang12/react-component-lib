@@ -12,6 +12,7 @@ import {
    CalendarMonths,
    CalendarDays,
    CalendarFooter,
+   DateField,
 } from '../dist';
 
 import '../dist/react-component-lib.cjs.development.css';
@@ -38,13 +39,13 @@ const App = () => {
             <CalendarBody>
                <CalendarMonths />
                <CalendarDays
-                  id="CalendarDays"
                   selectedDate={selectedDate}
                   setSelectedDate={setSelectedDate}
                />
             </CalendarBody>
             <CalendarFooter setSelectedDate={setSelectedDate} />
          </Calendar>
+         <DateField id="date" label="date" />
       </div>
    );
 };

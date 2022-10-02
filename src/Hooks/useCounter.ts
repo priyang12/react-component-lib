@@ -23,13 +23,13 @@ export const useCounter = (
       min: number | null;
    }
 ) => {
-   const [Count, setCount] = React.useState(
-      MINMAX.min
-         ? MINMAX.min > initialCount
-            ? MINMAX.min
-            : initialCount
-         : initialCount
-   );
+   const [Count, setCount] = React.useState(() => {
+      if (MINMAX.min && MINMAX.min > initialCount) {
+         return MINMAX.min;
+      }
+      return initialCount;
+   });
+
    const [PreviousState, setPreviousState] = React.useState(
       MINMAX.min || initialCount
    );
