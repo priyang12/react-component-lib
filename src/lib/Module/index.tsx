@@ -3,6 +3,7 @@ export * from './FormControl';
 export * from './ButtonGroup';
 export * from './Search';
 export * from './TextLanding';
+export * from './DateField';
 export * from './DatePicker';
 export * from './TextLanding';
 export * from './DragNDrop';

@@ -18,7 +18,14 @@ export const Template: ComponentStory<typeof DateField> = args => {
 
 export const FormateDate = Template.bind({});
 FormateDate.args = {
-   formattedDate: 'YYYY/MM/DD',
+   formattedDate: 'MM/YYYY/DD',
+};
+
+export const FieldStyled = Template.bind({});
+FieldStyled.args = {
+   FieldInputStyles: {
+      padding: '20px',
+   },
 };
 
 export const WithForm: ComponentStory<typeof DateField> = args => {

@@ -7,4 +7,3 @@ export * from './VercelButton';
 export * from './Calendar';
 export * from './Counter';
 export * from './ProgressBar';
-export * from './DateField';
