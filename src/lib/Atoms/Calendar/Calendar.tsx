@@ -50,6 +50,20 @@ const DefaultDaysFormate = [
    },
 ];
 
+const Keys = {
+   Enter: 'Enter',
+   Space: ' ',
+   ArrowLeft: 'ArrowLeft',
+   ArrowRight: 'ArrowRight',
+   ArrowUp: 'ArrowUp',
+   ArrowDown: 'ArrowDown',
+   PageUp: 'PageUp',
+   PageDown: 'PageDown',
+   Home: 'Home',
+   End: 'End',
+   ESC: 'Escape',
+} as const;
+
 const generateMonth = (selectedDate: Date) => {
    const daysInMonth = getDaysInMonth(selectedDate);
    const startWeekday = getDay(startOfMonth(selectedDate));
@@ -91,7 +105,6 @@ function CalendarTitle({
    };
    const setNextMonth = () => {
       const nextMonth = addMonths(LookDate, 1);
-      // console.log(startOfMonth(nextMonth));
       setLookDate(nextMonth);
       setSelectedDate(nextMonth);
    };
@@ -211,45 +224,46 @@ function CalendarBody({
       setLookDate(endOfMonth(LookDate));
    };
 
-   const handleTableKeyPress = (e: any) => {
-      const keyCode = e.keyCode;
+   const handleTableKeyPress = (e: React.KeyboardEvent<HTMLTableElement>) => {
+      e.preventDefault();
+      const keyCode = e.key;
       // Check if control key was pressed
       // const control = e.ctrlKey;
       // Use shift key to prevent browser shortcut conflicts
       const control = e.shiftKey;
 
       switch (keyCode) {
-         case 13: //Enter
+         case Keys.Enter:
             setSelectedDate(new Date(format(LookDate, 'yyyy-MM-dd')));
             return;
-         case 27: //Esc
+         case Keys.ESC:
             //  closeCalendar();
             return;
-         case 32: //Space
+         case Keys.Space:
             setSelectedDate(new Date(format(LookDate, 'yyyy-MM-dd')));
             return;
-         case 33: //Page Up
+         case Keys.PageUp:
             control ? setDatePreviousYear() : setDatePreviousMonth();
             return;
-         case 34: //Page Down
+         case Keys.PageDown:
             control ? setDateNextYear() : setDateNextMonth();
             return;
-         case 35: //End
+         case Keys.End:
             setMonthEnd();
             return;
-         case 36: //Home
+         case Keys.Home:
             setMonthStart();
             return;
-         case 37: //Left
+         case Keys.ArrowLeft:
             setPreviousDay();
             return;
-         case 38: //Up
+         case Keys.ArrowUp:
             setPreviousWeek();
             return;
-         case 39: //Right
+         case Keys.ArrowRight:
             setNextDay();
             return;
-         case 40: //Down
+         case Keys.ArrowDown:
             setNextWeek();
             return;
          default:
@@ -285,7 +299,7 @@ function CalendarBody({
    );
 }
 
-function CalendarMonths({
+function CalendarWeeks({
    DaysFormate = DefaultDaysFormate,
    className,
    ...props
@@ -293,7 +307,7 @@ function CalendarMonths({
    DaysFormate?: typeof DefaultDaysFormate;
 } & React.ComponentPropsWithoutRef<'thead'>) {
    return (
-      <thead className={cx('Months', className)} {...props}>
+      <thead className={cx('Weeks', className)} {...props}>
          <tr role="row">
             {DaysFormate.map((day, index) => (
                <th
@@ -330,7 +344,8 @@ function CalendarDays({
             <tr key={index} role="row" className="week">
                {week.map((day, index) =>
                   day ? (
-                     day.getTime() === selectedDate.getTime() ? (
+                     day.toLocaleDateString() ===
+                     selectedDate.toLocaleDateString() ? (
                         <td
                            key={index}
                            role="gridcell"
@@ -418,6 +433,10 @@ const Calendar = ({
    ...props
 }: CalendarProps) => {
    const [LookDate, setLookDate] = React.useState<Date>(selectedDate);
+   React.useEffect(() => {
+      setLookDate(selectedDate);
+   }, [selectedDate]);
+
    return (
       <div className={cx('calendar', className)} {...props}>
          {React.Children.map(children, child => {
@@ -440,6 +459,6 @@ export {
    CalendarTitle,
    CalendarDays,
    CalendarFooter,
-   CalendarMonths,
+   CalendarWeeks,
    CalendarBody,
 };

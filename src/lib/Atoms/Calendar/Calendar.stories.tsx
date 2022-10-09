@@ -3,7 +3,7 @@ import {
    CalendarBody,
    CalendarDays,
    CalendarFooter,
-   CalendarMonths,
+   CalendarWeeks,
    CalendarTitle,
 } from './Calendar';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
@@ -40,7 +40,7 @@ export const Template: ComponentStory<typeof Calendar> = args => {
             DoubleRightArrow={FaAngleDoubleRight}
          />
          <CalendarBody>
-            <CalendarMonths />
+            <CalendarWeeks />
             <CalendarDays />
          </CalendarBody>
          <CalendarFooter CalendarIcon={FaCalendarAlt} />

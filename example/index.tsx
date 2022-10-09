@@ -7,15 +7,12 @@ import {
    Label,
    FormControl,
    Calendar,
-   CalendarTitle,
-   CalendarBody,
    CalendarMonths,
-   CalendarDays,
+   CalendarTitle,
    CalendarFooter,
-   DateField,
 } from '../dist';
 
-import '../dist/react-component-lib.cjs.development.css';
+// import '../dist/react-component-lib.cjs.development.css';
 
 const App = () => {
    const [selectedDate, setSelectedDate] = React.useState(new Date());
@@ -36,16 +33,8 @@ const App = () => {
             padding={10}
          >
             <CalendarTitle selectedDate={selectedDate} id="CalendarTitle" />
-            <CalendarBody>
-               <CalendarMonths />
-               <CalendarDays
-                  selectedDate={selectedDate}
-                  setSelectedDate={setSelectedDate}
-               />
-            </CalendarBody>
             <CalendarFooter setSelectedDate={setSelectedDate} />
          </Calendar>
-         <DateField id="date" label="date" />
       </div>
    );
 };

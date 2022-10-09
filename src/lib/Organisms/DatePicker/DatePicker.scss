@@ -1,0 +1,9 @@
+.datePicker {
+   align-items: center;
+   position: relative;
+}
+.DatePicker-DateField {
+   display: flex;
+   align-items: flex-end;
+   gap: var(--gap-medium);
+}

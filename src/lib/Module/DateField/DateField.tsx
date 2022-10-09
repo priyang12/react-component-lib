@@ -190,6 +190,7 @@ function DateField({
    inputProps,
    FieldInputStyles,
    className,
+   children,
    ...props
 }: BaseDateFieldProps) {
    const DaysRef = React.useRef<HTMLInputElement>(null);
@@ -273,6 +274,12 @@ function DateField({
    React.useEffect(() => {
       setDate(new Date(yearCount, monthCount - 1, dayCount));
    }, [yearCount, monthCount, dayCount]);
+
+   React.useEffect(() => {
+      setYear(date.getFullYear());
+      setMonthCounter(date.getMonth() + 1);
+      setDay(date.getDate());
+   }, [date]);
 
    const KeyPressedDays = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === KEYCODE.UP) {
@@ -431,11 +438,10 @@ function DateField({
 
    return (
       <div
-         className={cx('DatePicker', {
-            'DatePicker--focus':
-               FocusElement.day || FocusElement.month || FocusElement.year,
-            className,
-         })}
+         className={cx('DateField', className)}
+         data-DatePicker--focus={
+            FocusElement.day || FocusElement.month || FocusElement.year
+         }
          {...props}
       >
          <Label className="label" htmlFor={id}>
@@ -509,6 +515,7 @@ function DateField({
          {hiddenInput && (
             <input type="hidden" value={date.toISOString()} {...inputProps} />
          )}
+         {children}
       </div>
    );
 }
