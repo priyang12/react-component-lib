@@ -5,7 +5,7 @@ import { cx } from '@chakra-ui/utils';
 import { useCounter } from '../../../Hooks/useCounter';
 import './DateField.scss';
 
-interface BaseDateInputProps {
+export interface BaseDateInputProps {
    KeyPressed: (e: React.KeyboardEvent<HTMLInputElement>) => void;
    Focus: (e: React.FocusEvent<HTMLInputElement>) => void;
    FieldInputStyles?: React.CSSProperties;
@@ -190,6 +190,7 @@ function DateField({
    inputProps,
    FieldInputStyles,
    className,
+   ...props
 }: BaseDateFieldProps) {
    const DaysRef = React.useRef<HTMLInputElement>(null);
    const MonthsRef = React.useRef<HTMLInputElement>(null);
@@ -435,6 +436,7 @@ function DateField({
                FocusElement.day || FocusElement.month || FocusElement.year,
             className,
          })}
+         {...props}
       >
          <Label className="label" htmlFor={id}>
             {label}

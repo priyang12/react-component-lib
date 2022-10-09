@@ -1,5 +1,7 @@
 import {
+   addDays,
    addMonths,
+   addWeeks,
    addYears,
    endOfMonth,
    format,
@@ -7,19 +9,14 @@ import {
    getDaysInMonth,
    setDate,
    startOfMonth,
+   subDays,
    subMonths,
-   subYears,
+   subWeeks,
 } from 'date-fns';
-import { chunk } from 'lodash';
+import subYears from 'date-fns/subYears';
+import chunk from 'lodash.chunk';
 import * as React from 'react';
 import { cx } from '@chakra-ui/utils';
-import {
-   FaAngleDoubleLeft,
-   FaAngleLeft,
-   FaAngleRight,
-   FaAngleDoubleRight,
-   FaCalendarAlt,
-} from 'react-icons/fa';
 import './Calendar.scss';
 
 const DefaultDaysFormate = [
@@ -71,29 +68,41 @@ const generateMonth = (selectedDate: Date) => {
 };
 
 function CalendarTitle({
-   selectedDate,
+   LookDate,
+   setLookDate,
    setSelectedDate,
    className,
+   DoubleLeftArrow,
+   DoubleRightArrow,
+   LeftArrow,
+   RightArrow,
    ...props
 }: {
-   className?: string;
+   LeftArrow: any;
+   RightArrow: any;
+   DoubleLeftArrow: any;
+   DoubleRightArrow: any;
    [key: string]: any;
-}) {
+} & React.ComponentPropsWithoutRef<'div'>) {
    const setPreviousMonth = () => {
-      const previousMonth = subMonths(selectedDate, 1);
+      const previousMonth = subMonths(LookDate, 1);
+      setLookDate(previousMonth);
       setSelectedDate(previousMonth);
    };
    const setNextMonth = () => {
-      const nextMonth = addMonths(selectedDate, 1);
+      const nextMonth = addMonths(LookDate, 1);
       // console.log(startOfMonth(nextMonth));
+      setLookDate(nextMonth);
       setSelectedDate(nextMonth);
    };
    const setPreviousYear = () => {
-      const previousYear = subYears(selectedDate, 1);
+      const previousYear = subYears(LookDate, 1);
+      setLookDate(previousYear);
       setSelectedDate(previousYear);
    };
    const setNextYear = () => {
-      const nextYear = addYears(selectedDate, 1);
+      const nextYear = addYears(LookDate, 1);
+      setLookDate(nextYear);
       setSelectedDate(nextYear);
    };
    const handleKeyPress = (e: any, cb: any) => {
@@ -102,6 +111,7 @@ function CalendarTitle({
          cb();
       }
    };
+
    return (
       <div className={cx('calendar-title', className)} {...props}>
          <div className="icons">
@@ -113,7 +123,7 @@ function CalendarTitle({
                role="button"
                aria-label="Previous year"
             >
-               <FaAngleDoubleLeft />
+               <DoubleLeftArrow />
             </div>
             <div
                tabIndex={0}
@@ -123,11 +133,11 @@ function CalendarTitle({
                role="button"
                aria-label="Previous month"
             >
-               <FaAngleLeft />
+               <LeftArrow />
             </div>
          </div>
          <div className="month" role="heading">
-            {selectedDate && format(selectedDate, 'MMMM yyyy')}
+            {LookDate && format(LookDate, 'MMMM yyyy')}
          </div>
          <div className="icons">
             <div
@@ -138,7 +148,7 @@ function CalendarTitle({
                role="button"
                aria-label="Next year"
             >
-               <FaAngleRight />
+               <RightArrow />
             </div>
             <div
                className="iconContainer"
@@ -148,7 +158,7 @@ function CalendarTitle({
                role="button"
                aria-label="Next year"
             >
-               <FaAngleDoubleRight />
+               <DoubleRightArrow />
             </div>
          </div>
       </div>
@@ -158,21 +168,119 @@ function CalendarTitle({
 function CalendarBody({
    children,
    className,
+   LookDate,
+   setLookDate,
+   selectedDate,
+   setSelectedDate,
    ...props
 }: {
-   children: React.ReactNode;
-   className?: string;
-}) {
+   [key: string]: any;
+} & React.ComponentPropsWithoutRef<'div'>) {
+   const setPreviousDay = () => {
+      const previousDay = subDays(LookDate, 1);
+      setLookDate(previousDay);
+   };
+   const setNextDay = () => {
+      const nextDay = addDays(LookDate, 1);
+      setLookDate(nextDay);
+   };
+   const setPreviousWeek = () => {
+      const previousWeek = subWeeks(LookDate, 1);
+      setLookDate(previousWeek);
+   };
+   const setNextWeek = () => {
+      const nextWeek = addWeeks(LookDate, 1);
+      setLookDate(nextWeek);
+   };
+   const setDatePreviousMonth = () => {
+      setLookDate(subMonths(LookDate, 1));
+   };
+   const setDateNextMonth = () => {
+      setLookDate(addMonths(LookDate, 1));
+   };
+   const setDatePreviousYear = () => {
+      setLookDate(subYears(LookDate, 1));
+   };
+   const setDateNextYear = () => {
+      setLookDate(addYears(LookDate, 1));
+   };
+   const setMonthStart = () => {
+      setLookDate(startOfMonth(LookDate));
+   };
+   const setMonthEnd = () => {
+      setLookDate(endOfMonth(LookDate));
+   };
+
+   const handleTableKeyPress = (e: any) => {
+      const keyCode = e.keyCode;
+      // Check if control key was pressed
+      // const control = e.ctrlKey;
+      // Use shift key to prevent browser shortcut conflicts
+      const control = e.shiftKey;
+
+      switch (keyCode) {
+         case 13: //Enter
+            setSelectedDate(new Date(format(LookDate, 'yyyy-MM-dd')));
+            return;
+         case 27: //Esc
+            //  closeCalendar();
+            return;
+         case 32: //Space
+            setSelectedDate(new Date(format(LookDate, 'yyyy-MM-dd')));
+            return;
+         case 33: //Page Up
+            control ? setDatePreviousYear() : setDatePreviousMonth();
+            return;
+         case 34: //Page Down
+            control ? setDateNextYear() : setDateNextMonth();
+            return;
+         case 35: //End
+            setMonthEnd();
+            return;
+         case 36: //Home
+            setMonthStart();
+            return;
+         case 37: //Left
+            setPreviousDay();
+            return;
+         case 38: //Up
+            setPreviousWeek();
+            return;
+         case 39: //Right
+            setNextDay();
+            return;
+         case 40: //Down
+            setNextWeek();
+            return;
+         default:
+            return;
+      }
+   };
+   const onClickDay = (date: Date) => {
+      setSelectedDate(date);
+      setLookDate(date);
+   };
    return (
       <table
          id="grid"
          tabIndex={0}
          role="grid"
+         onKeyDown={handleTableKeyPress}
          aria-label="calendar-body"
          className={cx('calendar-body', className)}
          {...props}
       >
-         {children}
+         {React.Children.map(children, child => {
+            if (React.isValidElement(child)) {
+               return React.cloneElement(child, {
+                  LookDate,
+                  selectedDate,
+                  setSelectedDate,
+                  onClickDay,
+               });
+            }
+            return child;
+         })}
       </table>
    );
 }
@@ -183,8 +291,7 @@ function CalendarMonths({
    ...props
 }: {
    DaysFormate?: typeof DefaultDaysFormate;
-   className?: string;
-}) {
+} & React.ComponentPropsWithoutRef<'thead'>) {
    return (
       <thead className={cx('Months', className)} {...props}>
          <tr role="row">
@@ -206,27 +313,28 @@ function CalendarMonths({
 function CalendarDays({
    selectedDate,
    setSelectedDate,
+   LookDate,
+   onClickDay,
    className,
    DaysStyles,
    CurrentDayStyles,
    ...props
 }: {
-   selectedDate: Date;
-   setSelectedDate: (date: Date) => void;
    DaysStyles?: {};
    CurrentDayStyles?: {};
-   className?: string;
-}) {
+   [key: string]: any;
+} & React.ComponentPropsWithoutRef<'tbody'>) {
    return (
       <tbody className={cx('calendar-days', className)} {...props}>
-         {generateMonth(selectedDate).map((week, index) => (
+         {generateMonth(LookDate).map((week, index) => (
             <tr key={index} role="row" className="week">
                {week.map((day, index) =>
                   day ? (
-                     day.getDate() === selectedDate.getDate() ? (
+                     day.getTime() === selectedDate.getTime() ? (
                         <td
                            key={index}
                            role="gridcell"
+                           data-hover={day.getDate() === LookDate.getDate()}
                            aria-label={day && format(day, 'dd MMMM yyyy')}
                            className="box day CurrentDay"
                            style={CurrentDayStyles}
@@ -237,9 +345,10 @@ function CalendarDays({
                         <td
                            key={index}
                            role="gridcell"
+                           data-hover={day.getDate() === LookDate.getDate()}
                            aria-label={day && format(day, 'dd MMMM yyyy')}
                            className="box day"
-                           onClick={() => setSelectedDate(day)}
+                           onClick={() => onClickDay(day)}
                            style={DaysStyles}
                         >
                            {day.getDate()}
@@ -264,16 +373,17 @@ function CalendarDays({
 function CalendarFooter({
    setSelectedDate,
    className,
+   CalendarIcon,
    ...props
 }: {
-   className?: string;
+   CalendarIcon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
    [key: string]: any;
 }) {
    return (
       <div className={cx('calendar-footer', className)} {...props}>
          <div className="footer-text">
             <div className="footer-text-container-title">
-               <FaCalendarAlt />
+               <CalendarIcon />
                <span>Today</span>
             </div>
             <div className="footer-text-container-date">
@@ -307,6 +417,7 @@ const Calendar = ({
    className,
    ...props
 }: CalendarProps) => {
+   const [LookDate, setLookDate] = React.useState<Date>(selectedDate);
    return (
       <div className={cx('calendar', className)} {...props}>
          {React.Children.map(children, child => {
@@ -314,6 +425,8 @@ const Calendar = ({
                return React.cloneElement(child, {
                   selectedDate,
                   setSelectedDate,
+                  LookDate,
+                  setLookDate,
                });
             }
             return child;

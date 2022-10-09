@@ -7,6 +7,13 @@ import {
    CalendarTitle,
 } from './Calendar';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import {
+   FaAngleDoubleLeft,
+   FaAngleLeft,
+   FaAngleRight,
+   FaAngleDoubleRight,
+   FaCalendarAlt,
+} from 'react-icons/fa';
 import * as React from 'react';
 
 export default {
@@ -26,15 +33,17 @@ export const Template: ComponentStory<typeof Calendar> = args => {
          selectedDate={selectedDate}
          setSelectedDate={setSelectedDate}
       >
-         <CalendarTitle />
+         <CalendarTitle
+            DoubleLeftArrow={FaAngleDoubleLeft}
+            LeftArrow={FaAngleLeft}
+            RightArrow={FaAngleRight}
+            DoubleRightArrow={FaAngleDoubleRight}
+         />
          <CalendarBody>
             <CalendarMonths />
-            <CalendarDays
-               selectedDate={selectedDate}
-               setSelectedDate={setSelectedDate}
-            />
+            <CalendarDays />
          </CalendarBody>
-         <CalendarFooter />
+         <CalendarFooter CalendarIcon={FaCalendarAlt} />
       </Calendar>
    );
 };

@@ -42,10 +42,6 @@
       "limit": "50 KB"
     }
   ],
-  "dependencies": {
-    "date-fns": "^2.29.2",
-    "lodash.debounce": "^4.0.8"
-  },
   "devDependencies": {
     "@babel/core": "^7.18.6",
     "@chakra-ui/system": "^2.2.1",
@@ -66,6 +62,7 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.3.0",
     "@types/jest-axe": "^3.5.4",
+    "@types/lodash.chunk": "^4.2.7",
     "@types/lodash.debounce": "^4.0.7",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
@@ -88,19 +85,24 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4"
+    
   },
   "peerDependencies": {
     "@chakra-ui/system": ">=2.2.1",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "react": ">=18",
-    "react-dom": ">=18",
-    "react-icons": "^4.3.1"
+    "react-dom": ">=18"
   },
   "resolutions": {
     "tsdx/typescript": "^4.7.4",
     "tsdx/eslint": "^7.8.0",
     "tsdx/jest": "^26.4.2",
     "tsdx/ts-jest": "^26.3.0"
+  },
+  "dependencies": {
+    "date-fns": "^2.29.3",
+    "lodash.chunk": "^4.2.0",
+    "lodash.debounce": "^4.0.8"
   }
 }
