@@ -7,5 +7,7 @@ export interface Variant {
       | 'failure'
       | 'failure-border'
       | 'success'
-      | 'success-border';
+      | 'success-border'
+      | 'info'
+      | 'info-border';
 }
