@@ -98,7 +98,7 @@ const DragNDrop = React.forwardRef<HTMLDivElement, PropType>(
                      </div>
                   )
                ) : (
-                  React.Children.map(children, (child) => {
+                  React.Children.map(children, child => {
                      if (React.isValidElement(child)) {
                         if (child.props.id === 'File') {
                            return React.cloneElement(child, {

@@ -82,9 +82,6 @@ const generateMonth = (selectedDate: Date) => {
 };
 
 function CalendarTitle({
-   LookDate,
-   setLookDate,
-   setSelectedDate,
    className,
    DoubleLeftArrow,
    DoubleRightArrow,
@@ -98,6 +95,10 @@ function CalendarTitle({
    DoubleRightArrow: any;
    [key: string]: any;
 } & React.ComponentPropsWithoutRef<'div'>) {
+   const { LookDate, setLookDate, setSelectedDate } = React.useContext(
+      CalendarContext
+   );
+
    const setPreviousMonth = () => {
       const previousMonth = subMonths(LookDate, 1);
       setLookDate(previousMonth);
@@ -132,7 +133,7 @@ function CalendarTitle({
                className="iconContainer"
                tabIndex={0}
                onClick={setPreviousYear}
-               onKeyPress={(e) => handleKeyPress(e, setPreviousYear)}
+               onKeyPress={e => handleKeyPress(e, setPreviousYear)}
                role="button"
                aria-label="Previous year"
             >
@@ -142,14 +143,19 @@ function CalendarTitle({
                tabIndex={0}
                className="iconContainer"
                onClick={setPreviousMonth}
-               onKeyPress={(e) => handleKeyPress(e, setPreviousMonth)}
+               onKeyPress={e => handleKeyPress(e, setPreviousMonth)}
                role="button"
                aria-label="Previous month"
             >
                <LeftArrow />
             </div>
          </div>
-         <div className="month" role="heading">
+         <div
+            className="month"
+            role="heading"
+            aria-label="Current Label"
+            aria-level={1}
+         >
             {LookDate && format(LookDate, 'MMMM yyyy')}
          </div>
          <div className="icons">
@@ -157,7 +163,7 @@ function CalendarTitle({
                className="iconContainer"
                tabIndex={0}
                onClick={setNextMonth}
-               onKeyPress={(e) => handleKeyPress(e, setNextMonth)}
+               onKeyPress={e => handleKeyPress(e, setNextMonth)}
                role="button"
                aria-label="Next year"
             >
@@ -167,7 +173,7 @@ function CalendarTitle({
                className="iconContainer"
                tabIndex={0}
                onClick={setNextYear}
-               onKeyPress={(e) => handleKeyPress(e, setNextYear)}
+               onKeyPress={e => handleKeyPress(e, setNextYear)}
                role="button"
                aria-label="Next year"
             >
@@ -181,14 +187,14 @@ function CalendarTitle({
 function CalendarBody({
    children,
    className,
-   LookDate,
-   setLookDate,
-   selectedDate,
-   setSelectedDate,
    ...props
 }: {
    [key: string]: any;
 } & React.ComponentPropsWithoutRef<'div'>) {
+   const { LookDate, setLookDate, setSelectedDate } = React.useContext(
+      CalendarContext
+   );
+
    const setPreviousDay = () => {
       const previousDay = subDays(LookDate, 1);
       setLookDate(previousDay);
@@ -270,10 +276,7 @@ function CalendarBody({
             return;
       }
    };
-   const onClickDay = (date: Date) => {
-      setSelectedDate(date);
-      setLookDate(date);
-   };
+
    return (
       <table
          id="grid"
@@ -284,18 +287,7 @@ function CalendarBody({
          className={cx('calendar-body', className)}
          {...props}
       >
-         {React.Children.map(children, (child) => {
-            if (React.isValidElement(child)) {
-               return React.cloneElement(child, {
-                  // @ts-ignore
-                  LookDate,
-                  selectedDate,
-                  setSelectedDate,
-                  onClickDay,
-               });
-            }
-            return child;
-         })}
+         {children}
       </table>
    );
 }
@@ -326,10 +318,6 @@ function CalendarWeeks({
 }
 
 function CalendarDays({
-   selectedDate,
-   setSelectedDate,
-   LookDate,
-   onClickDay,
    className,
    DaysStyles,
    CurrentDayStyles,
@@ -339,6 +327,17 @@ function CalendarDays({
    CurrentDayStyles?: {};
    [key: string]: any;
 } & React.ComponentPropsWithoutRef<'tbody'>) {
+   const {
+      selectedDate,
+      setSelectedDate,
+      LookDate,
+      setLookDate,
+   } = React.useContext(CalendarContext);
+
+   const onClickDay = (date: Date) => {
+      setSelectedDate(date);
+      setLookDate(date);
+   };
    return (
       <tbody className={cx('calendar-days', className)} {...props}>
          {generateMonth(LookDate).map((week, index) => (
@@ -387,14 +386,13 @@ function CalendarDays({
 }
 
 function CalendarFooter({
-   setSelectedDate,
    className,
    CalendarIcon,
    ...props
 }: {
    CalendarIcon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-   [key: string]: any;
-}) {
+} & React.ComponentPropsWithRef<'div'>) {
+   const { setSelectedDate } = React.useContext(CalendarContext);
    return (
       <div className={cx('calendar-footer', className)} {...props}>
          <div className="footer-text">
@@ -419,12 +417,23 @@ function CalendarFooter({
       </div>
    );
 }
+
 export type CalendarProps = {
    selectedDate: Date;
-   setSelectedDate: (date: Date) => void;
+   setSelectedDate: React.Dispatch<React.SetStateAction<Date>>;
    children?: React.ReactNode;
    className?: string;
 };
+
+export type CalenderContextType = Pick<
+   CalendarProps,
+   'selectedDate' | 'setSelectedDate'
+> & {
+   LookDate: Date;
+   setLookDate: React.Dispatch<React.SetStateAction<Date>>;
+};
+
+export const CalendarContext = React.createContext({} as CalenderContextType);
 
 const Calendar = ({
    selectedDate,
@@ -432,27 +441,26 @@ const Calendar = ({
    children,
    className,
    ...props
-}: CalendarProps) => {
+}: CalendarProps & React.ComponentPropsWithoutRef<'div'>) => {
    const [LookDate, setLookDate] = React.useState<Date>(selectedDate);
+
    React.useEffect(() => {
       setLookDate(selectedDate);
    }, [selectedDate]);
 
    return (
-      <div className={cx('calendar', className)} {...props}>
-         {React.Children.map(children, (child) => {
-            if (React.isValidElement(child)) {
-               return React.cloneElement(child, {
-                  // @ts-ignore
-                  selectedDate,
-                  setSelectedDate,
-                  LookDate,
-                  setLookDate,
-               });
-            }
-            return child;
-         })}
-      </div>
+      <CalendarContext.Provider
+         value={{
+            selectedDate,
+            setSelectedDate,
+            LookDate,
+            setLookDate,
+         }}
+      >
+         <div className={cx('calendar', className)} {...props}>
+            {children}
+         </div>
+      </CalendarContext.Provider>
    );
 };
 

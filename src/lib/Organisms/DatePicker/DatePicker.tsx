@@ -37,6 +37,7 @@ function DatePicker({ children, ...props }: { children?: React.ReactNode }) {
             <Button
                variant="primary-border"
                height={'fit-content'}
+               title="Calendar Icon"
                onClick={() => setShowCalendar(!showCalendar)}
             >
                {!showCalendar ? <BsFillCalendarCheckFill /> : <BsDoorClosed />}
