@@ -2,7 +2,7 @@
   "name": "@priyang/react-component-lib",
   "version": "0.1.2",
   "private": false,
-  "module": "dist/priyang-react-component-lib.esm.js",
+  "type": "module",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -14,12 +14,11 @@
     "node": ">=14"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "CI=true tsdx test",
-    "test-WatchAll": "tsdx test --watchAll",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "build": "tsup",
+    "test": "CI=true tsup test",
+    "test-WatchAll": "tsup test --watchAll",
+    "lint": "tsup lint",
+    "prepare": "yarn build",
     "size": "size-limit",
     "analyzeMapper": "source-map-explorer 'dist/*.js'",
     "version": "yarn changeset version",
@@ -68,6 +67,7 @@
     "@types/react-dom": "^18.0.6",
     "autoprefixer": "^10.4.7",
     "babel-loader": "^8.2.5",
+    "esbuild-sass-plugin": "^2.4.0",
     "husky": "^8.0.1",
     "jest-axe": "^6.0.0",
     "jest-css-modules": "^2.1.0",
@@ -82,10 +82,8 @@
     "storybook-a11y-report": "^0.0.15",
     "storybook-addon-sass-postcss": "^0.1.3",
     "storybook-dark-mode": "^1.1.0",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.4.0",
+    "tsup": "^6.3.0",
     "typescript": "^4.7.4"
-    
   },
   "peerDependencies": {
     "@chakra-ui/system": ">=2.2.1",
@@ -94,15 +92,11 @@
     "react": ">=18",
     "react-dom": ">=18"
   },
-  "resolutions": {
-    "tsdx/typescript": "^4.7.4",
-    "tsdx/eslint": "^7.8.0",
-    "tsdx/jest": "^26.4.2",
-    "tsdx/ts-jest": "^26.3.0"
-  },
   "dependencies": {
     "date-fns": "^2.29.3",
     "lodash.chunk": "^4.2.0",
-    "lodash.debounce": "^4.0.8"
+    "lodash.debounce": "^4.0.8",
+    "sass-loader": "^13.1.0",
+    "tslib": "^2.4.0"
   }
 }

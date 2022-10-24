@@ -5,5 +5,5 @@ export * from './Search';
 export * from './TextLanding';
 export * from './DateField';
 export * from './TextLanding';
-export * from './DragNDrop';
 export * from './HoverCard';
+export * from './DragNDrop';

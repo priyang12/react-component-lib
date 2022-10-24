@@ -1,0 +1,25 @@
+import { defineConfig } from 'tsup';
+import { sassPlugin } from 'esbuild-sass-plugin';
+import postcss from 'postcss';
+import autoprefixer from 'autoprefixer';
+
+export default defineConfig({
+   entry: ['src/index.tsx'],
+   esbuildPlugins: [
+      sassPlugin({
+         async transform(source, resolveDir) {
+            const { css } = await postcss([autoprefixer]).process(source);
+            return css;
+         },
+      }),
+   ],
+   tsconfig: './tsconfig.json',
+   treeshake: true,
+   minify: true,
+   clean: true,
+   metafile: true,
+   dts: true,
+   splitting: false,
+   format: ['cjs', 'esm'],
+   external: ['react', 'react-dom'],
+});

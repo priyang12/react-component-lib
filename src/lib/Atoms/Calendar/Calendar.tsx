@@ -132,7 +132,7 @@ function CalendarTitle({
                className="iconContainer"
                tabIndex={0}
                onClick={setPreviousYear}
-               onKeyPress={e => handleKeyPress(e, setPreviousYear)}
+               onKeyPress={(e) => handleKeyPress(e, setPreviousYear)}
                role="button"
                aria-label="Previous year"
             >
@@ -142,7 +142,7 @@ function CalendarTitle({
                tabIndex={0}
                className="iconContainer"
                onClick={setPreviousMonth}
-               onKeyPress={e => handleKeyPress(e, setPreviousMonth)}
+               onKeyPress={(e) => handleKeyPress(e, setPreviousMonth)}
                role="button"
                aria-label="Previous month"
             >
@@ -157,7 +157,7 @@ function CalendarTitle({
                className="iconContainer"
                tabIndex={0}
                onClick={setNextMonth}
-               onKeyPress={e => handleKeyPress(e, setNextMonth)}
+               onKeyPress={(e) => handleKeyPress(e, setNextMonth)}
                role="button"
                aria-label="Next year"
             >
@@ -167,7 +167,7 @@ function CalendarTitle({
                className="iconContainer"
                tabIndex={0}
                onClick={setNextYear}
-               onKeyPress={e => handleKeyPress(e, setNextYear)}
+               onKeyPress={(e) => handleKeyPress(e, setNextYear)}
                role="button"
                aria-label="Next year"
             >
@@ -284,9 +284,10 @@ function CalendarBody({
          className={cx('calendar-body', className)}
          {...props}
       >
-         {React.Children.map(children, child => {
+         {React.Children.map(children, (child) => {
             if (React.isValidElement(child)) {
                return React.cloneElement(child, {
+                  // @ts-ignore
                   LookDate,
                   selectedDate,
                   setSelectedDate,
@@ -439,9 +440,10 @@ const Calendar = ({
 
    return (
       <div className={cx('calendar', className)} {...props}>
-         {React.Children.map(children, child => {
+         {React.Children.map(children, (child) => {
             if (React.isValidElement(child)) {
                return React.cloneElement(child, {
+                  // @ts-ignore
                   selectedDate,
                   setSelectedDate,
                   LookDate,

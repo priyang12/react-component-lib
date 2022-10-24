@@ -18,7 +18,7 @@ const DragNDrop = React.forwardRef<HTMLDivElement, PropType>(
       const DragClasses = cx(unstyled ? '' : 'DragNDrop', className);
       const [dragging, setDragging] = React.useState(false);
       const dragCounter = React.useRef(0);
-      const dragRef = React.useRef<HTMLDivElement>(null);
+      const dragRef = React.useRef<any>(null);
       const handleDrag = (e: React.DragEvent<HTMLDivElement>) => {
          e.preventDefault();
          e.stopPropagation();
@@ -98,10 +98,11 @@ const DragNDrop = React.forwardRef<HTMLDivElement, PropType>(
                      </div>
                   )
                ) : (
-                  React.Children.map(children, child => {
+                  React.Children.map(children, (child) => {
                      if (React.isValidElement(child)) {
                         if (child.props.id === 'File') {
                            return React.cloneElement(child, {
+                              // @ts-ignore
                               ref: dragRef,
                               className: `${child.props.className} ${
                                  unstyled ? '' : 'DragNDropInput'
