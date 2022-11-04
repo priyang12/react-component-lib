@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { cx } from '@chakra-ui/utils';
+import { callAll } from '../../Utils/AllFunctionsCall';
+import { FormControlContext } from '../../Module/FormControl/FormControl';
 import './Input.scss';
 
 export interface InputProps {
@@ -10,13 +12,20 @@ export interface InputProps {
 
 function Input({
    InputSize = 'medium',
-   alert,
    className,
    ...props
-}: React.InputHTMLAttributes<HTMLInputElement> & InputProps) {
-   const InputClass = cx('input', InputSize, alert && 'alert', className);
+}: React.ComponentPropsWithoutRef<'input'> & InputProps) {
+   const { Alert, onFocus, inputChange } = React.useContext(FormControlContext);
+   const InputClass = cx('input', InputSize, Alert && 'alert', className);
 
-   return <input className={InputClass} {...props} />;
+   return (
+      <input
+         className={InputClass}
+         onChange={callAll(props.onChange, inputChange)}
+         onFocus={callAll(props.onFocus, onFocus)}
+         {...props}
+      />
+   );
 }
 
 export default Input;

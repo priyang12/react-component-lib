@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { LongText as Button } from '../Button/Button.stories';
-import VercelButton from './index';
+import VercelButton from './VercelButton';
 
 export default {
    title: 'Atoms/VercelButton',

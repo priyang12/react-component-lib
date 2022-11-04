@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import TextEffect from './index';
+import TextEffect from './TextEffect';
 
 export default {
    title: 'Atoms/TextEffect',

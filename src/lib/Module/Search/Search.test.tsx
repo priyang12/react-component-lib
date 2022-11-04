@@ -1,4 +1,4 @@
-import Search from './index';
+import Search from './Search';
 import { render } from '@testing-library/react';
 
 describe('Search', () => {

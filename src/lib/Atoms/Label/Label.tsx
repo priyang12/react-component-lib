@@ -2,6 +2,7 @@ import * as React from 'react';
 import { chakra, ChakraProps } from '@chakra-ui/system';
 import { cx } from '@chakra-ui/utils';
 import './Label.scss';
+import { FormControlContext } from '../../Module/FormControl/FormControl';
 
 export interface LabelProps extends ChakraProps {
    children: React.ReactNode;
@@ -15,19 +16,25 @@ export interface LabelProps extends ChakraProps {
 function Label(
    props: React.LabelHTMLAttributes<HTMLLabelElement> & LabelProps
 ) {
-   const { children, hidden, size, alert, className, ...restProps } = props;
-
+   const { children, hidden, size, className, ...restProps } = props;
+   const { Alert, LabelCheck, overlay } = React.useContext(FormControlContext);
    const LabelClass = cx(
       'label',
+      LabelCheck && 'active',
+      overlay && 'overlay',
       hidden ? 'visually-hidden' : 'show',
       size && `label--${size}`,
-      alert && `label--alert`,
+      Alert && `label--alert`,
       className
    );
 
    return (
-      <chakra.label className={LabelClass} {...restProps}>
-         {alert ? alert : children}
+      <chakra.label
+         className={LabelClass}
+         {...restProps}
+         data-valid={LabelCheck}
+      >
+         {Alert ? Alert : children}
       </chakra.label>
    );
 }

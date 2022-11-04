@@ -1,4 +1,4 @@
-import TextLanding from './index';
+import TextLanding from './TextLanding';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 

@@ -9,6 +9,6 @@ it('render Input', () => {
 });
 
 it('render Input with size medium and alert', () => {
-   render(<Size alert={true} />);
-   expect(screen.getByRole('textbox').classList).toContain('alert');
+   render(<Size InputSize="large" />);
+   expect(screen.getByRole('textbox').className).toContain('large');
 });

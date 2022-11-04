@@ -19,14 +19,6 @@ export const Template: ComponentStory<typeof FormControl> = args => (
    </FormControl>
 );
 
-export const BorderInput = Template.bind({});
-BorderInput.args = {
-   style: {
-      border: '2px solid #333',
-      padding: '1em',
-   },
-};
-
 export const OverlayInput = Template.bind({});
 
 OverlayInput.args = {
@@ -38,6 +30,6 @@ export const Textarea: ComponentStory<typeof FormControl> = args => (
       <Label htmlFor="Search" size="medium" alert="Alert">
          Search
       </Label>
-      <TextArea resize="both" Size="medium" />
+      <TextArea id="textarea" resize="both" Size="medium" />
    </FormControl>
 );

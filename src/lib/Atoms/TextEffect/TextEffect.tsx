@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './TextEffect.scss';
 
-export interface TextEffectProps {
+export interface TextEffectProps extends React.ComponentPropsWithoutRef<'div'> {
    Element: React.ElementType;
    size?: string;
    ContainerText?: string;
@@ -9,7 +9,6 @@ export interface TextEffectProps {
    animateTime?: string;
    color1?: string;
    color2?: string;
-   className?: string;
 }
 
 function TextEffect({
@@ -22,7 +21,7 @@ function TextEffect({
    color2 = '#201f55',
    className,
    ...props
-}: TextEffectProps): React.ReactElement {
+}: TextEffectProps) {
    return (
       <div className={className} {...props}>
          <Element
@@ -38,16 +37,16 @@ function TextEffect({
             }}
          >
             {ContainerText}
-         </Element>
-         <Element
-            className="NormalText"
-            style={{
-               fontSize: `${size}`,
-               animationDelay: `${Delay}`,
-               animation: `NormalText ${animateTime}s ease infinite`,
-            }}
-         >
-            {ContainerText}
+            <Element
+               className="NormalText"
+               style={{
+                  fontSize: `${size}`,
+                  animationDelay: `${Delay}`,
+                  animation: `NormalText ${animateTime}s ease infinite`,
+               }}
+            >
+               {ContainerText}
+            </Element>
          </Element>
       </div>
    );

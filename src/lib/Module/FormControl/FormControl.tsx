@@ -1,21 +1,31 @@
 import * as React from 'react';
-import { Input } from '../../Atoms/Input';
-import { Label } from '../../Atoms/Label';
-import { TextArea } from '../../Atoms/TextArea';
 import { cx } from '@chakra-ui/utils';
-import { callAll } from '../../Utils/AllFunctionsCall';
 import './FormControl.scss';
 
 export type FormControl = {
-   style?: React.CSSProperties;
    overlay?: boolean;
    check?: boolean;
    className?: string;
    children?: React.ReactNode;
 };
 
+type FormControlContextTypes = {
+   inputChange: (
+      e:
+         | React.ChangeEvent<HTMLInputElement>
+         | React.ChangeEvent<HTMLTextAreaElement>
+   ) => void;
+   onFocus: () => void;
+   LabelCheck: boolean;
+   overlay?: boolean;
+   Alert: string;
+};
+
+export const FormControlContext = React.createContext(
+   {} as FormControlContextTypes
+);
+
 function FormControl({
-   style,
    overlay,
    check,
    children,
@@ -25,7 +35,12 @@ function FormControl({
    const FormControlClass = cx('form-control', className);
    const [LabelCheck, setLabelCheck] = React.useState(false);
    const [Alert, setAlert] = React.useState('');
-   const inputChange = (e: React.FormEvent<HTMLInputElement> | any) => {
+
+   const inputChange = (
+      e:
+         | React.ChangeEvent<HTMLInputElement>
+         | React.ChangeEvent<HTMLTextAreaElement>
+   ) => {
       if (e.target.value.length > 0) {
          setLabelCheck(true);
          setAlert('');
@@ -38,37 +53,21 @@ function FormControl({
    const onFocus = () => {
       setLabelCheck(true);
    };
+
    return (
-      <div className={FormControlClass} style={style} {...restProps}>
-         {React.Children.map(children, (child: any) => {
-            switch (child.type) {
-               case Label:
-                  return React.cloneElement(child, {
-                     alert: Alert,
-                     className: cx(
-                        child.props.className,
-                        LabelCheck && 'active',
-                        overlay && 'overlay'
-                     ),
-                     'data-valid': LabelCheck,
-                  });
-               case TextArea:
-                  return React.cloneElement(child, {
-                     alert: Alert ? true : false,
-                     onChange: callAll(child.props.onChange, inputChange),
-                     onFocus: onFocus,
-                  });
-               case Input:
-                  return React.cloneElement(child, {
-                     alert: Alert ? true : false,
-                     onChange: callAll(child.props.onChange, inputChange),
-                     onFocus: onFocus,
-                  });
-               default:
-                  return child;
-            }
-         })}
-      </div>
+      <FormControlContext.Provider
+         value={{
+            inputChange,
+            onFocus,
+            Alert,
+            overlay,
+            LabelCheck,
+         }}
+      >
+         <div className={FormControlClass} {...restProps}>
+            {children}
+         </div>
+      </FormControlContext.Provider>
    );
 }
 export default FormControl;

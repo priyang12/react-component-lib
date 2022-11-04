@@ -10,5 +10,5 @@ it('render TextArea', () => {
 
 it('render TextArea with size medium and alert', () => {
    render(<Size alert={true} />);
-   expect(screen.getByRole('textbox').classList).toContain('Alert-Border');
+   expect(screen.getByRole('textbox').className).toContain('Alert-Border');
 });
