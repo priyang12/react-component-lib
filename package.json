@@ -1,6 +1,6 @@
 {
   "name": "@priyang/react-component-lib",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": false,
   "main": "dist/index.js",
   "type": "module",
@@ -27,7 +27,7 @@
     "lib": "bash lib.sh",
     "build-storybook": "build-storybook -s public",
     "clean": "rimraf dist",
-    "publish": "yarn changeset publish",
+    "publish": "yarn changeset publish --access=public",
     "chromatic": "npx chromatic --project-token=16626241d43e"
   },
   "size-limit": [
