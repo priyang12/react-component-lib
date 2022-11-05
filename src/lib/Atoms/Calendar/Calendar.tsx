@@ -15,6 +15,7 @@ import {
 } from 'date-fns';
 import subYears from 'date-fns/subYears';
 import chunk from 'lodash.chunk';
+import { chakra, ChakraProps } from '@chakra-ui/system';
 import * as React from 'react';
 import { cx } from '@chakra-ui/utils';
 import './Calendar.scss';
@@ -94,7 +95,8 @@ function CalendarTitle({
    DoubleLeftArrow: any;
    DoubleRightArrow: any;
    [key: string]: any;
-} & React.ComponentPropsWithoutRef<'div'>) {
+} & React.ComponentPropsWithoutRef<'div'> &
+   ChakraProps) {
    const { LookDate, setLookDate, setSelectedDate } = React.useContext(
       CalendarContext
    );
@@ -127,7 +129,7 @@ function CalendarTitle({
    };
 
    return (
-      <div className={cx('calendar-title', className)} {...props}>
+      <chakra.div className={cx('calendar-title', className)} {...props}>
          <div className="icons">
             <div
                className="iconContainer"
@@ -180,7 +182,7 @@ function CalendarTitle({
                <DoubleRightArrow />
             </div>
          </div>
-      </div>
+      </chakra.div>
    );
 }
 
@@ -190,7 +192,8 @@ function CalendarBody({
    ...props
 }: {
    [key: string]: any;
-} & React.ComponentPropsWithoutRef<'div'>) {
+} & React.ComponentPropsWithoutRef<'table'> &
+   ChakraProps) {
    const { LookDate, setLookDate, setSelectedDate } = React.useContext(
       CalendarContext
    );
@@ -278,7 +281,7 @@ function CalendarBody({
    };
 
    return (
-      <table
+      <chakra.table
          id="grid"
          tabIndex={0}
          role="grid"
@@ -288,7 +291,7 @@ function CalendarBody({
          {...props}
       >
          {children}
-      </table>
+      </chakra.table>
    );
 }
 
@@ -298,9 +301,10 @@ function CalendarWeeks({
    ...props
 }: {
    DaysFormate?: typeof DefaultDaysFormate;
-} & React.ComponentPropsWithoutRef<'thead'>) {
+} & React.ComponentPropsWithoutRef<'thead'> &
+   ChakraProps) {
    return (
-      <thead className={cx('Weeks', className)} {...props}>
+      <chakra.thead className={cx('Weeks', className)} {...props}>
          <tr role="row">
             {DaysFormate.map((day, index) => (
                <th
@@ -313,7 +317,7 @@ function CalendarWeeks({
                </th>
             ))}
          </tr>
-      </thead>
+      </chakra.thead>
    );
 }
 
@@ -326,7 +330,8 @@ function CalendarDays({
    DaysStyles?: {};
    CurrentDayStyles?: {};
    [key: string]: any;
-} & React.ComponentPropsWithoutRef<'tbody'>) {
+} & React.ComponentPropsWithoutRef<'tbody'> &
+   ChakraProps) {
    const {
       selectedDate,
       setSelectedDate,
@@ -339,7 +344,7 @@ function CalendarDays({
       setLookDate(date);
    };
    return (
-      <tbody className={cx('calendar-days', className)} {...props}>
+      <chakra.tbody className={cx('calendar-days', className)} {...props}>
          {generateMonth(LookDate).map((week, index) => (
             <tr key={index} role="row" className="week">
                {week.map((day, index) =>
@@ -381,7 +386,7 @@ function CalendarDays({
                )}
             </tr>
          ))}
-      </tbody>
+      </chakra.tbody>
    );
 }
 
@@ -391,10 +396,11 @@ function CalendarFooter({
    ...props
 }: {
    CalendarIcon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-} & React.ComponentPropsWithRef<'div'>) {
+} & React.ComponentPropsWithRef<'div'> &
+   ChakraProps) {
    const { setSelectedDate } = React.useContext(CalendarContext);
    return (
-      <div className={cx('calendar-footer', className)} {...props}>
+      <chakra.div className={cx('calendar-footer', className)} {...props}>
          <div className="footer-text">
             <div className="footer-text-container-title">
                <CalendarIcon />
@@ -414,7 +420,7 @@ function CalendarFooter({
                Clear
             </button>
          </div>
-      </div>
+      </chakra.div>
    );
 }
 

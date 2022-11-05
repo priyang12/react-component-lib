@@ -1,5 +1,11 @@
 # priyang-react-component-lib
 
+## 0.2.2
+
+### Patch Changes
+
+-  fixed Treeshaking
+
 ## 0.2.0
 
 ### Minor Changes

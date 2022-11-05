@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import lodash from 'lodash.debounce';
-import { Button } from '../../Atoms/Button';
+import Button from '../../Atoms/Button';
 import { chakra } from '@chakra-ui/system';
 import './ButtonDes.scss';
 

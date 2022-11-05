@@ -1,15 +1,48 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import reactLogo from './assets/react.svg';
-import { Button } from '../../dist';
-import '../../dist/index.css';
+import {
+   Button,
+   Calendar,
+   CalendarBody,
+   CalendarDays,
+   CalendarFooter,
+   CalendarTitle,
+   DateField,
+} from '../../dist';
+import {
+   FaAngleDoubleLeft,
+   FaAngleDoubleRight,
+   FaAngleLeft,
+   FaAngleRight,
+   FaCalendarAlt,
+} from 'react-icons/fa';
+// import '../../dist/index.css';
 import './App.css';
 
 function App() {
    const [count, setCount] = useState(0);
+   const [selectedDate, setSelectedDate] = React.useState(new Date());
+   console.log(Calendar);
+   console.log(DateField);
 
    return (
       <div className="App">
          <Button>asdsad</Button>
+         {/* <Calendar
+            selectedDate={selectedDate}
+            setSelectedDate={setSelectedDate}
+         >
+            <CalendarTitle
+               DoubleLeftArrow={FaAngleDoubleLeft}
+               LeftArrow={FaAngleLeft}
+               RightArrow={FaAngleRight}
+               DoubleRightArrow={FaAngleDoubleRight}
+            />
+            <CalendarBody>
+               <CalendarDays />
+            </CalendarBody>
+            <CalendarFooter CalendarIcon={FaCalendarAlt} />
+         </Calendar> */}
          <div>
             <a href="https://vitejs.dev" target="_blank">
                <img src="/vite.svg" className="logo" alt="Vite logo" />
