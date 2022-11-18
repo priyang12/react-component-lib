@@ -1,6 +1,6 @@
 {
   "name": "@priyang/react-component-lib",
-  "version": "0.2.3",
+  "version": "1.0.0",
   "private": false,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

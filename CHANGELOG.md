@@ -1,5 +1,11 @@
 # priyang-react-component-lib
 
+## 1.0.0
+
+### Major Changes
+
+-  changed chakrui system with tailwind
+
 ## 0.2.2
 
 ### Patch Changes
