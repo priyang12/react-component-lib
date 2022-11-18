@@ -12,8 +12,8 @@ import {
    subDays,
    subMonths,
    subWeeks,
+   subYears,
 } from 'date-fns';
-import subYears from 'date-fns/subYears';
 import chunk from 'lodash.chunk';
 import { chakra, ChakraProps } from '@chakra-ui/system';
 import * as React from 'react';
