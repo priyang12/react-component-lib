@@ -20,7 +20,7 @@ function Ring({
    className,
    ...props
 }: RingProps) {
-   const RingClass = clsx('ring', className);
+   const RingClass = clsx('Ring', className);
    return (
       <div
          className={RingClass}

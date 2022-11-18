@@ -61,6 +61,7 @@
     "@vitest/coverage-c8": "^0.24.5",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.2.5",
+    "depcheck": "^1.4.3",
     "esbuild-sass-plugin": "^2.4.0",
     "husky": "^8.0.1",
     "jest-axe": "^6.0.0",
