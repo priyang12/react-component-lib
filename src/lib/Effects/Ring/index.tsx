@@ -1,3 +1,1 @@
-import Ring from './Ring';
-
-export default Ring;
+export { default as Ring } from './Ring';

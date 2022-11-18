@@ -1,3 +1,1 @@
-import GradientHover from './GradientHover';
-
-export default GradientHover;
+export { default as GradientHover } from './GradientHover';

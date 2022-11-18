@@ -1,3 +1,1 @@
-import TextLanding from './TextLanding';
-
-export default TextLanding;
+export { default as TextLanding } from './TextLanding';

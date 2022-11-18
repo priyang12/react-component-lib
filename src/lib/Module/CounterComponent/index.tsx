@@ -1,3 +1,1 @@
-import CounterComponent from './CounterComponent';
-
-export default CounterComponent;
+export { default as CounterComponent } from './CounterComponent';

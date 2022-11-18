@@ -1,3 +1,1 @@
-import VercelButton from './VercelButton';
-
-export default VercelButton;
+export { default as VercelButton } from './VercelButton';

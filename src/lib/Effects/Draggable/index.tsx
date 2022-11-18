@@ -1,3 +1,1 @@
-import Draggable from './Draggable';
-
-export default Draggable;
+export { default as Draggable } from './Draggable';

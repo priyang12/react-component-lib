@@ -1,3 +1,1 @@
-import DragNDrop from './DragNDrop';
-
-export default DragNDrop;
+export { default as DragNDrop } from './DragNDrop';

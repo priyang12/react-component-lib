@@ -1,14 +1,8 @@
 import * as React from 'react';
-import {
-   Button,
-   CalendarBody,
-   CalendarDays,
-   CalendarFooter,
-   CalendarTitle,
-   Calendar,
-} from '../../Atoms';
+import { Button } from '../../Atoms/Button';
 import { BsFillCalendarCheckFill, BsDoorClosed } from 'react-icons/bs';
-import { DateField } from '../../Module';
+import { DateField } from '../../Module/DateField';
+
 import {
    FaAngleDoubleLeft,
    FaAngleLeft,
@@ -16,7 +10,14 @@ import {
    FaAngleDoubleRight,
    FaCalendarAlt,
 } from 'react-icons/fa';
-import { CalendarWeeks } from '../../Atoms/Calendar/Calendar';
+import {
+   CalendarWeeks,
+   CalendarBody,
+   CalendarDays,
+   CalendarFooter,
+   CalendarTitle,
+   Calendar,
+} from '../../Atoms/Calendar/Calendar';
 import './DatePicker.scss';
 
 function DatePicker({ children, ...props }: { children?: React.ReactNode }) {
