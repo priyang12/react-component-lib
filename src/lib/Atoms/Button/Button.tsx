@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import { Variant } from '../interface';
 import './Button.scss';
 
@@ -28,7 +28,7 @@ function Button({
    ...props
 }: IButtonProps) {
    const WithIcon = React.Children.count('svg');
-   const classes = cx(
+   const classes = clsx(
       'Button',
       variant,
       StyleClass,

@@ -1,5 +1,5 @@
 import React, { useContext, useMemo, useState } from 'react';
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import debounce from 'lodash.debounce';
 import './HoverCard.scss';
 
@@ -61,7 +61,7 @@ function CardImage({
    const { cancelDebounce, debouncedHandleMouseEnter } = useContext(
       CardContext
    );
-   const CardImageClassName = cx('preview-img', className);
+   const CardImageClassName = clsx('preview-img', className);
    return (
       <div
          className={CardImageClassName}
@@ -79,7 +79,7 @@ function CardImage({
 }
 
 function CardBottom({ children, ...props }: any) {
-   const CardBottomClassName = cx('card-bottom', props.className);
+   const CardBottomClassName = clsx('card-bottom', props.className);
    return (
       <div className={CardBottomClassName} {...props}>
          {children}
@@ -94,7 +94,7 @@ const HiddenCard = ({
    children: React.ReactNode;
    className?: string;
 }) => {
-   const HiddenCardClassName = cx('hidden-card', className);
+   const HiddenCardClassName = clsx('hidden-card', className);
    const { handleOnMouseLeave, Show } = useContext(CardContext);
    return (
       <div
@@ -115,7 +115,7 @@ export interface HoverCardProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 function HoverCard({ className, children, ...props }: HoverCardProps) {
-   const CardClasses = cx('card', className);
+   const CardClasses = clsx('card', className);
    const { Show, cancelDebounce } = useContext(CardContext);
    return (
       <article className={CardClasses} {...props}>

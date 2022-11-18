@@ -1,4 +1,4 @@
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import './ProgressBar.scss';
 
 export type ProgressBarProps = {
@@ -16,7 +16,7 @@ function ProgressBarLabel({
    label: string;
    className?: string;
 }) {
-   return <span className={cx('ProgressBar-label', className)}>{label}</span>;
+   return <span className={clsx('ProgressBar-label', className)}>{label}</span>;
 }
 
 function ProgressBar({
@@ -28,7 +28,7 @@ function ProgressBar({
    ...props
 }: ProgressBarProps) {
    const percentage = ((value - min) / (max - min)) * 100;
-   const ProgressClassName = cx('ProgressBar', className);
+   const ProgressClassName = clsx('ProgressBar', className);
 
    return (
       <div

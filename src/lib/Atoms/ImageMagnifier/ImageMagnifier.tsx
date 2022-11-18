@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import './ImageMagnifier.scss';
 
 export interface ImageMagnifierProps {
@@ -25,7 +25,7 @@ function ImageMagnifier({
    const [showMagnifier, setShowMagnifier] = React.useState(false);
 
    return (
-      <div className={cx('imageContainer', props.className)} {...props}>
+      <div className={clsx('imageContainer', props.className)} {...props}>
          <img
             style={{
                height: height,

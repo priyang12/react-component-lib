@@ -1,6 +1,7 @@
 import { defineConfig } from 'tsup';
 import { sassPlugin } from 'esbuild-sass-plugin';
 import postcss from 'postcss';
+import tailwind from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
 
 export default defineConfig({
@@ -8,7 +9,9 @@ export default defineConfig({
    esbuildPlugins: [
       sassPlugin({
          async transform(source, resolveDir) {
-            const { css } = await postcss([autoprefixer]).process(source);
+            const { css } = await postcss([tailwind(), autoprefixer]).process(
+               source
+            );
             return css;
          },
       }),

@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import lodash from 'lodash.debounce';
 import Button from '../../Atoms/Button';
-import { chakra } from '@chakra-ui/system';
 import './ButtonDes.scss';
 
 type ButtonProps = {
@@ -42,7 +41,7 @@ function ButtonDes({
       debouncedHandleMouseExit();
    };
    return (
-      <chakra.div
+      <div
          className="Button-container"
          style={{
             width: width,
@@ -72,7 +71,7 @@ function ButtonDes({
                   );
             }
          })}
-      </chakra.div>
+      </div>
    );
 }
 

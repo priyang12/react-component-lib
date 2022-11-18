@@ -9,6 +9,8 @@ import {
    CalendarTitle,
    DateField,
 } from '../../dist';
+
+import '../../dist/index.css';
 import {
    FaAngleDoubleLeft,
    FaAngleDoubleRight,
@@ -17,7 +19,6 @@ import {
    FaCalendarAlt,
 } from 'react-icons/fa';
 // import '../../dist/index.css';
-import './App.css';
 
 function App() {
    const [count, setCount] = useState(0);

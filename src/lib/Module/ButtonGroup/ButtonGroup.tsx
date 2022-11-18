@@ -1,4 +1,4 @@
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import './ButtonGroup.scss';
 
 export interface IButtonGroupProps {
@@ -13,7 +13,7 @@ function ButtonGroup({
    className,
    ...props
 }: IButtonGroupProps & React.HTMLAttributes<HTMLDivElement>): any {
-   const ButtonGroupClass = cx(
+   const ButtonGroupClass = clsx(
       'ButtonGroup',
       className,
       withIcon && 'ButtonGroup__icon'

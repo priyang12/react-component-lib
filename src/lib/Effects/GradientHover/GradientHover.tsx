@@ -1,5 +1,5 @@
 import React from 'react';
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import './GradientHover.scss';
 
 function GradientHover({
@@ -14,7 +14,7 @@ function GradientHover({
 }) {
    // const Element = as || 'button';
    const { className } = props as any;
-   const gradientClass = cx('gradient-layer', className);
+   const gradientClass = clsx('gradient-layer', className);
    return (
       <div
          className={gradientClass}

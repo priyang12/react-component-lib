@@ -1,7 +1,7 @@
 import { useTimer } from '../../../Hooks/useTimer';
 import Button from '../../Atoms/Button/Button';
 import { ButtonGroup } from '../../Module';
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import './Timer.scss';
 
 function Timer({
@@ -14,7 +14,7 @@ function Timer({
 }) {
    const { className } = props as any;
 
-   const TimerClass = cx('Timer', Hidden && 'hide', className);
+   const TimerClass = clsx('Timer', Hidden && 'hide', className);
 
    const {
       Hour,
@@ -40,7 +40,7 @@ function Timer({
             </p>
          </div>
 
-         <ButtonGroup className="primary-border" zIndex={2}>
+         <ButtonGroup className="primary-border">
             <Button onClick={startTimer}>Start</Button>
             <Button variant="secondary-border" onClick={stopTimer}>
                Stop

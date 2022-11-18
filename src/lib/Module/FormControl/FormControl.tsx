@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import './FormControl.scss';
 
 export type FormControl = {
@@ -32,7 +32,7 @@ function FormControl({
    className,
    ...restProps
 }: FormControl) {
-   const FormControlClass = cx('form-control', className);
+   const FormControlClass = clsx('form-control', className);
    const [LabelCheck, setLabelCheck] = React.useState(false);
    const [Alert, setAlert] = React.useState('');
 

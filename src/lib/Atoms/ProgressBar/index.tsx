@@ -1,7 +1,6 @@
 import { ProgressBar, ProgressBarLabel } from './ProgressBar';
-import { withChakraProps } from '../../Utils/withChakraProps';
 
-const Bar = withChakraProps(ProgressBar);
-const Label = withChakraProps(ProgressBarLabel);
+const Bar = ProgressBar;
+const Label = ProgressBarLabel;
 
 export { Bar as ProgressBar, Label as ProgressBarLabel };

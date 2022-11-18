@@ -1,10 +1,9 @@
 import { CardBottom, CardImage, CardWrapper, HiddenCard } from './HoverCard';
-import { withChakraProps } from '../../Utils/withChakraProps';
 
-const ChakraCardWrapper = withChakraProps(CardWrapper);
-const ChakraImage = withChakraProps(CardImage);
-const ChakraHiddenCard = withChakraProps(HiddenCard);
-const ChakraCardBottom = withChakraProps(CardBottom);
+const ChakraCardWrapper = CardWrapper;
+const ChakraImage = CardImage;
+const ChakraHiddenCard = HiddenCard;
+const ChakraCardBottom = CardBottom;
 
 export {
    ChakraCardWrapper as CardWrapper,

@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { chakra, ChakraProps } from '@chakra-ui/system';
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import './Label.scss';
 import { FormControlContext } from '../../Module/FormControl/FormControl';
 
-export interface LabelProps extends ChakraProps {
+export interface LabelProps {
    children: React.ReactNode;
    className?: string;
    htmlFor?: string;
@@ -18,7 +17,7 @@ function Label(
 ) {
    const { children, hidden, size, className, ...restProps } = props;
    const { Alert, LabelCheck, overlay } = React.useContext(FormControlContext);
-   const LabelClass = cx(
+   const LabelClass = clsx(
       'label',
       LabelCheck && 'active',
       overlay && 'overlay',
@@ -29,13 +28,9 @@ function Label(
    );
 
    return (
-      <chakra.label
-         className={LabelClass}
-         {...restProps}
-         data-valid={LabelCheck}
-      >
+      <label className={LabelClass} {...restProps} data-valid={LabelCheck}>
          {Alert ? Alert : children}
-      </chakra.label>
+      </label>
    );
 }
 export default Label;

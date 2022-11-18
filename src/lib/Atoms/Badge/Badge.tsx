@@ -1,26 +1,24 @@
 import React from 'react';
-import { chakra, ChakraProps } from '@chakra-ui/system';
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import { Variant } from '../interface';
 import './Badge.scss';
 
-function BadgeContainer(
-   props: ChakraProps & React.ComponentPropsWithoutRef<'div'>
-) {
+function BadgeContainer(props: React.ComponentPropsWithoutRef<'div'>) {
    const { className, ...rest } = props;
+
    return (
-      <chakra.div className={cx('badge-container', className)} {...rest}>
+      <div className={clsx('badge-container', className)} {...rest}>
          {props.children}
-      </chakra.div>
+      </div>
    );
 }
 /**
  *
  *
  * @interface BadgeProps
- * @extends {ChakraProps}
+ *
  */
-interface BadgeProps extends ChakraProps {
+interface BadgeProps {
    variant?: Variant['variant'];
    BadgeContent: string | number;
    colorScheme?: string;
@@ -41,18 +39,7 @@ function Badge({
    ...props
 }: BadgeProps & React.ComponentPropsWithoutRef<'div'>) {
    const [Hover, setHover] = React.useState(false);
-   const StyledBadge = chakra('span', {
-      baseStyle: {
-         display: 'inline-block',
-         padding: '0.25em .50em',
-         fontWeight: 'bold',
-         lineHeight: '1',
-         textAlign: 'center',
-         whiteSpace: 'nowrap',
-         verticalAlign: 'baseline',
-         borderRadius: '50%',
-      },
-   });
+
    const badgeContentDisplay = Max
       ? typeof BadgeContent === 'string'
          ? BadgeContent.length > Max
@@ -65,8 +52,8 @@ function Badge({
 
    if (showOnHover) {
       return (
-         <StyledBadge
-            className={cx(
+         <span
+            className={clsx(
                props.className,
                'badge',
                'badge-position',
@@ -78,12 +65,13 @@ function Badge({
             {...props}
          >
             {Hover ? BadgeContent : badgeContentDisplay}
-         </StyledBadge>
+         </span>
       );
    }
+
    return (
-      <StyledBadge
-         className={cx(
+      <span
+         className={clsx(
             props.className,
             'badge',
             'badge-position',
@@ -93,7 +81,7 @@ function Badge({
          {...props}
       >
          {badgeContentDisplay}
-      </StyledBadge>
+      </span>
    );
 }
 

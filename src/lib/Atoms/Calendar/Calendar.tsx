@@ -15,9 +15,8 @@ import {
    subYears,
 } from 'date-fns';
 import chunk from 'lodash.chunk';
-import { chakra, ChakraProps } from '@chakra-ui/system';
 import * as React from 'react';
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import './Calendar.scss';
 
 const DefaultDaysFormate = [
@@ -95,8 +94,7 @@ function CalendarTitle({
    DoubleLeftArrow: any;
    DoubleRightArrow: any;
    [key: string]: any;
-} & React.ComponentPropsWithoutRef<'div'> &
-   ChakraProps) {
+} & React.ComponentPropsWithoutRef<'div'>) {
    const { LookDate, setLookDate, setSelectedDate } = React.useContext(
       CalendarContext
    );
@@ -129,7 +127,7 @@ function CalendarTitle({
    };
 
    return (
-      <chakra.div className={cx('calendar-title', className)} {...props}>
+      <div className={clsx('calendar-title', className)} {...props}>
          <div className="icons">
             <div
                className="iconContainer"
@@ -182,7 +180,7 @@ function CalendarTitle({
                <DoubleRightArrow />
             </div>
          </div>
-      </chakra.div>
+      </div>
    );
 }
 
@@ -192,8 +190,7 @@ function CalendarBody({
    ...props
 }: {
    [key: string]: any;
-} & React.ComponentPropsWithoutRef<'table'> &
-   ChakraProps) {
+} & React.ComponentPropsWithoutRef<'table'>) {
    const { LookDate, setLookDate, setSelectedDate } = React.useContext(
       CalendarContext
    );
@@ -281,17 +278,17 @@ function CalendarBody({
    };
 
    return (
-      <chakra.table
+      <table
          id="grid"
          tabIndex={0}
          role="grid"
          onKeyDown={handleTableKeyPress}
          aria-label="calendar-body"
-         className={cx('calendar-body', className)}
+         className={clsx('calendar-body', className)}
          {...props}
       >
          {children}
-      </chakra.table>
+      </table>
    );
 }
 
@@ -301,10 +298,9 @@ function CalendarWeeks({
    ...props
 }: {
    DaysFormate?: typeof DefaultDaysFormate;
-} & React.ComponentPropsWithoutRef<'thead'> &
-   ChakraProps) {
+} & React.ComponentPropsWithoutRef<'thead'>) {
    return (
-      <chakra.thead className={cx('Weeks', className)} {...props}>
+      <thead className={clsx('Weeks', className)} {...props}>
          <tr role="row">
             {DaysFormate.map((day, index) => (
                <th
@@ -317,7 +313,7 @@ function CalendarWeeks({
                </th>
             ))}
          </tr>
-      </chakra.thead>
+      </thead>
    );
 }
 
@@ -330,8 +326,7 @@ function CalendarDays({
    DaysStyles?: {};
    CurrentDayStyles?: {};
    [key: string]: any;
-} & React.ComponentPropsWithoutRef<'tbody'> &
-   ChakraProps) {
+} & React.ComponentPropsWithoutRef<'tbody'>) {
    const {
       selectedDate,
       setSelectedDate,
@@ -344,7 +339,7 @@ function CalendarDays({
       setLookDate(date);
    };
    return (
-      <chakra.tbody className={cx('calendar-days', className)} {...props}>
+      <tbody className={clsx('calendar-days', className)} {...props}>
          {generateMonth(LookDate).map((week, index) => (
             <tr key={index} role="row" className="week">
                {week.map((day, index) =>
@@ -386,7 +381,7 @@ function CalendarDays({
                )}
             </tr>
          ))}
-      </chakra.tbody>
+      </tbody>
    );
 }
 
@@ -396,11 +391,10 @@ function CalendarFooter({
    ...props
 }: {
    CalendarIcon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-} & React.ComponentPropsWithRef<'div'> &
-   ChakraProps) {
+} & React.ComponentPropsWithRef<'div'>) {
    const { setSelectedDate } = React.useContext(CalendarContext);
    return (
-      <chakra.div className={cx('calendar-footer', className)} {...props}>
+      <div className={clsx('calendar-footer', className)} {...props}>
          <div className="footer-text">
             <div className="footer-text-container-title">
                <CalendarIcon />
@@ -420,7 +414,7 @@ function CalendarFooter({
                Clear
             </button>
          </div>
-      </chakra.div>
+      </div>
    );
 }
 
@@ -463,7 +457,7 @@ const Calendar = ({
             setLookDate,
          }}
       >
-         <div className={cx('calendar', className)} {...props}>
+         <div className={clsx('calendar', className)} {...props}>
             {children}
          </div>
       </CalendarContext.Provider>

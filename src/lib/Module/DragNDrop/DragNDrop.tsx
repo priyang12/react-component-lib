@@ -1,4 +1,4 @@
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import * as React from 'react';
 import './DragNDrop.scss';
 
@@ -15,7 +15,7 @@ const DragNDrop = React.forwardRef<HTMLDivElement, PropType>(
       dropdowncontainerref
    ) => {
       const { className } = props as any;
-      const DragClasses = cx(unstyled ? '' : 'DragNDrop', className);
+      const DragClasses = clsx(unstyled ? '' : 'DragNDrop', className);
       const [dragging, setDragging] = React.useState(false);
       const dragCounter = React.useRef(0);
       const dragRef = React.useRef<any>(null);

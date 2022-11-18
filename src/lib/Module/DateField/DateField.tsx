@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Label from '../../Atoms/Label/Label';
 import { isLeapYear } from 'date-fns';
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import { useCounter } from '../../../Hooks/useCounter';
 import './DateField.scss';
 
@@ -438,7 +438,7 @@ function DateField({
 
    return (
       <div
-         className={cx('DateField', className)}
+         className={clsx('DateField', className)}
          data-DatePicker--focus={
             FocusElement.day || FocusElement.month || FocusElement.year
          }

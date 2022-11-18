@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import './TextArea.scss';
 import { callAll } from '../../Utils/AllFunctionsCall';
 import { FormControlContext } from '../../Module/FormControl/FormControl';
@@ -11,7 +11,7 @@ function TextArea(props: {
    [x: string]: any;
 }): React.ReactElement<HTMLFormElement> {
    const { Size, alert, className, ...rest } = props;
-   const TextAreaClass = cx(Size, alert && 'Alert-Border', className);
+   const TextAreaClass = clsx(Size, alert && 'Alert-Border', className);
    const { inputChange, onFocus } = React.useContext(FormControlContext);
    return (
       <textarea

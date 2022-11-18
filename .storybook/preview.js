@@ -1,4 +1,6 @@
 import '../src/lib/styles/Global.scss';
+import '../src/lib/styles/tailwind.scss';
+
 import { themes } from '@storybook/theming';
 import { setConsoleOptions } from '@storybook/addon-console';
 

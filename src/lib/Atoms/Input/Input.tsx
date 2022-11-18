@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import { callAll } from '../../Utils/AllFunctionsCall';
 import { FormControlContext } from '../../Module/FormControl/FormControl';
 import './Input.scss';
@@ -16,7 +16,7 @@ function Input({
    ...props
 }: React.ComponentPropsWithoutRef<'input'> & InputProps) {
    const { Alert, onFocus, inputChange } = React.useContext(FormControlContext);
-   const InputClass = cx('input', InputSize, Alert && 'alert', className);
+   const InputClass = clsx('input', InputSize, Alert && 'alert', className);
 
    return (
       <input

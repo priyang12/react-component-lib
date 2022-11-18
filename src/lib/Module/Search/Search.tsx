@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../../Atoms/Button/Button';
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import './Search.scss';
 
 function Search({
@@ -12,7 +12,7 @@ function Search({
    children?: React.ReactNode;
 }) {
    const { className } = props as any;
-   const SerachClass = cx('search-container', SearchBtnHide, className);
+   const SerachClass = clsx('search-container', SearchBtnHide, className);
    return (
       <div className={SerachClass} {...props}>
          {React.Children.map(children, (child: any) => {

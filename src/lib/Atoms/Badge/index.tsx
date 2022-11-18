@@ -1,3 +1,3 @@
-import { Badge } from './Badge';
+import { Badge, BadgeContainer } from './Badge';
 
-export default Badge;
+export { Badge, BadgeContainer };

@@ -37,17 +37,10 @@
    background-color: #000;
    width: 100%;
    padding: 1em;
+   user-select: none;
    &:focus {
       outline: 5px solid var(--color-primary);
    }
-   // prevent from selecting text
-   -webkit-touch-callout: none; /* iOS Safari */
-   -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-   -moz-user-select: none; /* Old versions of Firefox */
-   -ms-user-select: none; /* Internet Explorer/Edge */
-   user-select: none; /* Non-prefixed version, currently
-   supported by Chrome, Edge, Opera and Firefox */
 }
 .Weeks {
    margin-bottom: 1em;

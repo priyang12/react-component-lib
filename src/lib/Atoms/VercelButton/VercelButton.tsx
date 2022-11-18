@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import './VercelButton.scss';
 
 const ShadowAnimation: React.FC<{
@@ -7,7 +7,7 @@ const ShadowAnimation: React.FC<{
    className?: string;
    AnimationCss: string;
 }> = ({ children, AnimationCss, className, ...props }) => {
-   const VercelButtonClass = cx('neon-bg', AnimationCss, className);
+   const VercelButtonClass = clsx('neon-bg', AnimationCss, className);
 
    return (
       <div className={VercelButtonClass} {...props}>

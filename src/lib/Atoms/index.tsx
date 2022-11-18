@@ -6,7 +6,7 @@ import TextEffect from './TextEffect';
 import VercelButton from './VercelButton';
 import Counter from './Counter';
 import ImageMagnifier from './ImageMagnifier';
-import Badge from './Badge';
+import { Badge, BadgeContainer } from './Badge';
 
 export * from './ProgressBar';
 export * from './Calendar';
@@ -19,6 +19,7 @@ export {
    TextEffect,
    VercelButton,
    Counter,
+   BadgeContainer,
    ImageMagnifier,
    Badge,
 };

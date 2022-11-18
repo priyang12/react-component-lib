@@ -1,5 +1,5 @@
 import React from 'react';
-import { cx } from '@chakra-ui/utils';
+import { clsx } from 'clsx';
 import './Ring.scss';
 
 export interface RingProps extends React.ComponentPropsWithoutRef<'div'> {
@@ -20,7 +20,7 @@ function Ring({
    className,
    ...props
 }: RingProps) {
-   const RingClass = cx('ring', className);
+   const RingClass = clsx('ring', className);
    return (
       <div
          className={RingClass}
