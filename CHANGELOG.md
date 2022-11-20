@@ -1,5 +1,11 @@
 # priyang-react-component-lib
 
+## 1.1.0
+
+### Minor Changes
+
+-  fixed esm
+
 ## 1.0.0
 
 ### Major Changes
