@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import reactLogo from './assets/react.svg';
-import { Button, DatePicker } from '../../dist';
-
-import '../../dist/index.css';
+import { Button } from 'react-component-lib';
+import 'react-component-lib/dist/index.css';
 
 // import '../../dist/index.css';
 
