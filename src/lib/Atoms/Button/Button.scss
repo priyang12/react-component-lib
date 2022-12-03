@@ -8,6 +8,9 @@
       width: var(--btn-icon-size);
       height: var(--btn-icon-size);
    }
+   &:disabled {
+      background-color: gray;
+   }
 }
 .Button-icon {
    display: flex;

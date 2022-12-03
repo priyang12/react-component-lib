@@ -70,6 +70,13 @@ LongText.args = {
    },
 };
 
+export const LoadingButton = Template.bind({});
+
+LoadingButton.args = {
+   isLoading: true,
+   LoadingText: 'Loading Please wait',
+};
+
 const IconTemplate: ComponentStory<typeof Button> = args => (
    <Button ellipsis={true} {...args}>
       <svg

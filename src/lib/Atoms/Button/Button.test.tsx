@@ -10,6 +10,7 @@ const {
    CustomColorVariant,
    Radius,
    Variant,
+   LoadingButton,
 } = composeStories(ButtonStories);
 
 it('render Input with text', () => {
@@ -17,14 +18,15 @@ it('render Input with text', () => {
    expect(screen.getByText('Button Name')).toBeInTheDocument();
 });
 
-it('render Input with children', () => {
-   testA11y(<Default text="">Button Child</Default>);
-   expect(screen.getByText('Button Child')).toBeInTheDocument();
-});
-
 it('render Input with border variant', () => {
    testA11y(<BorderVariant />);
    expect(screen.getByRole('button').hasAttribute('class')).toBe(true);
+});
+
+it('render Input with border variant', () => {
+   testA11y(<LoadingButton LoadingText="Loading Wait" />);
+   expect(screen.getByRole('button')).toBeDisabled();
+   expect(screen.getByRole('button').textContent).toMatch('Loading Wait');
 });
 
 it('render Input with long text', () => {

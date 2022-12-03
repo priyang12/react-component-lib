@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import reactLogo from './assets/react.svg';
-import { Button } from 'react-component-lib';
+import { Button, Ring } from 'react-component-lib';
 import 'react-component-lib/dist/index.css';
 
 // import '../../dist/index.css';
@@ -11,8 +11,9 @@ function App() {
 
    return (
       <div className="App">
-         <Button>asdsad</Button>
-
+         <Ring>
+            <Button>asdsad</Button>
+         </Ring>
          <div>
             <a href="https://vitejs.dev" target="_blank">
                <img src="/vite.svg" className="logo" alt="Vite logo" />

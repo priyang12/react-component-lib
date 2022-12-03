@@ -5,25 +5,21 @@ import './Button.scss';
 
 export interface IButtonProps extends React.ComponentPropsWithoutRef<'button'> {
    text?: string;
-   style?: any;
-   as?: string;
-   StyleClass?: any;
    ellipsis?: boolean;
    variant?: Variant['variant'];
    radius?: string;
-   className?: any;
-   children?: React.ReactNode;
+   isLoading?: boolean;
+   LoadingText?: string;
 }
 
 function Button({
    text,
-   as,
-   style,
-   StyleClass,
    ellipsis,
    variant = 'primary',
    radius,
    children,
+   isLoading,
+   LoadingText = 'Loading...',
    className,
    ...props
 }: IButtonProps) {
@@ -31,7 +27,6 @@ function Button({
    const classes = clsx(
       'Button',
       variant,
-      StyleClass,
       ellipsis && 'Button-ellipsis',
       WithIcon && 'Button-icon',
       className
@@ -40,14 +35,20 @@ function Button({
    return (
       <button
          className={classes}
+         disabled={isLoading}
          style={{
             borderRadius: radius,
-            ...style,
          }}
          {...props}
       >
-         {text}
-         {children}
+         {isLoading ? (
+            LoadingText
+         ) : (
+            <>
+               {text}
+               {children}
+            </>
+         )}
       </button>
    );
 }

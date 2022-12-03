@@ -1,4 +1,4 @@
-import ButtonDes from './index';
+import ButtonDes from './ButtonDes';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
