@@ -69,6 +69,7 @@
     "@types/lodash.debounce": "^4.0.7",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
+    "@types/react-transition-group": "^4.4.5",
     "@vitejs/plugin-react": "^2.2.0",
     "@vitest/coverage-c8": "^0.24.5",
     "autoprefixer": "^10.4.13",
@@ -106,6 +107,7 @@
     "lodash.chunk": "^4.2.0",
     "lodash.debounce": "^4.0.8",
     "react-image": "^4.0.3",
+    "react-transition-group": "^4.4.5",
     "sass-loader": "^13.1.0"
   }
 }

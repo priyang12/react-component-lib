@@ -1,21 +1,19 @@
-const combineReducers = reducers => {
-   return (state, action) => {
-      return Object.keys(reducers).reduce((acc, prop) => {
-         return {
-            ...acc,
-            ...reducers[prop]({ [prop]: acc[prop] }, action),
-         };
-      }, state);
+import { Reducer } from 'react';
+
+interface Action {
+   type: string;
+}
+
+const combineReducers = <S, A extends Action>(
+   reducers: {
+      [K in keyof S]: Reducer<S[K], A>;
+   }
+) => {
+   return (state: S = {} as S, action: A) => {
+      return Object.keys(reducers).reduce((nextState, key) => {
+         const reducer = reducers[key] as Reducer<S[keyof S], A>;
+         nextState[key] = reducer(state[key], action);
+         return nextState;
+      }, {} as S);
    };
 };
-//stackoverflow.com/questions/57296549/hooks-combine-multiple-reducers-when-using-usereducer
-
-https: const combineReducers2 = slices => (state, action) =>
-   Object.keys(slices).reduce(
-      // use for..in loop, if you prefer it
-      (acc, prop) => ({
-         ...acc,
-         [prop]: slices[prop](acc[prop], action),
-      }),
-      state
-   );

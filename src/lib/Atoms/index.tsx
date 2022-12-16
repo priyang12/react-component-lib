@@ -9,3 +9,4 @@ export * from './ImageMagnifier';
 export * from './Badge';
 export * from './ProgressBar';
 export * from './Calendar';
+export * from './AccordionItems';
