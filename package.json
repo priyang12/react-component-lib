@@ -1,6 +1,6 @@
 {
   "name": "@priyang/react-component-lib",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -39,7 +39,7 @@
     "lib": "bash lib.sh",
     "build-storybook": "build-storybook -s public",
     "clean": "rimraf dist",
-    "publish": "yarn changeset publish --access=public",
+    "publish": "npm run changeset publish --access=public",
     "chromatic": "npx chromatic --project-token=16626241d43e"
   },
   "size-limit": [
@@ -87,6 +87,7 @@
     "react-is": "^18.2.0",
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.53.0",
+    "sass-loader": "^13.1.0",
     "size-limit": "^7.0.8",
     "storybook-a11y-report": "^0.0.19",
     "storybook-addon-sass-postcss": "^0.1.3",
@@ -106,8 +107,6 @@
     "date-fns": "^2.29.3",
     "lodash.chunk": "^4.2.0",
     "lodash.debounce": "^4.0.8",
-    "react-image": "^4.0.3",
-    "react-transition-group": "^4.4.5",
-    "sass-loader": "^13.1.0"
+    "react-transition-group": "^4.4.5"
   }
 }
