@@ -13,6 +13,13 @@ export interface CounterProps extends React.ComponentPropsWithoutRef<'div'> {
    Count: number;
    PreviousState: number;
 }
+/**
+ * Counter component that animates a value change
+ *
+ * @export
+ * @param {CounterProps} props
+ * @returns {JSX.Element}
+ */
 
 const Counter = React.forwardRef<HTMLDivElement, CounterProps>(
    (props, ref: any) => {

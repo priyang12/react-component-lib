@@ -4,12 +4,27 @@ import { callAll } from '../../Utils/AllFunctionsCall';
 import { FormControlContext } from '../../Module/FormControl/FormControl';
 import './Input.scss';
 
+/**
+ * Props for the Input component
+ *
+ * @export
+ * @interface InputProps
+ */
 export interface InputProps {
+   // Size of the input. Can be 'small', 'medium', or 'large'
    InputSize: 'small' | 'medium' | 'large';
+   // If true, the input will have an 'alert' class for styling purposes
    alert?: boolean | string;
+   // Additional class name for the input element
    className?: string;
 }
 
+/**
+ * Customized input component that can be used in a form
+ *
+ * @param {(React.ComponentPropsWithoutRef<'input'> & InputProps)} props
+ * @returns {JSX.Element}
+ */
 function Input({
    InputSize = 'medium',
    className,

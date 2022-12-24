@@ -2,17 +2,20 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 import './VercelButton.scss';
 
-const ShadowAnimation: React.FC<{
-   children: React.ReactNode;
-   className?: string;
-   AnimationCss: string;
-}> = ({ children, AnimationCss, className, ...props }) => {
+const ShadowAnimation = ({
+   children,
+   AnimationCss,
+   className,
+   ...props
+}: React.ComponentPropsWithoutRef<'button'> & {
+   AnimationCss: 'border-animation' | 'vercel-animation';
+}) => {
    const VercelButtonClass = clsx('neon-bg', AnimationCss, className);
 
    return (
-      <div className={VercelButtonClass} {...props}>
+      <button className={VercelButtonClass} {...props}>
          {children}
-      </div>
+      </button>
    );
 };
 

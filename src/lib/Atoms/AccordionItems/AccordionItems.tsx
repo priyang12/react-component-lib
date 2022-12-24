@@ -6,7 +6,19 @@ import './AccordionItems.scss';
 export interface AccordionButtonProps {
    index: number;
 }
-
+/**
+ * AccordionButton is a component that represents a button within an accordion.
+ *
+ * @param index - The index of the accordion item that the button belongs to.
+ * @param children - The content of the button.
+ * @param props - Additional props to be passed to the button element.
+ *
+ * @returns a div element that acts as a button.
+ *
+ * @example
+ *
+ * <AccordionButton index={0}>Click me</AccordionButton>
+ */
 export function AccordionButton({
    index,
    children,
@@ -52,7 +64,19 @@ export function AccordionButton({
 interface AccordionContentType {
    index: number;
 }
-
+/**
+ * AccordionContent is a component that represents the content of an accordion item.
+ *
+ * @param index - The index of the accordion item that the content belongs to.
+ * @param children - The content of the accordion item.
+ * @param props - Additional props to be passed to the div element.
+ *
+ * @returns a div element that contains the accordion item content.
+ *
+ * @example
+ *
+ * <AccordionContent index={0}>Item content</AccordionContent>
+ */
 export function AccordionContent({
    index,
    children,
@@ -79,7 +103,23 @@ interface AccordionIconType {
    OpenIcon: React.ReactNode;
    CloseIcon: React.ReactNode;
 }
-
+/**
+ * AccordionIcon is a component that represents an icon within an accordion item.
+ *
+ * @param index - The index of the accordion item that the icon belongs to.
+ * @param OpenIcon - The icon to be displayed when the accordion item is open.
+ * @param CloseIcon - The icon to be displayed when the accordion item is closed.
+ *
+ * @returns a span element that contains the appropriate icon.
+ *
+ * @example
+ *
+ * <AccordionIcon
+ *   index={0}
+ *   OpenIcon={<i className="fas fa-chevron-up" />}
+ *   CloseIcon={<i className="fas fa-chevron-down" />}
+ * />
+ */
 export function AccordionIcon({
    index,
    CloseIcon,
