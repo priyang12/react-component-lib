@@ -1,5 +1,3 @@
-import { useCounter } from './useCounter';
-import { useMouse } from './useMouse';
-import { useTimer } from './useTimer';
-
-export { useCounter, useMouse, useTimer };
+export * from './useCounter';
+export * from './useMouse';
+export * from './useAccordion';

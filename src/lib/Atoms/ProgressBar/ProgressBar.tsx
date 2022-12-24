@@ -1,6 +1,12 @@
 import { clsx } from 'clsx';
 import './ProgressBar.scss';
 
+/**
+ * Props for the `ProgressBar` component.
+ *
+ * @export
+ * @interface ProgressBarProps
+ */
 export type ProgressBarProps = {
    className?: string;
    value: number;

@@ -18,7 +18,7 @@ export default {
             TEXT
          </Button>
       ),
-      AnimationCss: 'none',
+      AnimationCss: 'vercel-animation',
    },
    decorators: [
       story => (

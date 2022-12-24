@@ -10,13 +10,28 @@ export interface TextEffectProps extends React.ComponentPropsWithoutRef<'div'> {
    color1?: string;
    color2?: string;
 }
-
+/**
+ * TextEffect is a functional component that renders a text effect with customizable size, container text, delay, animate time, color1, and color2 options.
+ *
+ * @param {Object} props - The props for the TextEffect component.
+ * @param {React.ElementType} props.Element - The element type for the text effect.
+ * @param {string} props.size - The size of the text effect.
+ * @param {string} props.ContainerText - The text that will be displayed in the text effect.
+ * @param {string} props.Delay - The delay of the text effect animation.
+ * @param {string} props.animateTime - The duration of the text effect animation.
+ * @param {string} props.color1 - The starting color of the text effect gradient.
+ * @param {string} props.color2 - The ending color of the text effect gradient.
+ * @param {string} props.className - A classname for the text effect container.
+ * @param {any} props.[x: string] - Other props that will be spread onto the text effect container element.
+ *
+ * @return {ReactElement} - The rendered text effect element.
+ */
 function TextEffect({
    Element,
    size,
    ContainerText,
    Delay,
-   animateTime,
+   animateTime = '2',
    color1 = '#e91e63',
    color2 = '#201f55',
    className,
@@ -51,8 +66,5 @@ function TextEffect({
       </div>
    );
 }
-TextEffect.defaultProps = {
-   animateTime: '2',
-};
 
 export default TextEffect;
