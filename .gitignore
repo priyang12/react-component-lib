@@ -41,3 +41,6 @@ build-storybook.log
 note.txt
 
 docs
+
+# Local Netlify folder
+.netlify
