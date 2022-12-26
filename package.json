@@ -28,8 +28,6 @@
     "build": "tsup",
     "build:test": "tsup && npm pack --pack-destination ~",
     "test": "vitest",
-    "test-WatchAll": "tsup test --watchAll",
-    "lint": "tsup lint",
     "prepare": "yarn build",
     "size": "size-limit",
     "analyzeMapper": "source-map-explorer 'dist/*.js'",
@@ -39,13 +37,12 @@
     "lib": "bash lib.sh",
     "build-storybook": "build-storybook -s public",
     "clean": "rimraf dist",
-    "publish": "npm run changeset publish --access=public",
-    "chromatic": "npx chromatic --project-token=16626241d43e"
+    "publish": "npm run changeset publish --access=public"
   },
   "size-limit": [
     {
-      "path": "dist/react-component-lib.cjs.production.min.js",
-      "limit": "50 KB"
+      "path": "dist/index.js",
+      "limit": "100 KB"
     }
   ],
   "devDependencies": {

@@ -1,22 +1,57 @@
-# TSDX React w/ Storybook User Guide
+# React Component lib
 
-"chromatic": "^6.6.4",
-// "eslint-config-react-app": "^7.0.1",
+As we build out scalable applications in React, we often face challenges in maintaining the growing complexity of component structures. that why the lib follows Atmoic design system.
 
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
+The Atomic Design Pattern is a methodology for creating user interfaces (UI) that is based on the concept of "atoms," which are the smallest, indivisible elements of a UI. These atoms can then be combined to form molecules, which are small groups of atoms that function together as a unit. From there, molecules can be combined to form organisms, which are larger groups of molecules that function together to perform a specific task. Finally, organisms can be combined to form templates, which are complete UI layouts that can be used to build a user interface.
 
-> This TSDX setup is meant for developing React component libraries (not apps!) that can be published to NPM. If you’re looking to build a React-based app, you should use `create-react-app`, `razzle`, `nextjs`, `gatsby`, or `react-static`.
+-  Atoms: These are the smallest, most basic UI elements, such as buttons, inputs, and text.
 
-> If you’re new to TypeScript and React, checkout [this handy cheatsheet](https://github.com/sw-yx/react-typescript-cheatsheet/)
+-  Molecules: These are groups of atoms that function together as a unit, such as a search bar (made up of an input and a button) or a navigation menu (made up of a list of links).
+
+-  Organisms: These are larger groups of molecules that function together to perform a specific task, such as a header (made up of a logo and a navigation menu) or a footer (made up of a list of links and a copyright notice).
+
+-  Templates: These are complete UI layouts that can be used to build a user interface, such as a homepage template (made up of a header, a main content area, and a footer).
+
+-  Pages: The page level refers to the complete UI of a specific page on a website or application. It is made up of a combination of templates, organisms, molecules, and atoms.
+
+![image](https://ik.imagekit.io/5aalo5l7bu7/Portfolio/sd_red_AJ4x2.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1672058507486)
+
+# Lib
+
+[x] Atoms
+[x] Molecules
+[x] Organisms
+[] Templates
+[] Pages
+
+## Links
+
+Link to the Static Storybook deploy - [Link](https://willowy-semifreddo-521b84.netlify.app/)
+
+Read More about the Lib in my portfolio -
+
+# TSUP React w/ Storybook User Guide
+
+This will guide you how to setup the lib. clone the repo first.
 
 ## Commands
 
-TSDX scaffolds your new library inside `/src`, and also sets up a [Parcel-based](https://parceljs.org) playground for it inside `/example`.
-
-The recommended workflow is to run TSDX in one terminal:
+### install the packages
 
 ```bash
-npm start # or yarn start
+npm i
+```
+
+### Run all the test files
+
+```bash
+npm run test
+```
+
+### Build the Lib in dist folder
+
+```bash
+npm run build # or yarn build
 ```
 
 This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
@@ -25,17 +60,25 @@ Then run either Storybook or the example playground:
 
 ### Storybook
 
-Run inside another terminal:
-
 ```bash
-yarn storybook
+npm run storybook
 ```
 
-This loads the stories from `./stories`.
+### Storybook Build static webapp
+
+```bash
+npm run build-storybook
+```
+
+This loads the stories from `./src/**stories`.
 
 > NOTE: Stories should reference the components as if using the library, similar to the example playground. This means importing from the root project directory. This has been aliased in the tsconfig and the storybook webpack config as a helper.
 
+There are other commands which you can explore it.
+
 ### Example
+
+We have a Vite react project call example which we can use to test our package.
 
 Then run the example inside another:
 
@@ -45,62 +88,31 @@ npm i # or yarn to install dependencies
 npm start # or yarn start
 ```
 
-The default example imports and live reloads whatever is in `/dist`, so if you are seeing an out of date component, make sure TSDX is running in watch mode like we recommend above. **No symlinking required**, we use [Parcel's aliasing](https://parceljs.org/module_resolution.html#aliases).
+we can use the `../dist` diretory to test our packge but i would recommand to build you package and deploy it locally then test it in the exmaple.
 
-To do a one-off build, use `npm run build` or `yarn build`.
-
-To run tests, use `npm test` or `yarn test`.
+```
+    "react-component-lib":"file:~/priyang-react-component-lib-1.0.0.tgz"
+```
 
 ## Configuration
 
-Code quality is set up for you with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
+Code quality is set up for you with `prettier`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
 
-### Jest
+### Including Styles
 
-Jest tests are set up to run with `npm test` or `yarn test`.
+it is configured with tailwind css but there the design system it self is created using .scss with loaders. we can use both for now since both will converted into single .css file. maybe in future i will remove scss completly but for now both will remain.
+
+### Vitest
+
+vitest tests are set up to run with `npm test` or `yarn test`.
 
 ### Bundle analysis
 
 Calculates the real cost of your library using [size-limit](https://github.com/ai/size-limit) with `npm run size` and visulize it with `npm run analyze`.
 
-#### Setup Files
-
-This is the folder structure we set up for you:
-
-```txt
-/example
-  index.html
-  index.tsx       # test your component here in a demo app
-  package.json
-  tsconfig.json
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-/stories
-  Thing.stories.tsx # EDIT THIS
-/.storybook
-  main.js
-  preview.js
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
-```
-
-#### React Testing Library
-
-We do not set up `react-testing-library` for you yet, we welcome contributions and documentation on this.
-
-### Rollup
-
-TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
-
 ### TypeScript
 
 `tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
-
-## Continuous Integration
 
 ### GitHub Actions
 
@@ -108,22 +120,6 @@ Two actions are added by default:
 
 -  `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
 -  `size` which comments cost comparison of your library on every pull request using [size-limit](https://github.com/ai/size-limit)
-
-## Optimizations
-
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
-
-```js
-// ./types/index.d.ts
-declare var __DEV__: boolean;
-
-// inside your code...
-if (__DEV__) {
-   console.log('foo');
-}
-```
-
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
 
 ## Module Formats
 
@@ -133,52 +129,10 @@ The appropriate paths are configured in `package.json` and `dist/index.js` accor
 
 ## Deploying the Example Playground
 
-The Playground is just a simple [Parcel](https://parceljs.org) app, you can deploy it anywhere you would normally deploy that. Here are some guidelines for **manually** deploying with the Netlify CLI (`npm i -g netlify-cli`):
+The Playground is just a simple Vite React app, you can deploy it anywhere you would normally deploy that. Here are some guidelines for **manually** deploying with the Netlify CLI (`npm i -g netlify-cli`):
 
 ```bash
 cd example # if not already in the example folder
 npm run build # builds to dist
 netlify deploy # deploy the dist folder
 ```
-
-Alternatively, if you already have a git repo connected, you can set up continuous deployment with Netlify:
-
-```bash
-netlify init
-# build command: yarn build && cd example && yarn && yarn build
-# directory to deploy: example/dist
-# pick yes for netlify.toml
-```
-
-## Named Exports
-
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
-
-## Including Styles
-
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
-
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
-
-## Publishing to NPM
-
-We recommend using [np](https://github.com/sindresorhus/np).
-
-## Usage with Lerna
-
-When creating a new package with TSDX within a project set up with Lerna, you might encounter a `Cannot resolve dependency` error when trying to run the `example` project. To fix that you will need to make changes to the `package.json` file _inside the `example` directory_.
-
-The problem is that due to the nature of how dependencies are installed in Lerna projects, the aliases in the example project's `package.json` might not point to the right place, as those dependencies might have been installed in the root of your Lerna project.
-
-Change the `alias` to point to where those packages are actually installed. This depends on the directory structure of your Lerna project, so the actual path might be different from the diff below.
-
-```diff
-   "alias": {
--    "react": "../node_modules/react",
--    "react-dom": "../node_modules/react-dom"
-+    "react": "../../../node_modules/react",
-+    "react-dom": "../../../node_modules/react-dom"
-   },
-```
-
-An alternative to fixing this problem would be to remove aliases altogether and define the dependencies referenced as aliases as dev dependencies instead. [However, that might cause other problems.](https://github.com/palmerhq/tsdx/issues/64)

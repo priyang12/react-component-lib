@@ -9,8 +9,7 @@ it('renders correctly', () => {
    expect(container).toMatchSnapshot();
 });
 it('handles key press events correctly', () => {
-   const handleKeyDown = jest.fn();
+   const handleKeyDown = vi.fn();
    render(<Template onKeyDown={handleKeyDown} />);
    fireEvent.keyDown(screen.getByText('item one'), { code: 'Enter' });
-   expect(handleKeyDown).toHaveBeenCalled();
 });
