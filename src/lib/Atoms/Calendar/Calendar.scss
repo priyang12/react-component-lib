@@ -36,6 +36,7 @@
    border-radius: var(--border-radius);
    background-color: #000;
    width: 100%;
+   height: 20em;
    padding: 1em;
    user-select: none;
    &:focus {
@@ -139,7 +140,6 @@
    .clear-btn {
       cursor: pointer;
       font-size: var(--font-size-medium);
-      background-color: var(--color-primary);
       border: none;
       border-radius: var(--btn-radius);
    }
