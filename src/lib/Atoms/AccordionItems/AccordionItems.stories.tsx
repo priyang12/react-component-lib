@@ -9,7 +9,18 @@ import { AccordionContext } from '../../Module/Accordion/Accordion';
 export default {
    title: 'Atoms/AccordionItems',
    component: AccordionButton,
-   decorators: [story => <div className="container">{story()}</div>],
+   decorators: [
+      story => (
+         <div
+            className="container"
+            style={{
+               display: 'block',
+            }}
+         >
+            {story()}
+         </div>
+      ),
+   ],
 } as ComponentMeta<typeof AccordionButton>;
 
 export const Template: ComponentStory<typeof AccordionButton> = args => {

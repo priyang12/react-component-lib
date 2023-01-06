@@ -1,0 +1,22 @@
+.Options {
+   @apply flex flex-col overflow-scroll h-[10rem];
+   .OptionItem {
+      border-radius: var(--border-radius);
+      @apply cursor-pointer p-2 m-2 border-2 border-red-500 border-solid;
+      &:focus {
+         background-color: blue;
+      }
+   }
+}
+
+.Select {
+   @apply relative py-[0.5em] px-[1.5em] text-[2rem];
+   input {
+      @apply border-2 border-solid border-blue-500;
+      border-radius: var(--border-radius);
+   }
+   .DisplayValue {
+      @apply absolute top-[20%] left-[15%];
+      user-select: none;
+   }
+}

@@ -29,9 +29,6 @@ index(){
     # Write the Component Name
     echo "export {default} from './$1';" >>$Path/$1/index.tsx
 }
-scss() {
-    echo "@import '../../styles/variable.scss';" >>$Path/$1/$1.scss
-}
 Story() {
     # Write Story For Component
     echo "import $1 from './$1';" >>$Path/$1/$1.stories.tsx
@@ -85,7 +82,6 @@ action() {
                 Rfce $NAME
                 Story $NAME
                 Test $NAME
-                scss $NAME
                 index $NAME
 
                 # Write in index.tsx
