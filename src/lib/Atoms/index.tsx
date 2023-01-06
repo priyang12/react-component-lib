@@ -10,3 +10,4 @@ export * from './Badge';
 export * from './ProgressBar';
 export * from './Calendar';
 export * from './AccordionItems';
+export * from './Select';
