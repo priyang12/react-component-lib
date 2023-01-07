@@ -5,7 +5,7 @@ export default {
    title: 'Organisms/Timer',
    component: Timer,
    args: {
-      StartTime: 456,
+      StartTime: 0,
    },
    decorators: [story => <div className="container">{story()}</div>],
 } as ComponentMeta<typeof Timer>;

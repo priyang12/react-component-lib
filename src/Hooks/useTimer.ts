@@ -1,76 +1,66 @@
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 
-export const useTimer = (initialTime: number) => {
-   const [Start, setStart] = React.useState(false);
-   const [seconds, setSeconds] = React.useState(initialTime);
-   const [Minute, setMinute] = React.useState(0);
-   const [Hour, setHour] = React.useState(0);
-   const [Day, setDay] = React.useState(0);
-   const [TotalTime, setTotalTime] = React.useState(0);
+export function useTimer(initTime = 0) {
+   const [seconds, setSeconds] = useState(initTime % 60);
+   const [minutes, setMinutes] = useState(Math.floor(initTime / 60));
+   const [hours, setHours] = useState(Math.floor(initTime / 3600));
+   const [isRunning, setIsRunning] = useState(false);
+   const [intervalId, setIntervalId] = useState<any>(null);
 
-   React.useLayoutEffect(() => {
-      let interval: any;
-      if (Start) {
-         interval = setInterval(() => {
-            setSeconds(seconds + 1);
+   useEffect(() => {
+      function handleVisibilityChange() {
+         if (document.hidden) {
+            stopTimer();
+         } else {
+            startTimer();
+         }
+      }
+      document.addEventListener('visibilitychange', handleVisibilityChange);
+      return () => {
+         document.removeEventListener(
+            'visibilitychange',
+            handleVisibilityChange
+         );
+      };
+   }, [isRunning]);
+
+   useEffect(() => {
+      if (isRunning) {
+         const id = setInterval(() => {
+            setSeconds(seconds => {
+               if (seconds >= 59) {
+                  setMinutes(minutes => {
+                     if (minutes >= 59) {
+                        setHours(hours => hours + 1);
+                        return 0;
+                     }
+                     return minutes + 1;
+                  });
+                  return 0;
+               }
+               return seconds + 1;
+            });
          }, 1000);
+         setIntervalId(id);
       } else {
-         clearInterval(interval);
+         clearInterval(intervalId);
+         setIntervalId(null);
       }
-      return () => clearInterval(interval);
-   }, [seconds, Start]);
+   }, [isRunning]);
 
-   React.useLayoutEffect(() => {
-      if (seconds > 59) {
-         setMinute(Minute + 1);
-         setSeconds(0);
-      }
-   }, [Minute, seconds]);
+   function startTimer() {
+      setIsRunning(true);
+   }
 
-   React.useLayoutEffect(() => {
-      if (Minute > 59) {
-         setHour(Hour + 1);
-         setMinute(0);
-      }
-   }, [Hour, Minute]);
+   function stopTimer() {
+      setIsRunning(false);
+   }
 
-   React.useLayoutEffect(() => {
-      if (Hour > 23) {
-         setDay(Day + 1);
-         setHour(0);
-      }
-   }, [Day, Hour]);
+   function resetTimer() {
+      setSeconds(0);
+      setMinutes(0);
+      setHours(0);
+   }
 
-   const resetTimer = () => {
-      setStart(false);
-      setSeconds(initialTime);
-      setMinute(0);
-      setHour(0);
-      setDay(0);
-      setTotalTime(0);
-   };
-   const startTimer = () => {
-      setStart(true);
-   };
-   const stopTimer = () => {
-      setStart(false);
-   };
-   const CountTotalTime = React.useCallback(() => {
-      setTotalTime(seconds + Minute * 60 + Hour * 3600 + Day * 86400);
-      return seconds + Minute * 60 + Hour * 3600 + Day * 86400;
-   }, [seconds, Minute, Hour, Day]);
-
-   return {
-      seconds,
-      Minute,
-      Hour,
-      Day,
-      Start,
-      TotalTime,
-      CountTotalTime,
-      setStart,
-      startTimer,
-      stopTimer,
-      resetTimer,
-   };
-};
+   return { seconds, minutes, hours, startTimer, stopTimer, resetTimer };
+}

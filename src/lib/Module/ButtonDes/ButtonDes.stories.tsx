@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Button } from '../../Atoms/Button';
-import ButtonDes from './index';
+import { ButtonDes } from './index';
+
 export default {
    title: 'Module/ButtonDes',
    component: ButtonDes,

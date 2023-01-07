@@ -1,9 +1,6 @@
-@import '../../styles/variable.scss';
-
 .Timer {
    display: flex;
    flex-direction: column;
-
    .Hidden {
       transform: translate(0, 100%);
       z-index: -1;
@@ -12,6 +9,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 1em;
+      padding: 1em;
       border-width: var(--border-width);
       border-radius: var(--border-radius);
       border-style: solid;
@@ -29,14 +28,8 @@
             order: 1;
          }
       }
-      p {
-         margin: 0.5em;
-      }
       @media (max-width: 768px) {
          font-size: var(--font-size-medium);
       }
-   }
-   .Heading {
-      text-align: center;
    }
 }
