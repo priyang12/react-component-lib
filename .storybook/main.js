@@ -1,4 +1,5 @@
 module.exports = {
+   framework: '@storybook/react',
    stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
    addons: [
       '@storybook/addon-links',
@@ -15,6 +16,16 @@ module.exports = {
          },
       },
    ],
+   core: {
+      builder: '@storybook/builder-vite',
+      disableTelemetry: true,
+   },
+   features: {
+      storyStoreV7: true,
+   },
+   async viteFinal(config, { configType }) {
+      return config;
+   },
    typescript: {
       check: false, // type-check stories during Storybook build
    },
