@@ -29,6 +29,7 @@ export const Template: ComponentStory<typeof Search> = args => {
             console.log('Search');
          }}
          {...args}
+         className="bg-transparent"
          LabelComponent={
             <Label htmlFor="Search" hidden>
                Search Product

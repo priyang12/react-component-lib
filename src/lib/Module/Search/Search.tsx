@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../Atoms/Button/Button';
+import { Button } from '../../Atoms/Button';
 import { clsx } from 'clsx';
 import './Search.scss';
 
@@ -14,16 +14,17 @@ function Search({
    LabelComponent,
    InputComponent,
    children,
+   className,
    ...props
 }: SearchProps & React.ComponentPropsWithoutRef<'form'>) {
-   const { className } = props as any;
-   const SerachClass = clsx('search-container', SearchBtnHide, className);
+   const SerachClass = clsx('search-container', className);
+   const BtnClass = clsx('search-btn', SearchBtnHide ? 'hide' : null);
 
    return (
       <form className={SerachClass} {...props}>
          {LabelComponent}
          {InputComponent}
-         <Button variant="primary" className="search-btn">
+         <Button variant="primary-border" className={BtnClass}>
             Search
          </Button>
       </form>
