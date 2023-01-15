@@ -8,7 +8,7 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = args => (
-   <Button className="bg-red-700" {...args}>
+   <Button {...args}>
       <svg
          width="24"
          height="24"
