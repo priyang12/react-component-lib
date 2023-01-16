@@ -4,12 +4,7 @@
    justify-content: center;
    border-radius: var(--btn-radius);
    transition: all 0.1s ease-in-out;
-   background: linear-gradient(
-      0deg,
-      var(--grad-color-1),
-      var(--grad-color-2) 41.07%,
-      var(--grad-color-3) 76.05%
-   );
+   background: linear-gradient(0deg, red, blue 41.07%, green 76.05%);
 }
 
 .gradient-hover__content {
@@ -22,44 +17,19 @@
 
 @keyframes grd {
    0% {
-      background: linear-gradient(
-         0deg,
-         var(--grad-color-1),
-         var(--grad-color-2) 41.07%,
-         var(--grad-color-3) 76.05%
-      );
+      background: linear-gradient(0deg, red, blue 41.07%, green 76.05%);
    }
    25% {
-      background: linear-gradient(
-         45deg,
-         var(--grad-color-1),
-         var(--grad-color-2) 41.07%,
-         var(--grad-color-3) 76.05%
-      );
+      background: linear-gradient(45deg, red, blue 41.07%, green 76.05%);
    }
    50% {
-      background: linear-gradient(
-         90deg,
-         var(--grad-color-1),
-         var(--grad-color-2) 41.07%,
-         var(--grad-color-3) 76.05%
-      );
+      background: linear-gradient(90deg, red, blue 41.07%, green 76.05%);
    }
    75% {
-      background: linear-gradient(
-         180deg,
-         var(--grad-color-1),
-         var(--grad-color-2) 41.07%,
-         var(--grad-color-3) 76.05%
-      );
+      background: linear-gradient(180deg, red, blue 41.07%, green 76.05%);
    }
    100% {
-      background: linear-gradient(
-         360deg,
-         var(--grad-color-1),
-         var(--grad-color-2) 41.07%,
-         var(--grad-color-3) 76.05%
-      );
+      background: linear-gradient(360deg, red, blue 41.07%, green 76.05%);
    }
 }
 

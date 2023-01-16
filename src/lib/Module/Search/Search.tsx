@@ -1,29 +1,33 @@
 import React from 'react';
-import Button from '../../Atoms/Button/Button';
+import { Button } from '../../Atoms/Button';
 import { clsx } from 'clsx';
 import './Search.scss';
 
+interface SearchProps {
+   SearchBtnHide?: boolean;
+   LabelComponent: React.ReactNode;
+   InputComponent: React.ReactNode;
+}
+
 function Search({
    SearchBtnHide,
+   LabelComponent,
+   InputComponent,
    children,
+   className,
    ...props
-}: {
-   SearchBtnHide?: boolean;
-   children?: React.ReactNode;
-}) {
-   const { className } = props as any;
-   const SerachClass = clsx('search-container', SearchBtnHide, className);
+}: SearchProps & React.ComponentPropsWithoutRef<'form'>) {
+   const SerachClass = clsx('search-container', className);
+   const BtnClass = clsx('search-btn', SearchBtnHide ? 'hide' : null);
+
    return (
-      <div className={SerachClass} {...props}>
-         {React.Children.map(children, (child: any) => {
-            if (child.type === 'button' || child.type === Button) {
-               return React.cloneElement(child, {
-                  className: `search-btn ${SearchBtnHide ? 'hide' : ''}`,
-               });
-            }
-            return child;
-         })}
-      </div>
+      <form className={SerachClass} {...props}>
+         {LabelComponent}
+         {InputComponent}
+         <Button variant="primary-border" className={BtnClass}>
+            Search
+         </Button>
+      </form>
    );
 }
 export default Search;

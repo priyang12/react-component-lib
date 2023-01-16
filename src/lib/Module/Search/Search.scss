@@ -1,21 +1,13 @@
-@import '../../styles/variable.scss';
-
 .search-container {
    display: flex;
    gap: 1em;
    padding: 1em;
-   background-color: var(--color-primary);
-
    .search-btn {
       cursor: pointer;
-      border: none;
-      padding: 0.5em 1em;
-      border-radius: var(--input-border);
       transition: all 0.3s ease-in-out;
+      &:focus,
       &:hover {
-         color: var(--color-primary);
-         background-color: #fff;
-         border: 2px solid var(--color-primary);
+         border-width: 5px;
       }
    }
    .hide {
