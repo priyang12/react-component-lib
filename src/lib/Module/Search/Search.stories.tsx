@@ -20,13 +20,11 @@ export default {
 export const Template: ComponentStory<typeof Search> = args => {
    const [Value, setValue] = useState('');
    const throttledVal = useThrottle(Value, 1000);
-
    return (
       <Search
          onSubmit={(e: any) => {
             e.preventDefault();
             console.log(throttledVal);
-            console.log('Search');
          }}
          {...args}
          className="bg-transparent"
