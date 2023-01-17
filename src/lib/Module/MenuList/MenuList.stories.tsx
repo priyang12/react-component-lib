@@ -9,15 +9,15 @@ export default {
 } as ComponentMeta<typeof MenuList>;
 
 const items = [
-   { icon: <FaHome />, command: 'Home' },
-   { icon: <FaUser />, command: 'Profile' },
-   { icon: <FaCog />, command: 'Settings' },
+   { icon: <FaHome />, command: 'Home', children: <div>asdasd</div> },
+   { icon: <FaUser />, command: 'Profile', children: <div>asdasd</div> },
+   { icon: <FaCog />, command: 'Settings', children: <div>asdasd</div> },
 ];
 
 export const Template: ComponentStory<typeof MenuList> = args => (
    <MenuList
       {...args}
-      MenuItem={MenuItem}
+      MenuItem={<MenuItem />}
       items={items}
       Grouped={false}
       className="rounded-none p-5"
@@ -28,6 +28,7 @@ export const Rounded: ComponentStory<typeof MenuList> = args => (
    <MenuList
       {...args}
       Joined={true}
+      MenuItem={<MenuItem />}
       Grouped={false}
       items={items}
       className="rounded-xl gap-0"
@@ -48,6 +49,7 @@ const GroupedItems = [
 export const GroupedLists: ComponentStory<typeof MenuList> = args => (
    <MenuList
       {...args}
+      MenuItem={<MenuItem />}
       // Joined={true}
       Grouped={true}
       items={GroupedItems}

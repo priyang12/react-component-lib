@@ -11,7 +11,7 @@ export function SingleMenu({
    MenuItem,
    ...props
 }: {
-   items: MenuItemInterface[];
+   items: any[];
    MenuListClasses: string;
    Joined: boolean;
    BorderSkip: string;
@@ -31,14 +31,17 @@ export function SingleMenu({
             } else {
                menuItemClasses = borderRadiusClasses;
             }
-
             return (
-               <MenuItem
-                  key={index}
-                  {...item}
-                  Element="li"
-                  className={menuItemClasses}
-               />
+               <>
+                  {/*  still need to work on this */}
+                  {React.cloneElement(MenuItem, {
+                     key: index,
+                     children: item.children,
+                     icon: item.icon,
+                     command: item.command,
+                     className: menuItemClasses,
+                  })}
+               </>
             );
          })}
       </ul>
