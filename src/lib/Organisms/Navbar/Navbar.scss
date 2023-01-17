@@ -1,5 +1,5 @@
 .Navbar {
-   @apply flex items-center justify-between bg-[var(--color-primary)] p-[2em] rounded-2xl;
+   @apply flex flex-wrap items-center justify-between bg-[var(--color-primary)] p-[2em] rounded-2xl;
    .logo {
       @apply text-[var(--content-color)] text-[2rem];
    }

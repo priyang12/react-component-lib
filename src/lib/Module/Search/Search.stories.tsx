@@ -38,6 +38,7 @@ export const Template: ComponentStory<typeof Search> = args => {
                type="text"
                placeholder="Find your Product"
                id="Search"
+               value={Value}
                onChange={e => setValue(e.target.value)}
                InputSize="medium"
             />
@@ -49,4 +50,39 @@ export const Template: ComponentStory<typeof Search> = args => {
 export const SearchBtnHide = Template.bind({});
 SearchBtnHide.args = {
    SearchBtnHide: true,
+};
+
+export const CloseBtn: ComponentStory<typeof Search> = args => {
+   const [Value, setValue] = useState('');
+   const throttledVal = useThrottle(Value, 1000);
+   const clearText = () => {
+      setValue('');
+   };
+   return (
+      <Search
+         onSubmit={(e: any) => {
+            e.preventDefault();
+            console.log(throttledVal);
+         }}
+         {...args}
+         className="bg-transparent"
+         clearTextFn={clearText}
+         clearText={Value ? true : false}
+         LabelComponent={
+            <Label htmlFor="Search" hidden>
+               Search Product
+            </Label>
+         }
+         InputComponent={
+            <Input
+               type="text"
+               placeholder="Find your Product"
+               id="Search"
+               value={Value}
+               onChange={e => setValue(e.target.value)}
+               InputSize="medium"
+            />
+         }
+      />
+   );
 };

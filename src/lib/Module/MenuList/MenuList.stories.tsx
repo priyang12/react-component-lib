@@ -28,10 +28,10 @@ export const Rounded: ComponentStory<typeof MenuList> = args => (
    <MenuList
       {...args}
       Joined={true}
-      MenuItem={<MenuItem Element={'li'} />}
       Grouped={false}
+      MenuItem={<MenuItem Element={'li'} />}
       items={items}
-      className="rounded-xl gap-0"
+      className="rounded-xl"
    />
 );
 
