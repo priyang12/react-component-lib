@@ -16,7 +16,7 @@ Rfce() {
     # Write the Component Name
     echo "import * as React from 'react';" >>$Path/$1/$1.tsx
     echo "import './$1.scss';" >>$Path/$1/$1.tsx
-    echo "function $1({...props} : : React.ComponentPropsWithoutRef<'div'>) {" >>$Path/$1/$1.tsx
+    echo "function $1({...props} : React.ComponentPropsWithoutRef<'div'>) {" >>$Path/$1/$1.tsx
     echo "    return ( " >>$Path/$1/$1.tsx
     echo "        <div {...props}>" >>$Path/$1/$1.tsx
     echo "           $1" >>$Path/$1/$1.tsx
