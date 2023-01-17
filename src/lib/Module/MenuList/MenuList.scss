@@ -1,0 +1,9 @@
+.MenuList {
+   @apply flex;
+   .group-menu {
+      @apply flex flex-col;
+      .menu-title {
+         color: gray;
+      }
+   }
+}

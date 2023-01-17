@@ -1,5 +1,5 @@
 .MenuItem {
-   @apply flex text-[length:var(--font-size-small)] bg-[var(--color-primary)] px-[1.5em] py-[1em] rounded-xl text-[var(--content-color)] justify-between hover:bg-[var(--color-secondary)] transition-colors ease-out duration-300 cursor-pointer;
+   @apply flex items-center text-[length:var(--font-size-small)] bg-[var(--color-primary)] px-[1.5em] py-[1em]  text-[var(--content-color)] justify-between hover:bg-[var(--color-secondary)] transition-colors ease-out duration-300 cursor-pointer;
    &:active {
       color: #ff0000;
       background: yellow;

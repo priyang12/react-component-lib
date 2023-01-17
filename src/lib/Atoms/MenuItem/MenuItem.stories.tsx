@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof MenuItem>;
 
 export const Template: ComponentStory<typeof MenuItem> = args => (
-   <MenuItem {...args} Element="li" className="text-5xl">
+   <MenuItem {...args} Element="li">
       Item 1
    </MenuItem>
 );
