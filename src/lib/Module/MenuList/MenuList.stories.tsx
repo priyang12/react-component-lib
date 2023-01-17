@@ -9,15 +9,15 @@ export default {
 } as ComponentMeta<typeof MenuList>;
 
 const items = [
-   { icon: <FaHome />, command: 'Home', children: <div>asdasd</div> },
-   { icon: <FaUser />, command: 'Profile', children: <div>asdasd</div> },
-   { icon: <FaCog />, command: 'Settings', children: <div>asdasd</div> },
+   { icon: <FaHome />, command: '#3', children: <div>Home</div> },
+   { icon: <FaUser />, command: '#r', children: <div>Profile</div> },
+   { icon: <FaCog />, command: '$d', children: <div>Settings</div> },
 ];
 
 export const Template: ComponentStory<typeof MenuList> = args => (
    <MenuList
       {...args}
-      MenuItem={<MenuItem />}
+      MenuItem={<MenuItem Element={'li'} />}
       items={items}
       Grouped={false}
       className="rounded-none p-5"
@@ -28,7 +28,7 @@ export const Rounded: ComponentStory<typeof MenuList> = args => (
    <MenuList
       {...args}
       Joined={true}
-      MenuItem={<MenuItem />}
+      MenuItem={<MenuItem Element={'li'} />}
       Grouped={false}
       items={items}
       className="rounded-xl gap-0"
@@ -39,17 +39,22 @@ const GroupedItems = [
    {
       title: 'Navigation',
       items: [
-         { icon: <FaHome />, command: 'Home' },
-         { icon: <FaUser />, command: 'Profile' },
+         { icon: <FaHome />, children: <div>Home</div> },
+         { icon: <FaUser />, command: '#5', children: <div>Profile</div> },
       ],
    },
-   { title: 'Settings', items: [{ icon: <FaCog />, command: 'Settings' }] },
+   {
+      title: 'Settings',
+      items: [
+         { icon: <FaCog />, command: '#3', children: <div>Settings</div> },
+      ],
+   },
 ];
 
 export const GroupedLists: ComponentStory<typeof MenuList> = args => (
    <MenuList
       {...args}
-      MenuItem={<MenuItem />}
+      MenuItem={<MenuItem Element={'li'} />}
       // Joined={true}
       Grouped={true}
       items={GroupedItems}

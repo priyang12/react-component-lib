@@ -6,10 +6,11 @@ import './MenuItem.scss';
  * Interface for MenuItem props
  */
 export interface MenuItemInterface {
-   icon: React.ReactNode;
+   icon?: React.ReactNode;
+   children?: React.ReactNode;
    active?: boolean;
    disable?: boolean;
-   command: string;
+   command?: string;
 }
 
 /**

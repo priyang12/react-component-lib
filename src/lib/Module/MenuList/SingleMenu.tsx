@@ -11,7 +11,7 @@ export function SingleMenu({
    MenuItem,
    ...props
 }: {
-   items: any[];
+   items: MenuItemInterface[];
    MenuListClasses: string;
    Joined: boolean;
    BorderSkip: string;
