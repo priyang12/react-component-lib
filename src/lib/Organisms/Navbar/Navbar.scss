@@ -3,4 +3,13 @@
    .logo {
       @apply text-[var(--content-color)] text-[2rem];
    }
+   .SkipNavbar {
+      @apply relative;
+      top: -1000px;
+      &:focus {
+         z-index: 1;
+         top: 0px;
+         display: block;
+      }
+   }
 }

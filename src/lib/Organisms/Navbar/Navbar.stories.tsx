@@ -54,3 +54,14 @@ export const Logo: ComponentStory<typeof Navbar> = args => (
       LastComponent={<div></div>}
    />
 );
+
+export const SkipNav = Logo.bind({});
+SkipNav.args = {
+   SkipNav: true,
+};
+
+export const CustomSkipNav = SkipNav.bind({});
+CustomSkipNav.args = {
+   SkipNav: true,
+   SkipNavComponent: <div>Skip Nav</div>,
+};
