@@ -2,6 +2,7 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 import { Variant } from '../interface';
 import './Button.scss';
+import { callAll } from '../../Utils/AllFunctionsCall';
 
 export interface IButtonProps extends React.ComponentPropsWithoutRef<'button'> {
    text?: string;
@@ -46,6 +47,12 @@ function Button({
    ...props
 }: IButtonProps) {
    const WithIcon = React.Children.count('svg');
+   const [ripple, setRipple] = React.useState<{
+      x: number;
+      y: number;
+      show: boolean;
+   }>();
+
    const classes = clsx(
       'Button',
       variant,
@@ -54,6 +61,28 @@ function Button({
       className
    );
 
+   const handleClick: React.ComponentPropsWithoutRef<
+      'button'
+   >['onClick'] = e => {
+      const buttonCoords = e.currentTarget.getBoundingClientRect();
+      const x = e.clientX - buttonCoords.left;
+      const y = e.clientY - buttonCoords.top;
+
+      setRipple({
+         x,
+         y,
+         show: true,
+      });
+
+      setTimeout(() => {
+         setRipple({
+            x: 0,
+            y: 0,
+            show: false,
+         });
+      }, 500);
+   };
+
    return (
       <button
          className={classes}
@@ -61,6 +90,7 @@ function Button({
          style={{
             borderRadius: radius,
          }}
+         onClick={callAll(handleClick, props.onClick)}
          {...props}
       >
          {isLoading ? (
@@ -70,6 +100,17 @@ function Button({
                {text}
                {children}
             </>
+         )}
+         {ripple?.show && (
+            <div
+               className="ripple"
+               style={{
+                  top: ripple.y,
+                  left: ripple.x,
+                  width: '50px',
+                  height: '50px',
+               }}
+            />
          )}
       </button>
    );
