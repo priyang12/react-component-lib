@@ -11,15 +11,6 @@ const config: StorybookConfig = {
       '@storybook/addon-links',
       '@storybook/addon-a11y',
       '@storybook/addon-docs',
-
-      {
-         name: 'storybook-addon-sass-postcss',
-         options: {
-            postcssLoaderOptions: {
-               implementation: postcss,
-            },
-         },
-      },
    ],
    features: {},
    typescript: {
