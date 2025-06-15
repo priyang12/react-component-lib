@@ -1,4 +1,4 @@
 [x] update the dep and fix setup
 [x] remove jest-axe
 [x] remove not needed deps.
-[] fix build
+[x] fix build (remove .d.ts from build. need to fix ts errors.)

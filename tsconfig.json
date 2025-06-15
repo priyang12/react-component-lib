@@ -1,15 +1,16 @@
 {
-  
   "include": ["src", "types"],
-  "exclude": ["node_modules", "<node_internals>/**", "tsdx.config.js"],
+  "exclude": ["node_modules", "<node_internals>/**"],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
     "types": ["vitest/globals"],
     "importHelpers": true,
     "declaration": true,
+    "emitDeclarationOnly": true,         
+    "outDir": "dist",                    
     "sourceMap": true,
-    "rootDir": ".",
+    "rootDir": "./src",                    
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
@@ -19,8 +20,6 @@
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
+    "forceConsistentCasingInFileNames": true
   }
-  
 }
