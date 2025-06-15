@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import { testA11y } from '../../Utils/test-utils/index';
-import { composeStories } from '@storybook/testing-react';
+import { composeStories } from '@storybook/react';
 import * as ButtonStories from './Button.stories';
 
 const {

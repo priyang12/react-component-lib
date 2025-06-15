@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { composeStories } from '@storybook/testing-react';
+import { composeStories } from '@storybook/react';
 import * as ImageMagnifierStories from './ImageMagnifier.stories';
 const { Template } = composeStories(ImageMagnifierStories);
 

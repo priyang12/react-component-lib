@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { composeStories } from '@storybook/testing-react';
+import { composeStories } from '@storybook/react';
 import * as SwitchStories from './Switch.stories';
 
 const { Template } = composeStories(SwitchStories);

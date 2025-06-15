@@ -1,10 +1,9 @@
 import { render } from '@testing-library/react';
 import * as RingStories from './Ring.stories';
-import { composeStories } from '@storybook/testing-react';
+import { composeStories } from '@storybook/react';
 
-const { BoderRadius, OuterRingColor, RingColor, Template } = composeStories(
-   RingStories
-);
+const { BoderRadius, OuterRingColor, RingColor, Template } =
+   composeStories(RingStories);
 
 it('should render without crashing', () => {
    render(<Template />);

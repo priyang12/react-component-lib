@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { composeStories } from '@storybook/testing-react';
+import { composeStories } from '@storybook/react';
 import * as MenuItemStories from './MenuItem.stories';
 const { Template, Command, WithIcon } = composeStories(MenuItemStories);
 

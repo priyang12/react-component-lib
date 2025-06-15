@@ -1,5 +1,5 @@
 import { render, fireEvent, screen } from '@testing-library/react';
-import { composeStories } from '@storybook/testing-react';
+import { composeStories } from '@storybook/react';
 import * as AccordionItemsStories from './AccordionItems.stories';
 
 const { Template } = composeStories(AccordionItemsStories);

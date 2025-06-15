@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { composeStories } from '@storybook/testing-react';
+import { composeStories } from '@storybook/react';
 import * as TimerStories from './Timer.stories';
 
 const { Template, CounterHidden } = composeStories(TimerStories);

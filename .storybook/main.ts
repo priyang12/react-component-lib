@@ -1,7 +1,7 @@
 import { StorybookConfig } from '@storybook/react-vite';
 import postcss from 'postcss';
 
-const config = {
+const config: StorybookConfig = {
    framework: {
       name: '@storybook/react-vite',
       options: {},
