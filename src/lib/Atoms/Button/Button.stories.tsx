@@ -4,10 +4,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 export default {
    title: 'Atoms/Button',
    component: Button,
-   decorators: [story => <div className="container">{story()}</div>],
+   decorators: [(story) => <div className="container">{story()}</div>],
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = args => (
+const Template: ComponentStory<typeof Button> = (args) => (
    <Button {...args}></Button>
 );
 
@@ -60,7 +60,7 @@ LoadingButton.args = {
    LoadingText: 'Loading Please wait',
 };
 
-const IconTemplate: ComponentStory<typeof Button> = args => (
+const IconTemplate: ComponentStory<typeof Button> = (args) => (
    <Button ellipsis={true} {...args}>
       <svg
          width="24"

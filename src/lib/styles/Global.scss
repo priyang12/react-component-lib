@@ -1,4 +1,4 @@
-@import './variable.scss';
+@use './variable.scss';
 
 :root {
    --color-primary: #3b51c9;
@@ -12,7 +12,7 @@
    --btn-radius: 15px;
    --input-border: #333;
    --input-border-focus: #666dff;
-   --input-darken-border: #{$input-color};
+   // --input-darken-border: #{variables.$input-color};
    --input-border-radius: 10px;
    --font-size-small: 1rem;
    --font-size-medium: 1.5rem;

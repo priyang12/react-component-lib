@@ -1,4 +1,4 @@
-$input-color: #666dff;
+$input-color: #666dff !default;
 
 @function customLighten($color-variable, $value) {
    $color-variable-h: var(#{$color-variable + '-h'});

@@ -1,4 +1,5 @@
-@import '../../styles/variable.scss';
+@use '../../styles/variable.scss' as variable;
+
 .input {
    display: block;
    border: 2px solid var(--input-border);
@@ -7,9 +8,9 @@
 
    &:focus {
       outline: none;
-      border-color: darken($color: $input-color, $amount: 20);
+      border-color: darken($color: variable.$input-color, $amount: 20);
    }
    &:hover {
-      border-color: $input-color;
+      border-color: variable.$input-color;
    }
 }

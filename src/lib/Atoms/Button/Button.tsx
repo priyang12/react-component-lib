@@ -13,6 +13,8 @@ export interface IButtonProps extends React.ComponentPropsWithoutRef<'button'> {
    LoadingText?: string;
 }
 
+
+
 /**
  * Button is a component that represents a button.
  *
