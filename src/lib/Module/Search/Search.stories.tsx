@@ -65,7 +65,6 @@ export const CloseBtn: StoryFn<typeof Search> = (args) => {
             console.log(throttledVal);
          }}
          {...args}
-         className="bg-transparent"
          clearTextFn={clearText}
          clearText={Value ? true : false}
          LabelComponent={
