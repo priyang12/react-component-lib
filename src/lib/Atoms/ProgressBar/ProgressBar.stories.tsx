@@ -1,5 +1,5 @@
 import { ProgressBar, ProgressBarLabel } from './index';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
    title: 'Atoms/ProgressBar',
@@ -9,10 +9,10 @@ export default {
       max: 100,
       min: 0,
    },
-   decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof ProgressBar>;
+   decorators: [(story) => <div className="container">{story()}</div>],
+} as Meta<typeof ProgressBar>;
 
-export const Template: ComponentStory<typeof ProgressBar> = args => (
+export const Template: StoryFn<typeof ProgressBar> = (args) => (
    <ProgressBar {...args}>
       <ProgressBarLabel label="50%" />
    </ProgressBar>

@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 import { MenuItemInterface } from '../../Atoms/MenuItem/MenuItem';
 import './MenuList.scss';
 
-interface BaseMenuListProps {
+export interface BaseMenuListProps {
    Dir?: 'Hor' | 'Ver';
    Joined?: boolean;
    MenuItem: any;

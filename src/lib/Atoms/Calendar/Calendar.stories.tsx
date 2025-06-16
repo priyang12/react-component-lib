@@ -6,7 +6,7 @@ import {
    CalendarWeeks,
    CalendarTitle,
 } from './Calendar';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import {
    FaAngleDoubleLeft,
    FaAngleLeft,
@@ -22,10 +22,10 @@ export default {
    args: {
       className: 'date-picker-cal',
    },
-   decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof Calendar>;
+   decorators: [(story) => <div className="container">{story()}</div>],
+} as Meta<typeof Calendar>;
 
-export const Template: ComponentStory<typeof Calendar> = args => {
+export const Template: StoryFn<typeof Calendar> = (args) => {
    const [selectedDate, setSelectedDate] = React.useState(new Date());
    return (
       <Calendar

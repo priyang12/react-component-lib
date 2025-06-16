@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { Default as Button } from '../../Atoms/Button/Button.stories';
 import GradientHover from './GradientHover';
 
@@ -9,10 +9,10 @@ export default {
       BorderSize: '0.2em',
       children: <Button>Border Wall</Button>,
    },
-   decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof GradientHover>;
+   decorators: [(story) => <div className="container">{story()}</div>],
+} as Meta<typeof GradientHover>;
 
-const Template: ComponentStory<typeof GradientHover> = args => (
+const Template: StoryFn<typeof GradientHover> = (args) => (
    <GradientHover {...args} />
 );
 

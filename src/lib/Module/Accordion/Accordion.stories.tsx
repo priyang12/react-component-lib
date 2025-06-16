@@ -1,13 +1,13 @@
 import Accordion from './Accordion';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { AccordionButton, AccordionContent } from '../../Atoms';
 import { AccordionIcon } from '../../Atoms/AccordionItems/AccordionItems';
 
 export default {
    title: 'Module/Accordion',
    component: Accordion,
-   decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof Accordion>;
+   decorators: [(story) => <div className="container">{story()}</div>],
+} as Meta<typeof Accordion>;
 
 const items = [
    {
@@ -30,7 +30,7 @@ const items = [
    },
 ];
 
-export const Template: ComponentStory<typeof Accordion> = args => (
+export const Template: StoryFn<typeof Accordion> = (args) => (
    <Accordion {...args}>
       {items.map((item, index) => (
          <>

@@ -1,17 +1,17 @@
 import Select from './Select';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { FakeCountryData } from './FakeCountryData';
 
 export default {
    title: 'Atoms/Select',
    component: Select,
-   decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof Select>;
+   decorators: [(story) => <div className="container">{story()}</div>],
+} as Meta<typeof Select>;
 
-export const Template: ComponentStory<typeof Select> = args => (
+export const Template: StoryFn<typeof Select> = (args) => (
    <Select
       {...args}
-      options={FakeCountryData.map(item => item.name)}
+      options={FakeCountryData.map((item) => item.name)}
       name="Countries"
       id="Countries"
    />

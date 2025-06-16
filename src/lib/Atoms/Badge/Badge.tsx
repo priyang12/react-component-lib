@@ -1,6 +1,6 @@
 import React from 'react';
 import { clsx } from 'clsx';
-import { Variant } from '../interface';
+import { VariantType } from '../interface';
 import './Badge.scss';
 
 /**
@@ -26,8 +26,8 @@ function BadgeContainer(props: React.ComponentPropsWithoutRef<'div'>) {
    );
 }
 
-interface BadgeProps {
-   variant?: Variant['variant'];
+export interface BadgeProps {
+   variant?: VariantType;
    BadgeContent: string | number;
    colorScheme?: string;
    anchorOriginVertical: 'bottom' | 'top';

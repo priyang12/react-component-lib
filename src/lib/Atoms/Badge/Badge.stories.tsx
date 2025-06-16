@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { BadgeContainer, Badge } from './Badge';
 
 export default {
@@ -7,10 +7,10 @@ export default {
    args: {
       BadgeContent: '1',
    },
-   decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof Badge>;
+   decorators: [(story) => <div className="container">{story()}</div>],
+} as Meta<typeof Badge>;
 
-export const Template: ComponentStory<typeof Badge> = args => (
+export const Template: StoryFn<typeof Badge> = (args) => (
    <BadgeContainer className="x">
       <Badge {...args} />
       <div

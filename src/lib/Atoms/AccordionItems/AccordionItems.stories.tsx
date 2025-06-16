@@ -3,14 +3,14 @@ import {
    AccordionContent,
    AccordionIcon,
 } from './AccordionItems';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { useAccordion } from '../../../Hooks/useAccordion';
 import { AccordionContext } from '../../Module/Accordion/Accordion';
 export default {
    title: 'Atoms/AccordionItems',
    component: AccordionButton,
    decorators: [
-      story => (
+      (story) => (
          <div
             className="container"
             style={{
@@ -21,9 +21,9 @@ export default {
          </div>
       ),
    ],
-} as ComponentMeta<typeof AccordionButton>;
+} as Meta<typeof AccordionButton>;
 
-export const Template: ComponentStory<typeof AccordionButton> = args => {
+export const Template: StoryFn<typeof AccordionButton> = (args) => {
    const { Indexes, handleItemClick } = useAccordion({
       initialOpenIndexes: [],
    });

@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { Button } from '../../Atoms/Button';
 import { ButtonDes } from './index';
 
@@ -6,7 +6,7 @@ export default {
    title: 'Module/ButtonDes',
    component: ButtonDes,
    decorators: [
-      story => (
+      (story) => (
          <div
             className="container"
             style={{
@@ -17,9 +17,9 @@ export default {
          </div>
       ),
    ],
-} as ComponentMeta<typeof ButtonDes>;
+} as Meta<typeof ButtonDes>;
 
-export const Template: ComponentStory<typeof ButtonDes> = args => (
+export const Template: StoryFn<typeof ButtonDes> = (args) => (
    <ButtonDes {...args}>
       <Button
          style={{

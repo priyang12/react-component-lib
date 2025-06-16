@@ -1,7 +1,7 @@
 import Navbar from './Navbar';
 import { Template as SearchStories } from '../../Module/Search/Search.stories';
 import { FaAdversal } from 'react-icons/fa';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { Rounded as MenuComponent } from '../../Module/MenuList/MenuList.stories';
 import MenuItem from '../../Atoms/MenuItem';
 
@@ -9,7 +9,7 @@ export default {
    title: 'Organisms/Navbar',
    component: Navbar,
    decorators: [
-      story => (
+      (story) => (
          <div
             className="container"
             style={{
@@ -20,9 +20,9 @@ export default {
          </div>
       ),
    ],
-} as ComponentMeta<typeof Navbar>;
+} as Meta<typeof Navbar>;
 
-export const Template: ComponentStory<typeof Navbar> = args => (
+export const Template: StoryFn<typeof Navbar> = (args) => (
    <Navbar
       {...args}
       LogoComponent={<div>Navbar Title</div>}
@@ -40,7 +40,7 @@ export const Template: ComponentStory<typeof Navbar> = args => (
    />
 );
 
-export const Logo: ComponentStory<typeof Navbar> = args => (
+export const Logo: StoryFn<typeof Navbar> = (args) => (
    <Navbar
       {...args}
       LogoComponent={

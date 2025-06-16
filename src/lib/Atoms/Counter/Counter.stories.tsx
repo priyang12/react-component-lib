@@ -1,6 +1,6 @@
 import React from 'react';
 import Counter from './Counter';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
    title: 'Atoms/Counter',
@@ -10,10 +10,10 @@ export default {
       Count: 0,
       PreviousState: 0,
    },
-   decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof Counter>;
+   decorators: [(story) => <div className="container">{story()}</div>],
+} as Meta<typeof Counter>;
 
-export const Template: ComponentStory<typeof Counter> = args => {
+export const Template: StoryFn<typeof Counter> = (args) => {
    const ref: any = React.createRef();
    return <Counter ref={ref} {...args} />;
 };

@@ -32,13 +32,13 @@ index(){
 Story() {
     # Write Story For Component
     echo "import $1 from './$1';" >>$Path/$1/$1.stories.tsx
-    echo "import { ComponentStory, ComponentMeta } from '@storybook/react';" >>$Path/$1/$1.stories.tsx
+    echo "import type { Meta, StoryFn } from '@storybook/react';" >>$Path/$1/$1.stories.tsx
     echo "export default { " >>$Path/$1/$1.stories.tsx
     echo "title: 'Atoms/$1'," >>$Path/$1/$1.stories.tsx
     echo " component: $1," >>$Path/$1/$1.stories.tsx
     echo "decorators: [(story) => <div className=\"container\">{story()}</div>]," >>$Path/$1/$1.stories.tsx
-    echo "} as ComponentMeta<typeof $1>;" >>$Path/$1/$1.stories.tsx
-    echo "export const Template : ComponentStory<typeof $1> = (args) => <$1 {...args} />;" >>$Path/$1/$1.stories.tsx
+    echo "} as Meta<typeof $1>;" >>$Path/$1/$1.stories.tsx
+    echo "export const Template : StoryFn<typeof $1> = (args) => <$1 {...args} />;" >>$Path/$1/$1.stories.tsx
 }
 
 Test() {

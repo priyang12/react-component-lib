@@ -1,5 +1,5 @@
 import ImageMagnifier from './ImageMagnifier';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 export default {
    title: 'Atoms/ImageMagnifier',
    component: ImageMagnifier,
@@ -7,10 +7,10 @@ export default {
       width: '500px',
       src: 'https://source.unsplash.com/yeFJNtA3604',
    },
-   decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof ImageMagnifier>;
+   decorators: [(story) => <div className="container">{story()}</div>],
+} as Meta<typeof ImageMagnifier>;
 
-export const Template: ComponentStory<typeof ImageMagnifier> = args => (
+export const Template: StoryFn<typeof ImageMagnifier> = (args) => (
    <ImageMagnifier
       style={{
          width: '50%',

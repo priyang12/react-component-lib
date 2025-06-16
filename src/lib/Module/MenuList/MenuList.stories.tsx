@@ -1,12 +1,12 @@
 import MenuList from './MenuList';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { FaCog, FaHome, FaUser } from 'react-icons/fa';
 import MenuItem from '../../Atoms/MenuItem';
 export default {
    title: 'Module/MenuList',
    component: MenuList,
-   decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof MenuList>;
+   decorators: [(story) => <div className="container">{story()}</div>],
+} as Meta<typeof MenuList>;
 
 const items = [
    { icon: <FaHome />, command: '#3', children: <div>Home</div> },
@@ -14,7 +14,7 @@ const items = [
    { icon: <FaCog />, command: '$d', children: <div>Settings</div> },
 ];
 
-export const Template: ComponentStory<typeof MenuList> = args => (
+export const Template: StoryFn<typeof MenuList> = (args) => (
    <MenuList
       {...args}
       MenuItem={<MenuItem Element={'li'} />}
@@ -24,7 +24,7 @@ export const Template: ComponentStory<typeof MenuList> = args => (
    />
 );
 
-export const Rounded: ComponentStory<typeof MenuList> = args => (
+export const Rounded: StoryFn<typeof MenuList> = (args) => (
    <MenuList
       {...args}
       Joined={true}
@@ -51,7 +51,7 @@ const GroupedItems = [
    },
 ];
 
-export const GroupedLists: ComponentStory<typeof MenuList> = args => (
+export const GroupedLists: StoryFn<typeof MenuList> = (args) => (
    <MenuList
       {...args}
       MenuItem={<MenuItem Element={'li'} />}

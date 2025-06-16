@@ -1,5 +1,5 @@
 import DateField from './DateField';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 export default {
    title: 'Atoms/DateField',
@@ -8,10 +8,10 @@ export default {
       label: 'Date',
       id: 'date',
    },
-   decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof DateField>;
+   decorators: [(story) => <div className="container">{story()}</div>],
+} as Meta<typeof DateField>;
 
-export const Template: ComponentStory<typeof DateField> = args => {
+export const Template: StoryFn<typeof DateField> = (args) => {
    const [date, setDate] = React.useState<Date>(new Date());
    return <DateField {...args} date={date} setDate={setDate} />;
 };
@@ -28,7 +28,7 @@ FieldStyled.args = {
    },
 };
 
-export const WithForm: ComponentStory<typeof DateField> = args => {
+export const WithForm: StoryFn<typeof DateField> = (args) => {
    const [date, setDate] = React.useState<Date>(new Date());
    return (
       <form

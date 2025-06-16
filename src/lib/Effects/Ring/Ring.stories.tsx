@@ -1,6 +1,6 @@
 import Ring from './Ring';
 import Button from '../../Atoms/Button/Button';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
    title: 'Effects/Ring',
@@ -15,10 +15,10 @@ export default {
          },
       },
    },
-   decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof Ring>;
+   decorators: [(story) => <div className="container">{story()}</div>],
+} as Meta<typeof Ring>;
 
-export const Template: ComponentStory<typeof Ring> = args => <Ring {...args} />;
+export const Template: StoryFn<typeof Ring> = (args) => <Ring {...args} />;
 
 export const BoderRadius = Template.bind({});
 BoderRadius.args = {

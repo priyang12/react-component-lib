@@ -5,7 +5,7 @@ import {
    CardWrapper,
    HiddenCard,
 } from './HoverCard';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { FaClock, FaEye } from 'react-icons/fa';
 import { ButtonGroup } from '../ButtonGroup';
 import { Button } from '../../Atoms';
@@ -13,10 +13,10 @@ import { Button } from '../../Atoms';
 export default {
    title: 'Module/HoverCard',
    component: HoverCard,
-   decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof HoverCard>;
+   decorators: [(story) => <div className="container">{story()}</div>],
+} as Meta<typeof HoverCard>;
 
-export const Template: ComponentStory<typeof HoverCard> = args => (
+export const Template: StoryFn<typeof HoverCard> = (args) => (
    <CardWrapper>
       <HoverCard {...args}>
          <CardImage PreviewTitle={'"Preview"'}>

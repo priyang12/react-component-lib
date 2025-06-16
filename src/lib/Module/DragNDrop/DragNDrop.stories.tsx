@@ -1,20 +1,20 @@
 import DragNDrop from './DragNDrop';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { GradientHover } from '../../Effects/GradientHover';
 import React from 'react';
 
 export default {
    title: 'Module/DragNDrop',
    component: DragNDrop,
-   decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof DragNDrop>;
+   decorators: [(story) => <div className="container">{story()}</div>],
+} as Meta<typeof DragNDrop>;
 
 const onUploadFN = (files: FileList) => {
    console.log(files);
 };
 const dropdowncontainerref = React.createRef<HTMLInputElement>();
 
-export const Template: ComponentStory<typeof DragNDrop> = args => (
+export const Template: StoryFn<typeof DragNDrop> = (args) => (
    <GradientHover
       borderRadius="50%"
       _hover={{
@@ -42,7 +42,7 @@ OverLayComponent.args = {
    OverLayComponent: <div>asdasd</div>,
 };
 
-export const UnStyled: ComponentStory<typeof DragNDrop> = args => (
+export const UnStyled: StoryFn<typeof DragNDrop> = (args) => (
    <DragNDrop
       {...args}
       onUpload={onUploadFN}

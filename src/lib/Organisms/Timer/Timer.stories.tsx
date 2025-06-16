@@ -1,5 +1,5 @@
 import Timer from './Timer';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
    title: 'Organisms/Timer',
@@ -7,12 +7,10 @@ export default {
    args: {
       StartTime: 0,
    },
-   decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof Timer>;
+   decorators: [(story) => <div className="container">{story()}</div>],
+} as Meta<typeof Timer>;
 
-export const Template: ComponentStory<typeof Timer> = args => (
-   <Timer {...args} />
-);
+export const Template: StoryFn<typeof Timer> = (args) => <Timer {...args} />;
 
 export const CounterHidden = Template.bind({});
 CounterHidden.args = {

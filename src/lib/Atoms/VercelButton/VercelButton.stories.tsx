@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { LongText as Button } from '../Button/Button.stories';
+import type { Meta, StoryFn } from '@storybook/react';
+import { Button } from '../Button';
 import VercelButton from './VercelButton';
 
 export default {
@@ -21,7 +21,7 @@ export default {
       AnimationCss: 'vercel-animation',
    },
    decorators: [
-      story => (
+      (story) => (
          <div
             className="container"
             style={{
@@ -34,9 +34,9 @@ export default {
          </div>
       ),
    ],
-} as ComponentMeta<typeof VercelButton>;
+} as Meta<typeof VercelButton>;
 
-const Template: ComponentStory<typeof VercelButton> = args => (
+const Template: StoryFn<typeof VercelButton> = (args) => (
    <VercelButton {...args} />
 );
 

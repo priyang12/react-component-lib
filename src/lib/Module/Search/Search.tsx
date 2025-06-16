@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 import './Search.scss';
 import { AiOutlineClose } from 'react-icons/ai';
 
-interface SearchProps {
+export interface SearchProps {
    SearchBtnHide?: boolean;
    clearTextFn?: () => void;
    clearText?: boolean;

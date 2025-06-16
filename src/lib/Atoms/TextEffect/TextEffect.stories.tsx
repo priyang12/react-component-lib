@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import TextEffect from './TextEffect';
 
 export default {
@@ -12,10 +12,10 @@ export default {
       animateTime: '1s',
    },
 
-   decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<any>;
+   decorators: [(story) => <div className="container">{story()}</div>],
+} as Meta<any>;
 
-export const Template: ComponentStory<typeof TextEffect> = args => (
+export const Template: StoryFn<typeof TextEffect> = (args) => (
    <TextEffect {...args} />
 );
 

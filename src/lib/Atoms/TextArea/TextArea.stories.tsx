@@ -1,13 +1,13 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import TextArea from './TextArea';
 
 export default {
    title: 'Atoms/TextArea',
    component: TextArea,
-   decorators: [story => <div className="container">{story()}</div>],
-} as ComponentMeta<typeof TextArea>;
+   decorators: [(story) => <div className="container">{story()}</div>],
+} as Meta<typeof TextArea>;
 
-export const Template: ComponentStory<typeof TextArea> = args => (
+export const Template: StoryFn<typeof TextArea> = (args) => (
    <TextArea {...args} />
 );
 

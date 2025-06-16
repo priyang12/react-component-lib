@@ -2,22 +2,22 @@ import Button from '../../Atoms/Button/Button';
 import Input from '../../Atoms/Input/Input';
 import Label from '../../Atoms/Label/Label';
 import Search from './Search';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { useThrottle } from '../../../Hooks/useThrottle';
 import { useState } from 'react';
 
 export default {
    title: 'Module/Search',
    component: Search,
-   decorators: [story => <div className="container">{story()}</div>],
+   decorators: [(story) => <div className="container">{story()}</div>],
    subcomponents: {
       Button,
       Input,
       Label,
    },
-} as ComponentMeta<typeof Search>;
+} as Meta<typeof Search>;
 
-export const Template: ComponentStory<typeof Search> = args => {
+export const Template: StoryFn<typeof Search> = (args) => {
    const [Value, setValue] = useState('');
    const throttledVal = useThrottle(Value, 1000);
    return (
@@ -39,7 +39,7 @@ export const Template: ComponentStory<typeof Search> = args => {
                placeholder="Find your Product"
                id="Search"
                value={Value}
-               onChange={e => setValue(e.target.value)}
+               onChange={(e) => setValue(e.target.value)}
                InputSize="medium"
             />
          }
@@ -52,7 +52,7 @@ SearchBtnHide.args = {
    SearchBtnHide: true,
 };
 
-export const CloseBtn: ComponentStory<typeof Search> = args => {
+export const CloseBtn: StoryFn<typeof Search> = (args) => {
    const [Value, setValue] = useState('');
    const throttledVal = useThrottle(Value, 1000);
    const clearText = () => {
@@ -79,7 +79,7 @@ export const CloseBtn: ComponentStory<typeof Search> = args => {
                placeholder="Find your Product"
                id="Search"
                value={Value}
-               onChange={e => setValue(e.target.value)}
+               onChange={(e) => setValue(e.target.value)}
                InputSize="medium"
             />
          }

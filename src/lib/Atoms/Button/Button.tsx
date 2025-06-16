@@ -1,19 +1,17 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
-import { Variant } from '../interface';
-import './Button.scss';
+import { VariantType } from '../interface';
 import { callAll } from '../../Utils/AllFunctionsCall';
+import './Button.scss';
 
 export interface IButtonProps extends React.ComponentPropsWithoutRef<'button'> {
    text?: string;
    ellipsis?: boolean;
-   variant?: Variant['variant'];
+   variant?: VariantType;
    radius?: string;
    isLoading?: boolean;
    LoadingText?: string;
 }
-
-
 
 /**
  * Button is a component that represents a button.
@@ -63,9 +61,9 @@ function Button({
       className
    );
 
-   const handleClick: React.ComponentPropsWithoutRef<
-      'button'
-   >['onClick'] = e => {
+   const handleClick: React.ComponentPropsWithoutRef<'button'>['onClick'] = (
+      e
+   ) => {
       const buttonCoords = e.currentTarget.getBoundingClientRect();
       const x = e.clientX - buttonCoords.left;
       const y = e.clientY - buttonCoords.top;
