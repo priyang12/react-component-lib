@@ -2,7 +2,6 @@ export * from './Input';
 export * from './Label';
 export * from './TextArea';
 export * from './TextEffect';
-export * from './VercelButton';
 export * from './Counter';
 export * from './ImageMagnifier';
 export * from './ProgressBar';
