@@ -15,3 +15,4 @@
 [x] ProgressBar (added different variants)
 [x] Switch (add disabled styling)
 [x] TextArea
+[x] TextEffect

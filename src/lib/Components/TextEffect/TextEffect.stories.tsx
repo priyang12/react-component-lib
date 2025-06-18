@@ -2,7 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import TextEffect from './TextEffect';
 
 export default {
-   title: 'Atoms/TextEffect',
+   title: 'Components/TextEffect',
    component: TextEffect,
    args: {
       size: '2rem',

@@ -6,3 +6,4 @@ export * from './Label';
 export * from './ProgressBar';
 export * from './Switch';
 export * from './TextArea';
+export * from './TextEffect';
