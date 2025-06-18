@@ -1,24 +1,24 @@
 import {
-   HoverCard,
+   YTCard,
    CardBottom,
    CardImage,
    CardWrapper,
    HiddenCard,
-} from './HoverCard';
+} from './YTCard';
 import type { Meta, StoryFn } from '@storybook/react';
 import { FaClock, FaEye } from 'react-icons/fa';
 import { ButtonGroup } from '../ButtonGroup';
-import { Button } from '../../Atoms';
+import { Button } from '../Button';
 
 export default {
-   title: 'Module/HoverCard',
-   component: HoverCard,
+   title: 'Components/YTCard',
+   component: YTCard,
    decorators: [(story) => <div className="container">{story()}</div>],
-} as Meta<typeof HoverCard>;
+} as Meta<typeof YTCard>;
 
-export const Template: StoryFn<typeof HoverCard> = (args) => (
+export const Template: StoryFn<typeof YTCard> = (args) => (
    <CardWrapper>
-      <HoverCard {...args}>
+      <YTCard {...args}>
          <CardImage PreviewTitle={'"Preview"'}>
             <img
                src="https://i.ytimg.com/vi/eHXcd_DfUmg/maxresdefault.jpg"
@@ -36,7 +36,7 @@ export const Template: StoryFn<typeof HoverCard> = (args) => (
                <span>1.5 min</span>
             </div>
          </CardBottom>
-      </HoverCard>
+      </YTCard>
       <HiddenCard>
          <div className="card__content">
             <h1 className="card__image">
@@ -45,7 +45,7 @@ export const Template: StoryFn<typeof HoverCard> = (args) => (
                </a>
             </h1>
 
-            <ButtonGroup flexDir="column">
+            <ButtonGroup>
                <Button className="btn btn--primary">Watch Now</Button>
                <Button className="btn btn--secondary">
                   Add to Watch Later

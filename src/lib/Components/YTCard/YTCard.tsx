@@ -58,9 +58,8 @@ function CardImage({
    className?: string;
    children?: React.ReactNode;
 }) {
-   const { cancelDebounce, debouncedHandleMouseEnter } = useContext(
-      CardContext
-   );
+   const { cancelDebounce, debouncedHandleMouseEnter } =
+      useContext(CardContext);
    const CardImageClassName = clsx('preview-img', className);
    return (
       <div
@@ -114,7 +113,7 @@ export interface HoverCardProps extends React.HTMLAttributes<HTMLElement> {
    className?: string;
 }
 
-function HoverCard({ className, children, ...props }: HoverCardProps) {
+function YTCard({ className, children, ...props }: HoverCardProps) {
    const CardClasses = clsx('card', className);
    const { Show, cancelDebounce } = useContext(CardContext);
    return (
@@ -132,4 +131,4 @@ function HoverCard({ className, children, ...props }: HoverCardProps) {
    );
 }
 
-export { HoverCard, CardBottom, CardImage, CardWrapper, HiddenCard };
+export { YTCard, CardBottom, CardImage, CardWrapper, HiddenCard };

@@ -1,4 +1,4 @@
-import { CardBottom, CardImage, CardWrapper, HiddenCard } from './HoverCard';
+import { CardBottom, CardImage, CardWrapper, HiddenCard } from './YTCard';
 
 const ChakraCardWrapper = CardWrapper;
 const ChakraImage = CardImage;
