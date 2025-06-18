@@ -37,6 +37,7 @@
     "version": "yarn changeset version",
     "pretty-Component": "yarn prettier -w ./src/lib/**/*.{ts,tsx}",
     "lib": "bash lib.sh",
+    "component": "bash Component.sh",
     "clean": "rimraf dist",
     "publish": "npm run changeset publish --access=public"
   },
