@@ -3,7 +3,7 @@ import { Button } from '../Button';
 import VercelButton from './VercelButton';
 
 export default {
-   title: 'Components/VercelButton',
+   title: 'Inspiration/VercelButton',
    component: VercelButton,
    args: {
       children: (

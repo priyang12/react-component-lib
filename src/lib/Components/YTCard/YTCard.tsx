@@ -1,7 +1,7 @@
 import React, { useContext, useMemo, useState } from 'react';
 import { clsx } from 'clsx';
 import debounce from 'lodash.debounce';
-import './HoverCard.scss';
+import './YTCard.scss';
 
 export const CardContext = React.createContext(
    {} as {
@@ -108,12 +108,12 @@ const HiddenCard = ({
    );
 };
 
-export interface HoverCardProps extends React.HTMLAttributes<HTMLElement> {
+export interface YTProps extends React.HTMLAttributes<HTMLElement> {
    PreviewTitle: string;
    className?: string;
 }
 
-function YTCard({ className, children, ...props }: HoverCardProps) {
+function YTCard({ className, children, ...props }: YTProps) {
    const CardClasses = clsx('card', className);
    const { Show, cancelDebounce } = useContext(CardContext);
    return (

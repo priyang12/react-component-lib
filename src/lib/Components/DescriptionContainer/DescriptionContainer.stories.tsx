@@ -3,7 +3,7 @@ import { Button } from '../Button';
 import DescriptionContainer from './DescriptionContainer';
 
 export default {
-   title: 'Components/DescriptionContainer',
+   title: 'Inspiration/DescriptionContainer',
    component: DescriptionContainer,
    decorators: [
       (story) => (
