@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { composeStories } from '@storybook/react';
 import * as CalendarStories from './Calendar.stories';
 const { Template } = composeStories(CalendarStories);

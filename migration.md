@@ -18,3 +18,4 @@
 [x] TextEffect
 [x] ImageMagnifier (remove mutation from inline style to use variable.)
 [x] Select (need to rework it.)
+[x] Calendar

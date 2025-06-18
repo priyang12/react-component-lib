@@ -17,7 +17,7 @@ import {
 import * as React from 'react';
 
 export default {
-   title: 'Atoms/Calendar',
+   title: 'Components/Calendar',
    component: Calendar,
    args: {
       className: 'date-picker-cal',

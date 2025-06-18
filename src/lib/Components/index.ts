@@ -10,3 +10,4 @@ export * from './TextEffect';
 export * from './Counter';
 export * from './ImageMagnifier';
 export * from './Select';
+export * from './Calendar';
