@@ -11,7 +11,7 @@ import { ButtonGroup } from '../ButtonGroup';
 import { Button } from '../Button';
 
 export default {
-   title: 'Components/YTCard',
+   title: 'Inspiration/YTCard',
    component: YTCard,
    decorators: [(story) => <div className="container">{story()}</div>],
 } as Meta<typeof YTCard>;
