@@ -6,4 +6,3 @@ export * from './Calendar';
 export * from './AccordionItems';
 export * from './Select';
 export * from './MenuItem';
-export * from './Switch';
