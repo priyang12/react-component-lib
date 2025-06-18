@@ -1,0 +1,56 @@
+import {
+   AccordionButton,
+   AccordionContent,
+   AccordionIcon,
+} from './AccordionItems';
+import type { Meta, StoryFn } from '@storybook/react';
+import { useAccordion } from '../../../../Hooks/useAccordion';
+import { AccordionContext } from '../Accordion';
+
+export default {
+   title: 'Components/AccordionItems',
+   component: AccordionButton,
+   decorators: [
+      (story) => (
+         <div
+            className="container"
+            style={{
+               display: 'block',
+            }}
+         >
+            {story()}
+         </div>
+      ),
+   ],
+} as Meta<typeof AccordionButton>;
+
+export const Template: StoryFn<typeof AccordionButton> = (args) => {
+   const { Indexes, handleItemClick } = useAccordion({
+      initialOpenIndexes: [],
+   });
+
+   return (
+      <AccordionContext.Provider
+         value={{
+            indexes: Indexes,
+            handleItemClick,
+         }}
+      >
+         <AccordionButton
+            aria-controls="1-content"
+            aria-labelledby="1-title"
+            index={0}
+         >
+            <h1 id="1-title">item one</h1>
+            <AccordionIcon CloseIcon="👇" OpenIcon="👈" index={0} />
+         </AccordionButton>
+         <AccordionContent id="1-content" index={0}>
+            <div>
+               Horses can sleep both lying down and standing up. Domestic horses
+               have a lifespan of around 25 years. A 19th century horse named
+               'Old Billy' is said to have lived 62 years.
+            </div>
+         </AccordionContent>
+      </AccordionContext.Provider>
+   );
+};
