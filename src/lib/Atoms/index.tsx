@@ -1,4 +1,3 @@
-export * from './TextArea';
 export * from './TextEffect';
 export * from './Counter';
 export * from './ImageMagnifier';

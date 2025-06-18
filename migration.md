@@ -14,3 +14,4 @@
 [x] Label (fix alert)
 [x] ProgressBar (added different variants)
 [x] Switch (add disabled styling)
+[x] TextArea

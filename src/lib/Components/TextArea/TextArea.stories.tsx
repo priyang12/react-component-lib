@@ -2,7 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import TextArea from './TextArea';
 
 export default {
-   title: 'Atoms/TextArea',
+   title: 'Components/TextArea',
    component: TextArea,
    decorators: [(story) => <div className="container">{story()}</div>],
 } as Meta<typeof TextArea>;
