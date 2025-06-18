@@ -3,7 +3,7 @@ import Counter from './Counter';
 import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
-   title: 'Atoms/Counter',
+   title: 'Components/Counter',
    component: Counter,
    args: {
       initialValue: 0,
