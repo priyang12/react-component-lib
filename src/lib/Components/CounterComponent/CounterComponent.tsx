@@ -1,7 +1,6 @@
 import * as React from 'react';
-
 import { useCounter } from '../../../Hooks/useCounter';
-import Counter from '../../Atoms/Counter/Counter';
+import { Counter } from '../Counter';
 import './CounterComponent.scss';
 
 function CounterComponent({ initialValue = 0 }) {

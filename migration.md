@@ -20,3 +20,7 @@
 [x] Select (need to rework it.)
 [x] Calendar
 [x] Accordion Item
+
+## module (meant molecule)
+
+[x] CounterComponent (need to combine counter into one.)

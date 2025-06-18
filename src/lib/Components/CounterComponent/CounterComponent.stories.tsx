@@ -1,7 +1,8 @@
 import CounterComponent from './CounterComponent';
 import type { Meta, StoryFn } from '@storybook/react';
+
 export default {
-   title: 'Module/CounterComponent',
+   title: 'Components/CounterComponent',
    component: CounterComponent,
    decorators: [(story) => <div className="container">{story()}</div>],
 } as Meta<typeof CounterComponent>;
