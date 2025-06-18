@@ -3,7 +3,7 @@ import Button from '../../Components/Button/Button';
 import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
-   title: 'Effects/Ring',
+   title: 'Wrappers/Ring',
    component: Ring,
    args: {
       children: <Button>Ring it Ring</Button>,

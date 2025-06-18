@@ -4,6 +4,7 @@
 [x] fix build (remove .d.ts from build. need to fix ts errors.)
 [x] fixed Type issues in newer version Storybook stories.
 [] change the folder from atomic/ to component/ and use atomic pattern per component rather than abstracting individual element from a component.
+[x] renamed effects to wrappers.
 
 ## Atoms
 

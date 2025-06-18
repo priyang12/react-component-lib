@@ -1,9 +1,9 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Default as Button } from '../../Components/Button/Button.stories';
+import { Button } from '../../Components/Button';
 import GradientHover from './GradientHover';
 
 export default {
-   title: 'Effects/GradientBorder',
+   title: 'Wrappers/GradientBorder',
    component: GradientHover,
    args: {
       BorderSize: '0.2em',

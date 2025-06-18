@@ -3,7 +3,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import * as React from 'react';
 
 export default {
-   title: 'Effects/Draggable',
+   title: 'Wrappers/Draggable',
    component: Draggable,
    decorators: [(story) => <div className="container">{story()}</div>],
 } as Meta<typeof Draggable>;
