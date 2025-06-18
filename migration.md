@@ -8,3 +8,4 @@
 ## Atoms
 
 [x] Button
+[x] Badge
