@@ -2,7 +2,7 @@ import Input from './Input';
 import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
-   title: 'Atoms/Input',
+   title: 'Components/Input',
    component: Input,
    args: {
       InputSize: 'medium',
