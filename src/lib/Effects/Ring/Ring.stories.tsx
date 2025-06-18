@@ -1,5 +1,5 @@
 import Ring from './Ring';
-import Button from '../../Atoms/Button/Button';
+import Button from '../../Components/Button/Button';
 import type { Meta, StoryFn } from '@storybook/react';
 
 export default {

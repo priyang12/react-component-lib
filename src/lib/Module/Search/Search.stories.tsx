@@ -1,4 +1,4 @@
-import Button from '../../Atoms/Button/Button';
+import Button from '../../Components/Button/Button';
 import Input from '../../Atoms/Input/Input';
 import Label from '../../Atoms/Label/Label';
 import Search from './Search';

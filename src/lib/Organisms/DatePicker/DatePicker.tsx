@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button } from '../../Atoms/Button';
+import { Button } from '../../Components/Button';
 import { BsFillCalendarCheckFill, BsDoorClosed } from 'react-icons/bs';
 import { DateField } from '../../Module/DateField';
 

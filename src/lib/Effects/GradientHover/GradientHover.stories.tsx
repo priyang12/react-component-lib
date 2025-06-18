@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Default as Button } from '../../Atoms/Button/Button.stories';
+import { Default as Button } from '../../Components/Button/Button.stories';
 import GradientHover from './GradientHover';
 
 export default {

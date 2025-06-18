@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../../Atoms/Button';
+import { Button } from '../../Components/Button';
 import { clsx } from 'clsx';
 import './Search.scss';
 import { AiOutlineClose } from 'react-icons/ai';

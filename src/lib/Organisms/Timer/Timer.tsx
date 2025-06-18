@@ -1,5 +1,5 @@
 import { useTimer } from '../../../Hooks/useTimer';
-import Button from '../../Atoms/Button/Button';
+import Button from '../../Components/Button/Button';
 import { ButtonGroup } from '../../Module';
 import { clsx } from 'clsx';
 import './Timer.scss';
@@ -16,14 +16,8 @@ function Timer({
    const { className } = props as any;
    const TimerClass = clsx('Timer', Hidden && 'hide', className);
 
-   const {
-      hours,
-      minutes,
-      seconds,
-      resetTimer,
-      startTimer,
-      stopTimer,
-   } = useTimer(3595);
+   const { hours, minutes, seconds, resetTimer, startTimer, stopTimer } =
+      useTimer(3595);
 
    return (
       <div className={TimerClass}>
