@@ -1,0 +1,43 @@
+.Button {
+   cursor: pointer;
+   position: relative;
+   overflow: hidden;
+   padding: 1em;
+   text-align: center;
+   border-radius: var(--btn-radius);
+   z-index: 2;
+   svg {
+      width: var(--btn-icon-size);
+      height: var(--btn-icon-size);
+   }
+   &:disabled {
+      background-color: gray;
+   }
+}
+.Button-icon {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.Button-ellipsis {
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   justify-content: flex-start;
+}
+
+.ripple {
+   position: absolute;
+   border-radius: 50%;
+   background-color: var(--color-secondary);
+   animation: ripple 0.5s ease-out;
+   transform: scale(0);
+   z-index: -1;
+}
+
+@keyframes ripple {
+   to {
+      transform: scale(3);
+      opacity: 0;
+   }
+}
