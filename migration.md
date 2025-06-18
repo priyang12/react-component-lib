@@ -29,3 +29,4 @@
 [x] DateField
 [] DragNDrop (removed, need remake)
 [x] HoverCard to YTCard.
+[x] Search Removed no need to have redundant since form control.
