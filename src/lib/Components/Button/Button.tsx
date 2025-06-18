@@ -3,11 +3,16 @@ import { clsx } from 'clsx';
 import { VariantType } from '../interface';
 import { callAll } from '../../Utils/AllFunctionsCall';
 import './Button.scss';
+import { useRipple } from '../../../Hooks';
 
 export interface IButtonProps extends React.ComponentPropsWithoutRef<'button'> {
    text?: string;
    ellipsis?: boolean;
    variant?: VariantType;
+   ripple?: {
+      show: boolean;
+      bgColor?: string;
+   };
    radius?: string;
    isLoading?: boolean;
    LoadingText?: string;
@@ -20,6 +25,7 @@ export interface IButtonProps extends React.ComponentPropsWithoutRef<'button'> {
  * @param ellipsis - If true, the text will be truncated with an ellipsis if it exceeds
  * the width of the button.
  * @param variant - The variant of the button. Can be 'primary' or 'secondary'.
+ * @param ripple - make a pulse animation on click.
  * @param radius - The border radius of the button.
  * @param children - The content of the button.
  * @param isLoading - If true, the button will be disabled and the text will be replaced with
@@ -40,19 +46,15 @@ function Button({
    ellipsis,
    variant = 'primary',
    radius,
-   children,
    isLoading,
    LoadingText = 'Loading...',
+   ripple,
    className,
+   children,
    ...props
 }: IButtonProps) {
    const WithIcon = React.Children.count('svg');
-   const [ripple, setRipple] = React.useState<{
-      x: number;
-      y: number;
-      show: boolean;
-   }>();
-
+   const { ref, createRipple } = useRipple(ripple);
    const classes = clsx(
       'Button',
       variant,
@@ -64,27 +66,12 @@ function Button({
    const handleClick: React.ComponentPropsWithoutRef<'button'>['onClick'] = (
       e
    ) => {
-      const buttonCoords = e.currentTarget.getBoundingClientRect();
-      const x = e.clientX - buttonCoords.left;
-      const y = e.clientY - buttonCoords.top;
-
-      setRipple({
-         x,
-         y,
-         show: true,
-      });
-
-      setTimeout(() => {
-         setRipple({
-            x: 0,
-            y: 0,
-            show: false,
-         });
-      }, 500);
+      createRipple(e);
    };
 
    return (
       <button
+         ref={ref}
          className={classes}
          disabled={isLoading}
          style={{
@@ -100,17 +87,6 @@ function Button({
                {text}
                {children}
             </>
-         )}
-         {ripple?.show && (
-            <div
-               className="ripple"
-               style={{
-                  top: ripple.y,
-                  left: ripple.x,
-                  width: '50px',
-                  height: '50px',
-               }}
-            />
          )}
       </button>
    );

@@ -24,6 +24,17 @@ export const Default: Story = {
    },
 };
 
+// make a ripple on click.
+export const RippleVariant: Story = {
+   args: {
+      ripple: {
+         show: true,
+         bgColor: 'red',
+      },
+      text: 'Button',
+   },
+};
+
 // Variant
 export const Variant: Story = {
    args: {

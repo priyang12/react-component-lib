@@ -7,3 +7,4 @@ export * from './useElementVisibility';
 export * from './useSelect';
 export * from './useBackgroundTime';
 export * from './useTimer';
+export * from './useRipple';

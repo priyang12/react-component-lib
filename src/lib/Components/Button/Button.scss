@@ -27,12 +27,17 @@
 }
 
 .ripple {
+   left: var(--ripple-x);
+   top: var(--ripple-y);
+   width: 50px;
+   height: 50px;
    position: absolute;
    border-radius: 50%;
-   background-color: var(--color-secondary);
+   background-color: var(--ripple-color, var(--color-secondary));
    animation: ripple 0.5s ease-out;
    transform: scale(0);
    z-index: -1;
+   pointer-events: none;
 }
 
 @keyframes ripple {
