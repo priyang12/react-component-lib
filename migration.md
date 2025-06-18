@@ -16,3 +16,4 @@
 [x] Switch (add disabled styling)
 [x] TextArea
 [x] TextEffect
+[x] ImageMagnifier (remove mutation from inline style to use variable.)

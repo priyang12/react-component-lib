@@ -31,14 +31,14 @@ function ImageMagnifier({
                height: height,
                width: width,
             }}
-            onMouseEnter={e => {
+            onMouseEnter={(e) => {
                // update image size and turn-on magnifier
                const elem = e.currentTarget;
                const { width, height } = elem.getBoundingClientRect();
                setSize([width, height]);
                setShowMagnifier(true);
             }}
-            onMouseMove={e => {
+            onMouseMove={(e) => {
                // update cursor position
                const elem = e.currentTarget;
                const { top, left } = elem.getBoundingClientRect();
@@ -76,8 +76,9 @@ function ImageMagnifier({
                backgroundRepeat: 'no-repeat',
 
                //calculate zoomed image size
-               backgroundSize: `${imgWidth * zoomLevel}px ${imgHeight *
-                  zoomLevel}px`,
+               backgroundSize: `${imgWidth * zoomLevel}px ${
+                  imgHeight * zoomLevel
+               }px`,
 
                //calculate position of zoomed image.
                backgroundPositionX: `${-x * zoomLevel + magnifierWidth / 2}px`,

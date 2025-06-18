@@ -1,7 +1,7 @@
 import FormControl from './FormControl';
-import Label from '../../Components/Label/Label';
+import { Label } from '../../Components/Label';
 import Input from '../../Components/Input/Input';
-import TextArea from '../../Atoms/TextArea/TextArea';
+import { TextArea } from '../../Components/TextArea';
 import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
