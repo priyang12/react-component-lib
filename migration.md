@@ -10,7 +10,7 @@
 
 [x] Button
 [x] Badge
-[x] Vercel Button (need to change the component is consumed.)
+[x] Vercel Button.
 [x] Input
 [x] Label (fix alert)
 [x] ProgressBar (added different variants)

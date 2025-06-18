@@ -6,18 +6,6 @@ export default {
    title: 'Inspiration/VercelButton',
    component: VercelButton,
    args: {
-      children: (
-         <Button
-            style={{
-               background: 'black',
-               width: 'calc(100% + 10px)',
-               height: 'calc(100% + 10px)',
-               transition: 'all 0.5s ease',
-            }}
-         >
-            TEXT
-         </Button>
-      ),
       AnimationCss: 'vercel-animation',
    },
    decorators: [
@@ -37,10 +25,25 @@ export default {
 } as Meta<typeof VercelButton>;
 
 const Template: StoryFn<typeof VercelButton> = (args) => (
-   <VercelButton {...args} />
+   <VercelButton
+      {...args}
+      className="w-6"
+      // style={{
+      //    width: '200px',
+      // }}
+   >
+      <Button
+         style={{
+            background: 'black',
+            width: 'calc(100% + 10px)',
+            height: 'calc(100% + 10px)',
+            transition: 'all 0.5s ease',
+         }}
+      >
+         TEXT
+      </Button>
+   </VercelButton>
 );
-
-export const Default = Template.bind({});
 
 export const VercelAnimation = Template.bind({});
 
@@ -48,19 +51,6 @@ VercelAnimation.args = {
    AnimationCss: 'vercel-animation',
 };
 
-export const Border = Template.bind({});
-
-Border.args = {
-   children: (
-      <Button
-         style={{
-            background: 'black',
-            width: 'calc(100% - 12px)',
-            height: 'calc(100% - 10px)',
-         }}
-      />
-   ),
-};
 export const BorderHover = Template.bind({});
 
 BorderHover.args = {

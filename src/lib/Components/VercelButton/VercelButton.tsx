@@ -7,15 +7,15 @@ const ShadowAnimation = ({
    AnimationCss,
    className,
    ...props
-}: React.ComponentPropsWithoutRef<'button'> & {
+}: React.ComponentPropsWithoutRef<'div'> & {
    AnimationCss: 'border-animation' | 'vercel-animation';
 }) => {
    const VercelButtonClass = clsx('neon-bg', AnimationCss, className);
 
    return (
-      <button className={VercelButtonClass} {...props}>
+      <div className={VercelButtonClass} {...props}>
          {children}
-      </button>
+      </div>
    );
 };
 
