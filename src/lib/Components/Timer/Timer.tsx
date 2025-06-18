@@ -1,6 +1,6 @@
 import { useTimer } from '../../../Hooks/useTimer';
 import Button from '../../Components/Button/Button';
-import { ButtonGroup } from '../../Module';
+import { ButtonGroup } from '../ButtonGroup';
 import { clsx } from 'clsx';
 import './Timer.scss';
 // import { useBackgroundTime } from '../../../Hooks/useBackgroundTime';

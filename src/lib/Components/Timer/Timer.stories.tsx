@@ -2,7 +2,7 @@ import Timer from './Timer';
 import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
-   title: 'Organisms/Timer',
+   title: 'Components/Timer',
    component: Timer,
    args: {
       StartTime: 0,

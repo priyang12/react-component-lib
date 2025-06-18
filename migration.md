@@ -37,3 +37,4 @@
 
 [x] Navbar (removed no need)
 [x] DatePicker
+[x] Timer (might need remove later after revaluation)
