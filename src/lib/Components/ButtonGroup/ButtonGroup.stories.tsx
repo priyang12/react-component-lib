@@ -1,16 +1,15 @@
-import { ButtonGroup as ChakraButtonGroup } from './index';
 import ButtonGroup from './ButtonGroup';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Button } from '../../Atoms';
+import { Button } from '../Button';
 
 export default {
-   title: 'Module/ButtonGroup',
+   title: 'Components/ButtonGroup',
    component: ButtonGroup,
    decorators: [(story) => <div className="container">{story()}</div>],
 } as Meta<typeof ButtonGroup>;
 
-export const Template: StoryFn<typeof ChakraButtonGroup> = (args) => (
-   <ChakraButtonGroup {...args}>
+export const Template: StoryFn<typeof ButtonGroup> = (args) => (
+   <ButtonGroup {...args}>
       <Button>
          <span>Button 1</span>
       </Button>
@@ -20,20 +19,16 @@ export const Template: StoryFn<typeof ChakraButtonGroup> = (args) => (
       <Button>
          <span>Button 3</span>
       </Button>
-   </ChakraButtonGroup>
+   </ButtonGroup>
 );
 
 export const Gap = Template.bind({});
 
-Gap.args = {
-   gap: '10',
-};
-
 export const Icon: StoryFn<typeof ButtonGroup> = (args) => (
-   <ChakraButtonGroup {...args} withIcon>
+   <ButtonGroup {...args} withIcon>
       <div>$</div>
-      <Button bg="transparent" color="red">
+      <Button>
          <span>Button 1</span>
       </Button>
-   </ChakraButtonGroup>
+   </ButtonGroup>
 );

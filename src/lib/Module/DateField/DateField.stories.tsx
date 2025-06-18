@@ -2,7 +2,7 @@ import DateField from './DateField';
 import type { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 export default {
-   title: 'Atoms/DateField',
+   title: 'module/DateField',
    component: DateField,
    args: {
       label: 'Date',
