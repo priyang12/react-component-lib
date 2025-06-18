@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { AccordionContext } from '../../Module/Accordion/Accordion';
+import { AccordionContext } from '../Accordion';
 import './AccordionItems.scss';
 
 export interface AccordionButtonProps {
@@ -28,7 +28,7 @@ export function AccordionButton({
 
    const ref = React.useRef<HTMLDivElement>(null);
 
-   const KeyDown: React.ComponentProps<'div'>['onKeyDown'] = e => {
+   const KeyDown: React.ComponentProps<'div'>['onKeyDown'] = (e) => {
       const keyCode = e.code;
       if (keyCode === 'Enter' || keyCode === 'Space') handleItemClick(index);
       else if (keyCode === 'ArrowDown') {

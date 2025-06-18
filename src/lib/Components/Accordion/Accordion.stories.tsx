@@ -1,10 +1,10 @@
 import Accordion from './Accordion';
 import type { Meta, StoryFn } from '@storybook/react';
-import { AccordionButton, AccordionContent } from '../../Atoms';
-import { AccordionIcon } from '../../Atoms/AccordionItems/AccordionItems';
+import { AccordionButton, AccordionContent } from './AccordionItems';
+import { AccordionIcon } from './AccordionItems';
 
 export default {
-   title: 'Module/Accordion',
+   title: 'Components/Accordion',
    component: Accordion,
    decorators: [(story) => <div className="container">{story()}</div>],
 } as Meta<typeof Accordion>;
