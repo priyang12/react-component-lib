@@ -12,3 +12,4 @@
 [x] Vercel Button (need to change the component is consumed.)
 [x] Input
 [x] Label (fix alert)
+[x] ProgressBar

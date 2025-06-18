@@ -1,5 +1,7 @@
 import { clsx } from 'clsx';
+import ProgressBarLabel from './ProgressBarLabel';
 import './ProgressBar.scss';
+import { VariantType } from '../interface';
 
 /**
  * Props for the `ProgressBar` component.
@@ -12,24 +14,16 @@ export type ProgressBarProps = {
    value: number;
    max: number;
    min: number;
+   variant?: VariantType;
    children: React.ReactNode;
 };
-
-function ProgressBarLabel({
-   label,
-   className,
-}: {
-   label: string;
-   className?: string;
-}) {
-   return <span className={clsx('ProgressBar-label', className)}>{label}</span>;
-}
 
 function ProgressBar({
    className,
    value,
    max,
    min,
+   variant,
    children,
    ...props
 }: ProgressBarProps) {
@@ -43,7 +37,10 @@ function ProgressBar({
          aria-valuenow={percentage}
          {...props}
       >
-         <div className="progress-bar" style={{ width: `${percentage}%` }}>
+         <div
+            className={clsx('progress-bar', `${variant}-bar`)}
+            style={{ width: `${percentage}%` }}
+         >
             {children}
          </div>
       </div>

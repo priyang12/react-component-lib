@@ -2,7 +2,6 @@ export * from './TextArea';
 export * from './TextEffect';
 export * from './Counter';
 export * from './ImageMagnifier';
-export * from './ProgressBar';
 export * from './Calendar';
 export * from './AccordionItems';
 export * from './Select';

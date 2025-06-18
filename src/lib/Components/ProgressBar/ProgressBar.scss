@@ -1,0 +1,61 @@
+.ProgressBar {
+   width: 100%;
+   height: 50px;
+   overflow: hidden;
+   position: relative;
+   .progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      border-radius: var(--btn-radius);
+      background-color: var(--color-primary);
+      transition: width 0.5s ease;
+   }
+   .success-bar {
+      background-color: var(--color-success);
+      color: var(--btn-background-color);
+   }
+
+   .failure-bar {
+      background-color: #ff0000;
+      color: var(--btn-background-color);
+   }
+
+   .info-bar {
+      background-color: #f9f10c;
+      color: var(--btn-background-color);
+   }
+
+   .success-border-bar {
+      background-color: var(--btn-background-color);
+      color: var(--color-success);
+      border: 2px solid var(--color-success);
+   }
+
+   .failure-border-bar {
+      background-color: var(--btn-background-color);
+      color: #ff0000;
+      border: 2px solid #ff0000;
+   }
+
+   .info-border-bar {
+      background-color: var(--btn-background-color);
+      color: #f9f10c;
+      border: 2px solid #f9f10c;
+   }
+}
+
+.ProgressBar-label {
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   display: flex;
+   color: #fff;
+   align-items: center;
+   justify-content: center;
+   font-size: var(--font-size-medium);
+   font-weight: 600;
+}
