@@ -3,7 +3,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { FakeCountryData } from './FakeCountryData';
 
 export default {
-   title: 'Atoms/Select',
+   title: 'Components/Select',
    component: Select,
    decorators: [(story) => <div className="container">{story()}</div>],
 } as Meta<typeof Select>;

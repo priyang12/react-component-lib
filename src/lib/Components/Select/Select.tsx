@@ -8,6 +8,7 @@ function Select({
    ...props
 }: React.ComponentPropsWithoutRef<'select'> & { options: string[] }) {
    const [isOpen, toggle, setToggle] = useToggle(false);
+
    const {
       value,
       searching,
@@ -23,6 +24,13 @@ function Select({
    return (
       <>
          <div>
+            <select
+               value={value}
+               style={{
+                  display: 'none',
+               }}
+               {...props}
+            />
             <div className="Select" data-value={value}>
                {searching ? null : (
                   <label className="DisplayValue" htmlFor="DisplayValue">
@@ -42,7 +50,7 @@ function Select({
             </div>
             {isOpen ? (
                <ul className="Options" onBlur={() => toggle()}>
-                  {filteredOptions.map(option => (
+                  {filteredOptions.map((option) => (
                      <li
                         tabIndex={-1}
                         key={option}
@@ -59,13 +67,6 @@ function Select({
                </ul>
             ) : null}
          </div>
-         <select
-            value={value}
-            style={{
-               display: 'none',
-            }}
-            {...props}
-         />
       </>
    );
 }
