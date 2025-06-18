@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 import './TextArea.scss';
+import { FormControlContext } from '../FormControl/FormControl';
 import { callAll } from '../../Utils/AllFunctionsCall';
-import { FormControlContext } from '../../Module/FormControl/FormControl';
 
 /**
  * TextArea is a functional component that renders a textarea element with customizable size, alert, and resize options.

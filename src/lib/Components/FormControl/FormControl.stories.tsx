@@ -1,11 +1,11 @@
 import FormControl from './FormControl';
 import { Label } from '../../Components/Label';
-import Input from '../../Components/Input/Input';
+import { Input } from '../../Components/Input';
 import { TextArea } from '../../Components/TextArea';
 import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
-   title: 'Module/FormControl',
+   title: 'Components/FormControl',
    component: FormControl,
    decorators: [(story) => <div className="container">{story()}</div>],
 } as Meta<typeof FormControl>;

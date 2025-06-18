@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { FormControlContext } from '../FormControl/FormControl';
 import { clsx } from 'clsx';
 import './Label.scss';
-import { FormControlContext } from '../../Module/FormControl/FormControl';
 
 /**
  * Props for the Label component
