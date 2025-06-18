@@ -4,10 +4,11 @@ import {
    AccordionIcon,
 } from './AccordionItems';
 import type { Meta, StoryFn } from '@storybook/react';
-import { useAccordion } from '../../../Hooks/useAccordion';
-import { AccordionContext } from '../../Module/Accordion/Accordion';
+import { useAccordion } from '../../../../Hooks/useAccordion';
+import { AccordionContext } from '../Accordion';
+
 export default {
-   title: 'Atoms/AccordionItems',
+   title: 'Component/AccordionItems',
    component: AccordionButton,
    decorators: [
       (story) => (

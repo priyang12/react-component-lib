@@ -17,7 +17,7 @@ import {
    CalendarFooter,
    CalendarTitle,
    Calendar,
-} from '../../Atoms/Calendar/Calendar';
+} from '../../Components/Calendar/Calendar';
 import './DatePicker.scss';
 
 function DatePicker({ children, ...props }: { children?: React.ReactNode }) {
