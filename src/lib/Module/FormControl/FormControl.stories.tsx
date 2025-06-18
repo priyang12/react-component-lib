@@ -1,6 +1,6 @@
 import FormControl from './FormControl';
-import Label from '../../Atoms/Label/Label';
-import Input from '../../Atoms/Input/Input';
+import Label from '../../Components/Label/Label';
+import Input from '../../Components/Input/Input';
 import TextArea from '../../Atoms/TextArea/TextArea';
 import type { Meta, StoryFn } from '@storybook/react';
 

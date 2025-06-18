@@ -1,4 +1,3 @@
-export * from './Label';
 export * from './TextArea';
 export * from './TextEffect';
 export * from './Counter';

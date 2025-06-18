@@ -39,7 +39,8 @@ function Label(props: React.ComponentPropsWithoutRef<'label'> & LabelProps) {
 
    return (
       <label className={LabelClass} {...restProps} data-valid={LabelCheck}>
-         {Alert ? Alert : children}
+         {Alert ? Alert : null}
+         {children}
       </label>
    );
 }

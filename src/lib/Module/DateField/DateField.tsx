@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Label from '../../Atoms/Label/Label';
+import Label from '../../Components/Label/Label';
 import { isLeapYear } from 'date-fns';
 import { clsx } from 'clsx';
 import { useCounter } from '../../../Hooks/useCounter';

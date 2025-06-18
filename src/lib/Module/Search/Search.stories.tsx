@@ -1,6 +1,6 @@
 import Button from '../../Components/Button/Button';
-import Input from '../../Atoms/Input/Input';
-import Label from '../../Atoms/Label/Label';
+import Input from '../../Components/Input/Input';
+import Label from '../../Components/Label/Label';
 import Search from './Search';
 import type { Meta, StoryFn } from '@storybook/react';
 import { useThrottle } from '../../../Hooks/useThrottle';

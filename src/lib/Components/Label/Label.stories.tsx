@@ -1,7 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import Label from './Label';
 export default {
-   title: 'Atoms/Label',
+   title: 'Components/Label',
    component: Label,
    args: {
       children: 'Search',
@@ -23,7 +23,8 @@ SizeLabel.args = {
    size: 'large',
 };
 
-export const AlertLabel = Template.bind({});
-AlertLabel.args = {
-   alert: 'Alert',
-};
+// fix alert
+// export const AlertLabel = Template.bind({});
+// AlertLabel.args = {
+//    alert: 'Alert',
+// };
