@@ -8,7 +8,7 @@ import { useAccordion } from '../../../../Hooks/useAccordion';
 import { AccordionContext } from '../Accordion';
 
 export default {
-   title: 'Component/AccordionItems',
+   title: 'Components/AccordionItems',
    component: AccordionButton,
    decorators: [
       (story) => (

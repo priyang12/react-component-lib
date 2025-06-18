@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Label from '../../Components/Label/Label';
+import { useCounter } from '../../../Hooks/useCounter';
 import { isLeapYear } from 'date-fns';
 import { clsx } from 'clsx';
-import { useCounter } from '../../../Hooks/useCounter';
 import './DateField.scss';
 
 export interface BaseDateInputProps {
