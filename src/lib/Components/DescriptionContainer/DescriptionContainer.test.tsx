@@ -1,7 +1,7 @@
-import ButtonDes from './ButtonDes';
+import DescriptionContainer from './DescriptionContainer';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 it('should render without crashing', () => {
-   render(<ButtonDes children={undefined} />);
+   render(<DescriptionContainer children={undefined} />);
 });

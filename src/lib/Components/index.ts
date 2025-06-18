@@ -13,3 +13,4 @@ export * from './ImageMagnifier';
 export * from './Select';
 export * from './Calendar';
 export * from './ButtonGroup';
+export * from './DescriptionContainer';

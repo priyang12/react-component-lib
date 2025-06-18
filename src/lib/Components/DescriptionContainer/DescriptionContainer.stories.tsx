@@ -1,10 +1,10 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Button } from '../../Components/Button';
-import { ButtonDes } from './index';
+import { Button } from '../Button';
+import DescriptionContainer from './DescriptionContainer';
 
 export default {
-   title: 'Module/ButtonDes',
-   component: ButtonDes,
+   title: 'Components/DescriptionContainer',
+   component: DescriptionContainer,
    decorators: [
       (story) => (
          <div
@@ -17,10 +17,10 @@ export default {
          </div>
       ),
    ],
-} as Meta<typeof ButtonDes>;
+} as Meta<typeof DescriptionContainer>;
 
-export const Template: StoryFn<typeof ButtonDes> = (args) => (
-   <ButtonDes {...args}>
+export const Template: StoryFn<typeof DescriptionContainer> = (args) => (
+   <DescriptionContainer {...args}>
       <Button
          style={{
             backgroundColor: '#ee37dc',
@@ -37,7 +37,7 @@ export const Template: StoryFn<typeof ButtonDes> = (args) => (
          cum, amet obcaecati, omnis itaque possimus necessitatibus nam
          inventore? Itaque hic ducimus soluta.
       </p>
-   </ButtonDes>
+   </DescriptionContainer>
 );
 
 export const HiddenContainerHeight = Template.bind({});

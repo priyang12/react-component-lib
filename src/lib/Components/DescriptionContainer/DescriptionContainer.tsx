@@ -1,9 +1,9 @@
 import React, { useMemo, useState } from 'react';
 import lodash from 'lodash.debounce';
-import { Button } from '../../Atoms';
-import './ButtonDes.scss';
+import { Button } from '../Button';
+import './DescriptionContainer.scss';
 
-type ButtonProps = {
+type DescriptionContainerProps = {
    children: React.ReactNode;
    style?: React.CSSProperties;
    width?: string;
@@ -11,12 +11,12 @@ type ButtonProps = {
    exitFunction?: () => void;
 };
 
-function ButtonDes({
+function DescriptionContainer({
    exitFunction,
    width,
    children,
    HiddenContainerHeight,
-}: ButtonProps) {
+}: DescriptionContainerProps) {
    const [show, setShow] = useState(false);
    const [hidden, setHidden] = useState(true);
 
@@ -75,9 +75,9 @@ function ButtonDes({
    );
 }
 
-ButtonDes.defaultProps = {
+DescriptionContainer.defaultProps = {
    width: '20%',
    exitFunction: () => {},
 };
 
-export default ButtonDes;
+export default DescriptionContainer;
