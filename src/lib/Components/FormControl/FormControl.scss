@@ -10,25 +10,26 @@
 
    &:focus {
       border-color: var(--input-border-focus);
-      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      box-shadow: 0 0 0 0.2rem
+         var(--info-color-alpha-10, rgba(0, 123, 255, 0.25));
    }
    .overlay {
       position: absolute;
-      top: 50%;
-      left: 2%;
-      transform: translateY(-50%);
+      top: 10%;
+      left: 5%;
+      transform: translate(0%, 0%);
       line-height: 1.5;
       transition: transform 0.15s ease-in-out;
       pointer-events: none;
    }
 
    .overlay[data-valid='true'] {
-      transform: translateY(-110%);
+      transform: translate(-10%, -110%);
    }
    input:hover ~ .overlay,
    input:focus ~ .overlay,
    textarea:hover ~ .overlay,
    textarea:focus ~ .overlay {
-      transform: translateY(-110%);
+      transform: translate(-10%, -110%);
    }
 }

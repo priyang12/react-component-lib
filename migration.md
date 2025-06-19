@@ -32,7 +32,7 @@
 [x] HoverCard to YTCard.
 [x] Search Removed no need to have redundant since form control.
 [x] TextLanding
-[x] FormControl (improve composition)
+[x] FormControl
 
 ## Organisms
 

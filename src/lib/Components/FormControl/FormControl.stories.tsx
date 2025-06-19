@@ -2,7 +2,7 @@ import FormControl from './FormControl';
 import { Label } from '../../Components/Label';
 import { Input } from '../../Components/Input';
 import { TextArea } from '../../Components/TextArea';
-import type { Meta, StoryFn, StoryObj } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
    title: 'Components/FormControl',
@@ -18,10 +18,10 @@ export default {
 
 export const Template: StoryFn<typeof FormControl> = (args) => (
    <FormControl {...args}>
-      <Label htmlFor="Search" size="large">
+      <Label htmlFor="Search" size="medium">
          Search
       </Label>
-      <Input type="text" id="Search" InputSize="large" />
+      <Input type="text" id="Search" InputSize="medium" />
    </FormControl>
 );
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 import './FormControl.scss';
 
-export type FormControl = {
+export type FormControlProps = {
    overlay?: boolean;
    check?: boolean;
    className?: string;
@@ -13,11 +13,15 @@ export type FormControl = {
 
 type FormControlContextTypes = {
    inputChange: (
+      e: //  add others later like select,checkbox
+      | React.ChangeEvent<HTMLInputElement>
+         | React.ChangeEvent<HTMLTextAreaElement>
+   ) => void;
+   onFocus: (
       e:
          | React.ChangeEvent<HTMLInputElement>
          | React.ChangeEvent<HTMLTextAreaElement>
    ) => void;
-   onFocus: () => void;
    LabelCheck: boolean;
    overlay?: boolean;
    Alert: string;
@@ -27,16 +31,13 @@ export const FormControlContext = React.createContext(
    {} as FormControlContextTypes
 );
 
-function FormControl({
-   overlay,
-   check,
-   className,
+function useFormControl({
    validate,
-   required = true,
-   children,
-   ...restProps
-}: FormControl) {
-   const formControlClass = clsx('form-control', className);
+   required,
+}: {
+   validate?: (value: string) => string;
+   required?: boolean;
+}) {
    const [labelCheck, setLabelCheck] = React.useState(false);
    const [alert, setAlert] = React.useState('');
 
@@ -45,30 +46,46 @@ function FormControl({
          | React.ChangeEvent<HTMLInputElement>
          | React.ChangeEvent<HTMLTextAreaElement>
    ) => {
+      const value = e.target.value;
       if (validate) {
-         const message = validate(e.target.value);
-         console.log(message);
-         if (message) {
-            setAlert(message);
-            setLabelCheck(false);
-         } else {
-            setAlert('');
-            setLabelCheck(true);
-         }
+         const message = validate(value);
+         setAlert(message || '');
+         setLabelCheck(!message);
       } else if (required) {
-         if (e.target.value.length > 0) {
-            setLabelCheck(true);
-            setAlert('');
-         } else {
-            setLabelCheck(false);
-            setAlert('value is required');
-         }
+         setLabelCheck(value.length > 0);
+         setAlert(value.length === 0 ? 'value is required' : '');
       }
    };
 
-   const onFocus = () => {
-      setLabelCheck(true);
+   const onFocus = (
+      e:
+         | React.ChangeEvent<HTMLInputElement>
+         | React.ChangeEvent<HTMLTextAreaElement>
+   ) => {
+      if (validate) {
+         const message = validate(e.target.value);
+         setAlert(message || '');
+         setLabelCheck(!message);
+      }
    };
+
+   return { labelCheck, alert, inputChange, onFocus };
+}
+
+function FormControl({
+   overlay,
+   check,
+   className,
+   validate,
+   required = true,
+   children,
+   ...restProps
+}: FormControlProps) {
+   const formControlClass = clsx('form-control', className);
+   const { labelCheck, alert, inputChange, onFocus } = useFormControl({
+      validate,
+      required,
+   });
 
    return (
       <FormControlContext.Provider
