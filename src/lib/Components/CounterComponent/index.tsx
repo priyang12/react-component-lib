@@ -1,1 +1,1 @@
-export { default as CounterComponent } from './CounterComponent';
+export { default as CounterComponents } from './CounterComponent';

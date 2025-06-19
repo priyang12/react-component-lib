@@ -1,1 +1,49 @@
-@use '../../styles/variable.scss';
+.counter {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-width: 120px;
+   height: 60px;
+   border-radius: 8px;
+   font-size: 32px;
+   font-weight: 600;
+   color: var(--text-primary);
+   position: relative;
+   overflow: hidden;
+   transition: all 0.3s ease-in-out;
+}
+
+.counter-wrapper {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 12px;
+   padding: 20px;
+}
+
+.counter-buttons {
+   display: flex;
+   gap: 10px;
+}
+
+.counter-button {
+   background-color: var(--color-primary);
+   color: white;
+   font-size: 20px;
+   padding: 10px 16px;
+   border: none;
+   border-radius: 6px;
+   cursor: pointer;
+   transition: background-color, border 0.2s ease-in-out;
+
+   &:hover {
+      background-color: var(--color-secondary);
+   }
+   &:focus {
+      outline: none;
+      border: 2px solid var(--color-secondary);
+   }
+   &:active {
+      transform: scale(0.95);
+   }
+}

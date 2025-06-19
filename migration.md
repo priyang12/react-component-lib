@@ -25,7 +25,7 @@
 ## module (meant molecule)
 
 [x] ButtonGroup
-[x] CounterComponent (need to combine counter into one.)
+[x] CounterComponent
 [x] ButtonDes to DescriptionContainer (need to refactor for better wrapper.)
 [x] DateField
 [] DragNDrop (removed, need remake)

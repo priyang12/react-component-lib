@@ -8,7 +8,6 @@ export * from './ProgressBar';
 export * from './Switch';
 export * from './TextArea';
 export * from './TextEffect';
-export * from './Counter';
 export * from './ImageMagnifier';
 export * from './Select';
 export * from './Calendar';
