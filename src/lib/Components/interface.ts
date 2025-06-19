@@ -8,4 +8,6 @@ export type VariantType =
    | 'success'
    | 'success-border'
    | 'info'
-   | 'info-border';
+   | 'info-border'
+   | 'warning'
+   | 'warning-border';

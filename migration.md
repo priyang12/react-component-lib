@@ -13,7 +13,7 @@
 [x] Vercel Button.
 [x] Input
 [x] Label
-[x] ProgressBar (added different variants)
+[x] ProgressBar.
 [x] Switch (add disabled styling)
 [x] TextArea
 [x] TextEffect

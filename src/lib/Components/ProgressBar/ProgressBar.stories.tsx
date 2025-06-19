@@ -18,20 +18,16 @@ export const Template: StoryFn<typeof ProgressBar> = (args) => (
    </ProgressBar>
 );
 
-export const WithoutLabel: StoryFn<typeof ProgressBar> = (args) => (
-   <ProgressBar {...args} />
-);
-
 export const LabelInsideBar: StoryFn<typeof ProgressBar> = (args) => (
    <ProgressBar {...args}>
-      <ProgressBarLabel label={`${args.value}%`} placement="inside" />
+      <ProgressBarLabel label={`${args.value}%`} placement="left" />
    </ProgressBar>
 );
 
 export const SuccessVariant = Template.bind({});
 SuccessVariant.args = {
    value: 75,
-   variant: 'success',
+   variant: 'success-border',
 };
 
 export const ErrorVariant = Template.bind({});

@@ -1,7 +1,16 @@
 import { clsx } from 'clsx';
 import ProgressBarLabel from './ProgressBarLabel';
 import './ProgressBar.scss';
-import { VariantType } from '../interface';
+
+type VariantType =
+   | 'failure'
+   | 'failure-border'
+   | 'success'
+   | 'success-border'
+   | 'info'
+   | 'info-border'
+   | 'warning'
+   | 'warning-border';
 
 /**
  * Props for the `ProgressBar` component.
