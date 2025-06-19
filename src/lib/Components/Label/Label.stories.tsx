@@ -1,10 +1,11 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import Label from './Label';
+import { FormControlContext } from '../FormControl/FormControl';
 export default {
    title: 'Components/Label',
    component: Label,
    args: {
-      children: 'Search',
+      children: 'Input Label',
       htmlFor: 'search',
       id: 'search',
    },
@@ -23,8 +24,16 @@ SizeLabel.args = {
    size: 'large',
 };
 
-// fix alert
-// export const AlertLabel = Template.bind({});
-// AlertLabel.args = {
-//    alert: 'Alert',
-// };
+export const WithContextAlert = () => (
+   <FormControlContext.Provider
+      value={
+         {
+            Alert: 'Required field',
+            LabelCheck: false,
+            overlay: false,
+         } as any
+      }
+   >
+      <Label htmlFor="email">Email</Label>
+   </FormControlContext.Provider>
+);

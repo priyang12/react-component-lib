@@ -12,10 +12,7 @@ import './Label.scss';
 export interface LabelProps {
    // If true, the label will have a 'visually-hidden' class for accessibility purposes
    hidden?: boolean;
-   // Size of the label. Can be 'small', 'medium', or 'large'
    size?: 'small' | 'medium' | 'large';
-   // If true, the label will have an 'alert' class for styling purposes
-   alert?: boolean | string;
 }
 
 /**
@@ -26,21 +23,30 @@ export interface LabelProps {
  */
 function Label(props: React.ComponentPropsWithoutRef<'label'> & LabelProps) {
    const { children, hidden, size, className, ...restProps } = props;
-   const { Alert, LabelCheck, overlay } = React.useContext(FormControlContext);
+   const {
+      Alert: alert,
+      LabelCheck,
+      overlay,
+   } = React.useContext(FormControlContext);
+
    const LabelClass = clsx(
       'label',
       LabelCheck && 'active',
       overlay && 'overlay',
       hidden ? 'visually-hidden' : 'show',
       size && `label--${size}`,
-      Alert && `label--alert`,
       className
    );
 
    return (
       <label className={LabelClass} {...restProps} data-valid={LabelCheck}>
-         {Alert ? Alert : null}
-         {children}
+         {alert ? (
+            <span className="label-alert" role="alert" aria-live="assertive">
+               This field is required
+            </span>
+         ) : (
+            children
+         )}
       </label>
    );
 }

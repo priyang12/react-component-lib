@@ -12,7 +12,7 @@
 [x] Badge
 [x] Vercel Button.
 [x] Input
-[x] Label (fix alert)
+[x] Label
 [x] ProgressBar (added different variants)
 [x] Switch (add disabled styling)
 [x] TextArea
