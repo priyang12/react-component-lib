@@ -1,5 +1,5 @@
 import Switch from './Switch';
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { useToggle } from '../../../Hooks';
 
 export default {
@@ -11,4 +11,13 @@ export default {
 export const Template: StoryFn<typeof Switch> = (args) => {
    const [Value, ToggleValue] = useToggle(false);
    return <Switch {...args} isOn={Value} setIsOn={ToggleValue} />;
+};
+
+type SwitchType = StoryObj<typeof Switch>;
+
+// Disabled
+export const Disabled: SwitchType = {
+   args: {
+      disabled: true,
+   },
 };

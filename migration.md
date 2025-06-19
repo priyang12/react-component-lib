@@ -14,7 +14,7 @@
 [x] Input
 [x] Label
 [x] ProgressBar.
-[x] Switch (add disabled styling)
+[x] Switch
 [x] TextArea
 [x] TextEffect
 [x] ImageMagnifier (remove mutation from inline style to use variable.)

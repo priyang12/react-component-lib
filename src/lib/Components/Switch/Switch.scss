@@ -9,6 +9,15 @@
    opacity: 0;
 }
 
+.switch-container--disabled {
+   opacity: 0.6;
+   cursor: not-allowed;
+}
+
+.switch-label--disabled {
+   cursor: not-allowed;
+}
+
 .switch-label {
    width: 50px;
    height: 25px;
@@ -32,8 +41,7 @@
 }
 
 .switch:checked + .switch-label {
-   background-color: #4caf50;
-
+   background-color: var(--success-color);
    &::before {
       transform: translateX(25px);
    }

@@ -1,22 +1,57 @@
-import { clsx } from 'clsx';
 import * as React from 'react';
-
+import { clsx } from 'clsx';
 import './Switch.scss';
 
-const Switch = ({
+export interface SwitchProps extends React.ComponentPropsWithoutRef<'label'> {
+   isOn: boolean;
+   setIsOn: () => void;
+   width?: string;
+   disabled?: boolean;
+}
+
+const Switch: React.FC<SwitchProps> = ({
    isOn,
    setIsOn,
    width = '50px',
+   disabled = false,
+   className,
    ...props
-}: {
-   isOn: boolean;
-   setIsOn: () => void;
-   width: string;
-} & React.ComponentPropsWithoutRef<'label'>) => {
-   const LabelClassName = clsx('switch-label', props.className);
+}) => {
+   const LabelClassName = clsx('switch-label', className, {
+      'switch-label--disabled': disabled,
+   });
+
    return (
-      <div className="switch-container" onClick={() => setIsOn()}>
-         <input className="switch" type="checkbox" checked={isOn} />
+      <div
+         className={clsx('switch-container', {
+            'switch-container--disabled': disabled,
+         })}
+         style={{ width }}
+         onClick={() => {
+            if (!disabled) {
+               setIsOn();
+            }
+         }}
+         onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+               if (!disabled) setIsOn();
+            }
+         }}
+         role="switch"
+         aria-checked={isOn}
+         aria-disabled={disabled}
+         aria-label="switch"
+         tabIndex={disabled ? -1 : 0}
+      >
+         <input
+            className="switch"
+            type="checkbox"
+            checked={isOn}
+            disabled={disabled}
+            aria-hidden="true"
+            tabIndex={-1}
+            readOnly
+         />
          <label className={LabelClassName} {...props}></label>
       </div>
    );
