@@ -5,4 +5,20 @@
       object-fit: cover;
       border-radius: var(--card-radius);
    }
+
+   .magnifier {
+      position: absolute;
+      pointer-events: none;
+      border: 2px solid var(--color-primary);
+      height: var(--magnifierHeight);
+      width: var(--magnifierWidth);
+      top: calc(var(--y) - var(--magnifierHeight) - 5%);
+      left: calc(var(--x) + 10%);
+      background-position-x: calc(
+         var(--x) * -1 * var(--zoomLevel) + var(--magnifierWidth) / 2
+      );
+      background-position-y: calc(
+         var(--y) * -1 * var(--zoomLevel) + var(--magnifierHeight) / 2
+      );
+   }
 }

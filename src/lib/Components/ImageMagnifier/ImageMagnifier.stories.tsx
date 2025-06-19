@@ -12,10 +12,5 @@ export default {
 } as Meta<typeof ImageMagnifier>;
 
 export const Template: StoryFn<typeof ImageMagnifier> = (args) => (
-   <ImageMagnifier
-      style={{
-         width: '50%',
-      }}
-      {...args}
-   />
+   <ImageMagnifier {...args} />
 );

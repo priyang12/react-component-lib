@@ -17,7 +17,7 @@
 [x] Switch
 [x] TextArea
 [x] TextEffect
-[x] ImageMagnifier (remove mutation from inline style to use variable.)
+[x] ImageMagnifier.
 [x] Select (need to rework it.)
 [x] Calendar
 [x] Accordion Item
