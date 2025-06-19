@@ -4,27 +4,31 @@
    border-radius: 0;
    font-size: 1rem;
    line-height: 1.5;
-   color: #333;
+   color: var(--text-primary);
    background: transparent;
    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
    &:focus {
       border-color: var(--input-border-focus);
       box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
    }
    .overlay {
       position: absolute;
-      top: 10%;
-      left: 5%;
+      top: 50%;
+      left: 2%;
+      transform: translateY(-50%);
       line-height: 1.5;
       transition: transform 0.15s ease-in-out;
+      pointer-events: none;
    }
+
    .overlay[data-valid='true'] {
-      transform: translate(-10%, -110%);
+      transform: translateY(-110%);
    }
    input:hover ~ .overlay,
    input:focus ~ .overlay,
    textarea:hover ~ .overlay,
    textarea:focus ~ .overlay {
-      transform: translate(-10%, -100%);
+      transform: translateY(-110%);
    }
 }

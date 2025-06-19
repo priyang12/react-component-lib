@@ -42,7 +42,7 @@ function Label(props: React.ComponentPropsWithoutRef<'label'> & LabelProps) {
       <label className={LabelClass} {...restProps} data-valid={LabelCheck}>
          {alert ? (
             <span className="label-alert" role="alert" aria-live="assertive">
-               This field is required
+               {alert}
             </span>
          ) : (
             children

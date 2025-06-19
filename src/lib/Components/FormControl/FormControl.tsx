@@ -6,6 +6,8 @@ export type FormControl = {
    overlay?: boolean;
    check?: boolean;
    className?: string;
+   validate?: (value: string) => string;
+   required?: boolean;
    children?: React.ReactNode;
 };
 
@@ -28,25 +30,39 @@ export const FormControlContext = React.createContext(
 function FormControl({
    overlay,
    check,
-   children,
    className,
+   validate,
+   required = true,
+   children,
    ...restProps
 }: FormControl) {
-   const FormControlClass = clsx('form-control', className);
-   const [LabelCheck, setLabelCheck] = React.useState(false);
-   const [Alert, setAlert] = React.useState('');
+   const formControlClass = clsx('form-control', className);
+   const [labelCheck, setLabelCheck] = React.useState(false);
+   const [alert, setAlert] = React.useState('');
 
    const inputChange = (
       e:
          | React.ChangeEvent<HTMLInputElement>
          | React.ChangeEvent<HTMLTextAreaElement>
    ) => {
-      if (e.target.value.length > 0) {
-         setLabelCheck(true);
-         setAlert('');
-      } else {
-         setLabelCheck(false);
-         setAlert('value is required');
+      if (validate) {
+         const message = validate(e.target.value);
+         console.log(message);
+         if (message) {
+            setAlert(message);
+            setLabelCheck(false);
+         } else {
+            setAlert('');
+            setLabelCheck(true);
+         }
+      } else if (required) {
+         if (e.target.value.length > 0) {
+            setLabelCheck(true);
+            setAlert('');
+         } else {
+            setLabelCheck(false);
+            setAlert('value is required');
+         }
       }
    };
 
@@ -59,12 +75,12 @@ function FormControl({
          value={{
             inputChange,
             onFocus,
-            Alert,
+            Alert: alert,
             overlay,
-            LabelCheck,
+            LabelCheck: labelCheck,
          }}
       >
-         <div className={FormControlClass} {...restProps}>
+         <div className={formControlClass} {...restProps}>
             {children}
          </div>
       </FormControlContext.Provider>
