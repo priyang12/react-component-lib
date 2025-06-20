@@ -8,7 +8,6 @@
 
    &:focus {
       outline: none;
-      border-color: darken($color: variable.$input-color, $amount: 20);
    }
    &:hover {
       border-color: variable.$input-color;
