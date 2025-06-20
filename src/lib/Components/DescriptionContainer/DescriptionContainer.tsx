@@ -1,83 +1,63 @@
-import React, { useMemo, useState } from 'react';
-import lodash from 'lodash.debounce';
-import { Button } from '../Button';
+import React, { useRef, useState } from 'react';
+import clsx from 'clsx';
 import './DescriptionContainer.scss';
 
-type DescriptionContainerProps = {
-   children: React.ReactNode;
-   style?: React.CSSProperties;
-   width?: string;
-   HiddenContainerHeight?: string;
+export interface DescriptionContainerProps
+   extends Omit<React.ComponentPropsWithoutRef<'div'>, 'children'> {
+   defaultShow?: boolean;
+   hiddenContainerHeight?: string;
    exitFunction?: () => void;
-};
+   renderDescription: () => React.ReactNode;
+   children: (handlers: { onMouseOver: () => void }) => React.ReactNode;
+}
 
 function DescriptionContainer({
-   exitFunction,
-   width,
+   defaultShow = false,
+   hiddenContainerHeight,
+   exitFunction = () => {},
+   renderDescription,
    children,
-   HiddenContainerHeight,
+   ...props
 }: DescriptionContainerProps) {
-   const [show, setShow] = useState(false);
-   const [hidden, setHidden] = useState(true);
-
-   const debouncedHandleMouseExit = useMemo(
-      () =>
-         lodash(() => {
-            setHidden(true);
-            if (typeof exitFunction !== 'undefined') {
-               exitFunction();
-            }
-         }, 1000),
-      [setHidden, exitFunction]
-   );
+   const [show, setShow] = useState(defaultShow);
+   const [hidden, setHidden] = useState(!defaultShow);
+   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
    const Enter = () => {
-      debouncedHandleMouseExit.cancel();
-      setShow(true);
-      setHidden(false);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (!show) {
+         setShow(true);
+         setHidden(false);
+      }
    };
    const handleExit = () => {
       setShow(false);
-      debouncedHandleMouseExit();
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      timeoutRef.current = setTimeout(() => {
+         setHidden(true);
+      }, 1000);
    };
    return (
       <div
-         className="Button-container"
-         style={{
-            width: width,
-         }}
+         {...props}
+         className={clsx('descriptionContainer', props.className)}
          onMouseLeave={handleExit}
       >
-         {React.Children.map(children, (child: any) => {
-            switch (child.type) {
-               case Button:
-                  return React.cloneElement(child, {
-                     onMouseEnter: Enter,
-                  });
-
-               default:
-                  return (
-                     <div
-                        className={`hidden-container ${hidden ? 'hidden' : ''}`}
-                        style={{
-                           // @ts-ignore
-                           '--Description-height': HiddenContainerHeight,
-                        }}
-                     >
-                        <div className={`${show ? 'show' : 'hide'}`}>
-                           {child}
-                        </div>
-                     </div>
-                  );
+         {children({ onMouseOver: Enter })}
+         <div
+            className={clsx('hidden-container', hidden ? 'hideContainer' : '')}
+            style={
+               {
+                  '--description-height': hiddenContainerHeight,
+               } as React.CSSProperties
             }
-         })}
+         >
+            <div className={`${show ? 'show' : 'hide'}`}>
+               {renderDescription()}
+            </div>
+         </div>
       </div>
    );
 }
-
-DescriptionContainer.defaultProps = {
-   width: '20%',
-   exitFunction: () => {},
-};
 
 export default DescriptionContainer;

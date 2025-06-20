@@ -1,10 +1,7 @@
-@use '../../styles/variable.scss';
-
-.Button-container {
+.descriptionContainer {
+   cursor: default;
    display: flex;
    flex-direction: column;
-   width: fit-content;
-   cursor: default;
    padding: 1em;
    background-color: var(--color-primary);
    border-radius: 38px;
@@ -23,12 +20,12 @@
 
    .show {
       border-radius: 0;
-      animation: display 2s ease-in-out;
+      animation: display 1s ease-in-out;
    }
    .hide {
       animation: hideAnimation 1s ease-in-out;
    }
-   .hidden {
+   .hideContainer {
       display: none;
    }
 }
@@ -40,14 +37,14 @@
    }
    100% {
       opacity: 1;
-      height: var(--Description-height);
+      height: var(--description-height);
    }
 }
 
 @keyframes hideAnimation {
    0% {
       opacity: 1;
-      height: 160px;
+      height: var(--description-height);
    }
    100% {
       opacity: 0;

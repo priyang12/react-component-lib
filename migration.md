@@ -26,7 +26,7 @@
 
 [x] ButtonGroup
 [x] CounterComponent
-[x] ButtonDes to DescriptionContainer (need to refactor for better wrapper.)
+[x] ButtonDes to DescriptionContainer.
 [x] DateField
 [] DragNDrop (removed, need remake)
 [x] HoverCard to YTCard.
