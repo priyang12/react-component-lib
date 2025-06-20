@@ -1,0 +1,58 @@
+.drag-n-drop {
+   border: 2px dashed #aaa;
+   padding: 2rem;
+   text-align: center;
+   border-radius: 8px;
+   transition: background-color 0.2s ease;
+   color: #555;
+   cursor: pointer;
+   .dnd-default-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      label {
+         p {
+            font-size: 2rem;
+         }
+      }
+      input[type='file'] {
+         display: inline-block;
+         border: 1px solid var(--info-color);
+         padding: 0.4rem 0.6rem;
+         border-radius: 4px;
+         font-size: 0.95rem;
+         background-color: var(--info-color-alpha-10);
+         color: #333;
+         cursor: pointer;
+         transition: border-color 0.2s;
+
+         &:hover {
+            border-color: var(--info-color);
+         }
+         &:focus {
+            outline: 2px solid var(--info-color);
+            outline-offset: 2px;
+         }
+         &::file-selector-button {
+            background-color: var(--info-color);
+            color: var(--text-primary);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-right: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+         }
+      }
+      input[type='file'][hidden] {
+         display: none !important;
+      }
+   }
+}
+
+.drag-n-drop.dragging {
+   background-color: var(--info-color-alpha-10);
+   border-color: var(--info-color);
+   color: var(--text-primary);
+}

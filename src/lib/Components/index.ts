@@ -19,3 +19,4 @@ export * from './TextLanding';
 export * from './FormControl';
 export * from './DatePicker';
 export * from './Timer';
+export * from './DragNDrop';
