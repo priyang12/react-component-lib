@@ -15,13 +15,18 @@ export function useSelect({ initialValue, options }: UseSelectProps) {
    const [filteredOptions, setFilteredOptions] = useState(options);
    const [searching, setSearching] = useState(false);
    const [searchTerm, setSearchTerm] = useState('');
+   const [focusedIndex, setFocusedIndex] = useState(0);
+
+   const selectedOption = options.find((opt) => opt.value === value);
 
    useEffect(() => {
       const matches = options.filter((option) =>
          option.label.toLowerCase().includes(searchTerm.toLowerCase())
       );
+
       setFilteredOptions(matches);
-   }, [searchTerm]);
+      setFocusedIndex(0);
+   }, [searchTerm, options]);
 
    const onChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
       setValue(event.target.value);
@@ -33,19 +38,44 @@ export function useSelect({ initialValue, options }: UseSelectProps) {
       else setSearching(true);
    };
 
-   const SelectValue = (value: string) => {
+   const selectValue = (value: string) => {
       setValue(value);
       setSearchTerm('');
       setSearching(false);
    };
 
+   // need to fix this.
+   const onKeyDown = (e: React.KeyboardEvent) => {
+      if (!filteredOptions.length) return;
+      if (e.key === 'ArrowDown') {
+         e.preventDefault();
+         setFocusedIndex((prev) => (prev + 1) % filteredOptions.length);
+      } else if (e.key === 'ArrowUp') {
+         e.preventDefault();
+         setFocusedIndex((prev) =>
+            prev === 0 ? filteredOptions.length - 1 : prev - 1
+         );
+      } else if (e.key === 'Enter') {
+         e.preventDefault();
+         const selected = filteredOptions[focusedIndex];
+         if (selected) selectValue(selected.value);
+      } else if (e.key === 'Escape') {
+         setSearching(false);
+         setSearchTerm('');
+      }
+   };
+
+   // add reset fn
    return {
       value,
-      SelectValue,
+      focusedIndex,
       searching,
-      onChange,
       searchTerm,
+      selectedOption,
+      selectValue,
+      onChange,
       onSearchChange,
+      onKeyDown,
       options: filteredOptions,
    };
 }

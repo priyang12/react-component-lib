@@ -1,20 +1,44 @@
 import * as React from 'react';
 import { optionType, useSelect } from '../../../Hooks/useSelect';
 import { useToggle } from '../../../Hooks/useToggle';
-import './Select.scss';
 import NativeSelect from './NativeSelect';
+import { Input } from '../Input';
+import { InputProps } from '../Input/Input';
+import { callAll } from '../../Utils/AllFunctionsCall';
+import './Select.scss';
 
+export type renderLabelProps = {
+   searching: boolean;
+   selectedValue: string;
+};
+
+export type renderOptionsProps = {
+   filteredOptions: optionType[];
+   selectValue: (value: string) => void;
+   toggle: () => void;
+};
 export interface SelectProps {
    initialValue: string;
    name: string;
+   inputSize: InputProps['InputSize'];
    options: optionType[];
-   renderLabel: (searching: boolean, selectedValue: string) => React.ReactNode;
+   renderLabel: ({
+      searching,
+      selectedValue,
+   }: renderLabelProps) => React.ReactNode;
+   renderOptions: ({
+      filteredOptions,
+      selectValue,
+      toggle,
+   }: renderOptionsProps) => React.ReactNode;
 }
 
 function Select({
    initialValue = 'Select from optionals',
-   options,
    name,
+   options,
+   inputSize,
+   renderOptions,
    renderLabel = () => <label htmlFor={name}>{name}</label>,
    ...props
 }: React.ComponentPropsWithoutRef<'select'> & SelectProps) {
@@ -22,9 +46,10 @@ function Select({
 
    const {
       value,
+
       searching,
       searchTerm,
-      SelectValue,
+      selectValue,
       onSearchChange,
       options: filteredOptions,
    } = useSelect({
@@ -35,43 +60,33 @@ function Select({
    return (
       <>
          <div className="select-container">
-            {renderLabel(searching, value)}
+            {renderLabel({ searching, selectedValue: value })}
+            {/* memo this later and pass value using ref */}
             <NativeSelect
                currentValue={value}
                options={filteredOptions}
                data-value={value}
                {...props}
             />
-            {/* <div className="select">
-               <input
+            <div className="select-input">
+               <Input
                   id={`${name}-input`}
-                  // name={name}
+                  name={name}
                   value={searchTerm}
                   data-value={value}
                   aria-expanded={isOpen}
-                  role="combobox"
-                  onChange={onSearchChange}
+                  onChange={callAll(onSearchChange, props.onChange)}
                   onClick={() => setToggle(true)}
+                  InputSize={inputSize}
                />
-            </div> */}
-            {/* {isOpen ? (
-               <ul className="Options" onBlur={() => toggle()}>
-                  {filteredOptions.map((option) => (
-                     <li
-                        tabIndex={-1}
-                        key={option.value}
-                        value={option.value}
-                        className="OptionItem"
-                        onClick={() => {
-                           SelectValue(option.value);
-                           toggle();
-                        }}
-                     >
-                        {option.label}
-                     </li>
-                  ))}
-               </ul>
-            ) : null} */}
+               {isOpen
+                  ? renderOptions({
+                       filteredOptions,
+                       selectValue,
+                       toggle,
+                    })
+                  : null}
+            </div>
          </div>
       </>
    );

@@ -18,7 +18,7 @@
 [x] TextArea
 [x] TextEffect
 [x] ImageMagnifier.
-[x] Select (need to rework it.)
+[x] Select
 [x] Calendar
 [x] Accordion Item
 
