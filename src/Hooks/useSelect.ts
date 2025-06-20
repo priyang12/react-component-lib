@@ -29,7 +29,8 @@ export function useSelect({ initialValue, options }: UseSelectProps) {
 
    const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setSearchTerm(event.target.value);
-      setSearching(true);
+      if (event.target.value === '') setSearching(false);
+      else setSearching(true);
    };
 
    const SelectValue = (value: string) => {

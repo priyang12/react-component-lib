@@ -13,7 +13,6 @@ export default {
 
 export const Template: StoryFn<typeof Select> = (args) => (
    <>
-      <label htmlFor="Countries">Countries</label>
       <Select
          {...args}
          options={FakeCountryData.map((item) => {
@@ -27,3 +26,15 @@ export const Template: StoryFn<typeof Select> = (args) => (
       />
    </>
 );
+
+export const SearchingLabel = Template.bind({});
+SearchingLabel.args = {
+   initialValue: '',
+   renderLabel: (searching, selectedValue) => {
+      return searching ? (
+         <label htmlFor="Countries">Searching</label>
+      ) : (
+         <label htmlFor="Countries">Select Country : {selectedValue}</label>
+      );
+   },
+};

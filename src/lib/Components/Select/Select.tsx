@@ -6,12 +6,16 @@ import NativeSelect from './NativeSelect';
 
 export interface SelectProps {
    initialValue: string;
+   name: string;
    options: optionType[];
+   renderLabel: (searching: boolean, selectedValue: string) => React.ReactNode;
 }
 
 function Select({
    initialValue = 'Select from optionals',
    options,
+   name,
+   renderLabel = () => <label htmlFor={name}>{name}</label>,
    ...props
 }: React.ComponentPropsWithoutRef<'select'> & SelectProps) {
    const [isOpen, toggle, setToggle] = useToggle(false);
@@ -31,20 +35,17 @@ function Select({
    return (
       <>
          <div className="select-container">
+            {renderLabel(searching, value)}
             <NativeSelect
                currentValue={value}
                options={filteredOptions}
+               data-value={value}
                {...props}
             />
-            {/* <div className="select" data-value={value}>
-               {searching ? null : (
-                  <label className="DisplayValue" htmlFor="DisplayValue">
-                     {value}
-                  </label>
-               )}
+            {/* <div className="select">
                <input
-                  id="DisplayValue"
-                  name="DisplayValue"
+                  id={`${name}-input`}
+                  // name={name}
                   value={searchTerm}
                   data-value={value}
                   aria-expanded={isOpen}
@@ -58,15 +59,15 @@ function Select({
                   {filteredOptions.map((option) => (
                      <li
                         tabIndex={-1}
-                        key={option}
-                        value={option}
+                        key={option.value}
+                        value={option.value}
                         className="OptionItem"
                         onClick={() => {
-                           SelectValue(option);
+                           SelectValue(option.value);
                            toggle();
                         }}
                      >
-                        {option}
+                        {option.label}
                      </li>
                   ))}
                </ul>
