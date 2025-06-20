@@ -1,12 +1,19 @@
 import * as React from 'react';
-import { useSelect } from '../../../Hooks/useSelect';
+import { optionType, useSelect } from '../../../Hooks/useSelect';
 import { useToggle } from '../../../Hooks/useToggle';
 import './Select.scss';
+import NativeSelect from './NativeSelect';
+
+export interface SelectProps {
+   initialValue: string;
+   options: optionType[];
+}
 
 function Select({
+   initialValue = 'Select from optionals',
    options,
    ...props
-}: React.ComponentPropsWithoutRef<'select'> & { options: string[] }) {
+}: React.ComponentPropsWithoutRef<'select'> & SelectProps) {
    const [isOpen, toggle, setToggle] = useToggle(false);
 
    const {
@@ -17,21 +24,19 @@ function Select({
       onSearchChange,
       options: filteredOptions,
    } = useSelect({
-      initialValue: options[0],
+      initialValue: initialValue,
       options: options,
    });
 
    return (
       <>
-         <div>
-            <select
-               value={value}
-               style={{
-                  display: 'none',
-               }}
+         <div className="select-container">
+            <NativeSelect
+               currentValue={value}
+               options={filteredOptions}
                {...props}
             />
-            <div className="Select" data-value={value}>
+            {/* <div className="select" data-value={value}>
                {searching ? null : (
                   <label className="DisplayValue" htmlFor="DisplayValue">
                      {value}
@@ -47,8 +52,8 @@ function Select({
                   onChange={onSearchChange}
                   onClick={() => setToggle(true)}
                />
-            </div>
-            {isOpen ? (
+            </div> */}
+            {/* {isOpen ? (
                <ul className="Options" onBlur={() => toggle()}>
                   {filteredOptions.map((option) => (
                      <li
@@ -65,7 +70,7 @@ function Select({
                      </li>
                   ))}
                </ul>
-            ) : null}
+            ) : null} */}
          </div>
       </>
    );

@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-interface UseSelectProps {
+export interface optionType {
+   label: string;
+   value: string;
+}
+
+export interface UseSelectProps {
    initialValue: string;
-   options: string[];
+   options: optionType[];
 }
 
 export function useSelect({ initialValue, options }: UseSelectProps) {
@@ -12,8 +17,8 @@ export function useSelect({ initialValue, options }: UseSelectProps) {
    const [searchTerm, setSearchTerm] = useState('');
 
    useEffect(() => {
-      const matches = options.filter(option =>
-         option.toLowerCase().includes(searchTerm.toLowerCase())
+      const matches = options.filter((option) =>
+         option.label.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setFilteredOptions(matches);
    }, [searchTerm]);
