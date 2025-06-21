@@ -1,50 +1,45 @@
 import * as React from 'react';
-import MagnifierOverlay from './MagnifierOverlay';
 import { clsx } from 'clsx';
+import MagnifierOverlay, { MagnifierOverlayProps } from './MagnifierOverlay';
+import { useImageMagnifier } from './Hook/useImageMagnifier';
 import './ImageMagnifier.scss';
 
 export interface ImageMagnifierProps
    extends React.ComponentPropsWithoutRef<'div'> {
    src: string;
-   width: string;
-   height: string;
    magnifierHeight: number;
    magnifierWidth: number;
    zoomLevel: number;
+   OverlayComponent?: React.ComponentType<MagnifierOverlayProps>;
+   OverlayComponentProps?: MagnifierOverlayProps;
+   renderImage: (args: {
+      handleMouseEnter: (e: React.MouseEvent<HTMLImageElement>) => void;
+      handleMouseMove: (e: React.MouseEvent<HTMLImageElement>) => void;
+      handleMouseLeave: () => void;
+   }) => React.ReactNode;
 }
 
 const MemoedMagnifierOverlay = React.memo(MagnifierOverlay);
 
 const ImageMagnifier: React.FC<ImageMagnifierProps> = ({
    src,
-   width,
-   height,
    magnifierHeight = 100,
    magnifierWidth = 100,
    zoomLevel = 1.5,
    className,
+   OverlayComponent = MemoedMagnifierOverlay,
+   OverlayComponentProps,
+   renderImage,
    ...props
 }) => {
-   const [[x, y], setXY] = React.useState([0, 0]);
-   const [[imgWidth, imgHeight], setSize] = React.useState([0, 0]);
-   const [showMagnifier, setShowMagnifier] = React.useState(false);
-
-   const handleMouseEnter = (e: React.MouseEvent<HTMLImageElement>) => {
-      const { width, height } = e.currentTarget.getBoundingClientRect();
-      setSize([width, height]);
-      setShowMagnifier(true);
-   };
-
-   const handleMouseMove = (e: React.MouseEvent<HTMLImageElement>) => {
-      const { top, left } = e.currentTarget.getBoundingClientRect();
-      const x = e.pageX - left - window.pageXOffset;
-      const y = e.pageY - top - window.pageYOffset;
-      setXY([x, y]);
-   };
-
-   const handleMouseLeave = () => {
-      setShowMagnifier(false);
-   };
+   const {
+      x,
+      y,
+      imgHeight,
+      imgWidth,
+      showMagnifier,
+      eventHandlers: { onMouseEnter, onMouseLeave, onMouseMove },
+   } = useImageMagnifier();
 
    return (
       <div
@@ -61,21 +56,18 @@ const ImageMagnifier: React.FC<ImageMagnifierProps> = ({
             props?.style
          )}
       >
-         <img
-            src={src}
-            alt="Zoomable"
-            style={{ width, height }}
-            onMouseEnter={handleMouseEnter}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-         />
-
+         {renderImage({
+            handleMouseEnter: onMouseEnter,
+            handleMouseLeave: onMouseLeave,
+            handleMouseMove: onMouseMove,
+         })}
          {showMagnifier ? (
-            <MemoedMagnifierOverlay
+            <OverlayComponent
                imgWidth={imgWidth}
                imgHeight={imgHeight}
                src={src}
                zoomLevel={zoomLevel}
+               {...OverlayComponentProps}
             />
          ) : null}
       </div>
