@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 import './TextArea.scss';
-import { FormControlContext } from '../FormControl/FormControl';
+import { useFormContext } from '../FormControl/FormControl';
 import { callAll } from '../../Utils/AllFunctionsCall';
 
 /**
@@ -17,13 +17,12 @@ import { callAll } from '../../Utils/AllFunctionsCall';
 function TextArea(
    props: {
       Size: 'small' | 'medium' | 'large';
-      alert?: boolean | string;
       resize?: 'none' | 'both' | 'horizontal' | 'vertical';
    } & React.ComponentPropsWithoutRef<'textarea'>
 ) {
-   const { Size, alert, className, ...rest } = props;
+   const { Size, className, ...rest } = props;
+   const { alert, inputChange, onFocus } = useFormContext();
    const TextAreaClass = clsx(Size, alert && 'Alert-Border', className);
-   const { inputChange, onFocus } = React.useContext(FormControlContext);
    return (
       <textarea
          className={TextAreaClass}

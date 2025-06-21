@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 import { callAll } from '../../Utils/AllFunctionsCall';
-import { FormControlContext } from '../FormControl/FormControl';
+import { FormControlContext, useFormContext } from '../FormControl/FormControl';
 import './Input.scss';
 
 /**
@@ -30,8 +30,8 @@ function Input({
    className,
    ...props
 }: React.ComponentPropsWithoutRef<'input'> & InputProps) {
-   const { Alert, onFocus, inputChange } = React.useContext(FormControlContext);
-   const InputClass = clsx('input', InputSize, Alert && 'alert', className);
+   const { alert, onFocus, inputChange } = useFormContext();
+   const InputClass = clsx('input', InputSize, alert && 'alert', className);
 
    return (
       <input

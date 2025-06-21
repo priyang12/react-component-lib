@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 import './FormControl.scss';
+import { useFormControl } from './Hooks/useFormControl';
 
 export type FormControlProps = {
    overlay?: boolean;
@@ -14,63 +15,29 @@ export type FormControlProps = {
 type FormControlContextTypes = {
    inputChange: (
       e: //  add others later like select,checkbox
-      | React.ChangeEvent<HTMLInputElement>
-         | React.ChangeEvent<HTMLTextAreaElement>
+      React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
    ) => void;
    onFocus: (
-      e:
-         | React.ChangeEvent<HTMLInputElement>
-         | React.ChangeEvent<HTMLTextAreaElement>
+      e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
    ) => void;
    LabelCheck: boolean;
    overlay?: boolean;
-   Alert: string;
+   alert: string;
 };
 
 export const FormControlContext = React.createContext(
    {} as FormControlContextTypes
 );
 
-function useFormControl({
-   validate,
-   required,
-}: {
-   validate?: (value: string) => string;
-   required?: boolean;
-}) {
-   const [labelCheck, setLabelCheck] = React.useState(false);
-   const [alert, setAlert] = React.useState('');
-
-   const inputChange = (
-      e:
-         | React.ChangeEvent<HTMLInputElement>
-         | React.ChangeEvent<HTMLTextAreaElement>
-   ) => {
-      const value = e.target.value;
-      if (validate) {
-         const message = validate(value);
-         setAlert(message || '');
-         setLabelCheck(!message);
-      } else if (required) {
-         setLabelCheck(value.length > 0);
-         setAlert(value.length === 0 ? 'value is required' : '');
-      }
-   };
-
-   const onFocus = (
-      e:
-         | React.ChangeEvent<HTMLInputElement>
-         | React.ChangeEvent<HTMLTextAreaElement>
-   ) => {
-      if (validate) {
-         const message = validate(e.target.value);
-         setAlert(message || '');
-         setLabelCheck(!message);
-      }
-   };
-
-   return { labelCheck, alert, inputChange, onFocus };
-}
+export const useFormContext = () => {
+   const context = React.useContext(FormControlContext);
+   if (!context) {
+      throw new Error(
+         'useFormContext must be used within a <FormControlProvider>'
+      );
+   }
+   return context;
+};
 
 function FormControl({
    overlay,
@@ -92,7 +59,7 @@ function FormControl({
          value={{
             inputChange,
             onFocus,
-            Alert: alert,
+            alert,
             overlay,
             LabelCheck: labelCheck,
          }}
