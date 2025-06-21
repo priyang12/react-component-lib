@@ -1,7 +1,8 @@
 import React from 'react';
 import './ImageMagnifier.scss';
 
-interface MagnifierOverlayProps {
+export interface MagnifierOverlayProps
+   extends React.ComponentPropsWithoutRef<'div'> {
    imgWidth: number;
    imgHeight: number;
    src: string;
