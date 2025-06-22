@@ -3,26 +3,19 @@ import { clsx } from 'clsx';
 import './FormControl.scss';
 import { useFormControl } from './Hooks/useFormControl';
 
-export type FormControlProps = {
-   overlay?: boolean;
-   check?: boolean;
-   className?: string;
-   validate?: (value: string) => string;
-   required?: boolean;
-   children?: React.ReactNode;
-};
-
 type FormControlContextTypes = {
+   alert: string;
+   isAlert: boolean;
+   disabled: boolean;
+   LabelCheck: boolean;
+   overlay?: boolean;
    inputChange: (
-      e: //  add others later like select,checkbox
+      e: //  add others later like select,checkbox using // React.SyntheticEvent
       React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
    ) => void;
    onFocus: (
       e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
    ) => void;
-   LabelCheck: boolean;
-   overlay?: boolean;
-   alert: string;
 };
 
 export const FormControlContext = React.createContext(
@@ -39,29 +32,50 @@ export const useFormContext = () => {
    return context;
 };
 
+export interface FormControlProps
+   extends React.ComponentPropsWithoutRef<'div'> {
+   overlay?: boolean;
+   check?: boolean;
+   alertMessage?: string;
+   disabled?: boolean;
+   required?: boolean;
+   className?: string;
+   validate?: (value: string) => string;
+   children?: React.ReactNode;
+}
+
+// need to add aria-describedby with helper
 function FormControl({
    overlay,
    check,
+   required = true,
+   alertMessage = '',
+   disabled = false,
    className,
    validate,
-   required = true,
    children,
    ...restProps
 }: FormControlProps) {
    const formControlClass = clsx('form-control', className);
-   const { labelCheck, alert, inputChange, onFocus } = useFormControl({
+
+   const { labelCheck, alert, isAlert, inputChange, onFocus } = useFormControl({
+      alertState: alertMessage,
       validate,
       required,
    });
 
+   console.log(alertMessage);
+
    return (
       <FormControlContext.Provider
          value={{
-            inputChange,
-            onFocus,
             alert,
+            isAlert,
+            disabled,
             overlay,
             LabelCheck: labelCheck,
+            inputChange,
+            onFocus,
          }}
       >
          <div className={formControlClass} {...restProps}>
