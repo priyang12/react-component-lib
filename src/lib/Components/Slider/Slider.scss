@@ -6,7 +6,7 @@
 
 .Slider {
    width: 100%;
-   height: 6px;
+   height: 10px;
    border-radius: 4px;
    appearance: none;
    background-color: var(--neutral-light);
@@ -16,48 +16,67 @@
    );
    background-repeat: no-repeat;
    transition: background-size 0.3s ease;
-}
 
-.Slider::-webkit-slider-thumb {
-   appearance: none;
-   width: 16px;
-   height: 16px;
-   background-color: var(--color-primary);
-   border-radius: 50%;
-   border: none;
-   cursor: pointer;
-   transition: transform 0.2s ease;
-}
+   &::-webkit-slider-thumb {
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background-color: var(--color-primary);
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+   }
 
-.Slider::-moz-range-thumb {
-   width: 16px;
-   height: 16px;
-   background-color: var(--color-primary);
-   border-radius: 50%;
-   border: none;
-   cursor: pointer;
-}
+   &::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background-color: var(--color-primary);
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+   }
 
-.Slider--success {
-   background-image: linear-gradient(
-      var(--success-color),
-      var(--success-color)
-   );
-}
+   &--disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+   }
 
-.Slider--failure {
-   background-image: linear-gradient(var(--error-color), var(--error-color));
-}
+   &--error {
+      background-image: linear-gradient(var(--error-color), var(--error-color));
 
-.Slider--info {
-   background-image: linear-gradient(var(--info-color), var(--info-color));
-}
+      &::-webkit-slider-thumb {
+         background-color: var(--error-color);
+         border: 3px solid var(--bg-contrast);
+      }
 
-.Slider--warning {
-   background-image: linear-gradient(
-      var(--warning-color),
-      var(--warning-color)
-   );
+      &::-moz-range-thumb {
+         background-color: var(--error-color);
+         border: 3px solid var(--bg-contrast);
+      }
+   }
+
+   &--success {
+      background-image: linear-gradient(
+         var(--success-color),
+         var(--success-color)
+      );
+   }
+
+   &--failure {
+      background-image: linear-gradient(var(--error-color), var(--error-color));
+   }
+
+   &--info {
+      background-image: linear-gradient(var(--info-color), var(--info-color));
+   }
+
+   &--warning {
+      background-image: linear-gradient(
+         var(--warning-color),
+         var(--warning-color)
+      );
+   }
 }
 
 .SliderValue {
