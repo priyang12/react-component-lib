@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useFormContext } from '../FormControl';
 import { clsx } from 'clsx';
 import './Switch.scss';
 
@@ -34,6 +35,7 @@ const Switch: React.FC<SwitchProps> = ({
    className,
    ...props
 }) => {
+   const { isAlert, disabled: formControlDisabled } = useFormContext();
    const switchButtonClass = clsx(
       'switch-span',
       `switch-span--${switchSize}`,
@@ -42,20 +44,22 @@ const Switch: React.FC<SwitchProps> = ({
          'switch-span--disabled': disabled,
       }
    );
+   // take the formControl disable if we consumer does not pass the disabled
+   const isDisable = disabled || formControlDisabled;
 
    /**
     * Handles both click and keyboard events.
     * Toggles the switch if it's not disabled.
     */
    const onEventChange = (e: React.SyntheticEvent) => {
-      if (!disabled) {
+      if (!isDisable) {
          if (e.type === 'click') {
             flipSwitch();
          }
          if (e.type === 'keydown') {
             let event = e as unknown as KeyboardEvent;
             if (event.key === 'Enter') {
-               if (!disabled) flipSwitch();
+               if (!isDisable) flipSwitch();
             }
          }
       }
@@ -64,21 +68,22 @@ const Switch: React.FC<SwitchProps> = ({
    return (
       <div
          className={clsx('switch-container', {
-            'switch-container--disabled': disabled,
+            'switch-container--disabled': isDisable,
+            'switch-alert': isAlert,
          })}
          onClick={onEventChange}
          onKeyDown={onEventChange}
          role="switch"
          aria-checked={isOn}
-         aria-disabled={disabled}
+         aria-disabled={isDisable}
          aria-label="switch"
-         tabIndex={disabled ? -1 : 0}
+         tabIndex={isDisable ? -1 : 0}
       >
          <input
             className="switch"
             type="checkbox"
             checked={isOn}
-            disabled={disabled}
+            disabled={isDisable}
             aria-hidden="true"
             tabIndex={-1}
             readOnly

@@ -44,6 +44,15 @@
    }
 }
 
+.switch-alert {
+   .switch:checked + .switch-span {
+      background-color: var(--error-color);
+      &::before {
+         background-color: var(--bg-surface);
+      }
+   }
+}
+
 .switch-span--small {
    width: 36px;
    height: 18px;
