@@ -14,15 +14,12 @@
    cursor: not-allowed;
 }
 
-.switch-label--disabled {
+.switch-span--disabled {
    cursor: not-allowed;
 }
 
-.switch-label {
-   width: 50px;
-   height: 25px;
-   border-radius: 25px;
-   background-color: #ccc;
+.switch-span {
+   background-color: var(--bg-surface);
    transition: background-color 0.2s ease-in-;
    position: relative;
    cursor: pointer;
@@ -32,7 +29,7 @@
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background-color: white;
+      background-color: var(--bg-contrast);
       position: absolute;
       top: 2.5px;
       left: 2.5px;
@@ -40,9 +37,60 @@
    }
 }
 
-.switch:checked + .switch-label {
+.switch:checked + .switch-span {
    background-color: var(--success-color);
    &::before {
-      transform: translateX(25px);
+      background-color: var(--bg-surface);
    }
+}
+
+.switch-span--small {
+   width: 36px;
+   height: 18px;
+   border-radius: 18px;
+
+   &::before {
+      width: 14px;
+      height: 14px;
+      top: 2px;
+      left: 2px;
+   }
+}
+
+.switch-span--medium {
+   width: 50px;
+   height: 25px;
+   border-radius: 25px;
+
+   &::before {
+      width: 20px;
+      height: 20px;
+      top: 2.5px;
+      left: 2.5px;
+   }
+}
+
+.switch-span--large {
+   width: 70px;
+   height: 35px;
+   border-radius: 35px;
+
+   &::before {
+      width: 28px;
+      height: 28px;
+      top: 3.5px;
+      left: 3.5px;
+   }
+}
+
+.switch:checked + .switch-span--small::before {
+   transform: translateX(18px);
+}
+
+.switch:checked + .switch-span--medium::before {
+   transform: translateX(25px);
+}
+
+.switch:checked + .switch-span--large::before {
+   transform: translateX(35px);
 }
