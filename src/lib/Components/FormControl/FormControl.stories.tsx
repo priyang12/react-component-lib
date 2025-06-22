@@ -3,6 +3,8 @@ import { Label } from '../../Components/Label';
 import { Input } from '../../Components/Input';
 import { TextArea } from '../../Components/TextArea';
 import type { Meta, StoryFn } from '@storybook/react';
+import { Template as Switch } from '../Switch/Switch.stories';
+import { useToggle } from '../../../Hooks';
 
 export default {
    title: 'Components/FormControl',
@@ -46,7 +48,7 @@ OverlayInput.args = {
    overlay: true,
 };
 
-export const Textarea: StoryFn<typeof FormControl> = (args) => (
+export const TextareaControl: StoryFn<typeof FormControl> = (args) => (
    <FormControl {...args}>
       <Label htmlFor="Search" size="medium">
          Search
@@ -54,3 +56,25 @@ export const Textarea: StoryFn<typeof FormControl> = (args) => (
       <TextArea id="textarea" resize="both" Size="medium" />
    </FormControl>
 );
+
+export const SwitchControl: StoryFn<typeof FormControl> = (args) => {
+   const [Value, ToggleValue] = useToggle(false);
+   return (
+      <FormControl
+         {...args}
+         style={{
+            display: 'flex',
+            gap: '1rem',
+         }}
+      >
+         <Label htmlFor="my-switch">Notifications</Label>
+         <Switch
+            id="my-switch"
+            name="notifications"
+            isOn={Value}
+            flipSwitch={ToggleValue}
+            switchSize="medium"
+         />
+      </FormControl>
+   );
+};
