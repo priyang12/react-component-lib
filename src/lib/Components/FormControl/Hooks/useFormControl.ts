@@ -1,13 +1,19 @@
 import * as React from 'react';
 
 type useFormControlProps = {
+   alertState: string;
    validate?: (value: string) => string;
    required?: boolean;
 };
 
-export function useFormControl({ validate, required }: useFormControlProps) {
+export function useFormControl({
+   alertState,
+   validate,
+   required,
+}: useFormControlProps) {
    const [labelCheck, setLabelCheck] = React.useState(false);
-   const [alert, setAlert] = React.useState('');
+   const [alert, setAlert] = React.useState(alertState);
+   const isAlert = alert ? true : false;
 
    const inputChange = (
       e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -33,5 +39,5 @@ export function useFormControl({ validate, required }: useFormControlProps) {
       }
    };
 
-   return { labelCheck, alert, inputChange, onFocus };
+   return { labelCheck, alert, isAlert, inputChange, onFocus };
 }

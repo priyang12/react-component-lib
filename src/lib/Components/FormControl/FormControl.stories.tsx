@@ -1,3 +1,4 @@
+import * as React from 'react';
 import FormControl from './FormControl';
 import { Label } from '../../Components/Label';
 import { Input } from '../../Components/Input';
@@ -5,6 +6,7 @@ import { TextArea } from '../../Components/TextArea';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Template as Switch } from '../Switch/Switch.stories';
 import { useToggle } from '../../../Hooks';
+import Slider from '../Slider';
 
 export default {
    title: 'Components/FormControl',
@@ -59,6 +61,7 @@ export const TextareaControl: StoryFn<typeof FormControl> = (args) => (
 
 export const SwitchControl: StoryFn<typeof FormControl> = (args) => {
    const [Value, ToggleValue] = useToggle(false);
+
    return (
       <FormControl
          {...args}
@@ -75,6 +78,21 @@ export const SwitchControl: StoryFn<typeof FormControl> = (args) => {
             flipSwitch={ToggleValue}
             switchSize="medium"
          />
+      </FormControl>
+   );
+};
+
+export const SliderControl: StoryFn<typeof FormControl> = (args) => {
+   const [value, setValue] = React.useState(50);
+   return (
+      <FormControl
+         {...args}
+         // this work but inside storybook this is not rerendering??
+         // alertMessage={value < 10 ? 'More than 10!' : ''}
+         validate={(value) => (Number(value) < 10 ? 'More than 10!' : '')}
+      >
+         <Label htmlFor="my-range">Range : {value}</Label>
+         <Slider value={value} onChange={setValue} />
       </FormControl>
    );
 };
