@@ -1,37 +1,12 @@
 @use './variable.scss';
 
 :root {
-   --color-primary: #3b51c9;
-   --color-secondary: #ff66e0;
-   --color-success: #00b300;
-   --color-alert: #ff0000;
-   --content-color: #fff;
-   --card-image-border: #f5f5f5;
-   --btn-background-color: #fff;
-   --card-radius: 10px;
-   --btn-radius: 15px;
-   --input-border: #333;
-   --input-border-focus: #666dff;
-   // --input-darken-border: #{variables.$input-color};
-   --input-border-radius: 10px;
-   --font-size-small: 1rem;
-   --font-size-medium: 1.5rem;
-   --font-size-large: 2rem;
-   --color-primary-h: 220;
-   --color-primary-s: 90%;
-   --color-primary-l: 56%;
-   --gap-small: 0.5rem;
-   --gap-medium: 1rem;
-   --gap-large: 2rem;
-   --font-family-primary: 'Roboto', sans-serif;
-   --font-family-secondary: 'Roboto', sans-serif;
-   --border-width: 3px;
-   --border-radius: 10px;
-   --btn-icon-size: 1.5rem;
-   --calender-width: 2rem;
-   --card-radius: 10px;
-
-   --text-primary: #333;
+   // new styling
+   --text-primary: #333333;
+   --text-secondary: #666666;
+   --text-tertiary: #999999;
+   --text-inverse: #ffffff;
+   --text-link: #3b82f6;
 
    --error-color: #ff0000;
    --success-color: #00b300;
@@ -44,11 +19,112 @@
    --info-color-alpha-10: rgba(0, 214, 241, 0.1);
    --warning-color-alpha-10: rgba(249, 241, 12, 0.1);
 
-   // BG colors/
+   // primary color shades
 
-   --bg-surface: #ffffff;
-   --bg-default: #f9fafb;
+   --primary-50: #eff6ff;
+   --primary-100: #dbeafe;
+   --primary-200: #bfdbfe;
+   --primary-300: #93c5fd;
+   --primary-400: #60a5fa;
+   --primary-500: #3b82f6;
+   --primary-600: #2563eb;
+   --primary-700: #1d4ed8;
+   --primary-800: #1e40af;
+   --primary-900: #1e3a8a;
+
+   // neutral color
+
+   --neutral-50: #fffdf8;
+   --neutral-100: #fef9f3;
+   --neutral-200: #fcf3e8;
+   --neutral-300: #f9e9d7;
+   --neutral-400: #f3dbc1;
+   --neutral-500: #e9cda9;
+   --neutral-600: #d5b58e;
+   --neutral-700: #b5946d;
+   --neutral-800: #8f6f4f;
+   --neutral-900: #5f4a32;
+
+   // BG colors
+
+   --bg-surface: #f9fafb;
+   --bg-default: #ffffff;
    --bg-contrast: #1f2937;
+
+   // radius
+   --radius-none: 0px;
+   --radius-sm: 2px;
+   --radius-md: 4px;
+   --radius-lg: 8px;
+   --radius-xl: 12px;
+   --radius-2xl: 16px;
+   --radius-full: 50%;
+
+   // font sizes
+   --font-size-xs: 0.75rem;
+   --font-size-sm: 0.875rem;
+   --font-size-md: 1rem;
+   --font-size-lg: 1.125rem;
+   --font-size-xl: 1.5rem;
+   --font-size-2xl: 2rem;
+
+   // gaps
+   --gap-xs: 0.25rem;
+   --gap-sm: 0.5rem;
+   --gap-md: 1rem;
+   --gap-lg: 1.5rem;
+   --gap-xl: 2rem;
+   --gap-2xl: 3rem;
+
+   // need to add more typography later.
+
+   // for old style compatible
+   --color-primary: var(--primary-500);
+   --color-secondary: var(--neutral-500);
+   --card-radius: var(--radius-xl);
+   --btn-radius: var(--radius-xl);
+   --input-border: var(--neutral-400);
+   --input-border-focus: var(--primary-500);
+   --input-border-radius: var(--radius-md);
+   --font-size-small: var(--font-size-sm);
+   --font-size-medium: var(--font-size-md);
+   --font-size-large: var(--font-size-2xl);
+   --gap-small: var(--gap-sm);
+   --gap-medium: var(--gap-md);
+   --gap-large: var(--gap-xl);
+
+   --border-width: 3px;
+   --border-radius: var(--radius-lg);
+   --btn-icon-size: 1.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+   :root {
+      --text-primary: #f9fafb;
+      --text-secondary: #d1d5db;
+      --text-tertiary: #9ca3af;
+      --text-inverse: #111827;
+      --text-link: #60a5fa;
+
+      // BG colors/
+      --bg-surface: #1f2937;
+      --bg-default: #111827;
+      --bg-contrast: #f9fafb;
+
+      // neutral color
+      --neutral-50: #fafafa;
+      --neutral-100: #f5f5f5;
+      --neutral-200: #e5e5e5;
+      --neutral-300: #d4d4d4;
+      --neutral-400: #a3a3a3;
+      --neutral-500: #737373;
+      --neutral-600: #525252;
+      --neutral-700: #404040;
+      --neutral-800: #262626;
+      --neutral-900: #333333;
+
+      // need to handle dark mode
+   }
 }
 
 .container {
@@ -60,30 +136,30 @@
    max-width: 960px;
    margin: 0 auto;
    padding: 20px;
-   background-color: #f5f5f5;
+   background-color: var(--bg-surface);
 }
 
 .primary {
    background-color: var(--color-primary);
-   color: var(--btn-background-color);
+   color: var(--bg-default);
    border: none;
 }
 
 .primary-border {
    color: var(--color-primary);
-   background-color: var(--btn-background-color);
+   background-color: var(--bg-default);
    border: 2px solid var(--color-primary);
 }
 
 .secondary {
-   color: var(--btn-background-color);
+   color: var(--bg-default);
    background-color: var(--color-secondary);
    border: none;
 }
 
 .secondary-border {
    color: var(--color-secondary);
-   background-color: var(--btn-background-color);
+   background-color: var(--bg-default);
    border: 2px solid var(--color-secondary);
    transition: all 0.3s ease-in-out;
    &:hover {
@@ -93,53 +169,53 @@
 }
 
 .success {
-   color: var(--btn-background-color);
-   background-color: var(--color-success);
+   color: var(--bg-default);
+   background-color: var(--success-color);
    border: none;
 }
 
 .success-border {
-   color: var(--color-success);
-   background-color: var(--btn-background-color);
-   border: 2px solid var(--color-success);
+   color: var(--success-color);
+   background-color: var(--bg-default);
+   border: 2px solid var(--success-color);
 }
 
 .failure {
-   color: var(--btn-background-color);
+   color: var(--bg-default);
    background-color: #ff0000;
    border: none;
 }
 
 .failure-border {
    color: #ff0000;
-   background-color: var(--btn-background-color);
+   background-color: var(--bg-default);
    border: 2px solid #ff0000;
 }
 .info {
-   color: var(--btn-background-color);
+   color: var(--bg-default);
    background-color: #00d6f1;
    border: none;
 }
 
 .info-border {
    color: #00d6f1;
-   background-color: var(--btn-background-color);
+   background-color: var(--bg-default);
    border: 2px solid #00d6f1;
 }
 .warning {
-   color: var(--btn-background-color);
+   color: var(--bg-default);
    background-color: #f9f10c;
    border: none;
 }
 
 .warning-border {
    color: #f9f10c;
-   background-color: var(--btn-background-color);
+   background-color: var(--bg-default);
    border: 2px solid #f9f10c;
 }
 
 .alert {
-   border-color: var(--color-alert);
+   border-color: var(--error-color);
 }
 .small {
    font-size: var(--font-size-small);

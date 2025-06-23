@@ -55,9 +55,9 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      height: var(--calender-width);
+      height: 2rem;
       th {
-         width: var(--calender-width);
+         width: 2rem;
       }
       abbr {
          text-decoration: underline dotted;
@@ -75,8 +75,8 @@
    gap: var(--gap-medium);
    font-size: 50px;
    .box {
-      width: calc(var(--calender-width) + 2px);
-      height: calc(var(--calender-width) + 2px);
+      width: calc(2rem + 2px);
+      height: calc(2rem + 2px);
    }
    .CurrentDay {
       border: 2px solid var(--color-primary);

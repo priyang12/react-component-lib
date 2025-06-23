@@ -35,18 +35,18 @@
 
    .success-bar {
       background-color: var(--success-color);
-      color: var(--btn-background-color);
+      color: var(--bg-default);
    }
 
    .success-border-bar {
       background-color: var(--success-color-alpha-10);
       border: 2px solid var(--success-color);
-      color: var(--color-success);
+      color: var(--success-color);
    }
 
    .failure-bar {
       background-color: var(--error-color);
-      color: var(--btn-background-color);
+      color: var(--bg-default);
    }
 
    .failure-border-bar {
@@ -57,7 +57,7 @@
 
    .info-bar {
       background-color: var(--info-color);
-      color: var(--btn-background-color);
+      color: var(--bg-default);
    }
 
    .info-border-bar {
@@ -67,7 +67,7 @@
    }
    .warning-bar {
       background-color: var(--warning-color);
-      color: var(--btn-background-color);
+      color: var(--bg-default);
    }
 
    .warning-border-bar {
