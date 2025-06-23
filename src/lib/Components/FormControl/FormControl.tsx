@@ -64,8 +64,6 @@ function FormControl({
       required,
    });
 
-   console.log(alertMessage);
-
    return (
       <FormControlContext.Provider
          value={{
