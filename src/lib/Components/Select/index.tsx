@@ -1,9 +1,3 @@
-import Options from './Options';
-import Select from './Select';
-
-const SelectComponents = {
-   Select,
-   Options,
-};
-
-export default SelectComponents;
+export { useSelect, UseSelectProps, optionType } from './hooks/useSelect';
+export { default as Select } from './Select';
+export { default as Options } from './Options';

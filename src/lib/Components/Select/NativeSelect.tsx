@@ -9,7 +9,7 @@ interface NativeSelect extends React.ComponentPropsWithoutRef<'select'> {
 const NativeSelect = ({ currentValue, options, ...props }: NativeSelect) => {
    return (
       <select
-         value={currentValue}
+         defaultValue={currentValue}
          aria-hidden="false"
          tabIndex={-1}
          className="visually-hidden"

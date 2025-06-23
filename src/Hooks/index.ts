@@ -4,7 +4,6 @@ export * from './useAccordion';
 export * from './useMultipleSelect';
 export * from './useToggle';
 export * from './useElementVisibility';
-export * from './useSelect';
 export * from './useBackgroundTime';
 export * from './useTimer';
 export * from './useRipple';

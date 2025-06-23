@@ -25,11 +25,24 @@ export const Template: StoryFn<typeof Select> = (args) => (
                value: item.code,
             };
          })}
-         renderOptions={({ filteredOptions, selectValue, toggle }) => (
+         renderOptions={({
+            selectedOption,
+            filteredOptions,
+            focusedIndex,
+            selectValue,
+            toggle,
+            setFocusedIndex,
+         }) => (
             <Options
+               style={{
+                  backgroundColor: 'red',
+               }}
+               selectedOption={selectedOption}
                filteredOptions={filteredOptions}
+               focusedIndex={focusedIndex}
                selectValue={selectValue}
                toggle={toggle}
+               setFocusedIndex={setFocusedIndex}
             />
          )}
       />
