@@ -7,6 +7,9 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { Template as Switch } from '../Switch/Switch.stories';
 import { useToggle } from '../../../Hooks';
 import Slider from '../Slider';
+import { Select } from '../Select';
+import { FakeCountryData } from '../Select/FakeCountryData';
+import Options from '../Select/Options';
 
 export default {
    title: 'Components/FormControl',
@@ -96,3 +99,51 @@ export const SliderControl: StoryFn<typeof FormControl> = (args) => {
       </FormControl>
    );
 };
+
+export const SelectControl: StoryFn<typeof FormControl> = (args) => (
+   <FormControl
+      {...args}
+      className="flex flex-col"
+      validate={(value) => {
+         return value.charAt(0).toLocaleLowerCase() !== 'a'
+            ? 'Please select only with A'
+            : '';
+      }}
+   >
+      <Select
+         initialValue="Select"
+         name="Countries"
+         id="Countries"
+         inputSize="medium"
+         options={FakeCountryData.map((item) => {
+            return {
+               label: item.name,
+               value: item.code,
+            };
+         })}
+         renderLabel={({ selectedValue }) => (
+            <Label htmlFor="Search" size="medium">
+               Select only with latter A: {selectedValue}
+            </Label>
+         )}
+         renderOptions={({
+            filteredOptions,
+            focusedIndex,
+            selectedOption,
+            setFocusedIndex,
+            selectValue,
+            toggle,
+         }) => (
+            <Options
+               filteredOptions={filteredOptions}
+               selectValue={selectValue}
+               toggle={toggle}
+               focusedIndex={focusedIndex}
+               selectedOption={selectedOption}
+               setFocusedIndex={setFocusedIndex}
+            />
+         )}
+         required={false}
+      />
+   </FormControl>
+);

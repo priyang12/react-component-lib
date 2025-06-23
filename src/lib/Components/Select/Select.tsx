@@ -114,11 +114,11 @@ function Select({
                   InputSize={inputSize}
                   aria-haspopup="listbox"
                   aria-controls="custom-select-listbox"
-                  // aria-activedescendant={
-                  //    focusedIndex >= 0
-                  //       ? `custom-option-${filteredOptions[focusedIndex].value}`
-                  //       : undefined
-                  // }
+                  aria-activedescendant={
+                     focusedIndex >= 0
+                        ? `custom-option-${filteredOptions[focusedIndex]?.value}`
+                        : undefined
+                  }
                />
                {isOpen
                   ? renderOptions({

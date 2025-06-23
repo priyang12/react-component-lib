@@ -41,8 +41,6 @@ const Options = ({
       };
    }, []);
 
-   console.log(focusedIndex);
-
    return (
       <ul
          ref={scrollRef}

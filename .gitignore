@@ -38,7 +38,7 @@ dist
 storybook-static
 build-storybook.log
 
-note.txt
+note.md
 
 docs
 note.md
