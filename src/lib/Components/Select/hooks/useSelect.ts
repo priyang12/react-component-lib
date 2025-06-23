@@ -5,11 +5,27 @@ export interface optionType {
    value: string;
 }
 
+/**
+ * Props for initializing the `useSelect` hook.
+ */
 export interface UseSelectProps {
    initialValue: string;
    options: optionType[];
 }
 
+/**
+ * A custom React hook for managing the logic of a searchable/selectable dropdown.
+ *
+ * Features:
+ * - Tracks selected value and search term.
+ * - Filters options based on search input.
+ * - Manages keyboard navigation (up/down/enter/escape).
+ * - Returns ARIA-compatible index/focus state for accessibility.
+ * - Provides a reset method to revert to initial state.
+ *
+ * @param {UseSelectProps} props - Initial props for the select hook.
+ * @returns {object} Select state and handlers.
+ */
 export function useSelect({ initialValue, options }: UseSelectProps) {
    const [value, setValue] = useState(initialValue);
    const [filteredOptions, setFilteredOptions] = useState(options);
@@ -34,8 +50,7 @@ export function useSelect({ initialValue, options }: UseSelectProps) {
 
    const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setSearchTerm(event.target.value);
-      if (event.target.value === '') setSearching(false);
-      else setSearching(true);
+      setSearching(true);
    };
 
    const selectValue = (value: string) => {
@@ -44,8 +59,7 @@ export function useSelect({ initialValue, options }: UseSelectProps) {
       setSearching(false);
    };
 
-   // need to fix this.
-   const onKeyDown = (e: React.KeyboardEvent) => {
+   const onKeyDown = (e: KeyboardEvent) => {
       if (!filteredOptions.length) return;
       if (e.key === 'ArrowDown') {
          e.preventDefault();
@@ -65,7 +79,13 @@ export function useSelect({ initialValue, options }: UseSelectProps) {
       }
    };
 
-   // add reset fn
+   const reset = () => {
+      setValue(initialValue);
+      setSearchTerm('');
+      setSearching(false);
+      setFocusedIndex(0);
+   };
+
    return {
       value,
       focusedIndex,
@@ -76,6 +96,8 @@ export function useSelect({ initialValue, options }: UseSelectProps) {
       onChange,
       onSearchChange,
       onKeyDown,
+      setFocusedIndex,
+      reset,
       options: filteredOptions,
    };
 }

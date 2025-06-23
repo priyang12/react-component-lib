@@ -1,9 +1,9 @@
 import React from 'react';
-import { useSelect } from './useSelect';
+import { optionType, useSelect } from '../lib/Components/Select';
 
 interface UseMultipleSelectProps {
-   initialValue: string[];
-   options: string[];
+   initialValue: optionType[];
+   options: optionType[];
 }
 
 export const useMultipleSelect = ({
@@ -13,24 +13,24 @@ export const useMultipleSelect = ({
    const [SelectedArray, setSelectedArray] = React.useState(initialValue);
    const [Options, setOptions] = React.useState(options);
    const {
-      SelectValue,
+      selectValue,
       onChange,
       onSearchChange,
       options: FilteredOptions,
       searchTerm,
       searching,
    } = useSelect({
-      initialValue: SelectedArray[0],
+      initialValue: SelectedArray[0].value,
       options: Options,
    });
 
-   const addItem = (item: string) => {
+   const addItem = (item: optionType) => {
       setSelectedArray([...SelectedArray, item]);
-      setOptions(Options.filter(i => i !== item));
+      setOptions(Options.filter((i) => i.value !== item.value));
    };
 
-   const removeItem = (item: string) => {
-      setSelectedArray(SelectedArray.filter(i => i !== item));
+   const removeItem = (item: optionType) => {
+      setSelectedArray(SelectedArray.filter((i) => i.value !== item.value));
       setOptions([...Options, item]);
    };
 
@@ -39,7 +39,7 @@ export const useMultipleSelect = ({
       searchTerm,
       SelectedArray,
       options: FilteredOptions,
-      SelectValue,
+      selectValue,
       onChange,
       onSearchChange,
       addItem,
