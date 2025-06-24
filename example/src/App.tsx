@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import { FormControl, Input, Label } from 'react-component-lib';
+import type { Badge } from 'react-component-lib';
 import 'react-component-lib/dist/index.css';
 
 // import '../../dist/index.css';
