@@ -21,7 +21,7 @@ export default defineConfig({
    minify: true,
    clean: true,
    metafile: true,
-   dts: false,
+   dts: true,
    splitting: false,
    format: ['cjs', 'esm'],
    external: ['react', 'react-dom'],

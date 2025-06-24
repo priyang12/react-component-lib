@@ -1,5 +1,6 @@
 import React from 'react';
-import { optionType, useSelect } from '../lib/Components/Select';
+import { useSelect } from '../lib/Components/Select';
+import { optionType } from '../lib/Components/Select/hooks/useSelect';
 
 interface UseMultipleSelectProps {
    initialValue: optionType[];

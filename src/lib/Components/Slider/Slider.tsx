@@ -44,7 +44,7 @@ function Slider({
    variant,
    ...props
 }: SliderProps) {
-   const { isAlert, disabled, inputChange, onFocus } = useFormContext();
+   const { isAlert, disabled, inputChange } = useFormContext();
 
    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const val = Number(e.target.value);

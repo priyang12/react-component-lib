@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FormControlContext, useFormContext } from '../FormControl/FormControl';
+import { useFormContext } from '../FormControl/FormControl';
 import { clsx } from 'clsx';
 import './Label.scss';
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 import { callAll } from '../../Utils/AllFunctionsCall';
-import { FormControlContext, useFormContext } from '../FormControl/FormControl';
+import { useFormContext } from '../FormControl/FormControl';
 import './Input.scss';
 
 /**

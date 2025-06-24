@@ -6,7 +6,6 @@ import { Input } from '../Input';
 import { InputProps } from '../Input/Input';
 import { callAll } from '../../Utils/AllFunctionsCall';
 import './Select.scss';
-import { useFormContext } from '../FormControl/FormControl';
 
 export type renderLabelProps = {
    searching: boolean;
