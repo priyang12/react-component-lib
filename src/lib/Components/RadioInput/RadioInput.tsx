@@ -1,8 +1,9 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import './RadioInput.scss';
-import { useFormContext } from '../FormControl';
 import { callAll } from '../../Utils/AllFunctionsCall';
+import { useFormContext } from '../FormControl';
+import { useRadioContext } from '../RadioGroup/RadioGroup';
+import './RadioInput.scss';
 
 /**
  * Props for the RadioInput component.
@@ -15,7 +16,7 @@ import { callAll } from '../../Utils/AllFunctionsCall';
 export interface RadioInputProps
    extends React.InputHTMLAttributes<HTMLInputElement> {
    id: string;
-   renderLabel: () => React.ReactNode;
+   renderLabel?: () => React.ReactNode;
 }
 
 /**
@@ -23,10 +24,12 @@ export interface RadioInputProps
  *
  * Renders a single radio input with a custom label.
  * Integrates with form context for handling alerts, focus, and change events.
+ * Integrates with RadioGroup context for handling grouping radio inputs and selecting value.
  * Supports keyboard accessibility by allowing selection via `Enter` or `Space` keys.
  */
-function RadioInput({ id, renderLabel, ...props }: RadioInputProps) {
+function RadioInput({ id, renderLabel, children, ...props }: RadioInputProps) {
    const inputId = id || `radio-${props.value}`;
+   const { name, selectedValue, handleChange } = useRadioContext();
    const { isAlert, inputChange, onFocus } = useFormContext();
 
    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -36,6 +39,12 @@ function RadioInput({ id, renderLabel, ...props }: RadioInputProps) {
       }
    };
 
+   // Only pass `checked` if selectedValue is defined
+   const checkedProp =
+      selectedValue !== undefined && selectedValue !== null
+         ? { checked: selectedValue === props.value }
+         : {};
+
    return (
       <div className={clsx('radio-container', { 'is-alert': isAlert })}>
          <input
@@ -43,12 +52,14 @@ function RadioInput({ id, renderLabel, ...props }: RadioInputProps) {
             type="radio"
             className="radio-input"
             onClick={callAll(props.onClick, inputChange)}
-            onChange={callAll(props.onChange, inputChange)}
+            onChange={callAll(props.onChange, handleChange, inputChange)}
             onFocus={callAll(props.onFocus, onFocus)}
             onKeyDown={handleKeyDown}
+            name={name}
+            {...checkedProp}
             {...props}
          />
-         {renderLabel()}
+         {renderLabel ? renderLabel() : null}
       </div>
    );
 }
