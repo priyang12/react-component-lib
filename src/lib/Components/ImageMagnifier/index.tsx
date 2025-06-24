@@ -1,9 +1,5 @@
-import ImageMagnifier from './ImageMagnifier';
-import MagnifierOverlay from './MagnifierOverlay';
-import { useImageMagnifier } from './Hook/useImageMagnifier';
-
-export default {
-   useImageMagnifier,
-   ImageMagnifier,
-   MagnifierOverlay,
-};
+export { useImageMagnifier } from './Hook/useImageMagnifier';
+export { default as ImageMagnifier } from './ImageMagnifier';
+export { default as MagnifierOverlay } from './MagnifierOverlay';
+export type { ImageMagnifierProps } from './ImageMagnifier';
+export type { MagnifierOverlayProps } from './MagnifierOverlay';

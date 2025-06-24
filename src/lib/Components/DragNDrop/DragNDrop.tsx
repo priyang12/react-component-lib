@@ -2,7 +2,7 @@ import * as React from 'react';
 import DefaultContainer, { DefaultContainerProps } from './DefaultContainer';
 import './DragNDrop.scss';
 
-interface DragNDropProps extends React.ComponentPropsWithoutRef<'div'> {
+export interface DragNDropProps extends React.ComponentPropsWithoutRef<'div'> {
    onDropFile?: (file: File) => void;
    defaultContainerProps?: DefaultContainerProps;
    renderDropContainer?: (args: { isDragging: boolean }) => React.ReactNode;

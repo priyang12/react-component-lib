@@ -6,5 +6,5 @@
 -  [] make popover component
 -  [x] RadioGroup Component
 -  [x] change css variable from primary-secondary to shades.
--  [] decide and set a export style
+-  [x] decide and set a export style (decided with single export for each folder/index.tsx with each importing with types)
 -  [] add forward ref in all components or just upgrade to react 19
