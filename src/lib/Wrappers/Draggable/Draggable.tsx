@@ -58,7 +58,8 @@ function Draggable({
          if (isDragging) {
             if (parentContainerRef?.current && DragRef.current) {
                // if parent ref is passed than it should not drag out side the parent container
-               const parentRect = parentContainerRef.current.getBoundingClientRect();
+               const parentRect =
+                  parentContainerRef.current.getBoundingClientRect();
                const drag = DragRef.current?.getBoundingClientRect();
 
                if (drag.top < parentRect.top) {
@@ -97,7 +98,7 @@ function Draggable({
    );
 
    const handleTouchStart = React.useCallback(
-      (e: React.TouchEvent<HTMLDivElement>) => {
+      (_: React.TouchEvent<HTMLDivElement>) => {
          setIsDragging(true);
          if (DragRef.current) {
             DragRef.current.style.cursor = 'grabbing';
