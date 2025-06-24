@@ -2,7 +2,10 @@ import * as React from 'react';
 import { TextEffect } from '../../Components/TextEffect';
 import './TextLanding.scss';
 
-function TextLanding(props: any): React.ReactElement {
+export interface TextLandingProps
+   extends React.ComponentPropsWithoutRef<'div'> {}
+
+function TextLanding(props: TextLandingProps) {
    return (
       <div {...props}>
          <TextEffect

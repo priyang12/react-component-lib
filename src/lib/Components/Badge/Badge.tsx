@@ -1,7 +1,6 @@
 import React from 'react';
 import { clsx } from 'clsx';
 import { VariantType } from '../interface';
-import BadgeContainer from './BadgeContainer/BadgeContainer';
 import './Badge.scss';
 
 export interface BadgeProps {
@@ -92,4 +91,4 @@ function Badge({
    );
 }
 
-export { Badge, BadgeContainer };
+export default Badge;

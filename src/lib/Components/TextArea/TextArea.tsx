@@ -4,6 +4,12 @@ import './TextArea.scss';
 import { useFormContext } from '../FormControl/FormControl';
 import { callAll } from '../../Utils/AllFunctionsCall';
 
+export interface TextAreaProps
+   extends React.ComponentPropsWithoutRef<'textarea'> {
+   Size: 'small' | 'medium' | 'large';
+   resize?: 'none' | 'both' | 'horizontal' | 'vertical';
+}
+
 /**
  * TextArea is a functional component that renders a textarea element with customizable size, alert, and resize options.
  * It also has the ability to use the FormControlContext to call inputChange and onFocus functions.
@@ -14,12 +20,7 @@ import { callAll } from '../../Utils/AllFunctionsCall';
  * @param {'none' | 'both' | 'horizontal' | 'vertical'} props.resize - The resize option for the textarea.
  * @return {ReactElement} - The rendered textarea element.
  */
-function TextArea(
-   props: {
-      Size: 'small' | 'medium' | 'large';
-      resize?: 'none' | 'both' | 'horizontal' | 'vertical';
-   } & React.ComponentPropsWithoutRef<'textarea'>
-) {
+function TextArea({ ...props }: TextAreaProps) {
    const { Size, className, ...rest } = props;
    const { alert, inputChange, onFocus } = useFormContext();
    const TextAreaClass = clsx(Size, alert && 'Alert-Border', className);

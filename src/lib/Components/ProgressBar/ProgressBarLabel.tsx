@@ -2,11 +2,12 @@ import clsx from 'clsx';
 
 type Placement = 'left' | 'right' | 'center';
 
-type ProgressBarLabelProps = {
+export interface ProgressBarLabelProps
+   extends React.ComponentPropsWithoutRef<'div'> {
    label: string;
    placement?: Placement;
    className?: string;
-};
+}
 
 export default function ProgressBarLabel({
    label,

@@ -1,5 +1,4 @@
 import { clsx } from 'clsx';
-import ProgressBarLabel from './ProgressBarLabel';
 import './ProgressBar.scss';
 
 type VariantType =
@@ -55,4 +54,4 @@ function ProgressBar({
       </div>
    );
 }
-export { ProgressBar, ProgressBarLabel };
+export default ProgressBar;

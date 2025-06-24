@@ -6,3 +6,4 @@ export {
    CalendarWeeks,
    CalendarTitle,
 } from './Calendar';
+export type { CalendarProps, CalenderContextType } from './Calendar';
