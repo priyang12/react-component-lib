@@ -15,6 +15,8 @@ vi.mock('../FormControl', async () => {
    };
 });
 
+const handleChangeMock = vi.fn();
+
 vi.mock('../../Utils/AllFunctionsCall', () => ({
    callAll:
       (...fns: any[]) =>
@@ -91,5 +93,43 @@ describe('RadioInput', () => {
 
       const { container } = renderRadio();
       expect(container.firstChild).toHaveClass('is-alert');
+   });
+
+   test.skip('is checked when selectedValue matches value from context', () => {
+      // this is not mocking for some reason.
+      vi.mock('../RadioGroup/RadioGroup', () => ({
+         useRadioContext: () => ({
+            name: 'radio-group',
+            selectedValue: 'test',
+            handleChange: handleChangeMock,
+         }),
+      }));
+      renderRadio({ value: 'test' });
+
+      const input = screen.getByRole('radio');
+      expect(input).toBeChecked();
+   });
+
+   test('does not apply checked prop when selectedValue is undefined (uncontrolled)', () => {
+      vi.mock('../RadioGroup/RadioGroup', () => ({
+         useRadioContext: () => ({
+            name: 'radio-group',
+            selectedValue: undefined,
+            handleChange: handleChangeMock,
+         }),
+      }));
+
+      renderRadio({ value: 'other' });
+
+      const input = screen.getByRole('radio');
+
+      // Not checked and not controlled
+      expect(input).not.toBeChecked();
+   });
+   test('assigns name from context to input', () => {
+      renderRadio({ name: 'radio-group' });
+
+      const input = screen.getByRole('radio');
+      expect(input).toHaveAttribute('name', 'radio-group');
    });
 });

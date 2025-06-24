@@ -1,0 +1,10 @@
+.radio-group {
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+
+   &--horizontal {
+      flex-direction: row;
+      align-items: center;
+   }
+}
