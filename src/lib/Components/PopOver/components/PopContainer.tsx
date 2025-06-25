@@ -17,24 +17,29 @@ export const usePopContext = () => {
    return context;
 };
 
-export interface PopContainerProps
-   extends React.ComponentPropsWithoutRef<'div'> {}
+export interface popContainerProps
+   extends React.ComponentPropsWithoutRef<'div'> {
+   defaultIsOpen?: boolean;
+   containerRef?: React.MutableRefObject<null>;
+}
 
-const PopContainer = ({ children, ...props }: PopContainerProps) => {
-   const { value, setToggleValue, toggleValue } = useToggle();
-   return (
-      <PopOverContext.Provider
-         value={{
-            showContent: value,
-            toggleContent: toggleValue,
-            setContentState: setToggleValue,
-         }}
-      >
-         <div className="popContainer" {...props}>
-            {children}
-         </div>
-      </PopOverContext.Provider>
-   );
-};
+const PopContainer = React.forwardRef<HTMLDivElement, popContainerProps>(
+   ({ defaultIsOpen, containerRef, children, ...props }, ref) => {
+      const { value, setToggleValue, toggleValue } = useToggle(defaultIsOpen);
+      return (
+         <PopOverContext.Provider
+            value={{
+               showContent: value,
+               toggleContent: toggleValue,
+               setContentState: setToggleValue,
+            }}
+         >
+            <div className="popContainer" ref={ref} {...props}>
+               {children}
+            </div>
+         </PopOverContext.Provider>
+      );
+   }
+);
 
 export default PopContainer;

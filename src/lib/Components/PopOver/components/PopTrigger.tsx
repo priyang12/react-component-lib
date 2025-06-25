@@ -7,7 +7,13 @@ export interface popTriggerProps
 const PopTrigger = ({ children, ...props }: popTriggerProps) => {
    const { setContentState } = usePopContext();
    return (
-      <div onClick={() => setContentState(true)} {...props}>
+      <div
+         onClick={(e) => {
+            props?.onClick ? props?.onClick(e) : null;
+            setContentState(true);
+         }}
+         {...props}
+      >
          {children}
       </div>
    );
