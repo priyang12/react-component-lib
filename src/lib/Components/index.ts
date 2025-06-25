@@ -23,3 +23,4 @@ export * from './DragNDrop';
 export * from './Slider';
 export * from './RadioInput';
 export * from './RadioGroup';
+export * from './PopOver';
