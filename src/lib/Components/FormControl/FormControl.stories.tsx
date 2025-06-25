@@ -3,13 +3,13 @@ import FormControl from './FormControl';
 import { Label } from '../../Components/Label';
 import { Input } from '../../Components/Input';
 import { TextArea } from '../../Components/TextArea';
+import { Slider } from '../Slider';
+import { Select } from '../Select';
+import { Options } from '../Select';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Template as Switch } from '../Switch/Switch.stories';
 import { useToggle } from '../../../Hooks';
-import Slider from '../Slider';
-import { Select } from '../Select';
 import { FakeCountryData } from '../Select/FakeCountryData';
-import Options from '../Select/Options';
 
 export default {
    title: 'Components/FormControl',
@@ -63,7 +63,7 @@ export const TextareaControl: StoryFn<typeof FormControl> = (args) => (
 );
 
 export const SwitchControl: StoryFn<typeof FormControl> = (args) => {
-   const [Value, ToggleValue] = useToggle(false);
+   const { value: Value, toggleValue: ToggleValue } = useToggle(false);
 
    return (
       <FormControl

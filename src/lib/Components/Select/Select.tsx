@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { optionType, useSelect } from './hooks/useSelect';
-import { useToggle } from '../../../Hooks/useToggle';
+import { useToggle } from '../../../Hooks/useToggle/useToggle';
 import NativeSelect from './NativeSelect';
 import { Input } from '../Input';
 import { InputProps } from '../Input/Input';
@@ -46,7 +46,11 @@ function Select({
    ...props
 }: React.ComponentPropsWithoutRef<'select'> & SelectProps) {
    const wrapperRef = React.useRef<HTMLDivElement>(null);
-   const [isOpen, toggle, setToggle] = useToggle(false);
+   const {
+      value: isOpen,
+      toggleValue: toggle,
+      setToggleValue: setToggle,
+   } = useToggle(false);
 
    const {
       value,

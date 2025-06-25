@@ -11,8 +11,8 @@ export default {
 } as Meta<typeof Switch>;
 
 export const Template: StoryFn<typeof Switch> = (args) => {
-   const [Value, ToggleValue] = useToggle(false);
-   return <Switch {...args} isOn={Value} flipSwitch={ToggleValue} />;
+   const { value, toggleValue } = useToggle(false);
+   return <Switch {...args} isOn={value} flipSwitch={toggleValue} />;
 };
 
 type SwitchType = StoryObj<typeof Switch>;
@@ -30,11 +30,11 @@ Sizes.args = {
 };
 
 export const withLabel: StoryFn<typeof Switch> = (args) => {
-   const [Value, ToggleValue] = useToggle(false);
+   const { value, toggleValue } = useToggle(false);
    return (
       <div className="flex gap-5 items-center">
          <Label htmlFor="Switch">Switch : </Label>
-         <Switch {...args} isOn={Value} flipSwitch={ToggleValue} id="Switch" />
+         <Switch {...args} isOn={value} flipSwitch={toggleValue} id="Switch" />
       </div>
    );
 };

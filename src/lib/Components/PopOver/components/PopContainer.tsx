@@ -21,13 +21,13 @@ export interface PopContainerProps
    extends React.ComponentPropsWithoutRef<'div'> {}
 
 const PopContainer = ({ children, ...props }: PopContainerProps) => {
-   const [state, toggleState, setState] = useToggle();
+   const { value, setToggleValue, toggleValue } = useToggle();
    return (
       <PopOverContext.Provider
          value={{
-            showContent: state,
-            toggleContent: toggleState,
-            setContentState: setState,
+            showContent: value,
+            toggleContent: toggleValue,
+            setContentState: setToggleValue,
          }}
       >
          <div className="popContainer" {...props}>
