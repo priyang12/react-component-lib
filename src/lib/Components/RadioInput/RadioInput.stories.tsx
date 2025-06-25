@@ -10,16 +10,16 @@ export default {
 } as Meta<typeof RadioInput>;
 
 export const Template: StoryFn<typeof RadioInput> = (args) => {
-   const [state, toggleState] = useToggle();
+   const { value, toggleValue } = useToggle();
 
    return (
       <RadioInput
          {...args}
          name="options"
          value="option1"
-         checked={state}
+         checked={value}
          onChange={() => {
-            toggleState();
+            toggleValue();
          }}
          renderLabel={() => <Label htmlFor="option1">Select Value</Label>}
       />
