@@ -3,6 +3,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import PopOver from './PopOver';
 import { IoFilterOutline } from 'react-icons/io5';
 import { Button } from '../Button';
+import { useFloating } from '@floating-ui/react';
 
 export default {
    title: 'Components/PopOver',
@@ -11,8 +12,9 @@ export default {
 } as Meta<typeof PopOver.Container>;
 
 export const Template: StoryFn<typeof PopOver.Container> = (args) => {
+   const { refs, floatingStyles } = useFloating();
    return (
-      <PopOver.Container {...args}>
+      <PopOver.Container ref={refs.setReference} {...args}>
          <PopOver.Trigger>
             <Button>
                <IoFilterOutline /> Open Filter
@@ -20,7 +22,11 @@ export const Template: StoryFn<typeof PopOver.Container> = (args) => {
          </PopOver.Trigger>
          <PopOver.PopOverPortal>
             <PopOver.Content>
-               <div className="flex bg-slate-100">
+               <div
+                  className="flex bg-slate-100 w-1/2 p-4 rounded-lg"
+                  ref={refs.setFloating}
+                  style={floatingStyles}
+               >
                   <div>
                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
                      Debitis placeat labore impedit in saepe, atque tempora
