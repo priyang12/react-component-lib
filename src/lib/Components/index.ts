@@ -27,3 +27,4 @@ export * from './PopOver';
 export * from './Divider';
 export * from './Spacer';
 export * from './StatusDot';
+export * from './Loader';
