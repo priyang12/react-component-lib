@@ -1,0 +1,27 @@
+$spacer-sizes: (
+   xs: var(--gap-xs),
+   sm: var(--gap-sm),
+   md: var(--gap-md),
+   lg: var(--gap-lg),
+   xl: var(--gap-xl),
+);
+
+.spacer {
+   &--vertical {
+      width: 100%;
+   }
+
+   &--horizontal {
+      height: 100%;
+   }
+
+   @each $key, $value in $spacer-sizes {
+      &--vertical.spacer--#{$key} {
+         height: $value;
+      }
+
+      &--horizontal.spacer--#{$key} {
+         width: $value;
+      }
+   }
+}

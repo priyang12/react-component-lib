@@ -25,3 +25,4 @@ export * from './RadioInput';
 export * from './RadioGroup';
 export * from './PopOver';
 export * from './Divider';
+export * from './Spacer';
