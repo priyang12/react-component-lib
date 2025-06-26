@@ -7,11 +7,14 @@
 -  [] need to asChild in wrappers
 -  [] add forward ref in all components or just upgrade to react 19
 -  [] per-component Bundling
+-  [] add testing and docs in all older components.
 
 ## Components
 
 -  [x] make slider component
+-  [] make popover component
 -  [x] RadioGroup Component
--  [x] make popover component (still some work left- Triggered options and aria.)
--  [] Model component (Composition)
--  [] tooltip component
+-  [x] change css variable from primary-secondary to shades.
+-  [] decide and set a export style
+-  [] add forward ref in all components or just upgrade to react 19
+-  [] make helper components like (Divider,Spacer,Skeleton etc)
