@@ -1,0 +1,151 @@
+@use 'sass:map';
+
+.loader {
+   color: var(--text-primary);
+   display: contents;
+   width: 50px;
+   height: 50px;
+   .loading-text {
+      margin-left: 1rem;
+      font-size: var(--font);
+   }
+   .spinner-default {
+      width: inherit;
+      height: inherit;
+      border: 3px solid var(--bg-contrast);
+      border-top-color: var(--primary-400);
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+   }
+   .spinner-ball {
+      width: inherit;
+      height: inherit;
+      border-radius: 50%;
+      border: 5px solid var(--bg-contrast);
+      position: relative;
+      animation: spin 1s linear infinite;
+      &::before {
+         content: '';
+         display: block;
+         width: 10px;
+         height: 10px;
+         border-radius: 50%;
+         border: 5px solid var(--primary-800);
+      }
+   }
+   .spinner-ring {
+      width: inherit;
+      height: inherit;
+      border: 4px solid transparent;
+      border-top: 4px solid var(--primary-400);
+      border-right: 4px solid var(--primary-400);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+   }
+   .spinner-bounce {
+      display: flex;
+      gap: 0.4em;
+
+      &::before,
+      &::after,
+      div {
+         content: '';
+         width: 0.6em;
+         height: 0.6em;
+         background-color: var(--primary-500);
+         border-radius: 50%;
+         animation: bounce 0.6s infinite ease-in-out alternate;
+      }
+
+      div {
+         animation-delay: 0.2s;
+      }
+
+      &::after {
+         animation-delay: 0.4s;
+      }
+   }
+
+   .spinner-ripple {
+      position: relative;
+      width: inherit;
+      height: inherit;
+
+      &::before,
+      &::after {
+         content: '';
+         position: absolute;
+         border: 2px solid var(--primary-400);
+         border-radius: 50%;
+         width: 100%;
+         height: 100%;
+         top: 0;
+         left: 0;
+         animation: ripple 1.2s infinite ease-out;
+      }
+
+      &::after {
+         animation-delay: 0.6s;
+      }
+   }
+
+   // Size map
+   $sizes: (
+      small: 16px,
+      medium: 24px,
+      large: 40px,
+   );
+
+   $font-sizes: (
+      small: var(--font-size-sm),
+      medium: var(--font-size-md),
+      large: var(--font-size-lg),
+   );
+
+   // Loop to generate size-specific classes
+   @each $size, $dimension in $sizes {
+      &.#{$size} {
+         .spinner-1,
+         .spinner-2 {
+            width: $dimension;
+            height: $dimension;
+         }
+
+         .loading-text {
+            font-size: map.get($font-sizes, $size);
+         }
+      }
+   }
+}
+
+// Animation keyframes
+@keyframes spin {
+   0% {
+      transform: rotate(10deg);
+   }
+   100% {
+      transform: rotate(360deg);
+   }
+}
+
+@keyframes bounce {
+   from {
+      transform: translateY(0);
+      opacity: 1;
+   }
+   to {
+      transform: translateY(-8px);
+      opacity: 0.6;
+   }
+}
+
+@keyframes ripple {
+   0% {
+      transform: scale(0.6);
+      opacity: 1;
+   }
+   100% {
+      transform: scale(1.6);
+      opacity: 0;
+   }
+}
