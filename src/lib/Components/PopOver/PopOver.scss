@@ -1,3 +1,31 @@
-.popContainer {
+.popContent {
    color: var(--text-primary);
+}
+.pop-arrow {
+   width: 16px;
+   height: 16px;
+   pointer-events: none;
+
+   .arrow-icon {
+      width: 100%;
+      height: 100%;
+      color: #333; // or use a variable like $popover-border-color
+      transform: rotate(0deg);
+   }
+
+   .top {
+      transform: rotate(180deg);
+   }
+
+   .bottom {
+      transform: rotate(0deg);
+   }
+
+   .left {
+      transform: rotate(90deg);
+   }
+
+   .right {
+      transform: rotate(-90deg);
+   }
 }
