@@ -11,7 +11,7 @@ import './StatusDot.scss';
  * @property size - Controls the size of the status dot. Options are `'sm'`, `'md'`, or `'lg'`. Defaults to `'md'`.
  * @property label - Optional accessible label for screen readers. Falls back to the `status` value if not provided.
  */
-export interface statusDotProps extends React.ComponentPropsWithoutRef<'span'> {
+export interface StatusDotProps extends React.ComponentPropsWithoutRef<'span'> {
    status: 'online' | 'offline' | 'idle' | 'error' | 'unknown';
    size?: 'sm' | 'md' | 'lg';
    label?: string;
@@ -23,7 +23,8 @@ export interface statusDotProps extends React.ComponentPropsWithoutRef<'span'> {
  * Renders a colored dot that communicates system or user status.
  * Includes ARIA support for accessibility with live updates and labels.
  */
-const StatusDot: React.FC<statusDotProps> = ({
+
+const StatusDot: React.FC<StatusDotProps> = ({
    status,
    size = 'md',
    label,

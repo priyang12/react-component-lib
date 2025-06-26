@@ -17,4 +17,4 @@
 -  [x] change css variable from primary-secondary to shades.
 -  [] decide and set a export style
 -  [] add forward ref in all components or just upgrade to react 19
--  [] make helper components like (Divider,Spacer,Skeleton etc)
+-  [x] make helper components like (Divider,Spacer,StatusDot,Loader, pill and Skeleton remain)
