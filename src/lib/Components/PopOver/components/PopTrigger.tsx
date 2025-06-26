@@ -5,12 +5,12 @@ export interface popTriggerProps
    extends React.ComponentPropsWithoutRef<'div'> {}
 
 const PopTrigger = ({ children, ...props }: popTriggerProps) => {
-   const { setContentState } = usePopContext();
+   const { toggleContent } = usePopContext();
    return (
       <div
          onClick={(e) => {
             props?.onClick ? props?.onClick(e) : null;
-            setContentState(true);
+            toggleContent();
          }}
          {...props}
       >

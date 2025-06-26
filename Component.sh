@@ -29,10 +29,10 @@ create_component() {
 import * as React from 'react';
 import './$NAME.scss';
 
-export interface I${NAME}Props extends React.ComponentPropsWithoutRef<'div'> {
+export interface ${NAME}Props extends React.ComponentPropsWithoutRef<'div'> {
 }
 
-function $NAME({ ...props }: I${NAME}Props) {
+function $NAME({ ...props }: ${NAME}Props) {
   return (
     <div {...props}>
       $NAME
@@ -45,7 +45,7 @@ EOF
 
   # Index file
   echo "export { default as $NAME } from './$NAME';" > "$COMP_PATH/index.ts"
-  echo "export type { IButtonProps } from './$NAME';" > "$COMP_PATH/index.ts"
+  echo "export type { ${NAME}Props } from './$NAME';" > "$COMP_PATH/index.ts"
   
 
   # SCSS file

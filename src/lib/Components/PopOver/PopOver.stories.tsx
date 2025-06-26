@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import * as React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import PopOver from './PopOver';
 import { IoFilterOutline } from 'react-icons/io5';
 import { Button } from '../Button';
-import { useFloating } from '@floating-ui/react';
 
 export default {
    title: 'Components/PopOver',
@@ -12,32 +11,37 @@ export default {
 } as Meta<typeof PopOver.Container>;
 
 export const Template: StoryFn<typeof PopOver.Container> = (args) => {
-   const { refs, floatingStyles } = useFloating();
    return (
-      <PopOver.Container ref={refs.setReference} {...args}>
-         <PopOver.Trigger>
-            <Button>
-               <IoFilterOutline /> Open Filter
-            </Button>
-         </PopOver.Trigger>
-         <PopOver.PopOverPortal>
-            <PopOver.Content>
-               <div
-                  className="flex bg-slate-100 w-1/2 p-4 rounded-lg"
-                  ref={refs.setFloating}
-                  style={floatingStyles}
-               >
-                  <div>
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                     Debitis placeat labore impedit in saepe, atque tempora
-                     aspernatur consequuntur iure unde velit odio nulla harum
-                     mollitia rerum quo adipisci ipsam sequi.
+      <div
+         style={{
+            height: '150vh',
+            display: 'flex',
+            justifyItems: 'center',
+            alignItems: 'center',
+         }}
+      >
+         <PopOver.Container isFlip={true} {...args}>
+            <PopOver.Trigger>
+               <Button>
+                  <IoFilterOutline /> Filter
+               </Button>
+            </PopOver.Trigger>
+            <PopOver.Portal>
+               <PopOver.Content asChild>
+                  <div className="flex bg-slate-100 w-1/2 p-4 rounded-lg z-30">
+                     <PopOver.Arrow />
+                     <div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Debitis placeat labore impedit in saepe, atque tempora
+                        aspernatur consequuntur iure unde velit odio nulla harum
+                        mollitia rerum quo adipisci ipsam sequi.
+                     </div>
+                     <PopOver.Close />
                   </div>
-                  <PopOver.Close />
-               </div>
-            </PopOver.Content>
-         </PopOver.PopOverPortal>
-      </PopOver.Container>
+               </PopOver.Content>
+            </PopOver.Portal>
+         </PopOver.Container>
+      </div>
    );
 };
 
@@ -47,9 +51,9 @@ defaultOpen.args = {
 };
 
 export const witCustomRef: StoryFn<typeof PopOver.Container> = (args) => {
-   const ref = useRef(null);
-   const [container, setContainer] = useState<any>();
-   useEffect(() => {
+   const ref = React.useRef(null);
+   const [container, setContainer] = React.useState<any>();
+   React.useEffect(() => {
       setContainer(ref.current);
    }, []);
 
