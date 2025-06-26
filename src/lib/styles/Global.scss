@@ -47,7 +47,7 @@
 
    // BG colors
 
-   --bg-surface: #f9fafb;
+   --bg-surface: #d2d2d2;
    --bg-default: #ffffff;
    --bg-contrast: #1f2937;
 
@@ -136,7 +136,7 @@
    max-width: 960px;
    margin: 0 auto;
    padding: 20px;
-   background-color: var(--bg-surface);
+   background-color: var(--bg-default);
 }
 
 .primary {

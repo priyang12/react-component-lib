@@ -5,23 +5,17 @@ import type { Meta, StoryFn } from '@storybook/react';
 export default {
    title: 'Wrappers/Ring',
    component: Ring,
-   args: {
-      children: <Button>Ring it Ring</Button>,
-   },
-   argTypes: {
-      children: {
-         control: {
-            table: { disable: true },
-         },
-      },
-   },
    decorators: [(story) => <div className="container">{story()}</div>],
 } as Meta<typeof Ring>;
 
-export const Template: StoryFn<typeof Ring> = (args) => <Ring {...args} />;
+export const Template: StoryFn<typeof Ring> = (args) => (
+   <Ring {...args}>
+      <Button>Ring Around Button</Button>
+   </Ring>
+);
 
-export const BoderRadius = Template.bind({});
-BoderRadius.args = {
+export const BorderRadius = Template.bind({});
+BorderRadius.args = {
    radius: '15px',
 };
 
@@ -39,3 +33,9 @@ OuterRingColor.args = {
    ringWidth: '2px',
    OuterRingColor: 'red',
 };
+
+export const ButtonRing: StoryFn<typeof Ring> = (args) => (
+   <Ring asChild={true} {...args}>
+      <Button>Ring Around Button</Button>
+   </Ring>
+);

@@ -1,15 +1,28 @@
 import React from 'react';
 import { clsx } from 'clsx';
+import { Slot } from '../Util/AsChildSlot';
 import './Ring.scss';
 
-export interface RingProps extends React.ComponentPropsWithoutRef<'div'> {
+export interface BaseProps {
    radius?: string;
    ringColor?: string;
    ringWidth?: string;
    OuterRingColor?: string;
    className?: string;
+   asChild?: boolean;
    children: React.ReactNode;
 }
+
+type RingAsChild = {
+   asChild: true;
+} & BaseProps;
+
+type RingAsDiv = {
+   asChild?: false;
+} & BaseProps &
+   React.ComponentPropsWithoutRef<'div'>;
+
+export type RingProps = RingAsChild | RingAsDiv;
 
 function Ring({
    children,
@@ -17,12 +30,15 @@ function Ring({
    ringColor,
    ringWidth = '5px',
    OuterRingColor,
+   asChild = false,
    className,
    ...props
-}: RingProps) {
+}: RingAsChild | RingAsDiv) {
    const RingClass = clsx('Ring', className);
+   const RenderEle = asChild ? Slot : 'div';
+
    return (
-      <div
+      <RenderEle
          className={RingClass}
          style={
             {
@@ -35,7 +51,7 @@ function Ring({
          {...props}
       >
          {children}
-      </div>
+      </RenderEle>
    );
 }
 
