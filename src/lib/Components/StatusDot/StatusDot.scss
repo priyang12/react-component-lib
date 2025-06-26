@@ -1,0 +1,31 @@
+$status-colors: (
+   online: var(--success-color, #4caf50),
+   offline: var(--error-color, #f44336),
+   idle: var(--info-color, #00d6f1),
+   error: var(--error-color, #e91e63),
+   unknown: var(--text-tertiary, #9e9e9e),
+);
+
+.status-dot {
+   border-radius: 50%;
+   display: inline-block;
+
+   &--sm {
+      width: var(--font-size-sm);
+      height: var(--font-size-sm);
+   }
+   &--md {
+      width: var(--font-size-md);
+      height: var(--font-size-md);
+   }
+   &--lg {
+      width: var(--font-size-lg);
+      height: var(--font-size-lg);
+   }
+
+   @each $status, $color in $status-colors {
+      &--#{$status} {
+         background-color: $color;
+      }
+   }
+}
