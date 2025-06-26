@@ -5,7 +5,7 @@
    --ring-color: red;
    --ring-width: 5px;
    --ring-offset-width: 5px;
-   --ring-offset-color: #fff;
+   --ring-offset-color: var(--bg-default);
 
    &:hover {
       --ring-offset-shadow: 0 0 0 var(--ring-offset-width)

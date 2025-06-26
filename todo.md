@@ -4,10 +4,13 @@
 -  [x] Form Control integrate other element integration
 -  [x] change css variable from primary-secondary to shades.
 -  [x] decide and set a export style (decided with single export for each folder/index.tsx with each importing with types)
--  [] need to asChild in wrappers
--  [] add forward ref in all components or just upgrade to react 19
--  [] per-component Bundling
+-  [x] need to asChild in wrappers
+-  [] fix draggable and turn the logic into hook.
+-  [] turn variant styling from global.scss to each component.
 -  [] add testing and docs in all older components.
+-  [] add tags: ['autodocs'], in stories
+-  [] per-component Bundling
+-  [] add forward ref in all components or just upgrade to react 19
 
 ## Components
 
@@ -15,6 +18,4 @@
 -  [] make popover component
 -  [x] RadioGroup Component
 -  [x] change css variable from primary-secondary to shades.
--  [] decide and set a export style
--  [] add forward ref in all components or just upgrade to react 19
 -  [x] make helper components like (Divider,Spacer,StatusDot,Loader, pill and Skeleton remain)
