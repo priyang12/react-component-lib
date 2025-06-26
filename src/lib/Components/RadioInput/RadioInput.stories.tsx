@@ -4,7 +4,7 @@ import { useToggle } from '../../../Hooks';
 import { Label } from '../Label';
 
 export default {
-   title: 'General/RadioInput',
+   title: 'Components/RadioInput',
    component: RadioInput,
    decorators: [(story) => <div className="container">{story()}</div>],
 } as Meta<typeof RadioInput>;

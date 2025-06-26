@@ -1,10 +1,10 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import RadioGroup from './RadioGroup';
-import RadioInput from '../RadioInput';
+import { RadioInput } from '../RadioInput';
 import { Label } from '../Label';
 
 export default {
-   title: 'General/RadioGroup',
+   title: 'Components/RadioGroup',
    component: RadioGroup,
    decorators: [(story) => <div className="container">{story()}</div>],
 } as Meta<typeof RadioGroup>;
