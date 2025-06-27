@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { BadgeContainer, Badge } from './Badge';
+import { BadgeContainer, Badge } from './index';
 
 export default {
    title: 'Components/Badge',
@@ -13,12 +13,7 @@ export default {
 export const Template: StoryFn<typeof Badge> = (args) => (
    <BadgeContainer className="x">
       <Badge {...args} />
-      <div
-         className="p-5"
-         style={{
-            border: '1px solid black',
-         }}
-      >
+      <div className="p-5 border-2 border-solid border-red-400 bg-gray-200">
          Container
       </div>
    </BadgeContainer>

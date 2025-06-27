@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 .badge {
    display: inline-block;
    padding: 0.25em 0.4em;
@@ -6,13 +8,14 @@
    text-align: center;
    white-space: nowrap;
    vertical-align: baseline;
-   border-radius: 10%;
-   color: #fff;
-   background-color: red;
+   color: var(--text-primary);
+   background-color: var(--error-color);
    display: flex;
    align-items: center;
    justify-content: center;
    border-radius: 50%;
+   width: 30px;
+   height: 30px;
 }
 
 .badge-container {
@@ -36,5 +39,30 @@
    .badge-position-bottom-left {
       bottom: -10%;
       left: -10%;
+   }
+}
+
+// variants map
+$variants: (
+   primary: var(--primary-500),
+   secondary: var(--neutral-500),
+   failure: var(--error-color),
+   success: var(--success-color),
+   info: var(--info-color),
+   warning: var(--warning-color),
+);
+
+// Generate classes
+@each $name, $color in $variants {
+   .badge-#{$name} {
+      color: var(--text-primary);
+      background-color: #{$color};
+      border: none;
+   }
+
+   .badge-#{$name}-border {
+      color: #{$color};
+      background-color: var(--bg-surface);
+      border: 2px solid #{$color};
    }
 }
