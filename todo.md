@@ -8,7 +8,8 @@
 -  [x] fix draggable and turn the logic into hook.
 -  [x] turn variant styling from global.scss to each component.
 -  [] add testing and docs in all older components.
--  [] add tags: ['autodocs'], in stories
+-  [x] add tags: ['autodocs'], in stories by default in preview.ts
+-  [] Custom Template for Docs
 -  [] per-component Bundling
 -  [] add forward ref in all components or just upgrade to react 19
 

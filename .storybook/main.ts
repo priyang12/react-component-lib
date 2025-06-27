@@ -15,6 +15,7 @@ const config: StorybookConfig = {
    features: {},
    typescript: {
       check: false,
+      reactDocgen: 'react-docgen',
    },
    async viteFinal(config, { configType }) {
       // customize if needed
