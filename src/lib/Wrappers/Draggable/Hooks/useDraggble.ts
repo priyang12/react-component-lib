@@ -44,7 +44,9 @@ export function useDraggable(
 
       if (containerRef?.current && ref.current) {
          // need to build the logic
+         // @ts-ignore
          const containerRect = containerRef.current.getBoundingClientRect();
+         // @ts-ignore
          const elementRect = ref.current.getBoundingClientRect();
       }
       setPosition({
