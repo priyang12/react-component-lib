@@ -2,8 +2,8 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 import { VariantType } from '../interface';
 import { callAll } from '../../Utils/AllFunctionsCall';
-import './Button.scss';
 import { useRipple } from '../../../Hooks';
+import './Button.scss';
 
 export interface IButtonProps extends React.ComponentPropsWithoutRef<'button'> {
    text?: string;
@@ -57,7 +57,7 @@ function Button({
    const { ref, createRipple } = useRipple(ripple);
    const classes = clsx(
       'Button',
-      variant,
+      `Button-${variant}`,
       ellipsis && 'Button-ellipsis',
       WithIcon && 'Button-icon',
       className

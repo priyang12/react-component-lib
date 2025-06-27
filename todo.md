@@ -6,7 +6,7 @@
 -  [x] decide and set a export style (decided with single export for each folder/index.tsx with each importing with types)
 -  [x] need to asChild in wrappers
 -  [x] fix draggable and turn the logic into hook.
--  [] turn variant styling from global.scss to each component.
+-  [x] turn variant styling from global.scss to each component.
 -  [] add testing and docs in all older components.
 -  [] add tags: ['autodocs'], in stories
 -  [] per-component Bundling

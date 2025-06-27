@@ -36,7 +36,7 @@ export interface BadgeProps {
  */
 function Badge({
    BadgeContent,
-   variant,
+   variant = 'primary',
    anchorOriginVertical = 'top',
    anchorOriginHorizontal = 'right',
    Max,
@@ -46,6 +46,8 @@ function Badge({
 }: BadgeProps & React.ComponentPropsWithoutRef<'div'>) {
    const [Hover, setHover] = React.useState(false);
 
+   // what hell is going on???
+   // refactor this laster
    const badgeContentDisplay = Max
       ? typeof BadgeContent === 'string'
          ? BadgeContent.length > Max
@@ -64,7 +66,7 @@ function Badge({
                'badge',
                'badge-position',
                `badge-position-${anchorOriginVertical}-${anchorOriginHorizontal}`,
-               variant
+               `badge-${variant}`
             )}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
@@ -82,7 +84,7 @@ function Badge({
             'badge',
             'badge-position',
             `badge-position-${anchorOriginVertical}-${anchorOriginHorizontal}`,
-            variant
+            `badge-${variant}`
          )}
          {...props}
       >
