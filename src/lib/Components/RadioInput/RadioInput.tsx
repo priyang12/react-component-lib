@@ -11,11 +11,13 @@ import './RadioInput.scss';
  * Extends standard HTML input attributes for a radio element.
  *
  * @property id - A unique identifier for the radio input. Defaults to `radio-${value}` if not provided.
- * @property renderLabel - A render function that returns a React node to be used as the label for the radio input.
+ * @property renderLabel - A render function that let you render a component with inverted prop control.
  */
 export interface RadioInputProps
    extends React.InputHTMLAttributes<HTMLInputElement> {
+   /** A unique identifier for the radio input. Defaults to `radio-${value}` if not provided. */
    id: string;
+   /** A render prop pattern that let you render a component with inverted prop control. */
    renderLabel?: () => React.ReactNode;
 }
 

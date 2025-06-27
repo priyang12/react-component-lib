@@ -10,6 +10,7 @@ import './Divider.scss';
  * @property align - Controls the orientation of the divider. Options are `'horizontal'` or `'vertical'`. Defaults to `'horizontal'`.
  */
 export interface DividerProps extends React.ComponentPropsWithoutRef<'div'> {
+   /** Controls the orientation of the divider. */
    align?: 'vertical' | 'horizontal';
 }
 

@@ -15,9 +15,13 @@ import './Switch.scss';
  * @property switchSize - Controls the size of the switch. Options are `'small'`, `'medium'`, or `'large'`.
  */
 export interface SwitchProps extends React.ComponentPropsWithoutRef<'input'> {
+   /** Boolean flag to control whether the switch is on or off. */
    isOn: boolean;
+   /** Callback function to toggle the switch state. */
    flipSwitch: () => void;
+   /** If true, disables the switch and prevents interaction. */
    switchSize?: 'small' | 'medium' | 'large';
+   /** Controls the size of the switch. */
    disabled?: boolean;
 }
 

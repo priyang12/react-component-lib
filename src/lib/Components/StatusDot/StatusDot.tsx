@@ -12,8 +12,11 @@ import './StatusDot.scss';
  * @property label - Optional accessible label for screen readers. Falls back to the `status` value if not provided.
  */
 export interface StatusDotProps extends React.ComponentPropsWithoutRef<'span'> {
+   /** Represents the current status.*/
    status: 'online' | 'offline' | 'idle' | 'error' | 'unknown';
+   /** Controls the size of the status dot.*/
    size?: 'sm' | 'md' | 'lg';
+   /** Optional accessible label for screen readers. Falls back to the `status` value if not provided. */
    label?: string;
 }
 
