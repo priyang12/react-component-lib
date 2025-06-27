@@ -1,5 +1,5 @@
 import React from 'react';
-import { optionType } from '../../../Hooks';
+import { optionType } from './hooks/useSelect';
 
 interface NativeSelect extends React.ComponentPropsWithoutRef<'select'> {
    currentValue: string;
