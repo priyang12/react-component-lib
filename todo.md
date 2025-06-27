@@ -10,7 +10,7 @@
 -  [] add testing and docs in all older components.
 -  [x] add tags: ['autodocs'], in stories by default in preview.ts
 -  [] Custom Template for Docs
--  [] per-component Bundling
+-  [x] per-component Bundling and global.css
 -  [] add forward ref in all components or just upgrade to react 19
 
 ## Components

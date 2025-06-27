@@ -25,8 +25,10 @@
     "node": ">=14"
   },
   "scripts": {
-    "build": "tsup",
     "storybook": "storybook dev -p 6006",
+    "build": "tsup && npm run build:global-css && npm run build:types",
+    "build:global-css": "sass src/lib/styles/Global.scss dist/global.css --no-source-map --style=compressed",
+    "build:types": "tsc --project tsconfig.build.json --emitDeclarationOnly",
     "build-storybook": "storybook build",
     "build:test": "tsup && npm pack --pack-destination ~",
     "test": "vitest",
@@ -50,7 +52,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.29.4",
     "@size-limit/preset-small-lib": "^11.2.0",
-    "@storybook/addon-a11y": "^9.0.9",
+    "@storybook/addon-a11y": "^9.0.13",
     "@storybook/addon-docs": "^9.0.9",
     "@storybook/addon-links": "^9.0.9",
     "@storybook/builder-vite": "^9.0.9",
@@ -71,6 +73,7 @@
     "autoprefixer": "^10.4.21",
     "depcheck": "^1.4.7",
     "esbuild-sass-plugin": "^3.3.1",
+    "fast-glob": "^3.3.3",
     "jsdom": "^26.1.0",
     "postcss": "^8.5.5",
     "react": "^18.3.1",
