@@ -1,6 +1,7 @@
 import Draggable from './Draggable';
 import type { Meta, StoryFn } from '@storybook/react';
 import * as React from 'react';
+import { useDraggable } from './Hooks/useDraggble';
 
 export default {
    title: 'Wrappers/Draggable',
@@ -9,37 +10,41 @@ export default {
 } as Meta<typeof Draggable>;
 
 export const Template: StoryFn<typeof Draggable> = (args) => {
-   const [isDragging, setIsDragging] = React.useState(false);
    return (
-      <Draggable
-         {...args}
-         isDragging={isDragging}
-         setIsDragging={setIsDragging}
-      >
-         <div>
-            {/* <div p="2rem" w="50%" bg="#333" color="#fff"> */}
-            <div>Draggable</div>
-         </div>
+      <Draggable {...args}>
+         <div className="text-red-700 m-5 p-5 bg-gray-300">Draggable Box</div>
       </Draggable>
    );
 };
 
 export const ParentContainer: StoryFn<typeof Draggable> = (args) => {
-   const [isDragging, setIsDragging] = React.useState(false);
    const parentContainer = React.useRef<HTMLAnchorElement>(null);
    return (
-      <article ref={parentContainer}>
-         <Draggable
-            {...args}
-            parentContainerRef={parentContainer}
-            isDragging={isDragging}
-            setIsDragging={setIsDragging}
-         >
-            <div>
-               {/* <div p="2rem" w="fit-content" bg="#333" color="#fff"> */}
-               <div>Draggable</div>
+      <article
+         ref={parentContainer}
+         className="border-2 border-blue-500 border-solid w-full h-screen"
+      >
+         <Draggable {...args} parentContainerRef={parentContainer}>
+            <div className="text-red-700 m-5 p-5 bg-gray-300 w-1/4">
+               Inside Parent Container Box
             </div>
          </Draggable>
       </article>
+   );
+};
+
+export const withHook = () => {
+   const { position, ref: DragRef } = useDraggable();
+   return (
+      <div
+         className="text-red-700 m-5 p-5 bg-gray-300"
+         ref={DragRef}
+         style={{
+            transform: `translate(${position.x}px, ${position.y}px)`,
+            cursor: 'grab',
+         }}
+      >
+         Draggable Box
+      </div>
    );
 };
