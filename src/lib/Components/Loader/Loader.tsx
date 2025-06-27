@@ -12,8 +12,11 @@ import './Loader.scss';
  * @property size - Controls the size of the loader. Options are `'small'`, `'medium'`, or `'large'`. Defaults to `'medium'`.
  */
 export interface LoaderProps extends React.ComponentPropsWithoutRef<'div'> {
+   /** Optional text to display alongside the loader animation. */
    loadingText?: string;
+   /**  Specifies the style of the loading spinner.  */
    loadingType?: 'default' | 'ball' | 'ring' | 'bounce' | 'ripple';
+   /** Controls the size of the loader.*/
    size?: 'small' | 'medium' | 'large';
 }
 

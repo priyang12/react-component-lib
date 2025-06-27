@@ -7,7 +7,6 @@ export default {
    title: 'Components/Switch',
    component: Switch,
    decorators: [(story) => <div className="container">{story()}</div>],
-   tags: ['autodocs'],
 } as Meta<typeof Switch>;
 
 export const Template: StoryFn<typeof Switch> = (args) => {

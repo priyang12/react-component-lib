@@ -1,7 +1,8 @@
 import '../src/lib/styles/Global.scss';
 import '../src/lib/styles/tailwind.css';
+import type { Preview } from '@storybook/react-vite';
 
-export const parameters = {
+const parameters = {
    actions: { argTypesRegex: '^on[A-Z].*' },
    darkMode: {},
    controls: {
@@ -11,3 +12,10 @@ export const parameters = {
       },
    },
 };
+
+const preview: Preview = {
+   parameters: parameters,
+   tags: ['autodocs'],
+};
+
+export default preview;
