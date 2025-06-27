@@ -31,9 +31,13 @@ export const useRadioContext = () => {
  * @property handleRadioChange - Callback function triggered when a different radio option is selected. Receives the selected value.
  */
 export interface RadioGroupProps extends React.ComponentPropsWithoutRef<'div'> {
+   /** The name shared by all radio inputs within the group. */
    name?: string;
+   /** The initially selected radio value. */
    defaultValue?: string;
+   /** Determines the layout of the radio group. */
    layout?: 'horizontal' | 'vertical';
+   /** Callback function triggered when a different radio option is selected. Receives the selected value. */
    handleRadioChange?: (value: string) => void;
 }
 

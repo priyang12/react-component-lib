@@ -20,11 +20,17 @@ import { callAll } from '../../Utils/AllFunctionsCall';
 export interface SliderProps
    extends Omit<React.ComponentPropsWithoutRef<'input'>, 'onChange'> {
    className?: string;
+   /** The current numeric value of the slider. */
    value: number;
+   /** The minimum selectable value (default is `0`). */
    min?: number;
+   /** The maximum selectable value (default is `100`). */
    max?: number;
+   /** The interval between selectable values (default is `1`). */
    step?: number;
+   /** Callback function that receives the new numeric value when the slider changes. */
    onChange?: (value: number) => void;
+   /** Visual style variant for the slider. */
    variant?: 'success' | 'failure' | 'info' | 'warning';
 }
 
