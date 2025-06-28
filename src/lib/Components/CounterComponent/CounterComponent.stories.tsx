@@ -1,9 +1,8 @@
+import Counter from './Counter';
 import CounterComponent from './CounterComponent';
 import type { Meta, StoryFn } from '@storybook/react';
 
-const Counter = CounterComponent.Counter;
 const CounterControls = CounterComponent.CounterControls;
-
 export default {
    title: 'Components/CounterComponent',
    component: CounterControls,
@@ -32,13 +31,14 @@ export const CounterControl: StoryFn<typeof CounterControls> = (args) => (
    <CounterControls {...args} />
 );
 
-export const SingleCounter: StoryFn<typeof Counter> = (args) => (
+export const standAloneCounter: StoryFn<typeof Counter> = (args) => (
    <Counter
       {...{
-         Count: 1,
+         Count: 3,
          PreviousState: 0,
          initialValue: 0,
       }}
+      {...args}
    />
 );
-SingleCounter.storyName = 'Single Counter';
+standAloneCounter.storyName = 'Single Counter';
