@@ -1,8 +1,0 @@
-$input-color: #666dff !default;
-
-@function customLighten($color-variable, $value) {
-   $color-variable-h: var(#{$color-variable + '-h'});
-   $color-variable-s: var(#{$color-variable + '-s'});
-   $color-variable-l: calc(var(#{$color-variable + '-l'}) - #{$value+'%'});
-   @return hsl($color-variable-h, $color-variable-s, $color-variable-l);
-}
