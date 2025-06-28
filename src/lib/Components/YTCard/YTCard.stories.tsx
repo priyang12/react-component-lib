@@ -21,7 +21,7 @@ export const Template: StoryFn<typeof YTCard> = (args) => (
       <YTCard {...args}>
          <CardImage PreviewTitle={'"Preview"'}>
             <img
-               src="https://i.ytimg.com/vi/eHXcd_DfUmg/maxresdefault.jpg"
+               src="https://picsum.photos/200/200"
                alt="The Best of Ed Sheeran"
             />
          </CardImage>
