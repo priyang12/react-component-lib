@@ -1,5 +1,5 @@
 import ButtonGroup from './ButtonGroup';
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { Button } from '../Button';
 
 export default {
@@ -8,7 +8,9 @@ export default {
    decorators: [(story) => <div className="container">{story()}</div>],
 } as Meta<typeof ButtonGroup>;
 
-export const Template: StoryFn<typeof ButtonGroup> = (args) => (
+type Story = StoryObj<typeof ButtonGroup>;
+
+export const Default: StoryFn<Story> = (args) => (
    <ButtonGroup {...args}>
       <Button>
          <span>Button 1</span>
@@ -22,13 +24,16 @@ export const Template: StoryFn<typeof ButtonGroup> = (args) => (
    </ButtonGroup>
 );
 
-export const Gap = Template.bind({});
-
-export const Icon: StoryFn<typeof ButtonGroup> = (args) => (
-   <ButtonGroup {...args} withIcon>
-      <div>$</div>
+export const WithVariant: StoryFn<Story> = (args) => (
+   <ButtonGroup {...args} variant="secondary">
       <Button>
-         <span>Button 1</span>
+         <span>Button A</span>
+      </Button>
+      <Button variant="primary">
+         <span>Button B</span>
+      </Button>
+      <Button>
+         <span>Button C</span>
       </Button>
    </ButtonGroup>
 );
