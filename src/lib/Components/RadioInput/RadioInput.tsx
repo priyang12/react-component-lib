@@ -28,6 +28,15 @@ export interface RadioInputProps
  * Integrates with form context for handling alerts, focus, and change events.
  * Integrates with RadioGroup context for handling grouping radio inputs and selecting value.
  * Supports keyboard accessibility by allowing selection via `Enter` or `Space` keys.
+ * @example
+ * ```tsx
+ * <RadioInput
+ *   name="options"
+ *   value="option1"
+ *   checked={value}
+ *   renderLabel={() => <Label htmlFor="option1">Select Value</Label>}
+ * />
+ * ```
  */
 function RadioInput({ id, renderLabel, children, ...props }: RadioInputProps) {
    const inputId = id || `radio-${props.value}`;
