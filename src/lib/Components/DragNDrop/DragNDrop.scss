@@ -1,10 +1,10 @@
 .drag-n-drop {
-   border: 2px dashed #aaa;
+   border: 2px dashed var(--text-secondary);
    padding: 2rem;
    text-align: center;
    border-radius: 8px;
    transition: background-color 0.2s ease;
-   color: #555;
+   color: var(--text-tertiary);
    cursor: pointer;
    .dnd-default-container {
       display: flex;
