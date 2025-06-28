@@ -5,6 +5,7 @@
 -  [x] change css variable from primary-secondary to shades.
 -  [x] decide and set a export style (decided with single export for each folder/index.tsx with each importing with types)
 -  [x] need to asChild in wrappers
+-  [x] change css variable from primary-secondary to shades.
 -  [x] fix draggable and turn the logic into hook.
 -  [x] turn variant styling from global.scss to each component.
 -  [] add testing and docs in all older components.
@@ -18,5 +19,5 @@
 -  [x] make slider component
 -  [] make popover component
 -  [x] RadioGroup Component
--  [x] change css variable from primary-secondary to shades.
 -  [x] make helper components like (Divider,Spacer,StatusDot,Loader, pill and Skeleton remain)
+-  [] Refactor Accordion

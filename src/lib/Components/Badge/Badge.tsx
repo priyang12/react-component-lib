@@ -3,35 +3,51 @@ import { clsx } from 'clsx';
 import { VariantType } from '../interface';
 import './Badge.scss';
 
+function getBadgeDisplay(
+   content: string | number,
+   max?: number
+): string | number {
+   if (!max) return content;
+   const value = typeof content === 'string' ? content.length : content;
+   return value > max ? `${max}+` : content;
+}
+
+/**
+ * Props for the Badge component.
+ *
+ * Provides configuration options for positioning, content, and display behavior of a badge.
+ *
+ * @property variant - Defines the badge style variant. Typically used for semantic styling such as `'primary'`, `'success'`, `'danger'`, etc.
+ * @property BadgeContent - The content to be displayed inside the badge. Can be a string or number.
+ * @property colorScheme - Optional CSS color scheme or className to apply custom colors.
+ * @property anchorOriginVertical - Vertical position of the badge relative to its container. Either `'top'` or `'bottom'`.
+ * @property anchorOriginHorizontal - Horizontal position of the badge relative to its container. Either `'left'` or `'right'`.
+ * @property showOnHover - If `true`, the badge content is only visible when hovered.
+ * @property Max - Optional maximum value before the badge content is abbreviated (e.g., `99+`).
+ */
 export interface BadgeProps {
+   /** Defines the badge style variant for visual appearance. */
    variant?: VariantType;
+   /** The content displayed inside the badge. */
    BadgeContent: string | number;
+   /** Optional color scheme or custom class for the badge. */
    colorScheme?: string;
+   /** Vertical position of the badge relative to its container. */
    anchorOriginVertical: 'bottom' | 'top';
+   /** Horizontal position of the badge relative to its container. */
    anchorOriginHorizontal: 'right' | 'left';
+   /** If true, the badge appears only on hover. */
    showOnHover?: boolean;
+   /** Max value before truncating (e.g., shows `99+`). */
    Max?: number;
 }
+
 /**
- * Badge is a component that represents a badge.
+ * Badge component for displaying notification counts or status indicators.
  *
- * @param BadgeContent - The content of the badge. Can be a string or a number.
- * @param variant - The variant of the badge. Can be 'primary' or 'secondary'.
- * @param anchorOriginVertical - The vertical position of the badge relative to its container.
- * Can be 'top' or 'bottom'.
- * @param anchorOriginHorizontal - The horizontal position of the badge relative to its container.
- * Can be 'left' or 'right'.
- * @param Max - The maximum number of characters to display in the badge. If the content
- * exceeds this number, the badge will display `${Max}+`.
- * @param showOnHover - If true, the badge will only be displayed when the mouse is over
- * its container.
- * @param children - The content of the badge container.
- * @param props - Additional props to be passed to the span element.
- *
- * @returns a span element that represents a badge.
- *
+ * Can be positioned relative to a container and optionally truncated at a max value.
+ * Useful for indicating new messages, alerts, or item counts.
  * @example
- *
  * <Badge BadgeContent={3} variant="primary" />
  */
 function Badge({
@@ -44,38 +60,8 @@ function Badge({
    children,
    ...props
 }: BadgeProps & React.ComponentPropsWithoutRef<'div'>) {
-   const [Hover, setHover] = React.useState(false);
-
-   // what hell is going on???
-   // refactor this laster
-   const badgeContentDisplay = Max
-      ? typeof BadgeContent === 'string'
-         ? BadgeContent.length > Max
-            ? `${Max}+`
-            : BadgeContent
-         : BadgeContent > Max
-         ? `${Max}+`
-         : BadgeContent
-      : BadgeContent;
-
-   if (showOnHover) {
-      return (
-         <span
-            className={clsx(
-               props.className,
-               'badge',
-               'badge-position',
-               `badge-position-${anchorOriginVertical}-${anchorOriginHorizontal}`,
-               `badge-${variant}`
-            )}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            {...props}
-         >
-            {Hover ? BadgeContent : badgeContentDisplay}
-         </span>
-      );
-   }
+   const [hover, setHover] = React.useState(false);
+   const badgeContentDisplay = getBadgeDisplay(BadgeContent, Max);
 
    return (
       <span
@@ -84,11 +70,20 @@ function Badge({
             'badge',
             'badge-position',
             `badge-position-${anchorOriginVertical}-${anchorOriginHorizontal}`,
-            `badge-${variant}`
+            `badge-${variant}`,
+            {
+               'badge-hover': hover,
+            }
          )}
+         onMouseEnter={() => {
+            if (showOnHover) setHover(true);
+         }}
+         onMouseLeave={() => {
+            if (showOnHover) setHover(false);
+         }}
          {...props}
       >
-         {badgeContentDisplay}
+         {hover ? BadgeContent : badgeContentDisplay}
       </span>
    );
 }
