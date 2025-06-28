@@ -10,7 +10,12 @@ export default {
    },
 } as Meta<typeof Input>;
 
-export const Template: StoryFn<typeof Input> = (args) => <Input {...args} />;
+export const Template: StoryFn<typeof Input> = (args) => (
+   <>
+      <label htmlFor="id"></label>
+      <Input {...args} id="name" />
+   </>
+);
 
 export const Size = Template.bind({});
 Size.args = {

@@ -5,40 +5,52 @@ import { useFormContext } from '../FormControl/FormControl';
 import './Input.scss';
 
 /**
- * Props for the Input component
+ * Props for the Input component.
  *
- * @export
- * @interface InputProps
+ * Extends standard HTML input props and includes additional styling and form context support.
+ *
+ * @property InputSize - Defines the visual size of the input. Options are `'small'`, `'medium'`, or `'large'`.
+ * @property alert - If `true` or a string, applies alert styling (e.g., for validation errors).
+ * @property className - Optional additional class names for the input element.
  */
-export interface InputProps {
-   // Size of the input. Can be 'small', 'medium', or 'large'
+export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
+   /** Visual size of the input component. */
    InputSize: 'small' | 'medium' | 'large';
-   // If true, the input will have an 'alert' class for styling purposes
+   /** Applies alert styling if true or a string message is provided. */
    alert?: boolean | string;
-   // Additional class name for the input element
+   /** Additional class names for styling the input. */
    className?: string;
 }
 
 /**
- * Customized input component that can be used in a form
+ * Input component with built-in styling and form context integration.
  *
- * @param {(React.ComponentPropsWithoutRef<'input'> & InputProps)} props
- * @returns {JSX.Element}
+ * Automatically integrates with `FormControl` via `useFormContext` to handle validation and state.
+ * Supports size variants and conditional alert styling.
+ *
+ * @returns A customized `<input>` element suitable for form usage.
+ *
+ * @example
+ * <FormControl validate={(v) => v.length < 3 ? 'Too short' : ''}>
+ *   <Input InputSize="medium" placeholder="Your name" />
+ * </FormControl>
  */
-function Input({
-   InputSize = 'medium',
-   className,
-   ...props
-}: React.ComponentPropsWithoutRef<'input'> & InputProps) {
-   const { alert, onFocus, inputChange } = useFormContext();
-   const InputClass = clsx('input', InputSize, alert && 'alert', className);
+function Input({ InputSize = 'medium', className, ...props }: InputProps) {
+   const { alert, onFocus: formFocus, inputChange } = useFormContext();
+   const InputClass = clsx(
+      'input',
+      `input-${InputSize}`,
+      alert && 'alert',
+      className
+   );
 
+   const { onChange, onFocus, ...restProps } = props;
    return (
       <input
          className={InputClass}
-         onChange={callAll(props.onChange, inputChange)}
-         onFocus={callAll(props.onFocus, onFocus)}
-         {...props}
+         onChange={callAll(onChange, inputChange)}
+         onFocus={callAll(onFocus, formFocus)}
+         {...restProps}
       />
    );
 }
