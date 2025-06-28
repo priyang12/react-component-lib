@@ -21,6 +21,7 @@
    display: flex;
    align-items: center;
    justify-content: center;
+   gap: var(--gap-md);
 }
 .Button-ellipsis {
    white-space: nowrap;
