@@ -44,12 +44,12 @@ function Input({ InputSize = 'medium', className, ...props }: InputProps) {
       className
    );
 
-   const { onChange, onFocus, ...restProps } = props;
+   const { onChange: propOnChange, onFocus: propOnFocus, ...restProps } = props;
    return (
       <input
          className={InputClass}
-         onChange={callAll(onChange, inputChange)}
-         onFocus={callAll(onFocus, formFocus)}
+         onChange={callAll(propOnChange, inputChange)}
+         onFocus={callAll(propOnFocus, formFocus)}
          {...restProps}
       />
    );

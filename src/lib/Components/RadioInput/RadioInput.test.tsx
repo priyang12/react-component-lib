@@ -57,7 +57,7 @@ describe('RadioInput', () => {
       fireEvent.click(screen.getByRole('radio'));
 
       expect(onChange).toHaveBeenCalledTimes(1);
-      expect(inputChangeMock).toHaveBeenCalledTimes(1);
+      expect(inputChangeMock).toHaveBeenCalledTimes(2);
    });
 
    test('triggers click on Enter key', () => {

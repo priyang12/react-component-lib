@@ -61,6 +61,8 @@ function Slider({
       backgroundSize: `${((value - min) / (max - min)) * 100}% 100%`,
    };
 
+   const { ...resetProps } = props;
+
    return (
       <div className={clsx('SliderContainer', className)}>
          <input
@@ -76,7 +78,7 @@ function Slider({
             })}
             style={trackStyle}
             disabled={disabled}
-            {...props}
+            {...resetProps}
          />
       </div>
    );

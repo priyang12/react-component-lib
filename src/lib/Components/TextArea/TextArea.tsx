@@ -20,19 +20,26 @@ export interface TextAreaProps
  * @param {'none' | 'both' | 'horizontal' | 'vertical'} props.resize - The resize option for the textarea.
  * @return {ReactElement} - The rendered textarea element.
  */
-function TextArea({ ...props }: TextAreaProps) {
-   const { Size, className, ...rest } = props;
+function TextArea({ resize, ...props }: TextAreaProps) {
+   const {
+      Size,
+      className,
+      onChange: propOnChange,
+      onFocus: propOnFocus,
+      ...restProps
+   } = props;
    const { alert, inputChange, onFocus } = useFormContext();
    const TextAreaClass = clsx(Size, alert && 'Alert-Border', className);
+
    return (
       <textarea
          className={TextAreaClass}
          rows={Size === 'small' ? 3 : Size === 'medium' ? 5 : 10}
          cols={Size === 'small' ? 20 : Size === 'medium' ? 30 : 50}
-         style={{ resize: props.resize }}
-         onChange={callAll(props.onChange, inputChange)}
-         onFocus={callAll(props.onFocus, onFocus)}
-         {...rest}
+         onChange={callAll(propOnChange, inputChange)}
+         onFocus={callAll(propOnFocus, onFocus)}
+         style={{ resize: resize }}
+         {...restProps}
       />
    );
 }

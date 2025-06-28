@@ -47,19 +47,26 @@ function RadioInput({ id, renderLabel, children, ...props }: RadioInputProps) {
          ? { checked: selectedValue === props.value }
          : {};
 
+   const {
+      onClick: propOnClick,
+      onChange: propOnChange,
+      onFocus: propOnFocus,
+      ...restProps
+   } = props;
+
    return (
       <div className={clsx('radio-container', { 'is-alert': isAlert })}>
          <input
             id={inputId}
             type="radio"
             className="radio-input"
-            onClick={callAll(props.onClick, inputChange)}
-            onChange={callAll(props.onChange, handleChange, inputChange)}
-            onFocus={callAll(props.onFocus, onFocus)}
+            onClick={callAll(propOnClick, inputChange)}
+            onChange={callAll(propOnChange, handleChange, inputChange)}
+            onFocus={callAll(propOnFocus, onFocus)}
             onKeyDown={handleKeyDown}
             name={name}
             {...checkedProp}
-            {...props}
+            {...restProps}
          />
          {renderLabel ? renderLabel() : null}
       </div>

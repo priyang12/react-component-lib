@@ -77,13 +77,15 @@ function Button({
       if (ripple?.show) createRipple(e);
    };
 
+   const { onClick: propClick, ...restProps } = props;
+
    return (
       <button
          ref={ref}
          className={classes}
          disabled={isLoading}
-         onClick={callAll(handleClick, props.onClick)}
-         {...props}
+         onClick={callAll(handleClick, propClick)}
+         {...restProps}
       >
          {isLoading ? (
             LoadingText
