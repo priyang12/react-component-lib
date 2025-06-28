@@ -1,30 +1,55 @@
 import * as React from 'react';
 import './TextEffect.scss';
 
+/**
+ * Props for the `TextEffect` component.
+ *
+ * Extends standard HTML `div` props and provides customizable animated gradient text rendering.
+ *
+ * @property Element - The HTML or React component used to render the main animated text.
+ * @property size - Font size of the text (e.g., `'2rem'`, `'24px'`).
+ * @property ContainerText - The text content to be displayed inside the animated effect.
+ * @property Delay - Delay before animation starts (e.g., `'1s'`).
+ * @property animateTime - Duration of one animation cycle in seconds. Defaults to `'2'`.
+ * @property color1 - Starting color for the gradient animation. Defaults to `'#e91e63'`.
+ * @property color2 - Ending color for the gradient animation. Defaults to `'#201f55'`.
+ */
 export interface TextEffectProps extends React.ComponentPropsWithoutRef<'div'> {
+   /** The element tag or component used to render the animated text. */
    Element: React.ElementType;
+   /** Font size for the text (e.g., `'2rem'`, `'24px'`). */
    size?: string;
+   /** The actual string to be rendered inside the animated effect. */
    ContainerText?: string;
+   /** Delay before the animation begins. */
    Delay?: string;
+   /** Duration of the gradient animation (in seconds). Defaults to `'2'`. */
    animateTime?: string;
+   /** Starting color of the gradient animation. */
    color1?: string;
+   /** Ending color of the gradient animation. */
    color2?: string;
 }
+
 /**
- * TextEffect is a functional component that renders a text effect with customizable size, container text, delay, animate time, color1, and color2 options.
+ * Animated gradient `TextEffect` component.
  *
- * @param {Object} props - The props for the TextEffect component.
- * @param {React.ElementType} props.Element - The element type for the text effect.
- * @param {string} props.size - The size of the text effect.
- * @param {string} props.ContainerText - The text that will be displayed in the text effect.
- * @param {string} props.Delay - The delay of the text effect animation.
- * @param {string} props.animateTime - The duration of the text effect animation.
- * @param {string} props.color1 - The starting color of the text effect gradient.
- * @param {string} props.color2 - The ending color of the text effect gradient.
- * @param {string} props.className - A classname for the text effect container.
- * @param {any} props.[x: string] - Other props that will be spread onto the text effect container element.
+ * Renders stylized, animated text using a gradient that loops infinitely. Can be customized with animation timing, gradient colors, and element type.
  *
- * @return {ReactElement} - The rendered text effect element.
+ * @returns A styled element (e.g., `<h1>`, `<span>`) with animated gradient text overlay.
+ *
+ * @example
+ * ```tsx
+ * <TextEffect
+ *   Element="h1"
+ *   size="3rem"
+ *   ContainerText="Hello World"
+ *   Delay="0.5s"
+ *   animateTime="3"
+ *   color1="#ff0080"
+ *   color2="#7928ca"
+ * />
+ * ```
  */
 function TextEffect({
    Element,
