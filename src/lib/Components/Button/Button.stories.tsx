@@ -5,6 +5,9 @@ import Button from './Button';
 const meta: Meta<typeof Button> = {
    title: 'Components/Button',
    component: Button,
+   subcomponents: {
+      Button,
+   },
    decorators: [
       (Story) => (
          <div className="container">

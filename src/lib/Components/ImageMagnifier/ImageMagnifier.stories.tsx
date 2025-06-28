@@ -6,6 +6,9 @@ import type { Meta, StoryFn } from '@storybook/react';
 export default {
    title: 'Components/ImageMagnifier',
    component: ImageMagnifier,
+   subcomponents: {
+      MagnifierOverlay,
+   },
    args: {
       width: '500px',
       src: 'https://picsum.photos/600/600',

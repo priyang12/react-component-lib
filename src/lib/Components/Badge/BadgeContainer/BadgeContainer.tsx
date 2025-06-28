@@ -1,21 +1,22 @@
 import clsx from 'clsx';
 
+export interface BadgeContainer extends React.ComponentPropsWithoutRef<'div'> {}
+
 /**
- * BadgeContainer is a component that represents a container for a badge.
+ * `BadgeContainer` is a layout component used to wrap elements that include a `Badge`.
  *
- * @param props - Additional props to be passed to the div element.
+ * Ensures correct positioning and styling for the badge relative to its target (e.g., icons, buttons).
+ * Useful when applying badges dynamically to components that require contextual placement.
  *
- * @returns a div element that acts as a container for a badge.
+ * @returns A styled `<div>` wrapper for containing a `Badge` and its associated content.
  *
  * @example
- *
  * <BadgeContainer>
+ *   <Icon />
  *   <Badge BadgeContent={3} />
  * </BadgeContainer>
  */
-export default function BadgeContainer(
-   props: React.ComponentPropsWithoutRef<'div'>
-) {
+export default function BadgeContainer(props: BadgeContainer) {
    const { className, ...rest } = props;
 
    return (

@@ -3,23 +3,33 @@ import './CounterComponent.scss';
 import clsx from 'clsx';
 
 /**
+ * Props for the Counter component.
  *
+ * Extends standard `<div>` props and displays an animated numeric transition.
  *
- * @export
- * @interface CounterProps
- * @extends {React.ComponentPropsWithoutRef<'div'>}
+ * @property initialValue - Optional starting value for the counter (not currently used internally).
+ * @property Count - The current counter value.
+ * @property PreviousState - The previous value, used to determine animation direction.
  */
 export interface CounterProps extends React.ComponentPropsWithoutRef<'div'> {
+   /** Optional initial counter value. */
    initialValue?: number;
+   /** The current value to display. */
    Count: number;
+   /** The previous value used to determine the animation direction. */
    PreviousState: number;
 }
+
 /**
- * Counter component that animates a value change
+ * Counter component for animating numeric value changes.
  *
- * @export
- * @param {CounterProps} props
- * @returns {JSX.Element}
+ * Applies directional slide and fade animations when the value changes.
+ * Used internally by `CounterControls` for displaying animated counters.
+ *
+ * @returns An animated `<div>` element displaying the updated count.
+ *
+ * @example
+ * <Counter ref={ref} Count={current} PreviousState={previous} />
  */
 
 const Counter = React.forwardRef<HTMLDivElement, CounterProps>(

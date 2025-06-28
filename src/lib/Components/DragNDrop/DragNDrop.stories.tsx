@@ -6,6 +6,9 @@ import DefaultContainer from './DefaultContainer';
 const meta: Meta<typeof DragNDrop> = {
    title: 'Components/DragNDrop',
    component: DragNDrop,
+   subcomponents: {
+      DefaultContainer,
+   },
 };
 
 export default meta;

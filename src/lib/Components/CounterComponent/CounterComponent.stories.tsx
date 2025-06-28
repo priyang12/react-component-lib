@@ -6,6 +6,9 @@ const CounterControls = CounterComponent.CounterControls;
 export default {
    title: 'Components/CounterComponent',
    component: CounterControls,
+   subcomponents: {
+      Counter,
+   },
    decorators: [
       (Story) => (
          <div className="container">
