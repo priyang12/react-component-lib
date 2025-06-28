@@ -13,6 +13,7 @@
 -  [] Custom Template for Docs
 -  [x] per-component Bundling and global.css
 -  [] testing and docs for hooks
+-  [x] fix ...props get override the callAll events.
 -  [] add forward ref in all components or just upgrade to react 19
 
 ## Components
