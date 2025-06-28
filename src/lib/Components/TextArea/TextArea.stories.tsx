@@ -12,13 +12,12 @@ export const Template: StoryFn<typeof TextArea> = (args) => (
 );
 
 export const Size = Template.bind({});
-
 Size.args = {
-   Size: 'medium',
+   size: 'medium',
 };
 
 export const Resize = Template.bind({});
 Resize.args = {
-   Size: 'medium',
+   size: 'medium',
    resize: 'vertical',
 };
