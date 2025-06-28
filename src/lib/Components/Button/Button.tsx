@@ -5,68 +5,76 @@ import { callAll } from '../../Utils/AllFunctionsCall';
 import { useRipple } from '../../../Hooks';
 import './Button.scss';
 
+/**
+ * Props for the Button component.
+ *
+ * Extends the native HTML button props and includes customization options for styles,
+ * loading state, ripple effects, and text behavior.
+ *
+ * @property text - Optional text to display inside the button. Can be used in addition to or instead of children.
+ * @property ellipsis - If `true`, applies ellipsis styling for overflowing text.
+ * @property variant - Visual variant of the button, such as `'primary'`, `'secondary'`, etc.
+ * @property ripple - Controls the ripple effect on click. Set `show` to `true` to enable, with optional custom `bgColor`.
+ * @property isLoading - If `true`, the button is disabled and shows the loading state.
+ * @property LoadingText - Text to show when `isLoading` is `true`. Defaults to `'Loading...'`.
+ */
 export interface IButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+   /** Optional text content for the button. */
    text?: string;
+   /** Enables ellipsis styling for overflowing text. */
    ellipsis?: boolean;
+   /** Visual variant of the button (e.g., 'primary', 'danger'). */
    variant?: VariantType;
+   /** Configuration for ripple effect on button click. */
    ripple?: {
+      /** If true, enables the ripple effect. */
       show: boolean;
+      /** Optional background color for the ripple. */
       bgColor?: string;
    };
-   radius?: string;
+   /** Shows a loading state and disables the button. */
    isLoading?: boolean;
+   /** Custom loading text shown when `isLoading` is active. */
    LoadingText?: string;
+   /** Icon component rendered inside the button */
+   iconComponent?: React.ReactNode;
 }
 
 /**
- * Button is a component that represents a button.
+ * Interactive button component with support for ripple effects and loading states.
  *
- * @param text - The text to be displayed on the button.
- * @param ellipsis - If true, the text will be truncated with an ellipsis if it exceeds
- * the width of the button.
- * @param variant - The variant of the button. Can be 'primary' or 'secondary'.
- * @param ripple - make a pulse animation on click.
- * @param radius - The border radius of the button.
- * @param children - The content of the button.
- * @param isLoading - If true, the button will be disabled and the text will be replaced with
- * the value of `LoadingText`.
- * @param LoadingText - The text to be displayed when the button is in a loading state.
- * @param className - A class name to be applied to the button element.
- * @param props - Additional props to be passed to the button element.
- *
- * @returns a button element.
+ * Useful for form actions, navigation, and interactive UI controls.
+ * Supports custom text, children, and visual variants.
  *
  * @example
- *
- * <Button variant="primary" text="Click me" />
+ * <Button text="Submit" variant="primary" isLoading={submitting} />
  */
 
 function Button({
    text,
    ellipsis,
    variant = 'primary',
-   radius,
    isLoading,
    LoadingText = 'Loading...',
    ripple,
+   iconComponent,
    className,
    children,
    ...props
 }: IButtonProps) {
-   const WithIcon = React.Children.count('svg');
    const { ref, createRipple } = useRipple(ripple);
    const classes = clsx(
       'Button',
       `Button-${variant}`,
       ellipsis && 'Button-ellipsis',
-      WithIcon && 'Button-icon',
+      iconComponent && 'Button-icon',
       className
    );
 
    const handleClick: React.ComponentPropsWithoutRef<'button'>['onClick'] = (
       e
    ) => {
-      createRipple(e);
+      if (ripple?.show) createRipple(e);
    };
 
    return (
@@ -74,9 +82,6 @@ function Button({
          ref={ref}
          className={classes}
          disabled={isLoading}
-         style={{
-            borderRadius: radius,
-         }}
          onClick={callAll(handleClick, props.onClick)}
          {...props}
       >
@@ -84,6 +89,7 @@ function Button({
             LoadingText
          ) : (
             <>
+               {iconComponent && <span>{iconComponent}</span>}
                {text}
                {children}
             </>
