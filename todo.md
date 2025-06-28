@@ -15,6 +15,7 @@
 -  [] testing and docs for hooks
 -  [x] fix ...props get override the callAll events.
 -  [] add forward ref in all components or just upgrade to react 19
+-  [] auto docs is rending @example. need to prevent this (wrapping in code block ```)or fix in custom temp.
 
 ## Components
 
