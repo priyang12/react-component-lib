@@ -17,28 +17,38 @@
    width: 30px;
    height: 30px;
 }
-
+.badge-hover {
+   width: fit-content;
+   border-radius: 5%;
+}
 .badge-container {
    display: inline-block;
    position: relative;
    .badge-position {
       position: absolute;
+      z-index: 1;
    }
    .badge-position-top-right {
-      top: -10%;
-      right: -10%;
+      top: 0;
+      right: 0;
+      transform: translate(50%, -50%);
    }
    .badge-position-top-left {
-      top: -10%;
-      left: -10%;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
    }
+
    .badge-position-bottom-right {
-      bottom: -10%;
-      right: -10%;
+      bottom: 0;
+      right: 0;
+      transform: translate(50%, 50%);
    }
+
    .badge-position-bottom-left {
-      bottom: -10%;
-      left: -10%;
+      bottom: 0;
+      left: 0;
+      transform: translate(-50%, 50%);
    }
 }
 
