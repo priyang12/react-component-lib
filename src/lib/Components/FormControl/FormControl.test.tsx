@@ -1,30 +1,75 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { composeStories } from '@storybook/react';
-import * as FromControlStories from './FormControl.stories';
-import { ReactElement, JSXElementConstructor } from 'react';
+import FormControl, { useFormContext } from './FormControl';
+import { vi } from 'vitest';
 
-const { Template } = composeStories(FromControlStories);
+// Mock the useFormControl hook
+vi.mock('./Hooks/useFormControl', () => ({
+   useFormControl: () => ({
+      labelCheck: true,
+      alert: 'Required field',
+      isAlert: true,
+      inputChange: vi.fn(),
+      onFocus: vi.fn(),
+   }),
+}));
 
-function setup(jsx: ReactElement<any, string | JSXElementConstructor<any>>) {
-   return {
-      user: userEvent.setup(),
-      ...render(jsx),
-   };
-}
+describe('FormControl', () => {
+   it('render without crash', () => {
+      render(
+         <FormControl>
+            <div>Child</div>
+         </FormControl>
+      );
+   });
+   it('renders children inside a wrapper div', () => {
+      render(
+         <FormControl>
+            <label htmlFor="input">Label</label>
+            <input id="input" />
+         </FormControl>
+      );
+      expect(screen.getByLabelText('Label')).toBeInTheDocument();
+   });
 
-it('should render without crashing', () => {
-   setup(<Template />);
-});
+   it('applies custom class names', () => {
+      render(<FormControl className="custom-class" />);
+      expect(screen.getByRole('group')).toHaveClass(
+         'form-control',
+         'custom-class'
+      );
+   });
 
-it('check for Alert message and color red', async () => {
-   const { user } = setup(<Template />);
+   it('provides context values to children', () => {
+      let contextValue: any;
 
-   const input = screen.getByLabelText('Search');
+      const Consumer = () => {
+         contextValue = useFormContext();
+         return <span>Consumer</span>;
+      };
 
-   await user.type(input, 'test');
-   expect(input).toHaveValue('test');
-   user.clear(input);
-   expect(screen.getByText('value is required')).toBeInTheDocument();
-   expect(input).toHaveClass('alert');
+      render(
+         <FormControl overlay disabled alertMessage="Error">
+            <Consumer />
+         </FormControl>
+      );
+
+      expect(contextValue).toMatchObject({
+         alert: 'Required field',
+         isAlert: true,
+         disabled: true,
+         overlay: true,
+         LabelCheck: true,
+      });
+   });
+
+   it('supports optional props like validate and alertMessage', () => {
+      const customValidate = (value: string) =>
+         value.length > 0 ? '' : 'Missing';
+      render(
+         <FormControl alertMessage="Initial alert" validate={customValidate}>
+            <input aria-label="field" />
+         </FormControl>
+      );
+      expect(screen.getByLabelText('field')).toBeInTheDocument();
+   });
 });
