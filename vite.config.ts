@@ -8,5 +8,21 @@ export default defineConfig({
       environment: 'jsdom',
       setupFiles: './src/setupTests.ts',
       include: ['src/**/*.test.{ts,tsx}'],
+      exclude: [
+         '**/node_modules/**',
+         '**/dist/**',
+         '**/*.stories.*',
+         '**/example/**',
+         '**/storybook-static/**',
+      ],
+      coverage: {
+         exclude: [
+            '**/node_modules/**',
+            '**/dist/**',
+            '**/*.stories.*',
+            '**/example/**',
+            '**/storybook-static/**',
+         ],
+      },
    },
 });
