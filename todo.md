@@ -8,7 +8,7 @@
 -  [x] change css variable from primary-secondary to shades.
 -  [x] fix draggable and turn the logic into hook.
 -  [x] turn variant styling from global.scss to each component.
--  [] add testing and docs in all older components.
+-  [x] add testing and docs in all older components.
 -  [x] add tags: ['autodocs'], in stories by default in preview.ts
 -  [] Custom Template for Docs
 -  [x] per-component Bundling and global.css
