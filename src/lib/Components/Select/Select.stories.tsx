@@ -1,11 +1,14 @@
 import Select from './Select';
+import Options from './Options';
 import type { Meta, StoryFn } from '@storybook/react';
 import { FakeCountryData } from './FakeCountryData';
-import Options from './Options';
 
 export default {
    title: 'Components/Select',
    component: Select,
+   subcomponents: {
+      Options,
+   },
    args: {
       initialValue: 'select Value',
    },
