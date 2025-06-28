@@ -6,6 +6,9 @@ import { Label } from '../Label';
 export default {
    title: 'Components/RadioGroup',
    component: RadioGroup,
+   subcomponents: {
+      RadioInput,
+   },
    decorators: [(story) => <div className="container">{story()}</div>],
 } as Meta<typeof RadioGroup>;
 
