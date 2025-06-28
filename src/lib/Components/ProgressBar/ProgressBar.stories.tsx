@@ -9,18 +9,28 @@ export default {
       max: 100,
       min: 0,
    },
+   subcomponents: {
+      ProgressBarLabel,
+   },
    decorators: [(story) => <div className="container">{story()}</div>],
 } as Meta<typeof ProgressBar>;
 
 export const Template: StoryFn<typeof ProgressBar> = (args) => (
-   <ProgressBar {...args}>
-      <ProgressBarLabel label={args.value.toString() + ' %'} />
+   <ProgressBar
+      variant="info"
+      title="Progress Bar"
+      aria-label="File upload progress"
+      {...args}
+   >
+      <span className='class="h-full w-full flex items-center justify-center text-[var(--font-size-medium)] font-semibold mt-3'>
+         {args.value.toString() + ' %'}
+      </span>
    </ProgressBar>
 );
 
 export const LabelInsideBar: StoryFn<typeof ProgressBar> = (args) => (
    <ProgressBar {...args}>
-      <ProgressBarLabel label={`${args.value}%`} placement="left" />
+      <ProgressBarLabel progressLabelText={`${args.value}%`} placement="left" />
    </ProgressBar>
 );
 
