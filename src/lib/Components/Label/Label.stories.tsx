@@ -4,15 +4,20 @@ import { FormControlContext } from '../FormControl/FormControl';
 export default {
    title: 'Components/Label',
    component: Label,
-   args: {
-      children: 'Input Label',
-      htmlFor: 'search',
-      id: 'search',
-   },
-   decorators: [(story) => <div className="container">{story()}</div>],
+   decorators: [
+      (Story) => (
+         <div className="container">
+            <Story />
+         </div>
+      ),
+   ],
 } as Meta<typeof Label>;
 
-export const Template: StoryFn<typeof Label> = (args) => <Label {...args} />;
+export const Template: StoryFn<typeof Label> = (args) => (
+   <Label id="search" htmlFor="search" {...args}>
+      Input Label
+   </Label>
+);
 
 export const hiddenLabel = Template.bind({});
 hiddenLabel.args = {

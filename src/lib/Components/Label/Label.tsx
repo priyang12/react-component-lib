@@ -4,28 +4,39 @@ import { clsx } from 'clsx';
 import './Label.scss';
 
 /**
- * Props for the Label component
+ * Props for the Label component.
  *
- * @export
- * @interface LabelProps
+ * @property hidden - If `true`, hides the label visually while keeping it accessible to screen readers.
+ * @property size - Defines the size of the label text. Options are `'small'`, `'medium'`, or `'large'`.
  */
-export interface LabelProps {
-   // If true, the label will have a 'visually-hidden' class for accessibility purposes
+export interface LabelProps extends React.ComponentPropsWithoutRef<'label'> {
+   /** Hides the label visually while keeping it accessible to screen readers. */
    hidden?: boolean;
+   /** Adjusts the size of the label text. */
    size?: 'small' | 'medium' | 'large';
 }
 
 /**
- * Customized label component that can be used in a form
+ * Label component for form fields, integrated with `FormControl` context.
  *
- * @param {(React.ComponentPropsWithoutRef<'label'> & LabelProps)} props
- * @returns {JSX.Element}
+ * Automatically updates appearance based on validation state, overlay mode, and user interaction.
+ * Displays an alert message when validation fails, and supports accessibility via visually hidden text.
+ *
+ * @returns A styled `<label>` element that adapts to form validation and focus state.
+ *
+ * @example
+ * ```tsx
+ * <FormControl validate={(value) => !value && 'Required'}>
+ *   <Label htmlFor="username" size="medium">Username</Label>
+ *   <Input id="username" InputSize="medium" />
+ * </FormControl>
+ * ```
  */
-function Label(props: React.ComponentPropsWithoutRef<'label'> & LabelProps) {
-   const { children, hidden, size, className, ...restProps } = props;
+function Label(props: LabelProps) {
+   const { hidden, size, className, children, ...restProps } = props;
    const { alert, LabelCheck, overlay } = useFormContext();
 
-   const LabelClass = clsx(
+   const labelClass = clsx(
       'label',
       LabelCheck && 'active',
       overlay && 'overlay',
@@ -35,7 +46,7 @@ function Label(props: React.ComponentPropsWithoutRef<'label'> & LabelProps) {
    );
 
    return (
-      <label className={LabelClass} {...restProps} data-valid={LabelCheck}>
+      <label className={labelClass} data-valid={LabelCheck} {...restProps}>
          {alert ? (
             <span className="label-alert" role="alert" aria-live="assertive">
                {alert}
