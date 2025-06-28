@@ -1,15 +1,25 @@
-@use '../../styles/variable.scss' as variable;
-
 .input {
    display: block;
+   color: var(--text-primary);
+   background-color: var(--bg-default);
    border: 2px solid var(--input-border);
    border-radius: var(--input-border-radius);
    padding: 0.3em;
 
    &:focus {
       outline: none;
+      border-color: var(--primary-300);
    }
    &:hover {
-      border-color: variable.$input-color;
+      border-color: var(--primary-300);
+   }
+   &-small {
+      font-size: var(--font-size-sm);
+   }
+   &-medium {
+      font-size: var(--font-size-md);
+   }
+   &-large {
+      font-size: var(--font-size-lg);
    }
 }
