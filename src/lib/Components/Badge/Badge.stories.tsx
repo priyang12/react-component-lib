@@ -4,6 +4,9 @@ import { BadgeContainer, Badge } from './index';
 export default {
    title: 'Components/Badge',
    component: Badge,
+   subcomponents: {
+      BadgeContainer,
+   },
    args: {
       BadgeContent: '1',
    },
