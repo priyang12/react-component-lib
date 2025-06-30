@@ -29,12 +29,14 @@ export interface DragNDropProps extends React.ComponentPropsWithoutRef<'div'> {
  * @returns A `<div>` that listens for drag and drop events and renders either a default or custom container.
  *
  * @example
+ * ```tsx
  * <DragNDrop
  *   onDropFile={(file) => console.log(file)}
  *   renderDropContainer={({ isDragging }) => (
  *     <div className={isDragging ? 'highlight' : ''}>Drop a file here</div>
  *   )}
  * />
+ * ```
  */
 function DragNDrop({
    renderDropContainer,

@@ -33,7 +33,9 @@ export interface DefaultContainerProps {
  * @returns A basic file upload container with label-triggered input.
  *
  * @example
+ * ```tsx
  * <DefaultContainer onFileSelect={(file) => console.log(file.name)} />
+ * ```
  */
 function DefaultContainer({
    id = 'dnd-input',

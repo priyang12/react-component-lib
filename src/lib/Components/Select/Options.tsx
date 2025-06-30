@@ -39,6 +39,7 @@ export interface OptionsProps extends React.ComponentPropsWithoutRef<'option'> {
  * @returns A `<ul>` listbox with dynamically rendered `<li>` options.
  *
  * @example
+ * ```tsx
  * <Options
  *   selectedOption={selectedOption}
  *   filteredOptions={filteredOptions}
@@ -47,6 +48,7 @@ export interface OptionsProps extends React.ComponentPropsWithoutRef<'option'> {
  *   selectValue={selectValue}
  *   setFocusedIndex={setFocusedIndex}
  * />
+ * ```
  */
 
 const Options = ({

@@ -15,8 +15,8 @@
 -  [x] testing and docs for hooks
 -  [x] remove Timer Component
 -  [x] Custom Template for Docs
--  [] auto docs is rending @example. need to prevent this (wrapping in code block ```)or fix in custom temp.
--  [] add introduction page with styling and css variables
+-  [x] auto docs is rendering @example blocks. need to prevent this by wrapping in code block ```.
+-  [] add introduction page with styling and css variables and changelog.
 -  [] add forward ref in all components or just upgrade to react 19
 
 ## Components

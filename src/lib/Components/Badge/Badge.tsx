@@ -48,7 +48,9 @@ export interface BadgeProps {
  * Can be positioned relative to a container and optionally truncated at a max value.
  * Useful for indicating new messages, alerts, or item counts.
  * @example
+ * ```tsx
  * <Badge BadgeContent={3} variant="primary" />
+ * ```
  */
 function Badge({
    BadgeContent,

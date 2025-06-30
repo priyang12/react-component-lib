@@ -31,9 +31,11 @@ export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
  * @returns A customized `<input>` element suitable for form usage.
  *
  * @example
+ * ```tsx
  * <FormControl validate={(v) => v.length < 3 ? 'Too short' : ''}>
  *   <Input InputSize="medium" placeholder="Your name" />
  * </FormControl>
+ * ```
  */
 function Input({ InputSize = 'medium', className, ...props }: InputProps) {
    const { alert, onFocus: formFocus, inputChange } = useFormContext();

@@ -47,7 +47,9 @@ export interface IButtonProps extends React.ComponentPropsWithoutRef<'button'> {
  * Supports custom text, children, and visual variants.
  *
  * @example
+ * ```tsx
  * <Button text="Submit" variant="primary" isLoading={submitting} />
+ * ```
  */
 
 function Button({

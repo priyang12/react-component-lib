@@ -10,7 +10,7 @@ import * as React from 'react';
  * current mouse position.
  *
  * @example
- *
+ * ```tsx
  * const MouseTracker = () => {
  *   const ref = useRef<HTMLDivElement>(null);
  *   const mouse = useMouse(ref);
@@ -21,6 +21,7 @@ import * as React from 'react';
  *     </div>
  *   );
  * }
+ * ```
  */
 
 export const useMouse = (ref: React.RefObject<Element>) => {
