@@ -1,5 +1,29 @@
 import { useRef } from 'react';
 
+/**
+ * A custom hook to create a ripple effect on a button element.
+ *
+ * @param rippleProp - Optional configuration object:
+ * - `show`: Whether to enable the ripple effect.
+ * - `bgColor`: Optional custom background color for the ripple.
+ *
+ * @param duration - Duration (in milliseconds) before the ripple is removed. Default is 500ms.
+ *
+ * @returns An object containing:
+ * - `ref`: A `ref` to be attached to the target button element.
+ * - `createRipple`: A function to trigger the ripple effect, typically bound to an `onClick` event.
+ *
+ * @example
+ * ```tsx
+ * const { ref, createRipple } = useRipple({ show: true, bgColor: '#ccc' });
+ *
+ * return (
+ *   <button ref={ref} onClick={createRipple}>
+ *     Click Me
+ *   </button>
+ * );
+ * ```
+ */
 export function useRipple(
    rippleProp?: {
       show: boolean;
