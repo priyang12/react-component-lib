@@ -12,8 +12,8 @@
 -  [x] per-component Bundling and global.css
 -  [x] fix ...props get override the callAll events.
 -  [x] add testing ,docs and stories in all older components.
--  [] testing and docs for hooks
--  [] remove Timer Component
+-  [x] testing and docs for hooks
+-  [x] remove Timer Component
 -  [] Custom Template for Docs
 -  [] auto docs is rending @example. need to prevent this (wrapping in code block ```)or fix in custom temp.
 -  [] add forward ref in all components or just upgrade to react 19
