@@ -14,8 +14,9 @@
 -  [x] add testing ,docs and stories in all older components.
 -  [x] testing and docs for hooks
 -  [x] remove Timer Component
--  [] Custom Template for Docs
+-  [x] Custom Template for Docs
 -  [] auto docs is rending @example. need to prevent this (wrapping in code block ```)or fix in custom temp.
+-  [] add introduction page with styling and css variables
 -  [] add forward ref in all components or just upgrade to react 19
 
 ## Components
