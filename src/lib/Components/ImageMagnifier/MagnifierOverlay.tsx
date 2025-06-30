@@ -32,12 +32,14 @@ export interface MagnifierOverlayProps
  * @returns A `<div>` styled with background image zooming effect.
  *
  * @example
+ * ```tsx
  * <MagnifierOverlay
  *   imgWidth={600}
  *   imgHeight={400}
  *   src="/images/product.jpg"
  *   zoomLevel={2}
  * />
+ * ```
  */
 const MagnifierOverlay: React.FC<MagnifierOverlayProps> = ({
    imgWidth,

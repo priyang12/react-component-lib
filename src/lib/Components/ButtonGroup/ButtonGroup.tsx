@@ -32,10 +32,12 @@ export interface IButtonGroupProps
  * @returns A wrapper `<div>` with role="group" containing the given children.
  *
  * @example
+ * ```tsx
  * <ButtonGroup variant="secondary">
  *   <Button text="One" />
  *   <Button text="Two" />
  * </ButtonGroup>
+ * ```
  */
 function ButtonGroup({
    variant,

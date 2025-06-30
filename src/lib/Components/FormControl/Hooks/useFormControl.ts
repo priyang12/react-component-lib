@@ -32,11 +32,13 @@ type useFormControlProps = {
  * - `onFocus`: Event handler for input focus.
  *
  * @example
+ * ```tsx
  * const { labelCheck, alert, isAlert, inputChange, onFocus } = useFormControl({
  *   alertState: '',
  *   validate: (v) => v.length < 3 ? 'Too short' : '',
  *   required: true,
  * });
+ * ```
  */
 export function useFormControl({
    alertState,

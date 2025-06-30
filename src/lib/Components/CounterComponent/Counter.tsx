@@ -29,7 +29,9 @@ export interface CounterProps extends React.ComponentPropsWithoutRef<'div'> {
  * @returns An animated `<div>` element displaying the updated count.
  *
  * @example
+ * ```tsx
  * <Counter ref={ref} Count={current} PreviousState={previous} />
+ * ```
  */
 
 const Counter = React.forwardRef<HTMLDivElement, CounterProps>(

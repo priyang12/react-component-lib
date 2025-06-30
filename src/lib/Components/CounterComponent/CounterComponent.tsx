@@ -31,10 +31,12 @@ export interface CounterControlsProps {
  * @returns A counter wrapper element with control buttons and a dynamic display region.
  *
  * @example
+ * ```tsx
  * <CounterControls
  *   initialValue={5}
  *   renderCounter={(count) => <span>{count}</span>}
  * />
+ * ```
  */
 export const CounterControls: React.FC<CounterControlsProps> = ({
    initialValue = 0,

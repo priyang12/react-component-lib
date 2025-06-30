@@ -93,10 +93,12 @@ export interface FormControlProps
  * @returns A `<div>` element with form-related context and styling applied.
  *
  * @example
+ * ```tsx
  * <FormControl alertMessage="Required field" validate={(v) => v ? '' : 'Required'}>
  *   <label htmlFor="name">Name</label>
  *   <input id="name" />
  * </FormControl>
+ * ```
  */
 function FormControl({
    overlay,

@@ -24,7 +24,9 @@ interface NativeSelect extends React.ComponentPropsWithoutRef<'select'> {
  *
  * @returns A native `<select>` element with mapped `<option>` children.
  * @example
+ * ```tsx
  * <NativeSelect currentValue="js" options={[{ label: 'JavaScript', value: 'js' }]} />
+ * ```
  */
 
 const NativeSelect = ({ currentValue, options, ...props }: NativeSelect) => {

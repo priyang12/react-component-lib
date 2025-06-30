@@ -52,7 +52,7 @@ const MemoedMagnifierOverlay = React.memo(MagnifierOverlay);
  * @returns A container with zoomable image functionality using mouse events.
  *
  * @example
- *
+ * ```tsx
  * <ImageMagnifier
  *   src="/img/product.png"
  *   zoomLevel={2}
@@ -67,6 +67,7 @@ const MemoedMagnifierOverlay = React.memo(MagnifierOverlay);
  *     />
  *   )}
  * />
+ * ```
  */
 
 const ImageMagnifier: React.FC<ImageMagnifierProps> = ({
