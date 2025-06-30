@@ -2,11 +2,6 @@ import * as React from 'react';
 import { useAccordion } from '../../../Hooks/useAccordion';
 import './Accordion.scss';
 
-export type Item = {
-   title: string;
-   content: string;
-};
-
 export type AccordionContextType = {
    indexes: number[];
    handleItemClick: (index: number) => void;
@@ -14,17 +9,24 @@ export type AccordionContextType = {
 
 export const AccordionContext = React.createContext({} as AccordionContextType);
 
-// hook inspired by Kent C Todds workshop.
+export interface AccordionProps extends React.ComponentPropsWithoutRef<'div'> {
+   /** option for opening only one Item. */
+   OnlyOne: boolean;
+   /** initial Indexes for Accordion Context. */
+   initialOpenIndexes?: number[];
+}
 
 function Accordion({
    initialOpenIndexes = [],
    OnlyOne,
    children,
-}: {
-   OnlyOne: boolean;
-   initialOpenIndexes?: number[];
-} & React.ComponentPropsWithoutRef<'div'>) {
-   const { Indexes, handleItemClick, OneAlwaysOpen } = useAccordion({
+   ...props
+}: AccordionProps) {
+   const {
+      Indexes,
+      toggle: handleItemClick,
+      OneAlwaysOpen,
+   } = useAccordion({
       initialOpenIndexes,
    });
    return (
@@ -34,7 +36,9 @@ function Accordion({
             indexes: Indexes,
          }}
       >
-         <div className="Accordion">{children}</div>
+         <div className="Accordion" {...props}>
+            {children}
+         </div>
       </AccordionContext.Provider>
    );
 }

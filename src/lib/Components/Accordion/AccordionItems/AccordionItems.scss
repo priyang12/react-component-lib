@@ -1,1 +1,48 @@
+.Accordion-content {
+   overflow: hidden;
+   padding: 1.5rem;
+   background-color: var(--bg-default, #fff);
+   color: var(--text-secondary, #444);
+   font-size: 0.95rem;
+   line-height: 1.5;
+   transition: padding 0.3s ease;
+}
 
+.content-animation-enter {
+   max-height: 0;
+   opacity: 0;
+   transform: translateY(-8px);
+}
+
+.content-animation-enter-active {
+   max-height: 1000px;
+   opacity: 1;
+   transform: translateY(0);
+   transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.content-animation-exit {
+   max-height: 1000px;
+   opacity: 1;
+   transform: translateY(0);
+}
+
+.content-animation-exit-active {
+   max-height: 0;
+   opacity: 0;
+   transform: translateY(-8px);
+   transition: max-height 0.3s ease, opacity 0.2s ease, transform 0.3s ease;
+}
+
+.Accordion-icon {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   transition: transform 0.3s ease;
+   font-size: inherit;
+   color: var(--text-secondary, #555);
+}
+
+.Accordion-icon--open {
+   transform: rotate(180deg);
+}
