@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { AccordionContext } from '../Accordion';
+import clsx from 'clsx';
 import './AccordionItems.scss';
 
 export interface AccordionButtonProps {
+   /** Item Index */
    index: number;
 }
 /**
@@ -16,11 +18,13 @@ export interface AccordionButtonProps {
  * @returns a div element that acts as a button.
  *
  * @example
- *
+ * ```tsx
  * <AccordionButton index={0}>Click me</AccordionButton>
+ * ```
  */
 export function AccordionButton({
    index,
+   className,
    children,
    ...props
 }: AccordionButtonProps & React.ComponentPropsWithoutRef<'div'>) {
@@ -29,24 +33,40 @@ export function AccordionButton({
    const ref = React.useRef<HTMLDivElement>(null);
 
    const KeyDown: React.ComponentProps<'div'>['onKeyDown'] = (e) => {
-      const keyCode = e.code;
-      if (keyCode === 'Enter' || keyCode === 'Space') handleItemClick(index);
-      else if (keyCode === 'ArrowDown') {
-         const nextItem = ref.current?.parentElement?.querySelector(
-            `[data-index="${index + 1}"]`
+      const keyCode = e.key;
+      const focusItem = (offset: number) => {
+         const parent = ref.current?.parentElement;
+         const next = parent?.querySelector<HTMLElement>(
+            `[data-index="${index + offset}"]`
          );
-         if (nextItem) (nextItem as HTMLElement).focus();
-      } else if (keyCode === 'ArrowUp') {
-         const prevItem = ref.current?.parentElement?.querySelector(
-            `[data-index="${index - 1}"]`
-         );
-         if (prevItem) (prevItem as HTMLElement).focus();
+         next?.focus();
+      };
+
+      switch (keyCode) {
+         case 'Enter':
+         case ' ':
+            e.preventDefault(); // Prevent scroll or other default actions
+            handleItemClick(index);
+            break;
+
+         case 'ArrowDown':
+            e.preventDefault();
+            focusItem(1);
+            break;
+
+         case 'ArrowUp':
+            e.preventDefault();
+            focusItem(-1);
+            break;
+
+         default:
+            break;
       }
    };
 
    return (
       <div
-         className="Accordion-header"
+         className={clsx('Accordion-header', className)}
          role="button"
          ref={ref}
          data-index={index}
@@ -61,7 +81,8 @@ export function AccordionButton({
    );
 }
 
-interface AccordionContentType {
+export interface AccordionContentType {
+   /** Item Index */
    index: number;
 }
 /**
@@ -74,33 +95,46 @@ interface AccordionContentType {
  * @returns a div element that contains the accordion item content.
  *
  * @example
- *
+ * ```tsx
  * <AccordionContent index={0}>Item content</AccordionContent>
+ * ```
  */
 export function AccordionContent({
    index,
+   className,
    children,
    ...props
 }: AccordionContentType & React.ComponentPropsWithoutRef<'div'>) {
+   const nodeRef = React.useRef(null);
+
    const { indexes } = React.useContext(AccordionContext);
+
    return (
-      <div {...props}>
-         <CSSTransition
-            in={indexes.includes(index)}
-            timeout={200}
-            classNames="content"
-            mountOnEnter
-            unmountOnExit
+      <CSSTransition
+         in={indexes.includes(index)}
+         timeout={200}
+         classNames={'content-animation'}
+         nodeRef={nodeRef}
+         mountOnEnter
+         unmountOnExit
+      >
+         <div
+            className={clsx('Accordion-content', className)}
+            ref={nodeRef}
+            {...props}
          >
             {children}
-         </CSSTransition>
-      </div>
+         </div>
+      </CSSTransition>
    );
 }
 
-interface AccordionIconType {
+export interface AccordionIconType {
+   /** Item Index */
    index: number;
+   /** Icon Component when Item is open */
    OpenIcon: React.ReactNode;
+   /** Icon Component when Item is Closed */
    CloseIcon: React.ReactNode;
 }
 /**
@@ -113,19 +147,33 @@ interface AccordionIconType {
  * @returns a span element that contains the appropriate icon.
  *
  * @example
- *
+ * ```tsx
  * <AccordionIcon
  *   index={0}
  *   OpenIcon={<i className="fas fa-chevron-up" />}
  *   CloseIcon={<i className="fas fa-chevron-down" />}
  * />
+ * ```
  */
 export function AccordionIcon({
    index,
    CloseIcon,
    OpenIcon,
+   className,
+   ...props
 }: AccordionIconType & React.ComponentPropsWithoutRef<'span'>) {
    const { indexes } = React.useContext(AccordionContext);
-
-   return <span>{indexes.includes(index) ? CloseIcon : OpenIcon}</span>;
+   const isOpen = indexes.includes(index);
+   return (
+      <span
+         className={clsx(
+            'Accordion-icon',
+            isOpen && 'Accordion-icon--open',
+            className
+         )}
+         {...props}
+      >
+         {indexes.includes(index) ? CloseIcon : OpenIcon}
+      </span>
+   );
 }

@@ -1,11 +1,16 @@
-import Accordion from './Accordion';
+import * as React from 'react';
+import Accordion, { AccordionContext } from './Accordion';
 import type { Meta, StoryFn } from '@storybook/react';
-import { AccordionButton, AccordionContent } from './AccordionItems';
-import { AccordionIcon } from './AccordionItems';
+import { AccordionButton, AccordionContent, AccordionIcon } from './index';
 
 export default {
    title: 'Components/Accordion',
    component: Accordion,
+   subcomponents: {
+      AccordionButton,
+      AccordionContent,
+      AccordionIcon,
+   },
    decorators: [(story) => <div className="container">{story()}</div>],
 } as Meta<typeof Accordion>;
 
@@ -33,7 +38,7 @@ const items = [
 export const Template: StoryFn<typeof Accordion> = (args) => (
    <Accordion {...args}>
       {items.map((item, index) => (
-         <>
+         <React.Fragment key={index}>
             <AccordionButton
                aria-controls={`${item.id}-content`}
                aria-labelledby={`${item.id}-title`}
@@ -45,7 +50,7 @@ export const Template: StoryFn<typeof Accordion> = (args) => (
             <AccordionContent index={index} id={`${item.id}-content`}>
                <div>{item.content}</div>
             </AccordionContent>
-         </>
+         </React.Fragment>
       ))}
    </Accordion>
 );
@@ -54,4 +59,35 @@ export const OpenOne = Template.bind({});
 
 OpenOne.args = {
    OnlyOne: true,
+};
+
+export const StandaloneItem = () => {
+   const item = items[0];
+   const OpenIndex = 1;
+   return (
+      <AccordionContext.Provider
+         value={{
+            indexes: [1],
+            handleItemClick: () => console.log('Hey Clicked!'),
+         }}
+      >
+         <div className="flex flex-col">
+            <AccordionButton
+               aria-controls={`${item.id}-content`}
+               aria-labelledby={`${item.id}-title`}
+               index={OpenIndex}
+            >
+               <h1 id={`${item.id}-title`}>{item.title}</h1>
+               <AccordionIcon
+                  index={OpenIndex}
+                  OpenIcon={'👈'}
+                  CloseIcon={'👇'}
+               />
+            </AccordionButton>
+            <AccordionContent index={OpenIndex} id={`${item.id}-content`}>
+               <div>{item.content}</div>
+            </AccordionContent>
+         </div>
+      </AccordionContext.Provider>
+   );
 };

@@ -1,30 +1,38 @@
 .Accordion {
    width: 100%;
+   border-radius: 6px;
+   overflow: hidden;
+   background-color: var(--bg-surface, #fff);
+   box-shadow: var(--bg-default, 0 2px 8px rgba(0, 0, 0, 0.1));
+   color: var(--text-primary, #333);
+   font-family: var(--font-family, 'Segoe UI', sans-serif);
 }
 
 .Accordion-header {
    display: flex;
    justify-content: space-between;
-   padding: 1em 0;
-   font-size: var(--font-size-medium);
+   align-items: center;
+   color: var(--text-primary);
+   padding: 1rem 1.2rem;
+   font-size: 1rem;
+   cursor: pointer;
+   background-color: var(--bg-surface);
+   border-bottom: 1px solid var(--primary-200, #ddd);
+   transition: background-color 0.3s ease;
+   user-select: none;
+
+   &:hover,
+   &:focus {
+      background-color: var(--neutral-800, #f1f1f1);
+      outline: none;
+   }
+
+   &:focus-visible {
+      outline: 2px solid var(--primary-800, #007bff);
+   }
 }
 
-.content-enter {
-   overflow: hidden;
-   max-height: 0;
-}
-
-.content-enter-active {
-   max-height: 1000px;
-   transition: max-height 0.6s ease-in-out;
-}
-
-.content-exit {
-   max-height: 1000px;
-}
-
-.content-exit-active {
-   overflow: hidden;
-   max-height: 0;
-   transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+.Accordion-header:focus,
+.Accordion-header:focus-visible {
+   outline: 2px solid var(--primary-800, #007bff);
 }
