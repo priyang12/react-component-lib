@@ -26,31 +26,20 @@ import * as React from 'react';
 export const useMouse = (ref: React.RefObject<Element>) => {
    const [mouse, setMouse] = React.useState({ x: 0, y: 0 });
 
-   const handleMouseMove = (event: MouseEvent) => {
+   const handleMouseMove = React.useCallback((event: MouseEvent) => {
       setMouse({ x: event.clientX, y: event.clientY });
-   };
+   }, []) as EventListener;
 
-   React.useLayoutEffect(() => {
+   React.useEffect(() => {
       const element = ref.current;
-      if (element) {
-         element.addEventListener(
-            'mousemove',
-            handleMouseMove as EventListener
-         );
-      } else {
-         document.addEventListener('mousemove', handleMouseMove);
-      }
+      const target = element ?? document;
+
+      target.addEventListener('mousemove', handleMouseMove);
+
       return () => {
-         if (element) {
-            element.removeEventListener(
-               'mousemove',
-               handleMouseMove as EventListener
-            );
-         } else {
-            document.removeEventListener('mousemove', handleMouseMove);
-         }
+         target.removeEventListener('mousemove', handleMouseMove);
       };
-   }, [ref]);
+   }, [ref.current, handleMouseMove]);
 
    return mouse;
 };
