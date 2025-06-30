@@ -1,6 +1,9 @@
 import * as React from 'react';
 
 /**
+ * A custom hook to manage a numeric counter with optional min/max boundaries,
+ * previous state tracking, and looping behavior.
+ *
  * @param initialValue - The initial value of the counter (defaults to 0)
  * @param MINMAX - The minimum and maximum value of the counter when it reaches the maximum or minimum
  *  If Min is greater than initialValue, the counter will start at the minimum.
@@ -15,6 +18,26 @@ import * as React from 'react';
  * - setMinMax - A function that sets the minimum and maximum value of the counter
  * - resetCounter - A function that resets the counter to the initial value and sets.
  * - restToZero - A function that resets the counter to 0
+ *
+ *  * @example
+ * ```tsx
+ * const {
+ *   Count,
+ *   Increment,
+ *   Decrement,
+ *   resetCounter
+ * } = useCounter(5, { min: 0, max: 10 });
+ *
+ * return (
+ *   <>
+ *     <button onClick={Decrement}>-</button>
+ *     <span>{Count}</span>
+ *     <button onClick={Increment}>+</button>
+ *     <button onClick={resetCounter}>Reset</button>
+ *   </>
+ * );
+ * ```
+ *
  */
 export const useCounter = (
    initialCount: number = 0,
@@ -39,13 +62,14 @@ export const useCounter = (
 
    const Increment = React.useCallback(() => {
       if (
-         (Max && Count >= Max) ||
+         (typeof Max === 'number' && Count >= Max) ||
          (PreviousState === Count && Count < initialCount)
       ) {
          return;
       }
+
       setPreviousState(Count);
-      setCount(prevCount => prevCount + 1);
+      setCount((prevCount) => prevCount + 1);
    }, [Count, Max]);
 
    const RoundIncrement = React.useCallback(() => {
@@ -53,7 +77,7 @@ export const useCounter = (
          setCount(MINMAX.min || 1);
       } else {
          setPreviousState(Count);
-         setCount(prevCount => prevCount + 1);
+         setCount((prevCount) => prevCount + 1);
       }
    }, [Count, Max]);
 
@@ -65,7 +89,7 @@ export const useCounter = (
          return;
       }
       setPreviousState(Count);
-      setCount(prevCount => prevCount - 1);
+      setCount((prevCount) => prevCount - 1);
    }, [Count, Min]);
 
    const RoundDecrement = React.useCallback(() => {
@@ -73,7 +97,7 @@ export const useCounter = (
          setCount(MINMAX.max || 31);
       } else {
          setPreviousState(Count);
-         setCount(prevCount => prevCount - 1);
+         setCount((prevCount) => prevCount - 1);
       }
    }, [Count, Min]);
 
