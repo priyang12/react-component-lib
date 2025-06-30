@@ -18,7 +18,6 @@ export * from './YTCard';
 export * from './TextLanding';
 export * from './FormControl';
 export * from './DatePicker';
-export * from './Timer';
 export * from './DragNDrop';
 export * from './Slider';
 export * from './RadioInput';
