@@ -18,6 +18,12 @@ const parameters = {
          date: /Date$/,
       },
    },
+   backgrounds: {
+      options: {
+         dark: { name: 'Dark', value: '#333' },
+         light: { name: 'Light', value: '#F7F9F2' },
+      },
+   },
    docs: {
       theme: isDarkMode ? themes.dark : themes.light,
       // code block are not rendering correctly from jsdoc comments
@@ -28,6 +34,10 @@ const parameters = {
 const preview: Preview = {
    parameters: parameters,
    tags: ['autodocs'],
+   initialGlobals: {
+      // this will not work on reload but need to build again.
+      backgrounds: { value: isDarkMode ? themes.dark : themes.light },
+   },
 };
 
 export default preview;
