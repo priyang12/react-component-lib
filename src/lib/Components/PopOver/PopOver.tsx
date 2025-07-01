@@ -4,6 +4,8 @@ import PopTrigger from './components/PopTrigger';
 import PopClose from './components/PopClose';
 import PopPortal from './components/PopPortal';
 import PopArrow from './components/PopArrow';
+import PopoverFooter from './components/PopoverFooter';
+import PopoverHeader from './components/PopoverHeader';
 import './PopOver.scss';
 
 // Break it into clear subcomponents:
@@ -14,7 +16,6 @@ import './PopOver.scss';
 // Triggered options by click, hover, focus.
 // fix focus in Content.
 // need to add aria.
-// might add control state pass later.
 
 const PopOver = {
    Portal: PopPortal,
@@ -23,6 +24,8 @@ const PopOver = {
    Container: PopContainer,
    Close: PopClose,
    Arrow: PopArrow,
+   Header: PopoverHeader,
+   Footer: PopoverFooter,
 };
 
 export default PopOver;
