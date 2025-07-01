@@ -43,4 +43,4 @@
 -  [x] TextLink
 -  [x] Paragraph & Lead
 -  [] Hint
--  [] Blockquote
+-  [x] Blockquote
