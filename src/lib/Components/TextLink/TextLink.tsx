@@ -15,6 +15,10 @@ export interface TextLinkProps
 /**
  * TextLink component renders a styled inline link with underline and color variants.
  * Supports secure external linking and dark mode styling.
+ * @example
+ * ```tsx
+ * <TextLink> Link </TextLink>
+ * ```
  */
 const TextLink = ({
    underline = 'hover',

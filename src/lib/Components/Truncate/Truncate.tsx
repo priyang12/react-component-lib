@@ -14,7 +14,15 @@ export interface TruncateProps extends React.HTMLAttributes<HTMLElement> {
 /**
  * Truncate limits text to a fixed number of lines using CSS line-clamp.
  * Uses a CSS variable to control line count.
+ * @example
+ * ```tsx
+ *   <Truncate lines={2}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget nisl at
+ *    odio feugiat laoreet. Sed ac elit at nunc bibendum suscipit. Cras volutpat
+ *    purus ut arcu laoreet.
+ *   </Truncate>
+ * ```
  */
+
 const Truncate = ({
    children,
    showTooltip = true,
