@@ -6,7 +6,10 @@ const config: StorybookConfig = {
       name: '@storybook/react-vite',
       options: {},
    },
-   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
+   stories: [
+      '../src/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+      '../.stories/*.@(js|jsx|ts|tsx|mdx)',
+   ],
    addons: [
       '@storybook/addon-links',
       '@storybook/addon-a11y',
@@ -18,7 +21,6 @@ const config: StorybookConfig = {
       reactDocgen: 'react-docgen',
    },
    async viteFinal(config, { configType }) {
-      // customize if needed
       return config;
    },
 };

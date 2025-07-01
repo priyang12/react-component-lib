@@ -1,0 +1,119 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# 🎉 Welcome to Priyang React Component Library
+
+A robust, accessible, and customizable component library built with **SCSS**, focused on design consistency and developer ergonomics.
+
+---
+
+## 🚀 Getting Started
+
+### 📦 Installation
+
+```bash
+npm install @priyang/react-component-lib
+```
+
+Can be import from Global.
+
+```tsx
+import { Button } from '@priyang/react-component-lib';
+import '@priyang/index.css'; //  import in app.tsx or index.tsx
+
+<Button>Click Me</Button>;
+```
+
+or individual Component
+
+```tsx
+import { Button } from '@priyang/react-component-lib/lib/Components/Button';
+import '@priyang/react-component-lib/lib/Components/index.css';
+
+<Button>Click Me</Button>;
+```
+
+### 📚 What's Inside
+
+Fully accessible components, tested with keyboard, screen readers, and WCAG standards.
+
+Built using SCSS with utility-first mindset.
+
+Modular and tree-shakable design.
+
+Ready-to-use hooks in src/Hooks:
+
+useToggle, useCounter, useRipple, useThrottle, etc.
+
+### 🧩 Components Overview
+
+Explore our comprehensive set of UI components:
+
+Forms: Input, Select, RadioInput, Switch, Slider
+
+Layout: Spacer, Divider, DescriptionContainer
+
+Interactions: PopOver, Loader, Calendar, DragNDrop
+
+Visuals: TextEffect, TextLanding, StatusDot, ProgressBar
+
+Utility: FormControl, VercelButton, YTCard
+
+Check the Components section to browse them all.
+
+### 📄 Contributing & Docs
+
+Visit todo.md and note.md for dev plans and notes.
+
+See CHANGELOG.md for version history.
+
+Full component code in src/lib/Components/
+
+Hooks library in src/Hooks/
+
+## Styling.
+
+Our component library uses a set of CSS custom properties to ensure consistent theming, spacing, and typography.
+
+```css
+:root {
+   --text-primary: #333333;
+   --text-secondary: #666666;
+   --text-inverse: #ffffff;
+   --color-primary: #3b82f6;
+   --color-secondary: #e9cda9;
+   --radius-md: 4px;
+   --font-size-md: 1rem;
+   --gap-md: 1rem;
+   // ...and more
+
+   @media (prefers-color-scheme: dark) {
+      :root {
+         --text-primary: #f9fafb;
+         --bg-default: #111827;
+         // ...etc
+      }
+   }
+}
+```
+
+### 🎨 Core Tokens
+
+| Token Name            | Default Value | Description              |
+| --------------------- | ------------- | ------------------------ |
+| `--color-primary`     | `#3b82f6`     | Primary brand color      |
+| `--text-primary`      | `#333333`     | Primary text color       |
+| `--radius-md`         | `4px`         | Medium border radius     |
+| `--font-size-md`      | `1rem`        | Base font size           |
+| `--gap-md`            | `1rem`        | Medium spacing gap       |
+| `--bg-default` (dark) | `#111827`     | Background for dark mode |
+
+These can be used directly in your own CSS/SCSS like:
+
+```scss
+.my-class {
+   background-color: var(--color-primary);
+   font-size: var(--font-size-md);
+}
+```
