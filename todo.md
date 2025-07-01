@@ -22,7 +22,7 @@
 ## Components
 
 -  [x] make slider component
--  [] make popover component
+-  [x] make popover component
 -  [x] RadioGroup Component
 -  [x] make helper components like (Divider,Spacer,StatusDot,Loader)
 -  [x] Refactor Accordion
