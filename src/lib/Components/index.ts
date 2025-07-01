@@ -28,3 +28,4 @@ export * from './Spacer';
 export * from './StatusDot';
 export * from './Loader';
 export * from './Skeleton';
+export * from './Tag';

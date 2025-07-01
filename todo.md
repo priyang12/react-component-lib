@@ -31,8 +31,8 @@
 
 ### helper Components
 
--  [] Skeleton
--  [] Tag
+-  [x] Skeleton
+-  [x] Tag
 -  [] Heading
 -  [] Subheading
 -  [] Visually Hidden
