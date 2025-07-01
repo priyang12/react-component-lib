@@ -28,9 +28,9 @@ export const Template: StoryFn<typeof PopOver.Container> = (args) => {
             </PopOver.Trigger>
             <PopOver.Portal>
                <PopOver.Content asChild>
-                  <div className="flex bg-slate-100 w-1/2 p-4 rounded-lg z-30">
+                  <div className="flex bg-[var(--bg-surface)] w-1/2 p-4 rounded-lg z-30">
                      <PopOver.Arrow />
-                     <div>
+                     <div className="text-[var(--text-primary)]">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Debitis placeat labore impedit in saepe, atque tempora
                         aspernatur consequuntur iure unde velit odio nulla harum
@@ -64,7 +64,7 @@ export const witCustomRef: StoryFn<typeof PopOver.Container> = (args) => {
                <IoFilterOutline /> Open Filter
             </Button>
          </PopOver.Trigger>
-         <PopOver.PopOverPortal container={container}>
+         <PopOver.Portal container={container}>
             <PopOver.Content>
                <div className="flex bg-slate-100">
                   <div className="text-red-600">
@@ -76,7 +76,7 @@ export const witCustomRef: StoryFn<typeof PopOver.Container> = (args) => {
                   <PopOver.Close />
                </div>
             </PopOver.Content>
-         </PopOver.PopOverPortal>
+         </PopOver.Portal>
       </PopOver.Container>
    );
 };
