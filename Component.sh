@@ -45,7 +45,7 @@ EOF
 
   # Index file
   echo "export { default as $NAME } from './$NAME';" > "$COMP_PATH/index.ts"
-  echo "export type { ${NAME}Props } from './$NAME';" > "$COMP_PATH/index.ts"
+  echo "export type { ${NAME}Props } from './$NAME';" >> "$COMP_PATH/index.ts"
   
 
   # SCSS file
