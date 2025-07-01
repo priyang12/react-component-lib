@@ -3,6 +3,8 @@ import type { Meta, StoryFn } from '@storybook/react';
 import PopOver from './PopOver';
 import { IoFilterOutline } from 'react-icons/io5';
 import { Button } from '../Button';
+import PopoverHeader from './components/PopoverHeader';
+import PopoverFooter from './components/PopoverFooter';
 
 export default {
    title: 'Components/PopOver',
@@ -28,15 +30,34 @@ export const Template: StoryFn<typeof PopOver.Container> = (args) => {
             </PopOver.Trigger>
             <PopOver.Portal>
                <PopOver.Content asChild>
-                  <div className="flex bg-[var(--bg-surface)] w-1/2 p-4 rounded-lg z-30">
+                  <div className="flex flex-col bg-[var(--bg-surface)] w-1/2 p-4 rounded-lg z-30 space-y-4 ">
                      <PopOver.Arrow />
-                     <div className="text-[var(--text-primary)]">
+                     <PopOver.Close className="absolute top-2 right-2" />
+                     <PopoverHeader className="text-lg font-semibold text-[var(--text-primary)]">
+                        Popover Title
+                     </PopoverHeader>
+                     <div className="text-[var(--text-primary)] text-sm">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Debitis placeat labore impedit in saepe, atque tempora
                         aspernatur consequuntur iure unde velit odio nulla harum
                         mollitia rerum quo adipisci ipsam sequi.
                      </div>
-                     <PopOver.Close />
+
+                     <PopoverFooter>
+                        {({ setContentState }) => (
+                           <div className="flex justify-end space-x-2">
+                              <button
+                                 onClick={() => setContentState(false)}
+                                 className="px-3 py-1 bg-gray-200 rounded"
+                              >
+                                 Cancel
+                              </button>
+                              <button className="px-3 py-1 bg-blue-600 text-white rounded">
+                                 Confirm
+                              </button>
+                           </div>
+                        )}
+                     </PopoverFooter>
                   </div>
                </PopOver.Content>
             </PopOver.Portal>
@@ -73,7 +94,7 @@ export const witCustomRef: StoryFn<typeof PopOver.Container> = (args) => {
                      aspernatur consequuntur iure unde velit odio nulla harum
                      mollitia rerum quo adipisci ipsam sequi.
                   </div>
-                  <PopOver.Close />
+                  <PopOver.Close className="" />
                </div>
             </PopOver.Content>
          </PopOver.Portal>
