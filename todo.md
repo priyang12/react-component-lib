@@ -33,8 +33,14 @@
 
 -  [x] Skeleton
 -  [x] Tag
+-  [x] Visually Hidden
+-  [] Truncate
+
+### Typography
+
 -  [] Heading
 -  [] Subheading
--  [x] Visually Hidden
-
-other Typography.
+-  [x] TextLink
+-  [] Paragraph & Lead
+-  [] Hint
+-  [] Blockquote

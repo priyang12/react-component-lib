@@ -30,3 +30,5 @@ export * from './Loader';
 export * from './Skeleton';
 export * from './Tag';
 export * from './VisuallyHidden';
+export * from './TextLink';
+export * from './Truncate';
