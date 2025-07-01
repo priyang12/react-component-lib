@@ -35,6 +35,6 @@
 -  [x] Tag
 -  [] Heading
 -  [] Subheading
--  [] Visually Hidden
+-  [x] Visually Hidden
 
 other Typography.

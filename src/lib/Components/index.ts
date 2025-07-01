@@ -29,3 +29,4 @@ export * from './StatusDot';
 export * from './Loader';
 export * from './Skeleton';
 export * from './Tag';
+export * from './VisuallyHidden';
