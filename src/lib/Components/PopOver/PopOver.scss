@@ -42,7 +42,6 @@
 }
 
 .popContent {
-   position: absolute;
    z-index: 1000;
    color: var(--text-primary);
    background-color: var(--bg-surface);
@@ -53,15 +52,6 @@
 
    padding: 1rem;
    box-sizing: border-box;
-
-   transition: opacity 0.2s ease, transform 0.2s ease;
-   opacity: 0;
-   transform: translateY(-8px);
-
-   &.open {
-      opacity: 1;
-      transform: translateY(0);
-   }
 }
 
 .pop-close {

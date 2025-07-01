@@ -5,6 +5,7 @@ import { IoFilterOutline } from 'react-icons/io5';
 import { Button } from '../Button';
 import PopoverHeader from './components/PopoverHeader';
 import PopoverFooter from './components/PopoverFooter';
+import ReactFocusLock from 'react-focus-lock';
 
 export default {
    title: 'Components/PopOver',
@@ -29,8 +30,8 @@ export const Template: StoryFn<typeof PopOver.Container> = (args) => {
                </Button>
             </PopOver.Trigger>
             <PopOver.Portal>
-               <PopOver.Content asChild>
-                  <div className="flex flex-col bg-[var(--bg-surface)] w-1/2 p-4 rounded-lg z-30 space-y-4 ">
+               <PopOver.Content className="w-1/2">
+                  <div className="flex flex-col bg-[var(--bg-surface)] p-4 rounded-lg z-30 space-y-4 ">
                      <PopOver.Arrow />
                      <PopOver.Close className="absolute top-2 right-2" />
                      <PopoverHeader className="text-lg font-semibold text-[var(--text-primary)]">

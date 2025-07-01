@@ -101,6 +101,7 @@
     "date-fns": "^4.1.0",
     "lodash.chunk": "^4.2.0",
     "lodash.debounce": "^4.0.8",
+    "react-focus-lock": "^2.13.6",
     "react-transition-group": "^4.4.5"
   },
   "overrides": {
