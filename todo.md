@@ -41,6 +41,6 @@
 -  [x] Heading
 -  [x] Subheading
 -  [x] TextLink
--  [] Paragraph & Lead
+-  [x] Paragraph & Lead
 -  [] Hint
 -  [] Blockquote

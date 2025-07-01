@@ -34,3 +34,4 @@ export * from './TextLink';
 export * from './Truncate';
 export * from './Heading';
 export * from './Subheading';
+export * from './Paragraph';
