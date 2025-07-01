@@ -29,6 +29,11 @@ const parameters = {
       // code block are not rendering correctly from jsdoc comments
       // page: CustomDocsPage,
    },
+   options: {
+      storySort: {
+         order: ['Hooks', 'Components', 'Typography', 'Helper', 'Wrappers'],
+      },
+   },
 };
 
 const preview: Preview = {

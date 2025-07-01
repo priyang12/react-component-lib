@@ -32,3 +32,5 @@ export * from './Tag';
 export * from './VisuallyHidden';
 export * from './TextLink';
 export * from './Truncate';
+export * from './Heading';
+export * from './Subheading';

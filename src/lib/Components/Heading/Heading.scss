@@ -1,0 +1,29 @@
+.Heading {
+   color: var(--text-primary); // later move to inside props
+   font-weight: 700;
+   line-height: 1.25;
+   margin: 0;
+   &--display {
+      font-size: 3rem;
+   }
+
+   &--xl {
+      font-size: var(--font-size-xl);
+   }
+
+   &--lg {
+      font-size: var (--font-size-lg);
+   }
+
+   &--md {
+      font-size: var(--font-size-md);
+   }
+
+   &--sm {
+      font-size: var(--font-size-sm);
+   }
+
+   &--xs {
+      font-size: var(--font-size-xs);
+   }
+}

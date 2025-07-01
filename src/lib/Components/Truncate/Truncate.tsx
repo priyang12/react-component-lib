@@ -6,7 +6,7 @@ export interface TruncateProps extends React.HTMLAttributes<HTMLElement> {
    /** Show full text in native tooltip */
    showTooltip?: boolean;
    /** HTML tag to render as (e.g., span, div, p) */
-   as?: any;
+   as?: React.ElementType;
    /** Number of lines to truncate after */
    lines?: number;
 }
