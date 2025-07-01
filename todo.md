@@ -34,12 +34,12 @@
 -  [x] Skeleton
 -  [x] Tag
 -  [x] Visually Hidden
--  [] Truncate
+-  [x] Truncate
 
 ### Typography
 
--  [] Heading
--  [] Subheading
+-  [x] Heading
+-  [x] Subheading
 -  [x] TextLink
 -  [] Paragraph & Lead
 -  [] Hint
