@@ -31,10 +31,16 @@
 
 ### helper Components
 
--  [] Skeleton
--  [] Tag
--  [] Heading
--  [] Subheading
--  [] Visually Hidden
+-  [x] Skeleton
+-  [x] Tag
+-  [x] Visually Hidden
+-  [x] Truncate
 
-other Typography.
+### Typography
+
+-  [x] Heading
+-  [x] Subheading
+-  [x] TextLink
+-  [x] Paragraph & Lead
+-  [] Hint
+-  [x] Blockquote

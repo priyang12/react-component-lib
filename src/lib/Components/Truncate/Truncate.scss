@@ -1,0 +1,8 @@
+.Truncate {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   line-clamp: var(--truncate-lines, 1);
+   -webkit-line-clamp: var(--truncate-lines, 1);
+}

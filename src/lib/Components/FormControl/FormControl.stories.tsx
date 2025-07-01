@@ -58,7 +58,7 @@ export const TextareaControl: StoryFn<typeof FormControl> = (args) => (
       <Label htmlFor="Search" size="medium">
          Search
       </Label>
-      <TextArea id="textarea" resize="both" Size="medium" />
+      <TextArea id="textarea" resize="both" size="medium" />
    </FormControl>
 );
 

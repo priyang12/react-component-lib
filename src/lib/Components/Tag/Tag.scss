@@ -1,0 +1,55 @@
+@use 'sass:map';
+// variants map
+
+.Tag {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.5rem;
+   padding: 0.25rem 0.75rem;
+   border-radius: 1rem;
+   font-size: var(--font-md);
+   background-color: var(--bg-surface);
+   color: var(--text-primary);
+   border: 2px solid var(--bg-contrast);
+   transition: background-color 0.2s ease-in-out;
+
+   span[aria-label='close'] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 0.5rem;
+      cursor: pointer;
+      transition: color 0.2s ease-in-out;
+
+      svg {
+         width: 1rem;
+         height: 1rem;
+      }
+
+      &:hover {
+         color: var(--error-color);
+      }
+   }
+}
+$variants: (
+   primary: var(--primary-500),
+   secondary: var(--neutral-500),
+   failure: var(--error-color),
+   success: var(--success-color),
+   info: var(--info-color),
+   warning: var(--warning-color),
+);
+// Generate classes
+@each $name, $color in $variants {
+   .Tag--#{$name} {
+      color: var(--text-primary);
+      background-color: #{$color};
+      border: none;
+   }
+
+   .Tag--#{$name}-border {
+      color: #{$color};
+      background-color: var(--bg-surface);
+      border: 2px solid #{$color};
+   }
+}

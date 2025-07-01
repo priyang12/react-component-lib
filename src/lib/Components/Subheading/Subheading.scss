@@ -1,0 +1,17 @@
+.Subheading {
+   font-weight: 500;
+   margin: 0;
+   color: var(--text-secondary, #666);
+
+   &--lg {
+      font-size: 1.25rem;
+   }
+
+   &--md {
+      font-size: 1rem;
+   }
+
+   &--sm {
+      font-size: 0.875rem;
+   }
+}

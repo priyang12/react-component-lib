@@ -1,0 +1,40 @@
+.TextLink {
+   font-weight: 500;
+   text-decoration: none;
+   cursor: pointer;
+   transition: color 0.2s ease;
+
+   &--primary {
+      color: var(--primary-500);
+   }
+
+   &--secondary {
+      color: var(--neutral-600);
+   }
+
+   &--muted {
+      color: var(--text-secondary);
+   }
+
+   &--underline-always {
+      text-decoration: underline;
+   }
+
+   &--underline-hover {
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+         text-decoration: underline;
+      }
+   }
+
+   &--underline-none {
+      text-decoration: none;
+   }
+
+   &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
+   }
+}
