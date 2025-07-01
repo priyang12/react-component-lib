@@ -1,6 +1,3 @@
-.popContent {
-   color: var(--text-primary);
-}
 .pop-arrow {
    width: 16px;
    height: 16px;
@@ -25,5 +22,74 @@
 
    .right {
       transform: rotate(-90deg);
+   }
+}
+
+.popover-header {
+   font-weight: bold;
+   padding: 0.75rem 1rem;
+   border-bottom: 1px solid var(--text-secondary);
+   background-color: var(--bg-surface);
+   font-size: 1rem;
+}
+
+.popover-footer {
+   padding: 0.75rem 1rem;
+   border-top: 1px solid var(--text-secondary);
+   background-color: var(--bg-surface);
+   text-align: right;
+   font-size: 0.875rem;
+}
+
+.popContent {
+   position: absolute;
+   z-index: 1000;
+   color: var(--text-primary);
+   background-color: var(--bg-surface);
+   border: 1px solid var(--text-secondary);
+   border-radius: 0.5rem;
+   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+   padding: 1rem;
+   box-sizing: border-box;
+
+   transition: opacity 0.2s ease, transform 0.2s ease;
+   opacity: 0;
+   transform: translateY(-8px);
+
+   &.open {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+.pop-close {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+
+   width: 32px;
+   height: 32px;
+   border-radius: 4px;
+
+   color: var(--text-primary);
+   background-color: transparent;
+   transition: background-color 0.2s ease, color 0.2s ease;
+
+   &:hover {
+      background-color: var(--bg-default);
+      color: var(--text-secondary);
+   }
+
+   &:focus {
+      outline: 2px solid var(--info-color);
+      outline-offset: 2px;
+   }
+
+   svg {
+      width: 20px;
+      height: 20px;
    }
 }
