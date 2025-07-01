@@ -7,7 +7,7 @@ export interface popClosePorps extends React.ComponentPropsWithoutRef<'div'> {}
 const PopClose = ({ ...props }: popClosePorps) => {
    const { setContentState } = usePopContext();
    return (
-      <div {...props} onClick={() => setContentState(false)}>
+      <div {...props} tabIndex={0} onClick={() => setContentState(false)}>
          <Button variant="primary-border">
             <IoMdClose />
          </Button>

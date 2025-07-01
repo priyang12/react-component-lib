@@ -12,6 +12,7 @@ import './PopOver.scss';
 // PopoverContent: The Content element.
 // (Need to add) PopoverArrow, PopoverHeader, PopoverFooter for styling clarity
 // Triggered options by click, hover, focus.
+// fix focus in Content.
 // need to add aria.
 // might add control state pass later.
 

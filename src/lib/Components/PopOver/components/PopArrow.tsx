@@ -10,8 +10,6 @@ const PopArrow = () => {
       left: 'right',
    }[placement.split('-')[0]] as string;
 
-   console.log(staticSide);
-
    return (
       <div
          className="pop-arrow"
@@ -23,7 +21,10 @@ const PopArrow = () => {
             [staticSide]: '-8px',
          }}
       >
-         <FiTriangle fill="black" className={`arrow-icon ${staticSide}`} />
+         <FiTriangle
+            fill={'var(--bg-surface)'}
+            className={`arrow-icon ${staticSide}`}
+         />
       </div>
    );
 };
