@@ -1,0 +1,43 @@
+@use 'sass:map';
+
+$variants: (
+   primary: var(--text-primary),
+   secondary: var(--text-tertiary),
+   error: var(--error-color),
+   success: var(--success-color),
+   info: var(--info-color),
+   warning: var(--warning-color),
+);
+
+.Paragraph {
+   color: var(--text-primary);
+   line-height: 1.6;
+   margin: 0;
+
+   // maybe later create using loop in scss
+   &--lg {
+      font-size: var(--font-size-lg);
+   }
+
+   &--md {
+      font-size: var(--font-size-md);
+   }
+
+   &--sm {
+      font-size: var(--font-size-sm);
+   }
+
+   @each $name, $color in $variants {
+      &--#{$name} {
+         color: $color;
+      }
+   }
+}
+
+.Paragraph--lead {
+   display: inline;
+   font-size: var(--font-size-xl, 1.125rem);
+   line-height: inherit;
+   font-weight: 700;
+   color: var(--text-primary);
+}
