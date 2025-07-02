@@ -74,6 +74,10 @@
    --gap-xl: 2rem;
    --gap-2xl: 3rem;
 
+   // calendar specific
+   --calendar-bg-color: #fdfdfd;
+   --calendar-gap: 0.5rem;
+
    // need to add more typography later.
 
    // for old style compatible
@@ -122,6 +126,9 @@
       --neutral-900: #333333;
 
       // need to handle dark mode
+      // calendar specific
+      --calendar-bg-color: #0e0e0e;
+      --calendar-gap: 0.5rem;
    }
 }
 

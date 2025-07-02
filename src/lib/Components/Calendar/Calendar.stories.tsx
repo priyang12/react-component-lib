@@ -1,12 +1,5 @@
-import {
-   Calendar,
-   CalendarBody,
-   CalendarDays,
-   CalendarFooter,
-   CalendarWeeks,
-   CalendarTitle,
-} from './Calendar';
-import type { Meta, StoryFn } from '@storybook/react';
+import * as React from 'react';
+import Calendar from './Calendar';
 import {
    FaAngleDoubleLeft,
    FaAngleLeft,
@@ -14,37 +7,38 @@ import {
    FaAngleDoubleRight,
    FaCalendarAlt,
 } from 'react-icons/fa';
-import * as React from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
    title: 'Components/Calendar',
-   component: Calendar,
+   component: Calendar.Container,
+   subcomponents: Calendar,
    args: {
       className: 'date-picker-cal',
    },
    decorators: [(story) => <div className="container">{story()}</div>],
-} as Meta<typeof Calendar>;
+} as Meta<typeof Calendar.Container>;
 
-export const Template: StoryFn<typeof Calendar> = (args) => {
+export const Template: StoryFn<typeof Calendar.Container> = (args) => {
    const [selectedDate, setSelectedDate] = React.useState(new Date());
    return (
-      <Calendar
+      <Calendar.Container
          {...args}
          selectedDate={selectedDate}
          setSelectedDate={setSelectedDate}
       >
-         <CalendarTitle
+         <Calendar.Title
             DoubleLeftArrow={FaAngleDoubleLeft}
             LeftArrow={FaAngleLeft}
             RightArrow={FaAngleRight}
             DoubleRightArrow={FaAngleDoubleRight}
          />
-         <CalendarBody>
-            <CalendarWeeks />
-            <CalendarDays />
-         </CalendarBody>
-         <CalendarFooter CalendarIcon={FaCalendarAlt} />
-      </Calendar>
+         <Calendar.Body>
+            <Calendar.Weeks />
+            <Calendar.Days />
+         </Calendar.Body>
+         <Calendar.Footer CalendarIcon={FaCalendarAlt} />
+      </Calendar.Container>
    );
 };
 
