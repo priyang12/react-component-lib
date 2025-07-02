@@ -1,26 +1,72 @@
-.label {
-   margin-bottom: var(--gap-sm);
-   color: var(--text-primary);
-   font-size: var(--font-size-sm);
-   font-weight: 500;
-}
-.date {
+// .date {
+//    display: flex;
+//    font-size: var(--font-size-sm);
+
+//    & > [role='spinbutton'] {
+//       flex: 1;
+//       cursor: pointer;
+//       text-align: center;
+//       border: none;
+//       transition: transform 1s ease;
+//       &:focus {
+//          outline: 2px solid var(--neutral-700);
+//       }
+//       &:focus {
+//          transform: scale(1.1);
+//       }
+//    }
+// }
+
+.DateField {
    display: flex;
-   font-size: var(--font-size-sm);
-   & > * {
-      flex: 1;
-      padding: 1em;
-      cursor: pointer;
-      transition: transform 1s ease;
-      &:focus {
-         outline: 2px solid var(--neutral-700);
-      }
-      &:focus {
-         transform: scale(1.1);
+   flex-direction: column;
+   gap: 0.5rem;
+   font-family: inherit;
+
+   &.disabled {
+      opacity: 0.6;
+      pointer-events: none;
+   }
+
+   // Focus indication
+   &[data-DatePicker--focus='true'] {
+      .date input {
+         border-color: var(--info-color);
+         box-shadow: 0 0 0 2px rgba(38, 132, 255, 0.2);
       }
    }
-   & > [role='spinbutton'] {
-      text-align: center;
-      border: none;
+
+   .date {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+
+      input {
+         width: 3.5rem;
+         padding: 0.5rem 0.4rem;
+         font-size: 1rem;
+         color: var(--text-primary);
+         border: 1px solid var(--text-primary);
+         border-radius: 4px;
+         text-align: center;
+         outline: none;
+         background-color: var(--bg-surface);
+         transition: border 0.2s ease;
+
+         &::placeholder {
+            color: var(--text-secondary);
+         }
+
+         &:focus {
+            border-color: var(--info-color);
+         }
+      }
+
+      .separate-sign {
+         font-size: 1rem;
+         padding: 0 0.25rem;
+         color: var(--text-primary);
+         user-select: none;
+      }
    }
 }

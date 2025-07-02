@@ -27,7 +27,7 @@ export const Template: StoryFn<typeof DateField> = (args) => {
 
 export const FormateDate = Template.bind({});
 FormateDate.args = {
-   formattedDate: 'MM/YYYY/DD',
+   formatted: 'MM/YYYY/DD',
 };
 
 export const FieldStyled = Template.bind({});

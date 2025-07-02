@@ -26,7 +26,7 @@ export interface BaseDateFieldProps
     * The format of the displayed date parts (defaults to `'DD/MM/YYYY'`).
     * Must include all parts: `DD`, `MM`, `YYYY` in any order.
     */
-   formattedDate?:
+   formatted?:
       | 'DD/MM/YYYY'
       | 'DD-MM-YYYY'
       | 'YYYY/DD/MM'
@@ -75,7 +75,7 @@ export interface BaseDateFieldProps
 function DateField({
    date,
    setDate,
-   formattedDate = 'DD/MM/YYYY',
+   formatted: formattedDate = 'DD/MM/YYYY',
    separateSign = '/',
    ShouldSeparate = true,
    hiddenInput = false,
@@ -101,7 +101,7 @@ function DateField({
       month: false,
       year: false,
    });
-   const [MaxDays, setMaxDays] = React.useState(MaxDaysWithoutLeap);
+   const [MaxDays] = React.useState(MaxDaysWithoutLeap);
 
    // this will set switch between day month and year
    const TargetsRefs = [] as React.RefObject<HTMLInputElement>[];
@@ -134,44 +134,30 @@ function DateField({
       RoundIncrement: incrementDay,
       RoundDecrement: decrementDay,
       setCounter: setDay,
-      setMaxCounter: setMaxDay,
    } = useCounter(date.getDate(), {
       max: MaxDays[monthCount as keyof typeof MaxDays],
       min: 1,
    });
 
-   React.useEffect(() => {
-      setMaxDay(MaxDays[monthCount as keyof typeof MaxDays]);
-      if (dayCount > MaxDays[monthCount as keyof typeof MaxDays])
-         setDay(MaxDays[monthCount as keyof typeof MaxDays]);
-   }, [monthCount]);
+   const isLeap = isLeapYear(new Date(yearCount, 1, 1));
+   const daysInMonth = {
+      ...MaxDays,
+      2: isLeap ? 29 : 28,
+   };
 
+   const maxDaysThisMonth = daysInMonth[monthCount as keyof typeof daysInMonth];
+   const validDay = Math.min(dayCount, maxDaysThisMonth);
+
+   // should remove setDay by moving up the chain and passing the value to counter.
    React.useEffect(() => {
-      if (isLeapYear(new Date(yearCount, 1, 1))) {
-         setMaxDay(29);
-         setMaxDays({
-            ...MaxDays,
-            2: 29,
-         });
-      } else {
-         setMaxDay(28);
-         setMaxDays({
-            ...MaxDays,
-            2: 28,
-         });
-         if (dayCount > 28) setDay(28);
+      if (dayCount !== validDay) {
+         setDay(validDay);
       }
-   }, [yearCount]);
-
-   React.useEffect(() => {
-      setDate(new Date(yearCount, monthCount - 1, dayCount));
+      const newDate = new Date(yearCount, monthCount - 1, validDay);
+      if (newDate.getTime() !== date.getTime()) {
+         setDate(newDate);
+      }
    }, [yearCount, monthCount, dayCount]);
-
-   React.useEffect(() => {
-      setYear(date.getFullYear());
-      setMonthCounter(date.getMonth() + 1);
-      setDay(date.getDate());
-   }, [date]);
 
    const KeyPressedDays = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === KEYCODE.UP) {
@@ -192,16 +178,7 @@ function DateField({
          }
       }
       if (e.key === KEYCODE.BACKSPACE) {
-         if (!Math.floor(dayCount / 10)) {
-            setDay(date.getDate());
-            setFocusElement({
-               ...FocusElement,
-               day: false,
-            });
-            DaysRef.current?.blur();
-         } else {
-            setDay(Math.floor(dayCount / 10));
-         }
+         setDay(Math.floor(dayCount / 10));
       }
    };
 
@@ -221,16 +198,7 @@ function DateField({
          }
       }
       if (e.key === KEYCODE.BACKSPACE) {
-         if (!Math.floor(monthCount / 10)) {
-            setMonthCounter(date.getMonth() + 1);
-            setFocusElement({
-               ...FocusElement,
-               month: false,
-            });
-            MonthsRef.current?.blur();
-         } else {
-            setMonthCounter(Math.floor(monthCount / 10));
-         }
+         setMonthCounter(Math.floor(monthCount / 10));
       }
    };
 
@@ -248,16 +216,7 @@ function DateField({
          }
       }
       if (e.key === KEYCODE.BACKSPACE) {
-         if (!Math.floor(yearCount / 10)) {
-            setYear(date.getFullYear());
-            setFocusElement({
-               ...FocusElement,
-               year: false,
-            });
-            YearsRef.current?.blur();
-         } else {
-            setYear(Math.floor(yearCount / 10));
-         }
+         setYear(yearCount);
       }
    };
 
@@ -405,9 +364,9 @@ function DateField({
                               ariaValueNow={yearCount}
                               ariaValueText={yearCount.toString()}
                               displayValue={
-                                 FocusElement.year ? yearCount : 'YY'
+                                 FocusElement.year ? yearCount : 'YYYY'
                               }
-                              placeholder="MM"
+                              placeholder="YYYY"
                               onKeyDown={KeyPressed}
                               onFocus={Focus}
                            />
