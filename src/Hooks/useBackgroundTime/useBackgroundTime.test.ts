@@ -1,4 +1,5 @@
-import { renderHook, act } from '@testing-library/react';
+import { act } from 'react';
+import { renderHook } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { useBackgroundTime } from './useBackgroundTime'; // update path as needed
 
