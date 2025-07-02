@@ -35,3 +35,4 @@ export * from './Heading';
 export * from './Subheading';
 export * from './Paragraph';
 export * from './Blockquote';
+export * from './PinInput';
