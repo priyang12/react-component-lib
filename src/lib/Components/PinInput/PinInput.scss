@@ -1,0 +1,25 @@
+.PinInput {
+   display: flex;
+   gap: 0.5rem;
+
+   .pin-input {
+      width: 3rem;
+      height: 3rem;
+      text-align: center;
+      font-size: 1.5rem;
+      border: 1px solid var(--text-secondary);
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.2s;
+
+      &:focus {
+         border-color: var(--info-color);
+         box-shadow: 0 0 0 2px rgba(38, 132, 255, 0.2);
+      }
+
+      &:disabled {
+         background-color: var(--text-tertiary);
+         cursor: not-allowed;
+      }
+   }
+}

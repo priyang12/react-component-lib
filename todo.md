@@ -26,8 +26,8 @@
 -  [x] RadioGroup Component
 -  [x] make helper components like (Divider,Spacer,StatusDot,Loader)
 -  [x] Refactor Accordion
--  [] Calendar (remove DatePicker)
--  [] Pin Input
+-  [x] Calendar
+-  [x] Pin Input
 
 ### helper Components
 
