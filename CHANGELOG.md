@@ -1,5 +1,25 @@
 # priyang-react-component-lib
 
+## 3.0.0
+
+### Major Changes
+
+-  Major Release: Refactor from Atomic Design to Component-Driven Architecture
+
+   This release introduces a full overhaul of the component library with the following breaking and structural changes:
+
+   -  **Architecture:** Transitioned from Atomic Design methodology to a more flexible, component-driven building block structure.
+   -  **New Components:** Added multiple fully tested and reusable UI components.
+   -  **Barrel Exports:** Introduced barrel file exports for easier and cleaner imports.
+   -  **Autodocs:** Enabled automatic documentation using `react-docgen` and JSDoc — now fully integrated into Storybook.
+   -  **Testing:** All core components are now covered with unit tests.
+
+   > **Breaking Change:** Imports and component structure may have changed. Please refer to the updated documentation and Storybook for migration help.
+
+### Patch Changes
+
+-  4720fa1: removed scss-loader from dep to dev-dep
+
 ## 1.1.0
 
 ### Minor Changes

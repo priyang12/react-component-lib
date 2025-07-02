@@ -1,6 +1,6 @@
 {
   "name": "@priyang/react-component-lib",
-  "version": "1.0.3",
+  "version": "3.0.0",
   "private": false,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -31,16 +31,15 @@
     "build:types": "tsc --project tsconfig.build.json --emitDeclarationOnly",
     "build-storybook": "storybook build",
     "build:test": "tsup && npm pack --pack-destination ~",
+    "clean": "rimraf dist",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "prepare": "yarn build",
-    "size": "size-limit",
+    "checkSize": "size-limit",
     "analyzeMapper": "source-map-explorer 'dist/*.js'",
-    "version": "yarn changeset version",
     "pretty-Component": "yarn prettier -w ./src/lib/**/*.{ts,tsx}",
-    "lib": "bash lib.sh",
     "component": "bash Component.sh",
-    "clean": "rimraf dist",
+    "version": "yarn changeset version",
     "publish": "npm run changeset publish --access=public"
   },
   "size-limit": [
