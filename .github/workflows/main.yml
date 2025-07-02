@@ -5,11 +5,11 @@ jobs:
       name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
 
       runs-on: ${{ matrix.os }}
-      timeout-minutes: 20
+      timeout-minutes: 10
 
       strategy:
          matrix:
-            node: ['16.x', '14.x']
+            node: ['18.x']
             os: [ubuntu-latest, macOS-latest]
 
       steps:
@@ -22,8 +22,7 @@ jobs:
               node-version: ${{ matrix.node }}
 
          - name: Install deps and build (with cache)
-           if: ${{ !env.ACT }}
-           uses: bahmutov/npm-install@v1
+           run: npm install
 
          - name: Test
            run: yarn test
