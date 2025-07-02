@@ -1,193 +1,85 @@
 import * as React from 'react';
-import Label from '../../Components/Label/Label';
 import { useCounter } from '../../../Hooks/useCounter';
 import { isLeapYear } from 'date-fns';
 import { clsx } from 'clsx';
+import { BaseInput } from './Inputs';
+import { SeparateSignWrapper } from './SeparateSignWrapper';
+import { KEYCODE, MaxDaysWithoutLeap } from './constants';
 import './DateField.scss';
 
-export interface BaseDateInputProps {
-   KeyPressed: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-   Focus: (e: React.FocusEvent<HTMLInputElement>) => void;
-   FieldInputStyles?: React.CSSProperties;
-   FocusElement: {
-      day: boolean;
-      month: boolean;
-      year: boolean;
-   };
-}
-
-function DayInput({
-   dayCount,
-   FieldInputStyles,
-   DaysRef,
-   FocusElement,
-   MaxDays,
-   monthCount,
-   KeyPressed,
-   Focus,
-}: BaseDateInputProps & {
-   dayCount: number;
-   DaysRef: React.RefObject<HTMLInputElement>;
-   monthCount: number;
-   MaxDays: typeof MaxDaysWithoutLeap;
-}) {
-   return (
-      <input
-         role={'spinbutton'}
-         style={FieldInputStyles}
-         aria-valuemax={MaxDays[monthCount as keyof typeof MaxDays]}
-         aria-valuemin={0}
-         aria-valuenow={dayCount}
-         aria-valuetext={dayCount.toString()}
-         aria-label="Day"
-         ref={DaysRef}
-         tabIndex={0}
-         onKeyDown={KeyPressed}
-         onChange={() => {}}
-         onFocus={Focus}
-         value={FocusElement.day ? dayCount : 'DD'}
-         placeholder="DD"
-      />
-   );
-}
-
-function MouthInput({
-   monthCount,
-   MonthsRef,
-   FieldInputStyles,
-   FocusElement,
-   KeyPressed,
-   Focus,
-}: {
-   monthCount: number;
-   MonthsRef: React.RefObject<HTMLInputElement>;
-} & BaseDateInputProps) {
-   return (
-      <input
-         role="spinbutton"
-         style={FieldInputStyles}
-         aria-valuemax={12}
-         aria-valuemin={1}
-         aria-valuenow={monthCount}
-         aria-valuetext={monthCount.toString()}
-         aria-label="Month"
-         ref={MonthsRef}
-         tabIndex={0}
-         onKeyDown={KeyPressed}
-         onFocus={Focus}
-         onChange={() => {}}
-         value={FocusElement.month ? monthCount : 'MM'}
-         placeholder="MM"
-      />
-   );
-}
-
-function YearInput({
-   yearCount,
-   YearsRef,
-   FieldInputStyles,
-   KeyPressed,
-   Focus,
-   FocusElement,
-}: {
-   yearCount: number;
-   YearsRef: React.RefObject<HTMLInputElement>;
-} & BaseDateInputProps) {
-   return (
-      <input
-         role="spinbutton"
-         style={FieldInputStyles}
-         aria-valuemax={9999}
-         aria-valuemin={1}
-         aria-valuenow={yearCount}
-         aria-valuetext={yearCount.toString()}
-         aria-label="Year"
-         ref={YearsRef}
-         tabIndex={0}
-         onKeyDown={KeyPressed}
-         onFocus={Focus}
-         value={FocusElement.year ? yearCount : 'YYYY'}
-         onChange={() => {}}
-      />
-   );
-}
-
-function SeparateSignWrapper({
-   separateSign,
-   ShouldSeparate,
-   children,
-   index,
-}: {
-   index: number;
-   separateSign: string;
-   ShouldSeparate: boolean;
-   children: React.ReactNode;
-}) {
-   if (ShouldSeparate && index === 1) {
-      return (
-         <>
-            <span className="separate-sign">{separateSign}</span>
-            {children}
-            <span className="separate-sign">{separateSign}</span>
-         </>
-      );
-   } else {
-      return <>{children}</>;
-   }
-}
-
-const KEYCODE = {
-   LEFT: 'ArrowLeft',
-   RIGHT: 'ArrowRight',
-   UP: 'ArrowUp',
-   DOWN: 'ArrowDown',
-   BACKSPACE: 'Backspace',
-} as const;
-
-const MaxDaysWithoutLeap = {
-   1: 31,
-   2: 28,
-   3: 31,
-   4: 30,
-   5: 31,
-   6: 30,
-   7: 31,
-   8: 31,
-   9: 30,
-   10: 31,
-   11: 30,
-   12: 31,
-};
-
+/**
+ * Props for the BaseDateField component.
+ */
 export interface BaseDateFieldProps
-   extends React.ComponentPropsWithoutRef<'div'> {
-   label: string;
-   id: string;
+   extends React.HTMLAttributes<HTMLDivElement> {
+   /**
+    * The currently selected date.
+    */
+   date: Date;
+
+   /**
+    * Function to update the selected date.
+    */
+   setDate: React.Dispatch<React.SetStateAction<Date>>;
+
+   /**
+    * The format of the displayed date parts (defaults to `'DD/MM/YYYY'`).
+    * Must include all parts: `DD`, `MM`, `YYYY` in any order.
+    */
    formattedDate?:
       | 'DD/MM/YYYY'
       | 'DD-MM-YYYY'
       | 'YYYY/DD/MM'
       | 'YYYY/MM/DD'
       | 'MM/YYYY/DD';
-   date: Date;
+
+   /**
+    * Character to separate date parts (e.g., `'/'`, `'-'`, `'.'`).
+    * Default is `'/'`.
+    */
    separateSign?: string;
-   ShouldSeparate: boolean;
-   setDate: React.Dispatch<React.SetStateAction<Date>>;
+
+   /**
+    * Whether to visually show the separator sign between date parts.
+    * Default is `true`.
+    */
+   ShouldSeparate?: boolean;
+
+   /**
+    * Whether to include a hidden input to store ISO date string for form submission.
+    * Default is `false`.
+    */
    hiddenInput?: boolean;
-   inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
+
+   /**
+    * Additional props to be passed to the hidden input element, if `hiddenInput` is true.
+    */
+   hiddenInputProps?: React.InputHTMLAttributes<HTMLInputElement>;
+
+   /**
+    * Optional inline styles for the individual day/month/year input fields.
+    */
    FieldInputStyles?: React.CSSProperties;
+
+   /**
+    * Additional class name for the outer container.
+    */
+   className?: string;
+
+   /**
+    * Children to render below the date inputs (e.g. messages, custom buttons).
+    */
+   children?: React.ReactNode;
 }
 
 function DateField({
-   label,
-   id,
+   date,
+   setDate,
    formattedDate = 'DD/MM/YYYY',
    separateSign = '/',
    ShouldSeparate = true,
-   date,
-   setDate,
    hiddenInput = false,
-   inputProps,
+   hiddenInputProps,
    FieldInputStyles,
    className,
    children,
@@ -444,9 +336,6 @@ function DateField({
          }
          {...props}
       >
-         <Label className="label" htmlFor={id}>
-            {label}
-         </Label>
          <div className="date">
             {TargetsRefs.map((TargetRef, index) => {
                switch (index) {
@@ -457,15 +346,20 @@ function DateField({
                            ShouldSeparate={ShouldSeparate}
                            separateSign={separateSign}
                         >
-                           <DayInput
+                           <BaseInput
                               FieldInputStyles={FieldInputStyles}
-                              dayCount={dayCount}
-                              DaysRef={TargetRef}
-                              MaxDays={MaxDays}
-                              FocusElement={FocusElement}
-                              monthCount={monthCount}
-                              KeyPressed={KeyPressed}
-                              Focus={Focus}
+                              inputRef={TargetRef}
+                              ariaLabel="Day"
+                              ariaValueMax={
+                                 MaxDays[monthCount as keyof typeof MaxDays]
+                              }
+                              ariaValueMin={1}
+                              ariaValueNow={dayCount}
+                              ariaValueText={dayCount.toString()}
+                              displayValue={FocusElement.day ? dayCount : 'DD'}
+                              placeholder="DD"
+                              onKeyDown={KeyPressed}
+                              onFocus={Focus}
                            />
                         </SeparateSignWrapper>
                      );
@@ -477,13 +371,20 @@ function DateField({
                            ShouldSeparate={ShouldSeparate}
                            separateSign={separateSign}
                         >
-                           <MouthInput
+                           <BaseInput
                               FieldInputStyles={FieldInputStyles}
-                              monthCount={monthCount}
-                              MonthsRef={TargetRef}
-                              KeyPressed={KeyPressed}
-                              FocusElement={FocusElement}
-                              Focus={Focus}
+                              inputRef={TargetRef}
+                              ariaLabel="Month"
+                              ariaValueMax={12}
+                              ariaValueMin={1}
+                              ariaValueNow={monthCount}
+                              ariaValueText={monthCount.toString()}
+                              displayValue={
+                                 FocusElement.month ? monthCount : 'MM'
+                              }
+                              placeholder="MM"
+                              onKeyDown={KeyPressed}
+                              onFocus={Focus}
                            />
                         </SeparateSignWrapper>
                      );
@@ -495,13 +396,20 @@ function DateField({
                            ShouldSeparate={ShouldSeparate}
                            separateSign={separateSign}
                         >
-                           <YearInput
+                           <BaseInput
                               FieldInputStyles={FieldInputStyles}
-                              yearCount={yearCount}
-                              YearsRef={TargetRef}
-                              KeyPressed={KeyPressed}
-                              FocusElement={FocusElement}
-                              Focus={Focus}
+                              inputRef={TargetRef}
+                              ariaLabel="Year"
+                              ariaValueMin={1}
+                              ariaValueMax={9999}
+                              ariaValueNow={yearCount}
+                              ariaValueText={yearCount.toString()}
+                              displayValue={
+                                 FocusElement.year ? yearCount : 'YY'
+                              }
+                              placeholder="MM"
+                              onKeyDown={KeyPressed}
+                              onFocus={Focus}
                            />
                         </SeparateSignWrapper>
                      );
@@ -513,7 +421,11 @@ function DateField({
             })}
          </div>
          {hiddenInput && (
-            <input type="hidden" value={date.toISOString()} {...inputProps} />
+            <input
+               type="hidden"
+               value={date.toISOString()}
+               {...hiddenInputProps}
+            />
          )}
          {children}
       </div>
