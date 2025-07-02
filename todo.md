@@ -18,6 +18,7 @@
 -  [x] auto docs is rendering @example blocks. need to prevent this by wrapping in code block ```.
 -  [x] add introduction page with styling and css variables and changelog.
 -  [] add forward ref in all components or just upgrade to react 19
+-  [] fix build export and import
 
 ## Components
 
