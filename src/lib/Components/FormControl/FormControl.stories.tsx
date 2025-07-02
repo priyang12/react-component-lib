@@ -147,3 +147,12 @@ export const SelectControl: StoryFn<typeof FormControl> = (args) => (
       />
    </FormControl>
 );
+
+// export const DateField = () => {
+//    return (
+//       <FormControl>
+//          <Label htmlFor="Data field">Data field</Label>
+//          <Input type="date" InputSize="medium" />
+//       </FormControl>
+//    );
+// };

@@ -1,22 +1,22 @@
 .label {
-   font-size: var(--font-size-small);
+   margin-bottom: var(--gap-sm);
+   color: var(--text-primary);
+   font-size: var(--font-size-sm);
    font-weight: 500;
-   color: var(--color-primary);
-   margin-bottom: var(--gap-small);
 }
 .date {
    display: flex;
-   font-size: var(--font-size-small);
+   font-size: var(--font-size-sm);
    & > * {
       flex: 1;
       padding: 1em;
       cursor: pointer;
       transition: transform 1s ease;
       &:focus {
-         outline: 2px solid var(--color-secondary);
+         outline: 2px solid var(--neutral-700);
       }
       &:focus {
-         transform: scale(1.4);
+         transform: scale(1.1);
       }
    }
    & > [role='spinbutton'] {
