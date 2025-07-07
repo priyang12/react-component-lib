@@ -6,6 +6,7 @@ import { TextArea } from '../../Components/TextArea';
 import { Slider } from '../Slider';
 import { Select } from '../Select';
 import { Options } from '../Select';
+import { CheckBox } from '../CheckBox';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Template as Switch } from '../Switch/Switch.stories';
 import { useToggle } from '../../../Hooks';
@@ -156,3 +157,23 @@ export const SelectControl: StoryFn<typeof FormControl> = (args) => (
 //       </FormControl>
 //    );
 // };
+
+export const CheckBoxControl: StoryFn<typeof FormControl> = (args) => {
+   return (
+      <FormControl
+         style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1rem',
+         }}
+         //
+         validate={(value) =>
+            value !== 'false' ? 'Please check Agreement' : ''
+         }
+         {...args}
+      >
+         <CheckBox boxSize="medium" checked />
+         <Label htmlFor="Data field">Agreement</Label>
+      </FormControl>
+   );
+};

@@ -36,3 +36,4 @@ export * from './Subheading';
 export * from './Paragraph';
 export * from './Blockquote';
 export * from './PinInput';
+export * from './CheckBox';

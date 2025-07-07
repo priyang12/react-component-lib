@@ -29,6 +29,7 @@
 -  [x] Refactor Accordion
 -  [x] Calendar
 -  [x] Pin Input
+-  [x] CheckBox
 
 ### helper Components
 
