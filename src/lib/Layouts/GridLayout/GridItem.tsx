@@ -49,7 +49,7 @@ export function GridItem({
                ? {
                     '--item-area': area,
                  }
-               : { '--grid-Column': column, '--grid-Row': row },
+               : { '--grid-Column': computedColumn, '--grid-Row': row },
             responsiveStyles
          )}
          className={clsx('GridItem', className)}
