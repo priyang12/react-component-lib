@@ -39,6 +39,7 @@
     "analyzeMapper": "source-map-explorer 'dist/*.js'",
     "pretty-Component": "yarn prettier -w ./src/lib/**/*.{ts,tsx}",
     "component": "bash Component.sh",
+    "layout": "bash Layouts.sh",
     "version": "yarn changeset version",
     "publish": "npm run changeset publish --access=public"
   },

@@ -1,0 +1,28 @@
+.GridLayout {
+   display: grid;
+   grid-template-columns: repeat(var(--grid-layout-number, 3), 1fr);
+   gap: var(--grid-gap, 1rem);
+   grid-template-areas: var(--grid-template-areas, none);
+}
+
+.GridItem {
+   --grid-item-span: var(--grid-item-span-mobile, 4);
+   grid-column: span var(--grid-item-span);
+   grid-area: var(--item-area);
+
+   /* Tablet */
+   @media (min-width: 768px) {
+      --grid-item-span: var(
+         --grid-item-span-tablet,
+         var(--grid-item-span-mobile, 4)
+      );
+   }
+
+   /* Desktop */
+   @media (min-width: 1024px) {
+      --grid-item-span: var(
+         --grid-item-span-desktop,
+         var(--grid-item-span-tablet, var(--grid-item-span-mobile, 4))
+      );
+   }
+}
