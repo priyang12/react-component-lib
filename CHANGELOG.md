@@ -1,5 +1,11 @@
 # priyang-react-component-lib
 
+## 3.1.0
+
+### Minor Changes
+
+-  de5a732: fixed export for singular modules.
+
 ## 3.0.0
 
 ### Major Changes
