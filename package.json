@@ -1,6 +1,6 @@
 {
   "name": "@priyang/react-component-lib",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "private": false,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -1165,7 +1165,7 @@
   },
   "scripts": {
     "storybook": "storybook dev -p 6006",
-    "build": "tsup && npm run build:global-css && npm run build:types",
+    "build": "tsup && npm run build:global-css && npm run build:types && npm run build:package",
     "build:global-css": "sass src/lib/styles/Global.scss dist/global.css --no-source-map --style=compressed",
     "build:types": "tsc --project tsconfig.build.json --emitDeclarationOnly",
     "build:package": "node generate-package-json.js",
@@ -1181,6 +1181,7 @@
     "component": "bash Component.sh",
     "layout": "bash Layouts.sh",
     "version": "yarn changeset version",
+    "changeset": "changeset",
     "publish": "npm run changeset publish --access=public"
   },
   "size-limit": [
