@@ -14,7 +14,1146 @@
       "import": "./dist/index.css",
       "require": "./dist/index.css"
     },
-    "./package.json": "./package.json"
+    "./dist/global.css": {
+      "import": "./dist/global.css",
+      "require": "./dist/global.css"
+    },
+    "./dist/Components/Accordion": {
+      "import": "./dist/lib/Components/Accordion/index.mjs",
+      "require": "./dist/lib/Components/Accordion/index.js"
+    },
+    "./dist/Components/Accordion/index.css": {
+      "import": "./dist/lib/Components/Accordion/index.css",
+      "require": "./dist/lib/Components/Accordion/index.css"
+    },
+    "./dist/Components/Badge": {
+      "import": "./dist/lib/Components/Badge/index.mjs",
+      "require": "./dist/lib/Components/Badge/index.js"
+    },
+    "./dist/Components/Badge/index.css": {
+      "import": "./dist/lib/Components/Badge/index.css",
+      "require": "./dist/lib/Components/Badge/index.css"
+    },
+    "./dist/Components/Blockquote": {
+      "import": "./dist/lib/Components/Blockquote/index.mjs",
+      "require": "./dist/lib/Components/Blockquote/index.js"
+    },
+    "./dist/Components/Blockquote/index.css": {
+      "import": "./dist/lib/Components/Blockquote/index.css",
+      "require": "./dist/lib/Components/Blockquote/index.css"
+    },
+    "./dist/Components/Button": {
+      "import": "./dist/lib/Components/Button/index.mjs",
+      "require": "./dist/lib/Components/Button/index.js"
+    },
+    "./dist/Components/Button/index.css": {
+      "import": "./dist/lib/Components/Button/index.css",
+      "require": "./dist/lib/Components/Button/index.css"
+    },
+    "./dist/Components/ButtonGroup": {
+      "import": "./dist/lib/Components/ButtonGroup/index.mjs",
+      "require": "./dist/lib/Components/ButtonGroup/index.js"
+    },
+    "./dist/Components/ButtonGroup/index.css": {
+      "import": "./dist/lib/Components/ButtonGroup/index.css",
+      "require": "./dist/lib/Components/ButtonGroup/index.css"
+    },
+    "./dist/Components/Calendar": {
+      "import": "./dist/lib/Components/Calendar/index.mjs",
+      "require": "./dist/lib/Components/Calendar/index.js"
+    },
+    "./dist/Components/Calendar/index.css": {
+      "import": "./dist/lib/Components/Calendar/index.css",
+      "require": "./dist/lib/Components/Calendar/index.css"
+    },
+    "./dist/Components/CheckBox": {
+      "import": "./dist/lib/Components/CheckBox/index.mjs",
+      "require": "./dist/lib/Components/CheckBox/index.js"
+    },
+    "./dist/Components/CheckBox/index.css": {
+      "import": "./dist/lib/Components/CheckBox/index.css",
+      "require": "./dist/lib/Components/CheckBox/index.css"
+    },
+    "./dist/Components/CounterComponent": {
+      "import": "./dist/lib/Components/CounterComponent/index.mjs",
+      "require": "./dist/lib/Components/CounterComponent/index.js"
+    },
+    "./dist/Components/CounterComponent/index.css": {
+      "import": "./dist/lib/Components/CounterComponent/index.css",
+      "require": "./dist/lib/Components/CounterComponent/index.css"
+    },
+    "./dist/Components/DateField": {
+      "import": "./dist/lib/Components/DateField/index.mjs",
+      "require": "./dist/lib/Components/DateField/index.js"
+    },
+    "./dist/Components/DateField/index.css": {
+      "import": "./dist/lib/Components/DateField/index.css",
+      "require": "./dist/lib/Components/DateField/index.css"
+    },
+    "./dist/Components/DatePicker": {
+      "import": "./dist/lib/Components/DatePicker/index.mjs",
+      "require": "./dist/lib/Components/DatePicker/index.js"
+    },
+    "./dist/Components/DescriptionContainer": {
+      "import": "./dist/lib/Components/DescriptionContainer/index.mjs",
+      "require": "./dist/lib/Components/DescriptionContainer/index.js"
+    },
+    "./dist/Components/DescriptionContainer/index.css": {
+      "import": "./dist/lib/Components/DescriptionContainer/index.css",
+      "require": "./dist/lib/Components/DescriptionContainer/index.css"
+    },
+    "./dist/Components/Divider": {
+      "import": "./dist/lib/Components/Divider/index.mjs",
+      "require": "./dist/lib/Components/Divider/index.js"
+    },
+    "./dist/Components/Divider/index.css": {
+      "import": "./dist/lib/Components/Divider/index.css",
+      "require": "./dist/lib/Components/Divider/index.css"
+    },
+    "./dist/Components/DragNDrop": {
+      "import": "./dist/lib/Components/DragNDrop/index.mjs",
+      "require": "./dist/lib/Components/DragNDrop/index.js"
+    },
+    "./dist/Components/DragNDrop/index.css": {
+      "import": "./dist/lib/Components/DragNDrop/index.css",
+      "require": "./dist/lib/Components/DragNDrop/index.css"
+    },
+    "./dist/Components/FormControl": {
+      "import": "./dist/lib/Components/FormControl/index.mjs",
+      "require": "./dist/lib/Components/FormControl/index.js"
+    },
+    "./dist/Components/FormControl/index.css": {
+      "import": "./dist/lib/Components/FormControl/index.css",
+      "require": "./dist/lib/Components/FormControl/index.css"
+    },
+    "./dist/Components/Heading": {
+      "import": "./dist/lib/Components/Heading/index.mjs",
+      "require": "./dist/lib/Components/Heading/index.js"
+    },
+    "./dist/Components/Heading/index.css": {
+      "import": "./dist/lib/Components/Heading/index.css",
+      "require": "./dist/lib/Components/Heading/index.css"
+    },
+    "./dist/Components/ImageMagnifier": {
+      "import": "./dist/lib/Components/ImageMagnifier/index.mjs",
+      "require": "./dist/lib/Components/ImageMagnifier/index.js"
+    },
+    "./dist/Components/ImageMagnifier/index.css": {
+      "import": "./dist/lib/Components/ImageMagnifier/index.css",
+      "require": "./dist/lib/Components/ImageMagnifier/index.css"
+    },
+    "./dist/Components/Input": {
+      "import": "./dist/lib/Components/Input/index.mjs",
+      "require": "./dist/lib/Components/Input/index.js"
+    },
+    "./dist/Components/Input/index.css": {
+      "import": "./dist/lib/Components/Input/index.css",
+      "require": "./dist/lib/Components/Input/index.css"
+    },
+    "./dist/Components/Label": {
+      "import": "./dist/lib/Components/Label/index.mjs",
+      "require": "./dist/lib/Components/Label/index.js"
+    },
+    "./dist/Components/Label/index.css": {
+      "import": "./dist/lib/Components/Label/index.css",
+      "require": "./dist/lib/Components/Label/index.css"
+    },
+    "./dist/Components/Loader": {
+      "import": "./dist/lib/Components/Loader/index.mjs",
+      "require": "./dist/lib/Components/Loader/index.js"
+    },
+    "./dist/Components/Loader/index.css": {
+      "import": "./dist/lib/Components/Loader/index.css",
+      "require": "./dist/lib/Components/Loader/index.css"
+    },
+    "./dist/Components/Paragraph": {
+      "import": "./dist/lib/Components/Paragraph/index.mjs",
+      "require": "./dist/lib/Components/Paragraph/index.js"
+    },
+    "./dist/Components/Paragraph/index.css": {
+      "import": "./dist/lib/Components/Paragraph/index.css",
+      "require": "./dist/lib/Components/Paragraph/index.css"
+    },
+    "./dist/Components/PinInput": {
+      "import": "./dist/lib/Components/PinInput/index.mjs",
+      "require": "./dist/lib/Components/PinInput/index.js"
+    },
+    "./dist/Components/PinInput/index.css": {
+      "import": "./dist/lib/Components/PinInput/index.css",
+      "require": "./dist/lib/Components/PinInput/index.css"
+    },
+    "./dist/Components/PopOver": {
+      "import": "./dist/lib/Components/PopOver/index.mjs",
+      "require": "./dist/lib/Components/PopOver/index.js"
+    },
+    "./dist/Components/PopOver/index.css": {
+      "import": "./dist/lib/Components/PopOver/index.css",
+      "require": "./dist/lib/Components/PopOver/index.css"
+    },
+    "./dist/Components/ProgressBar": {
+      "import": "./dist/lib/Components/ProgressBar/index.mjs",
+      "require": "./dist/lib/Components/ProgressBar/index.js"
+    },
+    "./dist/Components/ProgressBar/index.css": {
+      "import": "./dist/lib/Components/ProgressBar/index.css",
+      "require": "./dist/lib/Components/ProgressBar/index.css"
+    },
+    "./dist/Components/RadioGroup": {
+      "import": "./dist/lib/Components/RadioGroup/index.mjs",
+      "require": "./dist/lib/Components/RadioGroup/index.js"
+    },
+    "./dist/Components/RadioGroup/index.css": {
+      "import": "./dist/lib/Components/RadioGroup/index.css",
+      "require": "./dist/lib/Components/RadioGroup/index.css"
+    },
+    "./dist/Components/RadioInput": {
+      "import": "./dist/lib/Components/RadioInput/index.mjs",
+      "require": "./dist/lib/Components/RadioInput/index.js"
+    },
+    "./dist/Components/RadioInput/index.css": {
+      "import": "./dist/lib/Components/RadioInput/index.css",
+      "require": "./dist/lib/Components/RadioInput/index.css"
+    },
+    "./dist/Components/Select": {
+      "import": "./dist/lib/Components/Select/index.mjs",
+      "require": "./dist/lib/Components/Select/index.js"
+    },
+    "./dist/Components/Select/index.css": {
+      "import": "./dist/lib/Components/Select/index.css",
+      "require": "./dist/lib/Components/Select/index.css"
+    },
+    "./dist/Components/Skeleton": {
+      "import": "./dist/lib/Components/Skeleton/index.mjs",
+      "require": "./dist/lib/Components/Skeleton/index.js"
+    },
+    "./dist/Components/Skeleton/index.css": {
+      "import": "./dist/lib/Components/Skeleton/index.css",
+      "require": "./dist/lib/Components/Skeleton/index.css"
+    },
+    "./dist/Components/Slider": {
+      "import": "./dist/lib/Components/Slider/index.mjs",
+      "require": "./dist/lib/Components/Slider/index.js"
+    },
+    "./dist/Components/Slider/index.css": {
+      "import": "./dist/lib/Components/Slider/index.css",
+      "require": "./dist/lib/Components/Slider/index.css"
+    },
+    "./dist/Components/Spacer": {
+      "import": "./dist/lib/Components/Spacer/index.mjs",
+      "require": "./dist/lib/Components/Spacer/index.js"
+    },
+    "./dist/Components/Spacer/index.css": {
+      "import": "./dist/lib/Components/Spacer/index.css",
+      "require": "./dist/lib/Components/Spacer/index.css"
+    },
+    "./dist/Components/StatusDot": {
+      "import": "./dist/lib/Components/StatusDot/index.mjs",
+      "require": "./dist/lib/Components/StatusDot/index.js"
+    },
+    "./dist/Components/StatusDot/index.css": {
+      "import": "./dist/lib/Components/StatusDot/index.css",
+      "require": "./dist/lib/Components/StatusDot/index.css"
+    },
+    "./dist/Components/Subheading": {
+      "import": "./dist/lib/Components/Subheading/index.mjs",
+      "require": "./dist/lib/Components/Subheading/index.js"
+    },
+    "./dist/Components/Subheading/index.css": {
+      "import": "./dist/lib/Components/Subheading/index.css",
+      "require": "./dist/lib/Components/Subheading/index.css"
+    },
+    "./dist/Components/Switch": {
+      "import": "./dist/lib/Components/Switch/index.mjs",
+      "require": "./dist/lib/Components/Switch/index.js"
+    },
+    "./dist/Components/Switch/index.css": {
+      "import": "./dist/lib/Components/Switch/index.css",
+      "require": "./dist/lib/Components/Switch/index.css"
+    },
+    "./dist/Components/Tag": {
+      "import": "./dist/lib/Components/Tag/index.mjs",
+      "require": "./dist/lib/Components/Tag/index.js"
+    },
+    "./dist/Components/Tag/index.css": {
+      "import": "./dist/lib/Components/Tag/index.css",
+      "require": "./dist/lib/Components/Tag/index.css"
+    },
+    "./dist/Components/TextArea": {
+      "import": "./dist/lib/Components/TextArea/index.mjs",
+      "require": "./dist/lib/Components/TextArea/index.js"
+    },
+    "./dist/Components/TextArea/index.css": {
+      "import": "./dist/lib/Components/TextArea/index.css",
+      "require": "./dist/lib/Components/TextArea/index.css"
+    },
+    "./dist/Components/TextEffect": {
+      "import": "./dist/lib/Components/TextEffect/index.mjs",
+      "require": "./dist/lib/Components/TextEffect/index.js"
+    },
+    "./dist/Components/TextEffect/index.css": {
+      "import": "./dist/lib/Components/TextEffect/index.css",
+      "require": "./dist/lib/Components/TextEffect/index.css"
+    },
+    "./dist/Components/TextLanding": {
+      "import": "./dist/lib/Components/TextLanding/index.mjs",
+      "require": "./dist/lib/Components/TextLanding/index.js"
+    },
+    "./dist/Components/TextLanding/index.css": {
+      "import": "./dist/lib/Components/TextLanding/index.css",
+      "require": "./dist/lib/Components/TextLanding/index.css"
+    },
+    "./dist/Components/TextLink": {
+      "import": "./dist/lib/Components/TextLink/index.mjs",
+      "require": "./dist/lib/Components/TextLink/index.js"
+    },
+    "./dist/Components/TextLink/index.css": {
+      "import": "./dist/lib/Components/TextLink/index.css",
+      "require": "./dist/lib/Components/TextLink/index.css"
+    },
+    "./dist/Components/Timer": {
+      "import": "./dist/lib/Components/Timer/index.mjs",
+      "require": "./dist/lib/Components/Timer/index.js"
+    },
+    "./dist/Components/Truncate": {
+      "import": "./dist/lib/Components/Truncate/index.mjs",
+      "require": "./dist/lib/Components/Truncate/index.js"
+    },
+    "./dist/Components/Truncate/index.css": {
+      "import": "./dist/lib/Components/Truncate/index.css",
+      "require": "./dist/lib/Components/Truncate/index.css"
+    },
+    "./dist/Components/VercelButton": {
+      "import": "./dist/lib/Components/VercelButton/index.mjs",
+      "require": "./dist/lib/Components/VercelButton/index.js"
+    },
+    "./dist/Components/VercelButton/index.css": {
+      "import": "./dist/lib/Components/VercelButton/index.css",
+      "require": "./dist/lib/Components/VercelButton/index.css"
+    },
+    "./dist/Components/VisuallyHidden": {
+      "import": "./dist/lib/Components/VisuallyHidden/index.mjs",
+      "require": "./dist/lib/Components/VisuallyHidden/index.js"
+    },
+    "./dist/Components/VisuallyHidden/index.css": {
+      "import": "./dist/lib/Components/VisuallyHidden/index.css",
+      "require": "./dist/lib/Components/VisuallyHidden/index.css"
+    },
+    "./dist/Components/YTCard": {
+      "import": "./dist/lib/Components/YTCard/index.mjs",
+      "require": "./dist/lib/Components/YTCard/index.js"
+    },
+    "./dist/Components/YTCard/index.css": {
+      "import": "./dist/lib/Components/YTCard/index.css",
+      "require": "./dist/lib/Components/YTCard/index.css"
+    },
+    "./dist/Wrappers/Draggable": {
+      "import": "./dist/lib/Wrappers/Draggable/index.mjs",
+      "require": "./dist/lib/Wrappers/Draggable/index.js"
+    },
+    "./dist/Wrappers/Draggable/index.css": {
+      "import": "./dist/lib/Wrappers/Draggable/index.css",
+      "require": "./dist/lib/Wrappers/Draggable/index.css"
+    },
+    "./dist/Wrappers/GradientHover": {
+      "import": "./dist/lib/Wrappers/GradientHover/index.mjs",
+      "require": "./dist/lib/Wrappers/GradientHover/index.js"
+    },
+    "./dist/Wrappers/GradientHover/index.css": {
+      "import": "./dist/lib/Wrappers/GradientHover/index.css",
+      "require": "./dist/lib/Wrappers/GradientHover/index.css"
+    },
+    "./dist/Wrappers/Ring": {
+      "import": "./dist/lib/Wrappers/Ring/index.mjs",
+      "require": "./dist/lib/Wrappers/Ring/index.js"
+    },
+    "./dist/Wrappers/Ring/index.css": {
+      "import": "./dist/lib/Wrappers/Ring/index.css",
+      "require": "./dist/lib/Wrappers/Ring/index.css"
+    },
+    "./dist/Wrappers/Util": {
+      "import": "./dist/lib/Wrappers/Util/index.mjs",
+      "require": "./dist/lib/Wrappers/Util/index.js"
+    },
+    "./dist/useAccordion": {
+      "import": "./dist/./Hooks/useAccordion/index.mjs",
+      "require": "./dist/./Hooks/useAccordion/index.js"
+    },
+    "./dist/useBackgroundTime": {
+      "import": "./dist/./Hooks/useBackgroundTime/index.mjs",
+      "require": "./dist/./Hooks/useBackgroundTime/index.js"
+    },
+    "./dist/useCounter": {
+      "import": "./dist/./Hooks/useCounter/index.mjs",
+      "require": "./dist/./Hooks/useCounter/index.js"
+    },
+    "./dist/useDeferredValue": {
+      "import": "./dist/./Hooks/useDeferredValue/index.mjs",
+      "require": "./dist/./Hooks/useDeferredValue/index.js"
+    },
+    "./dist/useElementVisibility": {
+      "import": "./dist/./Hooks/useElementVisibility/index.mjs",
+      "require": "./dist/./Hooks/useElementVisibility/index.js"
+    },
+    "./dist/useMouse": {
+      "import": "./dist/./Hooks/useMouse/index.mjs",
+      "require": "./dist/./Hooks/useMouse/index.js"
+    },
+    "./dist/useRipple": {
+      "import": "./dist/./Hooks/useRipple/index.mjs",
+      "require": "./dist/./Hooks/useRipple/index.js"
+    },
+    "./dist/useThrottle": {
+      "import": "./dist/./Hooks/useThrottle/index.mjs",
+      "require": "./dist/./Hooks/useThrottle/index.js"
+    },
+    "./dist/useToggle": {
+      "import": "./dist/./Hooks/useToggle/index.mjs",
+      "require": "./dist/./Hooks/useToggle/index.js"
+    },
+    "./Components/Accordion": {
+      "import": "./dist/lib/Components/Accordion/index.mjs",
+      "require": "./dist/lib/Components/Accordion/index.js"
+    },
+    "./Components/Accordion/index.css": {
+      "import": "./dist/lib/Components/Accordion/index.css",
+      "require": "./dist/lib/Components/Accordion/index.css"
+    },
+    "./Components/Badge": {
+      "import": "./dist/lib/Components/Badge/index.mjs",
+      "require": "./dist/lib/Components/Badge/index.js"
+    },
+    "./Components/Badge/index.css": {
+      "import": "./dist/lib/Components/Badge/index.css",
+      "require": "./dist/lib/Components/Badge/index.css"
+    },
+    "./Components/Blockquote": {
+      "import": "./dist/lib/Components/Blockquote/index.mjs",
+      "require": "./dist/lib/Components/Blockquote/index.js"
+    },
+    "./Components/Blockquote/index.css": {
+      "import": "./dist/lib/Components/Blockquote/index.css",
+      "require": "./dist/lib/Components/Blockquote/index.css"
+    },
+    "./Components/Button": {
+      "import": "./dist/lib/Components/Button/index.mjs",
+      "require": "./dist/lib/Components/Button/index.js"
+    },
+    "./Components/Button/index.css": {
+      "import": "./dist/lib/Components/Button/index.css",
+      "require": "./dist/lib/Components/Button/index.css"
+    },
+    "./Components/ButtonGroup": {
+      "import": "./dist/lib/Components/ButtonGroup/index.mjs",
+      "require": "./dist/lib/Components/ButtonGroup/index.js"
+    },
+    "./Components/ButtonGroup/index.css": {
+      "import": "./dist/lib/Components/ButtonGroup/index.css",
+      "require": "./dist/lib/Components/ButtonGroup/index.css"
+    },
+    "./Components/Calendar": {
+      "import": "./dist/lib/Components/Calendar/index.mjs",
+      "require": "./dist/lib/Components/Calendar/index.js"
+    },
+    "./Components/Calendar/index.css": {
+      "import": "./dist/lib/Components/Calendar/index.css",
+      "require": "./dist/lib/Components/Calendar/index.css"
+    },
+    "./Components/CheckBox": {
+      "import": "./dist/lib/Components/CheckBox/index.mjs",
+      "require": "./dist/lib/Components/CheckBox/index.js"
+    },
+    "./Components/CheckBox/index.css": {
+      "import": "./dist/lib/Components/CheckBox/index.css",
+      "require": "./dist/lib/Components/CheckBox/index.css"
+    },
+    "./Components/CounterComponent": {
+      "import": "./dist/lib/Components/CounterComponent/index.mjs",
+      "require": "./dist/lib/Components/CounterComponent/index.js"
+    },
+    "./Components/CounterComponent/index.css": {
+      "import": "./dist/lib/Components/CounterComponent/index.css",
+      "require": "./dist/lib/Components/CounterComponent/index.css"
+    },
+    "./Components/DateField": {
+      "import": "./dist/lib/Components/DateField/index.mjs",
+      "require": "./dist/lib/Components/DateField/index.js"
+    },
+    "./Components/DateField/index.css": {
+      "import": "./dist/lib/Components/DateField/index.css",
+      "require": "./dist/lib/Components/DateField/index.css"
+    },
+    "./Components/DatePicker": {
+      "import": "./dist/lib/Components/DatePicker/index.mjs",
+      "require": "./dist/lib/Components/DatePicker/index.js"
+    },
+    "./Components/DescriptionContainer": {
+      "import": "./dist/lib/Components/DescriptionContainer/index.mjs",
+      "require": "./dist/lib/Components/DescriptionContainer/index.js"
+    },
+    "./Components/DescriptionContainer/index.css": {
+      "import": "./dist/lib/Components/DescriptionContainer/index.css",
+      "require": "./dist/lib/Components/DescriptionContainer/index.css"
+    },
+    "./Components/Divider": {
+      "import": "./dist/lib/Components/Divider/index.mjs",
+      "require": "./dist/lib/Components/Divider/index.js"
+    },
+    "./Components/Divider/index.css": {
+      "import": "./dist/lib/Components/Divider/index.css",
+      "require": "./dist/lib/Components/Divider/index.css"
+    },
+    "./Components/DragNDrop": {
+      "import": "./dist/lib/Components/DragNDrop/index.mjs",
+      "require": "./dist/lib/Components/DragNDrop/index.js"
+    },
+    "./Components/DragNDrop/index.css": {
+      "import": "./dist/lib/Components/DragNDrop/index.css",
+      "require": "./dist/lib/Components/DragNDrop/index.css"
+    },
+    "./Components/FormControl": {
+      "import": "./dist/lib/Components/FormControl/index.mjs",
+      "require": "./dist/lib/Components/FormControl/index.js"
+    },
+    "./Components/FormControl/index.css": {
+      "import": "./dist/lib/Components/FormControl/index.css",
+      "require": "./dist/lib/Components/FormControl/index.css"
+    },
+    "./Components/Heading": {
+      "import": "./dist/lib/Components/Heading/index.mjs",
+      "require": "./dist/lib/Components/Heading/index.js"
+    },
+    "./Components/Heading/index.css": {
+      "import": "./dist/lib/Components/Heading/index.css",
+      "require": "./dist/lib/Components/Heading/index.css"
+    },
+    "./Components/ImageMagnifier": {
+      "import": "./dist/lib/Components/ImageMagnifier/index.mjs",
+      "require": "./dist/lib/Components/ImageMagnifier/index.js"
+    },
+    "./Components/ImageMagnifier/index.css": {
+      "import": "./dist/lib/Components/ImageMagnifier/index.css",
+      "require": "./dist/lib/Components/ImageMagnifier/index.css"
+    },
+    "./Components/Input": {
+      "import": "./dist/lib/Components/Input/index.mjs",
+      "require": "./dist/lib/Components/Input/index.js"
+    },
+    "./Components/Input/index.css": {
+      "import": "./dist/lib/Components/Input/index.css",
+      "require": "./dist/lib/Components/Input/index.css"
+    },
+    "./Components/Label": {
+      "import": "./dist/lib/Components/Label/index.mjs",
+      "require": "./dist/lib/Components/Label/index.js"
+    },
+    "./Components/Label/index.css": {
+      "import": "./dist/lib/Components/Label/index.css",
+      "require": "./dist/lib/Components/Label/index.css"
+    },
+    "./Components/Loader": {
+      "import": "./dist/lib/Components/Loader/index.mjs",
+      "require": "./dist/lib/Components/Loader/index.js"
+    },
+    "./Components/Loader/index.css": {
+      "import": "./dist/lib/Components/Loader/index.css",
+      "require": "./dist/lib/Components/Loader/index.css"
+    },
+    "./Components/Paragraph": {
+      "import": "./dist/lib/Components/Paragraph/index.mjs",
+      "require": "./dist/lib/Components/Paragraph/index.js"
+    },
+    "./Components/Paragraph/index.css": {
+      "import": "./dist/lib/Components/Paragraph/index.css",
+      "require": "./dist/lib/Components/Paragraph/index.css"
+    },
+    "./Components/PinInput": {
+      "import": "./dist/lib/Components/PinInput/index.mjs",
+      "require": "./dist/lib/Components/PinInput/index.js"
+    },
+    "./Components/PinInput/index.css": {
+      "import": "./dist/lib/Components/PinInput/index.css",
+      "require": "./dist/lib/Components/PinInput/index.css"
+    },
+    "./Components/PopOver": {
+      "import": "./dist/lib/Components/PopOver/index.mjs",
+      "require": "./dist/lib/Components/PopOver/index.js"
+    },
+    "./Components/PopOver/index.css": {
+      "import": "./dist/lib/Components/PopOver/index.css",
+      "require": "./dist/lib/Components/PopOver/index.css"
+    },
+    "./Components/ProgressBar": {
+      "import": "./dist/lib/Components/ProgressBar/index.mjs",
+      "require": "./dist/lib/Components/ProgressBar/index.js"
+    },
+    "./Components/ProgressBar/index.css": {
+      "import": "./dist/lib/Components/ProgressBar/index.css",
+      "require": "./dist/lib/Components/ProgressBar/index.css"
+    },
+    "./Components/RadioGroup": {
+      "import": "./dist/lib/Components/RadioGroup/index.mjs",
+      "require": "./dist/lib/Components/RadioGroup/index.js"
+    },
+    "./Components/RadioGroup/index.css": {
+      "import": "./dist/lib/Components/RadioGroup/index.css",
+      "require": "./dist/lib/Components/RadioGroup/index.css"
+    },
+    "./Components/RadioInput": {
+      "import": "./dist/lib/Components/RadioInput/index.mjs",
+      "require": "./dist/lib/Components/RadioInput/index.js"
+    },
+    "./Components/RadioInput/index.css": {
+      "import": "./dist/lib/Components/RadioInput/index.css",
+      "require": "./dist/lib/Components/RadioInput/index.css"
+    },
+    "./Components/Select": {
+      "import": "./dist/lib/Components/Select/index.mjs",
+      "require": "./dist/lib/Components/Select/index.js"
+    },
+    "./Components/Select/index.css": {
+      "import": "./dist/lib/Components/Select/index.css",
+      "require": "./dist/lib/Components/Select/index.css"
+    },
+    "./Components/Skeleton": {
+      "import": "./dist/lib/Components/Skeleton/index.mjs",
+      "require": "./dist/lib/Components/Skeleton/index.js"
+    },
+    "./Components/Skeleton/index.css": {
+      "import": "./dist/lib/Components/Skeleton/index.css",
+      "require": "./dist/lib/Components/Skeleton/index.css"
+    },
+    "./Components/Slider": {
+      "import": "./dist/lib/Components/Slider/index.mjs",
+      "require": "./dist/lib/Components/Slider/index.js"
+    },
+    "./Components/Slider/index.css": {
+      "import": "./dist/lib/Components/Slider/index.css",
+      "require": "./dist/lib/Components/Slider/index.css"
+    },
+    "./Components/Spacer": {
+      "import": "./dist/lib/Components/Spacer/index.mjs",
+      "require": "./dist/lib/Components/Spacer/index.js"
+    },
+    "./Components/Spacer/index.css": {
+      "import": "./dist/lib/Components/Spacer/index.css",
+      "require": "./dist/lib/Components/Spacer/index.css"
+    },
+    "./Components/StatusDot": {
+      "import": "./dist/lib/Components/StatusDot/index.mjs",
+      "require": "./dist/lib/Components/StatusDot/index.js"
+    },
+    "./Components/StatusDot/index.css": {
+      "import": "./dist/lib/Components/StatusDot/index.css",
+      "require": "./dist/lib/Components/StatusDot/index.css"
+    },
+    "./Components/Subheading": {
+      "import": "./dist/lib/Components/Subheading/index.mjs",
+      "require": "./dist/lib/Components/Subheading/index.js"
+    },
+    "./Components/Subheading/index.css": {
+      "import": "./dist/lib/Components/Subheading/index.css",
+      "require": "./dist/lib/Components/Subheading/index.css"
+    },
+    "./Components/Switch": {
+      "import": "./dist/lib/Components/Switch/index.mjs",
+      "require": "./dist/lib/Components/Switch/index.js"
+    },
+    "./Components/Switch/index.css": {
+      "import": "./dist/lib/Components/Switch/index.css",
+      "require": "./dist/lib/Components/Switch/index.css"
+    },
+    "./Components/Tag": {
+      "import": "./dist/lib/Components/Tag/index.mjs",
+      "require": "./dist/lib/Components/Tag/index.js"
+    },
+    "./Components/Tag/index.css": {
+      "import": "./dist/lib/Components/Tag/index.css",
+      "require": "./dist/lib/Components/Tag/index.css"
+    },
+    "./Components/TextArea": {
+      "import": "./dist/lib/Components/TextArea/index.mjs",
+      "require": "./dist/lib/Components/TextArea/index.js"
+    },
+    "./Components/TextArea/index.css": {
+      "import": "./dist/lib/Components/TextArea/index.css",
+      "require": "./dist/lib/Components/TextArea/index.css"
+    },
+    "./Components/TextEffect": {
+      "import": "./dist/lib/Components/TextEffect/index.mjs",
+      "require": "./dist/lib/Components/TextEffect/index.js"
+    },
+    "./Components/TextEffect/index.css": {
+      "import": "./dist/lib/Components/TextEffect/index.css",
+      "require": "./dist/lib/Components/TextEffect/index.css"
+    },
+    "./Components/TextLanding": {
+      "import": "./dist/lib/Components/TextLanding/index.mjs",
+      "require": "./dist/lib/Components/TextLanding/index.js"
+    },
+    "./Components/TextLanding/index.css": {
+      "import": "./dist/lib/Components/TextLanding/index.css",
+      "require": "./dist/lib/Components/TextLanding/index.css"
+    },
+    "./Components/TextLink": {
+      "import": "./dist/lib/Components/TextLink/index.mjs",
+      "require": "./dist/lib/Components/TextLink/index.js"
+    },
+    "./Components/TextLink/index.css": {
+      "import": "./dist/lib/Components/TextLink/index.css",
+      "require": "./dist/lib/Components/TextLink/index.css"
+    },
+    "./Components/Timer": {
+      "import": "./dist/lib/Components/Timer/index.mjs",
+      "require": "./dist/lib/Components/Timer/index.js"
+    },
+    "./Components/Truncate": {
+      "import": "./dist/lib/Components/Truncate/index.mjs",
+      "require": "./dist/lib/Components/Truncate/index.js"
+    },
+    "./Components/Truncate/index.css": {
+      "import": "./dist/lib/Components/Truncate/index.css",
+      "require": "./dist/lib/Components/Truncate/index.css"
+    },
+    "./Components/VercelButton": {
+      "import": "./dist/lib/Components/VercelButton/index.mjs",
+      "require": "./dist/lib/Components/VercelButton/index.js"
+    },
+    "./Components/VercelButton/index.css": {
+      "import": "./dist/lib/Components/VercelButton/index.css",
+      "require": "./dist/lib/Components/VercelButton/index.css"
+    },
+    "./Components/VisuallyHidden": {
+      "import": "./dist/lib/Components/VisuallyHidden/index.mjs",
+      "require": "./dist/lib/Components/VisuallyHidden/index.js"
+    },
+    "./Components/VisuallyHidden/index.css": {
+      "import": "./dist/lib/Components/VisuallyHidden/index.css",
+      "require": "./dist/lib/Components/VisuallyHidden/index.css"
+    },
+    "./Components/YTCard": {
+      "import": "./dist/lib/Components/YTCard/index.mjs",
+      "require": "./dist/lib/Components/YTCard/index.js"
+    },
+    "./Components/YTCard/index.css": {
+      "import": "./dist/lib/Components/YTCard/index.css",
+      "require": "./dist/lib/Components/YTCard/index.css"
+    },
+    "./Wrappers/Draggable": {
+      "import": "./dist/lib/Wrappers/Draggable/index.mjs",
+      "require": "./dist/lib/Wrappers/Draggable/index.js"
+    },
+    "./Wrappers/Draggable/index.css": {
+      "import": "./dist/lib/Wrappers/Draggable/index.css",
+      "require": "./dist/lib/Wrappers/Draggable/index.css"
+    },
+    "./Wrappers/GradientHover": {
+      "import": "./dist/lib/Wrappers/GradientHover/index.mjs",
+      "require": "./dist/lib/Wrappers/GradientHover/index.js"
+    },
+    "./Wrappers/GradientHover/index.css": {
+      "import": "./dist/lib/Wrappers/GradientHover/index.css",
+      "require": "./dist/lib/Wrappers/GradientHover/index.css"
+    },
+    "./Wrappers/Ring": {
+      "import": "./dist/lib/Wrappers/Ring/index.mjs",
+      "require": "./dist/lib/Wrappers/Ring/index.js"
+    },
+    "./Wrappers/Ring/index.css": {
+      "import": "./dist/lib/Wrappers/Ring/index.css",
+      "require": "./dist/lib/Wrappers/Ring/index.css"
+    },
+    "./Wrappers/Util": {
+      "import": "./dist/lib/Wrappers/Util/index.mjs",
+      "require": "./dist/lib/Wrappers/Util/index.js"
+    },
+    "./Hooks/useAccordion": {
+      "import": "./dist/Hooks/useAccordion/index.mjs",
+      "require": "./dist/Hooks/useAccordion/index.js"
+    },
+    "./Hooks/useBackgroundTime": {
+      "import": "./dist/Hooks/useBackgroundTime/index.mjs",
+      "require": "./dist/Hooks/useBackgroundTime/index.js"
+    },
+    "./Hooks/useCounter": {
+      "import": "./dist/Hooks/useCounter/index.mjs",
+      "require": "./dist/Hooks/useCounter/index.js"
+    },
+    "./Hooks/useDeferredValue": {
+      "import": "./dist/Hooks/useDeferredValue/index.mjs",
+      "require": "./dist/Hooks/useDeferredValue/index.js"
+    },
+    "./Hooks/useElementVisibility": {
+      "import": "./dist/Hooks/useElementVisibility/index.mjs",
+      "require": "./dist/Hooks/useElementVisibility/index.js"
+    },
+    "./Hooks/useMouse": {
+      "import": "./dist/Hooks/useMouse/index.mjs",
+      "require": "./dist/Hooks/useMouse/index.js"
+    },
+    "./Hooks/useRipple": {
+      "import": "./dist/Hooks/useRipple/index.mjs",
+      "require": "./dist/Hooks/useRipple/index.js"
+    },
+    "./Hooks/useThrottle": {
+      "import": "./dist/Hooks/useThrottle/index.mjs",
+      "require": "./dist/Hooks/useThrottle/index.js"
+    },
+    "./Hooks/useToggle": {
+      "import": "./dist/Hooks/useToggle/index.mjs",
+      "require": "./dist/Hooks/useToggle/index.js"
+    },
+    "./dist/lib/Components/Accordion": {
+      "import": "./dist/lib/Components/Accordion/index.mjs",
+      "require": "./dist/lib/Components/Accordion/index.js"
+    },
+    "./dist/lib/Components/Accordion/index.css": {
+      "import": "./dist/lib/Components/Accordion/index.css",
+      "require": "./dist/lib/Components/Accordion/index.css"
+    },
+    "./dist/lib/Components/Badge": {
+      "import": "./dist/lib/Components/Badge/index.mjs",
+      "require": "./dist/lib/Components/Badge/index.js"
+    },
+    "./dist/lib/Components/Badge/index.css": {
+      "import": "./dist/lib/Components/Badge/index.css",
+      "require": "./dist/lib/Components/Badge/index.css"
+    },
+    "./dist/lib/Components/Blockquote": {
+      "import": "./dist/lib/Components/Blockquote/index.mjs",
+      "require": "./dist/lib/Components/Blockquote/index.js"
+    },
+    "./dist/lib/Components/Blockquote/index.css": {
+      "import": "./dist/lib/Components/Blockquote/index.css",
+      "require": "./dist/lib/Components/Blockquote/index.css"
+    },
+    "./dist/lib/Components/Button": {
+      "import": "./dist/lib/Components/Button/index.mjs",
+      "require": "./dist/lib/Components/Button/index.js"
+    },
+    "./dist/lib/Components/Button/index.css": {
+      "import": "./dist/lib/Components/Button/index.css",
+      "require": "./dist/lib/Components/Button/index.css"
+    },
+    "./dist/lib/Components/ButtonGroup": {
+      "import": "./dist/lib/Components/ButtonGroup/index.mjs",
+      "require": "./dist/lib/Components/ButtonGroup/index.js"
+    },
+    "./dist/lib/Components/ButtonGroup/index.css": {
+      "import": "./dist/lib/Components/ButtonGroup/index.css",
+      "require": "./dist/lib/Components/ButtonGroup/index.css"
+    },
+    "./dist/lib/Components/Calendar": {
+      "import": "./dist/lib/Components/Calendar/index.mjs",
+      "require": "./dist/lib/Components/Calendar/index.js"
+    },
+    "./dist/lib/Components/Calendar/index.css": {
+      "import": "./dist/lib/Components/Calendar/index.css",
+      "require": "./dist/lib/Components/Calendar/index.css"
+    },
+    "./dist/lib/Components/CheckBox": {
+      "import": "./dist/lib/Components/CheckBox/index.mjs",
+      "require": "./dist/lib/Components/CheckBox/index.js"
+    },
+    "./dist/lib/Components/CounterComponent": {
+      "import": "./dist/lib/Components/CounterComponent/index.mjs",
+      "require": "./dist/lib/Components/CounterComponent/index.js"
+    },
+    "./dist/lib/Components/CounterComponent/index.css": {
+      "import": "./dist/lib/Components/CounterComponent/index.css",
+      "require": "./dist/lib/Components/CounterComponent/index.css"
+    },
+    "./dist/lib/Components/DateField": {
+      "import": "./dist/lib/Components/DateField/index.mjs",
+      "require": "./dist/lib/Components/DateField/index.js"
+    },
+    "./dist/lib/Components/DateField/index.css": {
+      "import": "./dist/lib/Components/DateField/index.css",
+      "require": "./dist/lib/Components/DateField/index.css"
+    },
+    "./dist/lib/Components/DatePicker": {
+      "import": "./dist/lib/Components/DatePicker/index.mjs",
+      "require": "./dist/lib/Components/DatePicker/index.js"
+    },
+    "./dist/lib/Components/DescriptionContainer": {
+      "import": "./dist/lib/Components/DescriptionContainer/index.mjs",
+      "require": "./dist/lib/Components/DescriptionContainer/index.js"
+    },
+    "./dist/lib/Components/DescriptionContainer/index.css": {
+      "import": "./dist/lib/Components/DescriptionContainer/index.css",
+      "require": "./dist/lib/Components/DescriptionContainer/index.css"
+    },
+    "./dist/lib/Components/Divider": {
+      "import": "./dist/lib/Components/Divider/index.mjs",
+      "require": "./dist/lib/Components/Divider/index.js"
+    },
+    "./dist/lib/Components/Divider/index.css": {
+      "import": "./dist/lib/Components/Divider/index.css",
+      "require": "./dist/lib/Components/Divider/index.css"
+    },
+    "./dist/lib/Components/DragNDrop": {
+      "import": "./dist/lib/Components/DragNDrop/index.mjs",
+      "require": "./dist/lib/Components/DragNDrop/index.js"
+    },
+    "./dist/lib/Components/DragNDrop/index.css": {
+      "import": "./dist/lib/Components/DragNDrop/index.css",
+      "require": "./dist/lib/Components/DragNDrop/index.css"
+    },
+    "./dist/lib/Components/FormControl": {
+      "import": "./dist/lib/Components/FormControl/index.mjs",
+      "require": "./dist/lib/Components/FormControl/index.js"
+    },
+    "./dist/lib/Components/FormControl/index.css": {
+      "import": "./dist/lib/Components/FormControl/index.css",
+      "require": "./dist/lib/Components/FormControl/index.css"
+    },
+    "./dist/lib/Components/Heading": {
+      "import": "./dist/lib/Components/Heading/index.mjs",
+      "require": "./dist/lib/Components/Heading/index.js"
+    },
+    "./dist/lib/Components/Heading/index.css": {
+      "import": "./dist/lib/Components/Heading/index.css",
+      "require": "./dist/lib/Components/Heading/index.css"
+    },
+    "./dist/lib/Components/ImageMagnifier": {
+      "import": "./dist/lib/Components/ImageMagnifier/index.mjs",
+      "require": "./dist/lib/Components/ImageMagnifier/index.js"
+    },
+    "./dist/lib/Components/ImageMagnifier/index.css": {
+      "import": "./dist/lib/Components/ImageMagnifier/index.css",
+      "require": "./dist/lib/Components/ImageMagnifier/index.css"
+    },
+    "./dist/lib/Components/Input": {
+      "import": "./dist/lib/Components/Input/index.mjs",
+      "require": "./dist/lib/Components/Input/index.js"
+    },
+    "./dist/lib/Components/Input/index.css": {
+      "import": "./dist/lib/Components/Input/index.css",
+      "require": "./dist/lib/Components/Input/index.css"
+    },
+    "./dist/lib/Components/Label": {
+      "import": "./dist/lib/Components/Label/index.mjs",
+      "require": "./dist/lib/Components/Label/index.js"
+    },
+    "./dist/lib/Components/Label/index.css": {
+      "import": "./dist/lib/Components/Label/index.css",
+      "require": "./dist/lib/Components/Label/index.css"
+    },
+    "./dist/lib/Components/Loader": {
+      "import": "./dist/lib/Components/Loader/index.mjs",
+      "require": "./dist/lib/Components/Loader/index.js"
+    },
+    "./dist/lib/Components/Loader/index.css": {
+      "import": "./dist/lib/Components/Loader/index.css",
+      "require": "./dist/lib/Components/Loader/index.css"
+    },
+    "./dist/lib/Components/Paragraph": {
+      "import": "./dist/lib/Components/Paragraph/index.mjs",
+      "require": "./dist/lib/Components/Paragraph/index.js"
+    },
+    "./dist/lib/Components/Paragraph/index.css": {
+      "import": "./dist/lib/Components/Paragraph/index.css",
+      "require": "./dist/lib/Components/Paragraph/index.css"
+    },
+    "./dist/lib/Components/PinInput": {
+      "import": "./dist/lib/Components/PinInput/index.mjs",
+      "require": "./dist/lib/Components/PinInput/index.js"
+    },
+    "./dist/lib/Components/PinInput/index.css": {
+      "import": "./dist/lib/Components/PinInput/index.css",
+      "require": "./dist/lib/Components/PinInput/index.css"
+    },
+    "./dist/lib/Components/PopOver": {
+      "import": "./dist/lib/Components/PopOver/index.mjs",
+      "require": "./dist/lib/Components/PopOver/index.js"
+    },
+    "./dist/lib/Components/PopOver/index.css": {
+      "import": "./dist/lib/Components/PopOver/index.css",
+      "require": "./dist/lib/Components/PopOver/index.css"
+    },
+    "./dist/lib/Components/ProgressBar": {
+      "import": "./dist/lib/Components/ProgressBar/index.mjs",
+      "require": "./dist/lib/Components/ProgressBar/index.js"
+    },
+    "./dist/lib/Components/ProgressBar/index.css": {
+      "import": "./dist/lib/Components/ProgressBar/index.css",
+      "require": "./dist/lib/Components/ProgressBar/index.css"
+    },
+    "./dist/lib/Components/RadioGroup": {
+      "import": "./dist/lib/Components/RadioGroup/index.mjs",
+      "require": "./dist/lib/Components/RadioGroup/index.js"
+    },
+    "./dist/lib/Components/RadioGroup/index.css": {
+      "import": "./dist/lib/Components/RadioGroup/index.css",
+      "require": "./dist/lib/Components/RadioGroup/index.css"
+    },
+    "./dist/lib/Components/RadioInput": {
+      "import": "./dist/lib/Components/RadioInput/index.mjs",
+      "require": "./dist/lib/Components/RadioInput/index.js"
+    },
+    "./dist/lib/Components/RadioInput/index.css": {
+      "import": "./dist/lib/Components/RadioInput/index.css",
+      "require": "./dist/lib/Components/RadioInput/index.css"
+    },
+    "./dist/lib/Components/Select": {
+      "import": "./dist/lib/Components/Select/index.mjs",
+      "require": "./dist/lib/Components/Select/index.js"
+    },
+    "./dist/lib/Components/Select/index.css": {
+      "import": "./dist/lib/Components/Select/index.css",
+      "require": "./dist/lib/Components/Select/index.css"
+    },
+    "./dist/lib/Components/Skeleton": {
+      "import": "./dist/lib/Components/Skeleton/index.mjs",
+      "require": "./dist/lib/Components/Skeleton/index.js"
+    },
+    "./dist/lib/Components/Skeleton/index.css": {
+      "import": "./dist/lib/Components/Skeleton/index.css",
+      "require": "./dist/lib/Components/Skeleton/index.css"
+    },
+    "./dist/lib/Components/Slider": {
+      "import": "./dist/lib/Components/Slider/index.mjs",
+      "require": "./dist/lib/Components/Slider/index.js"
+    },
+    "./dist/lib/Components/Slider/index.css": {
+      "import": "./dist/lib/Components/Slider/index.css",
+      "require": "./dist/lib/Components/Slider/index.css"
+    },
+    "./dist/lib/Components/Spacer": {
+      "import": "./dist/lib/Components/Spacer/index.mjs",
+      "require": "./dist/lib/Components/Spacer/index.js"
+    },
+    "./dist/lib/Components/Spacer/index.css": {
+      "import": "./dist/lib/Components/Spacer/index.css",
+      "require": "./dist/lib/Components/Spacer/index.css"
+    },
+    "./dist/lib/Components/StatusDot": {
+      "import": "./dist/lib/Components/StatusDot/index.mjs",
+      "require": "./dist/lib/Components/StatusDot/index.js"
+    },
+    "./dist/lib/Components/StatusDot/index.css": {
+      "import": "./dist/lib/Components/StatusDot/index.css",
+      "require": "./dist/lib/Components/StatusDot/index.css"
+    },
+    "./dist/lib/Components/Subheading": {
+      "import": "./dist/lib/Components/Subheading/index.mjs",
+      "require": "./dist/lib/Components/Subheading/index.js"
+    },
+    "./dist/lib/Components/Subheading/index.css": {
+      "import": "./dist/lib/Components/Subheading/index.css",
+      "require": "./dist/lib/Components/Subheading/index.css"
+    },
+    "./dist/lib/Components/Switch": {
+      "import": "./dist/lib/Components/Switch/index.mjs",
+      "require": "./dist/lib/Components/Switch/index.js"
+    },
+    "./dist/lib/Components/Switch/index.css": {
+      "import": "./dist/lib/Components/Switch/index.css",
+      "require": "./dist/lib/Components/Switch/index.css"
+    },
+    "./dist/lib/Components/Tag": {
+      "import": "./dist/lib/Components/Tag/index.mjs",
+      "require": "./dist/lib/Components/Tag/index.js"
+    },
+    "./dist/lib/Components/Tag/index.css": {
+      "import": "./dist/lib/Components/Tag/index.css",
+      "require": "./dist/lib/Components/Tag/index.css"
+    },
+    "./dist/lib/Components/TextArea": {
+      "import": "./dist/lib/Components/TextArea/index.mjs",
+      "require": "./dist/lib/Components/TextArea/index.js"
+    },
+    "./dist/lib/Components/TextArea/index.css": {
+      "import": "./dist/lib/Components/TextArea/index.css",
+      "require": "./dist/lib/Components/TextArea/index.css"
+    },
+    "./dist/lib/Components/TextEffect": {
+      "import": "./dist/lib/Components/TextEffect/index.mjs",
+      "require": "./dist/lib/Components/TextEffect/index.js"
+    },
+    "./dist/lib/Components/TextEffect/index.css": {
+      "import": "./dist/lib/Components/TextEffect/index.css",
+      "require": "./dist/lib/Components/TextEffect/index.css"
+    },
+    "./dist/lib/Components/TextLanding": {
+      "import": "./dist/lib/Components/TextLanding/index.mjs",
+      "require": "./dist/lib/Components/TextLanding/index.js"
+    },
+    "./dist/lib/Components/TextLanding/index.css": {
+      "import": "./dist/lib/Components/TextLanding/index.css",
+      "require": "./dist/lib/Components/TextLanding/index.css"
+    },
+    "./dist/lib/Components/TextLink": {
+      "import": "./dist/lib/Components/TextLink/index.mjs",
+      "require": "./dist/lib/Components/TextLink/index.js"
+    },
+    "./dist/lib/Components/TextLink/index.css": {
+      "import": "./dist/lib/Components/TextLink/index.css",
+      "require": "./dist/lib/Components/TextLink/index.css"
+    },
+    "./dist/lib/Components/Timer": {
+      "import": "./dist/lib/Components/Timer/index.mjs",
+      "require": "./dist/lib/Components/Timer/index.js"
+    },
+    "./dist/lib/Components/Truncate": {
+      "import": "./dist/lib/Components/Truncate/index.mjs",
+      "require": "./dist/lib/Components/Truncate/index.js"
+    },
+    "./dist/lib/Components/Truncate/index.css": {
+      "import": "./dist/lib/Components/Truncate/index.css",
+      "require": "./dist/lib/Components/Truncate/index.css"
+    },
+    "./dist/lib/Components/VercelButton": {
+      "import": "./dist/lib/Components/VercelButton/index.mjs",
+      "require": "./dist/lib/Components/VercelButton/index.js"
+    },
+    "./dist/lib/Components/VercelButton/index.css": {
+      "import": "./dist/lib/Components/VercelButton/index.css",
+      "require": "./dist/lib/Components/VercelButton/index.css"
+    },
+    "./dist/lib/Components/VisuallyHidden": {
+      "import": "./dist/lib/Components/VisuallyHidden/index.mjs",
+      "require": "./dist/lib/Components/VisuallyHidden/index.js"
+    },
+    "./dist/lib/Components/VisuallyHidden/index.css": {
+      "import": "./dist/lib/Components/VisuallyHidden/index.css",
+      "require": "./dist/lib/Components/VisuallyHidden/index.css"
+    },
+    "./dist/lib/Components/YTCard": {
+      "import": "./dist/lib/Components/YTCard/index.mjs",
+      "require": "./dist/lib/Components/YTCard/index.js"
+    },
+    "./dist/lib/Components/YTCard/index.css": {
+      "import": "./dist/lib/Components/YTCard/index.css",
+      "require": "./dist/lib/Components/YTCard/index.css"
+    },
+    "./dist/lib/Wrappers/Draggable": {
+      "import": "./dist/lib/Wrappers/Draggable/index.mjs",
+      "require": "./dist/lib/Wrappers/Draggable/index.js"
+    },
+    "./dist/lib/Wrappers/Draggable/index.css": {
+      "import": "./dist/lib/Wrappers/Draggable/index.css",
+      "require": "./dist/lib/Wrappers/Draggable/index.css"
+    },
+    "./dist/lib/Wrappers/GradientHover": {
+      "import": "./dist/lib/Wrappers/GradientHover/index.mjs",
+      "require": "./dist/lib/Wrappers/GradientHover/index.js"
+    },
+    "./dist/lib/Wrappers/GradientHover/index.css": {
+      "import": "./dist/lib/Wrappers/GradientHover/index.css",
+      "require": "./dist/lib/Wrappers/GradientHover/index.css"
+    },
+    "./dist/lib/Wrappers/Ring": {
+      "import": "./dist/lib/Wrappers/Ring/index.mjs",
+      "require": "./dist/lib/Wrappers/Ring/index.js"
+    },
+    "./dist/lib/Wrappers/Ring/index.css": {
+      "import": "./dist/lib/Wrappers/Ring/index.css",
+      "require": "./dist/lib/Wrappers/Ring/index.css"
+    },
+    "./dist/lib/Wrappers/Util": {
+      "import": "./dist/lib/Wrappers/Util/index.mjs",
+      "require": "./dist/lib/Wrappers/Util/index.js"
+    }
   },
   "files": [
     "dist",
@@ -29,6 +1168,7 @@
     "build": "tsup && npm run build:global-css && npm run build:types",
     "build:global-css": "sass src/lib/styles/Global.scss dist/global.css --no-source-map --style=compressed",
     "build:types": "tsc --project tsconfig.build.json --emitDeclarationOnly",
+    "build:package": "node generate-package-json.js",
     "build-storybook": "storybook build",
     "build:test": "tsup && npm pack --pack-destination ~",
     "clean": "rimraf dist",

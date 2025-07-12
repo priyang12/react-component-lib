@@ -38,7 +38,7 @@ function App() {
 }
 ```
 
-or import singular component (need to fix the exports not working at the moment).
+or import singular component.
 
 ```tsx
 import { Button } from '@priyang/react-component-lib/lib/Components/Button';
