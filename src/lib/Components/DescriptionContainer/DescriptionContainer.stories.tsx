@@ -1,6 +1,8 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Button } from '../Button';
 import DescriptionContainer from './DescriptionContainer';
+import { HiOutlineLightningBolt } from 'react-icons/hi';
+import { FiShield, FiStar } from 'react-icons/fi';
+import { Button } from '../Button';
 
 export default {
    title: 'Inspiration/DescriptionContainer',
@@ -10,13 +12,12 @@ export default {
 
 export const Template: StoryFn<typeof DescriptionContainer> = (args) => (
    <DescriptionContainer
-      className="w-1/2"
+      {...args}
+      className="w-1/3"
       hiddenContainerHeight="50px"
-      // @ts-ignore
       renderDescription={() => (
          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       )}
-      {...args}
    >
       {({ onMouseOver }) => (
          <Button variant="info-border" onMouseOver={onMouseOver}>
@@ -45,24 +46,35 @@ DefaultShow.args = {
    defaultShow: true,
 };
 
-export const MultipleElements: StoryFn<typeof DescriptionContainer> = (
-   args
-) => (
+export const Horizontal: StoryFn<typeof DescriptionContainer> = (args) => (
    <DescriptionContainer
       {...args}
-      defaultShow={true}
+      direction="Horizontal"
+      hiddenContainerWidth="20vw"
       renderDescription={() => (
-         <p className="w-1/2 text-center">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-         </p>
+         <div className="flex justify-center">
+            <Button variant="primary">
+               <HiOutlineLightningBolt style={{ marginRight: 8 }} />
+            </Button>
+
+            <Button variant="primary-border">
+               <FiShield style={{ marginRight: 8 }} />
+            </Button>
+
+            <Button variant="primary">
+               <FiStar style={{ marginRight: 8 }} />
+            </Button>
+         </div>
       )}
    >
       {({ onMouseOver }) => (
-         <div className="flex justify-center" onMouseOver={onMouseOver}>
-            <Button variant="primary">Hover</Button>
-            <Button variant="primary-border">Hover</Button>
-            <Button variant="primary">Hover</Button>
-         </div>
+         <Button
+            variant="info-border"
+            className="h-fit"
+            onMouseOver={onMouseOver}
+         >
+            Hover
+         </Button>
       )}
    </DescriptionContainer>
 );

@@ -18,19 +18,38 @@
       }
    }
 
-   .show {
-      border-radius: 0;
-      animation: display 1s ease-in-out;
+   &-Vertical {
+      flex-direction: column;
+      .show {
+         border-radius: 0;
+         animation: display-Vertical 1s ease-in-out;
+      }
+      .hide {
+         animation: hideAnimation-Vertical 1s ease-in-out;
+      }
+      .hideContainer {
+         display: none;
+      }
    }
-   .hide {
-      animation: hideAnimation 1s ease-in-out;
-   }
-   .hideContainer {
-      display: none;
+   &-Horizontal {
+      flex-direction: row;
+      .hidden-container {
+         padding: 0;
+      }
+      .show {
+         border-radius: 0;
+         animation: display-Horizontal 1s ease-in-out;
+      }
+      .hide {
+         animation: hideAnimation-Horizontal 1s ease-in-out;
+      }
+      .hideContainer {
+         display: none;
+      }
    }
 }
 
-@keyframes display {
+@keyframes display-Vertical {
    0% {
       opacity: 0;
       height: 0px;
@@ -41,7 +60,7 @@
    }
 }
 
-@keyframes hideAnimation {
+@keyframes hideAnimation-Vertical {
    0% {
       opacity: 1;
       height: var(--description-height);
@@ -49,5 +68,26 @@
    100% {
       opacity: 0;
       height: 0px;
+   }
+}
+@keyframes display-Horizontal {
+   0% {
+      opacity: 0;
+      width: 0px;
+   }
+   100% {
+      opacity: 1;
+      width: var(--description-width);
+   }
+}
+
+@keyframes hideAnimation-Horizontal {
+   0% {
+      opacity: 1;
+      width: var(--description-width);
+   }
+   100% {
+      opacity: 0;
+      width: 0px;
    }
 }

@@ -8,7 +8,9 @@ import './DescriptionContainer.scss';
  * Provides a wrapper that reveals a description panel on hover, with timed hiding logic and customizable rendering.
  *
  * @property defaultShow - Whether the description should be visible by default. Defaults to `false`.
+ * @property direction - Direction in which way the container should expand and hide. Defaults to `Vertical`.
  * @property hiddenContainerHeight - Optional height of the hidden container (used as a CSS variable).
+ * @property hiddenContainerWidth - Optional width of the hidden container (used as a CSS variable).
  * @property exitFunction - Optional callback invoked when the mouse leaves the container.
  * @property renderDescription - Function that returns the JSX content to render in the description panel.
  * @property children - A render prop function that receives hover handlers to apply to trigger elements.
@@ -17,8 +19,12 @@ export interface DescriptionContainerProps
    extends Omit<React.ComponentPropsWithoutRef<'div'>, 'children'> {
    /** Whether the description panel should be shown initially. */
    defaultShow?: boolean;
+   /** Direction in which way the container should expand and hide. */
+   direction?: 'Horizontal' | 'Vertical';
    /** Custom CSS height value for the hidden container. */
    hiddenContainerHeight?: string;
+   /** Custom CSS width value for the hidden container. */
+   hiddenContainerWidth?: string;
    /** Optional callback executed when the container exits (on mouse leave). */
    exitFunction?: () => void;
    /** Function that renders the content inside the description panel. */
@@ -39,7 +45,9 @@ export interface DescriptionContainerProps
 
 function DescriptionContainer({
    defaultShow = false,
-   hiddenContainerHeight,
+   direction = 'Vertical',
+   hiddenContainerHeight = '100px',
+   hiddenContainerWidth = '100px',
    exitFunction = () => {},
    renderDescription,
    children,
@@ -67,7 +75,11 @@ function DescriptionContainer({
    return (
       <div
          {...props}
-         className={clsx('descriptionContainer', props.className)}
+         className={clsx(
+            'descriptionContainer',
+            `descriptionContainer-${direction}`,
+            props.className
+         )}
          onMouseLeave={handleExit}
       >
          {children({ onMouseOver: Enter })}
@@ -78,6 +90,7 @@ function DescriptionContainer({
             style={
                {
                   '--description-height': hiddenContainerHeight,
+                  '--description-width': hiddenContainerWidth,
                } as React.CSSProperties
             }
          >
