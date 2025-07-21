@@ -1,4 +1,4 @@
-import Ring from './Ring';
+import Ring, { BaseProps } from './Ring';
 import Button from '../../Components/Button/Button';
 import type { Meta, StoryFn } from '@storybook/react';
 
@@ -6,7 +6,7 @@ export default {
    title: 'Wrappers/Ring',
    component: Ring,
    decorators: [(story) => <div className="container">{story()}</div>],
-} as Meta<typeof Ring>;
+} as Meta<BaseProps>;
 
 export const Template: StoryFn<typeof Ring> = (args) => (
    <Ring {...args}>
@@ -34,10 +34,23 @@ OuterRingColor.args = {
    OuterRingColor: 'red',
 };
 
-export const ButtonRing: StoryFn<typeof Ring> = (args) => (
+export const ButtonRingChild: StoryFn<typeof Ring> = (args) => (
    <Ring asChild {...args}>
       <Button
-         className="flex"
+         className="flex outline-none"
+         role="link"
+         style={{
+            backgroundColor: 'red',
+         }}
+      >
+         Ring Around Button
+      </Button>
+   </Ring>
+);
+export const TriggerRing: StoryFn<typeof Ring> = (args) => (
+   <Ring asChild {...args} trigger={['hover', 'focus']}>
+      <Button
+         className="flex outline-none"
          role="link"
          style={{
             backgroundColor: 'red',

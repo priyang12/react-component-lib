@@ -7,7 +7,14 @@
    --ring-offset-width: 5px;
    --ring-offset-color: var(--bg-default);
 
-   &:hover {
+   &.trigger-hover:hover {
+      --ring-offset-shadow: 0 0 0 var(--ring-offset-width)
+         var(--ring-offset-color);
+      --ring-shadow: 0 0 0 calc(4px + var(--ring-width)) var(--ring-color);
+      box-shadow: var(--ring-offset-shadow), var(--ring-shadow),
+         var(--shadow, 0 0 #0000);
+   }
+   &.trigger-focus:focus {
       --ring-offset-shadow: 0 0 0 var(--ring-offset-width)
          var(--ring-offset-color);
       --ring-shadow: 0 0 0 calc(4px + var(--ring-width)) var(--ring-color);

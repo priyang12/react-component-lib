@@ -10,6 +10,7 @@ import './Ring.scss';
  * Supports rendering via `asChild` for flexible composition or as a regular `div` by default.
  *
  * @property radius - Optional CSS border-radius to apply to the ring.
+ * @property trigger - Determines how the ring is triggered.  `['hover', 'focus']`
  * @property ringColor - Color of the inner ring border.
  * @property ringWidth - Width of the inner ring. Defaults to `'5px'`.
  * @property OuterRingColor - Optional color for an outer offset ring.
@@ -20,6 +21,8 @@ import './Ring.scss';
 export interface BaseProps {
    /** Optional CSS border-radius for the ring element. */
    radius?: string;
+   /** Determines how the ring is triggered.  `['hover', 'focus']`: supports both interactions  */
+   trigger?: 'hover' | 'focus' | ('hover' | 'focus')[];
    /** Color of the main ring (sets the `--ring-color` CSS variable). */
    ringColor?: string;
    /** Width of the main ring. Defaults to `'5px'`. */
@@ -34,17 +37,11 @@ export interface BaseProps {
    children: React.ReactNode;
 }
 
-type RingAsChild = {
-   asChild: true;
-} & BaseProps;
-
-type RingAsDiv = {
-   asChild?: false;
-} & BaseProps &
-   React.ComponentPropsWithoutRef<'div'>;
-
-// this is stopping the argTable to not generate with props
-export type RingProps = RingAsChild | RingAsDiv;
+type RingProps = BaseProps &
+   (
+      | { asChild: true }
+      | ({ asChild?: false } & React.ComponentPropsWithoutRef<'div'>)
+   );
 
 /**
  * Ring component for visually highlighting content with a customizable border effect.
@@ -55,6 +52,7 @@ export type RingProps = RingAsChild | RingAsDiv;
 function Ring({
    asChild = false,
    radius,
+   trigger = 'hover',
    ringColor,
    ringWidth = '5px',
    OuterRingColor,
@@ -62,11 +60,17 @@ function Ring({
    children,
    ...props
 }: RingProps) {
-   const RingClass = clsx('Ring', className);
+   // const triggerClass = normalizedTrigger.map((t) => `trigger-${t}`).join(' ');
+
+   const RingClass = clsx('Ring', className, {
+      'trigger-hover': trigger.includes('hover'),
+      'trigger-focus': trigger.includes('focus'),
+   });
    const RenderEle = asChild ? Slot : 'div';
 
    return (
       <RenderEle
+         tabIndex={trigger.includes('focus') ? 0 : -1}
          className={RingClass}
          style={
             {
