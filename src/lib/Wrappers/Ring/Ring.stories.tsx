@@ -35,7 +35,15 @@ OuterRingColor.args = {
 };
 
 export const ButtonRing: StoryFn<typeof Ring> = (args) => (
-   <Ring asChild={true} {...args}>
-      <Button>Ring Around Button</Button>
+   <Ring asChild {...args}>
+      <Button
+         className="flex"
+         role="link"
+         style={{
+            backgroundColor: 'red',
+         }}
+      >
+         Ring Around Button
+      </Button>
    </Ring>
 );
