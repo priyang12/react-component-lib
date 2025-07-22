@@ -1,0 +1,13 @@
+.carousel-track {
+   display: flex;
+   position: relative;
+   overflow: hidden;
+}
+
+.carousel-slide {
+   width: 100%;
+   background-color: var(--bg-surface);
+   padding: 1rem;
+   border-radius: var(--radius-lg);
+   color: var(--text-primary);
+}
