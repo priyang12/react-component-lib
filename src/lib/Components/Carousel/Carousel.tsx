@@ -3,48 +3,45 @@ import { useCarousel } from './Hook/useCarousel';
 import { NextArrow, PrevArrow } from './components/Arrows';
 import { CarouselPagination } from './components/Pagination';
 import './Carousel.scss';
-import clsx from 'clsx';
 
-// Focus On Select
+// export slide component
+// still need to add Announce slide changes for screen readers.
 
-export interface CarouselProps extends React.ComponentPropsWithoutRef<'div'> {
+export interface CarouselProps
+   extends Omit<React.ComponentPropsWithoutRef<'div'>, 'children'> {
    speed?: number;
    fade?: boolean;
+   carouselData: any[];
    PrevArrowComponent?: (props: { prevSlide: () => void }) => React.ReactNode;
    NextArrowComponent?: (props: { nextSlide: () => void }) => React.ReactNode;
+   children: ({
+      SlideRef,
+      currentIndex,
+      speed,
+      fade,
+      slidStyles,
+   }: {
+      SlideRef: React.MutableRefObject<any>;
+      currentIndex: number;
+      speed: number;
+      fade: boolean;
+      slidStyles: (speed: number, fade: boolean) => React.CSSProperties;
+   }) => React.ReactNode;
 }
-
-const carouselData = [
-   {
-      img: 'https://picsum.photos/600/400?image=1074',
-      title: 'title 1',
-   },
-   {
-      img: 'https://picsum.photos/600/400?image=1072',
-      title: 'title 2',
-   },
-   {
-      img: 'https://picsum.photos/600/400?image=1071',
-      title: 'title 3',
-   },
-   {
-      img: 'https://picsum.photos/600/400?image=1079',
-      title: 'title 4',
-   },
-];
 
 function Carousel({
    fade = false,
    speed = 500,
+   carouselData,
    NextArrowComponent = ({ nextSlide }) => <NextArrow nextSlide={nextSlide} />,
    PrevArrowComponent = ({ prevSlide }) => <PrevArrow prevSlide={prevSlide} />,
+   children,
    ...props
 }: CarouselProps) {
    const { state, SlideRef, nextSlide, prevSlide, slidStyles, goTo } =
       useCarousel({
          currentIndex: 0,
          carouselLength: carouselData.length,
-         autoplay: { delay: 1000 },
       });
 
    return (
@@ -52,24 +49,13 @@ function Carousel({
          <div className="carousel">
             {PrevArrowComponent?.({ prevSlide })}
             <div {...props} className="carousel-track w-1/2">
-               {carouselData.map((item, index) => (
-                  <>
-                     <div
-                        className={clsx('carousel-slide', {
-                           fade: 'fade',
-                        })}
-                        onMouseEnter={() => (SlideRef.current.hover = true)}
-                        onMouseLeave={() => (SlideRef.current.hover = false)}
-                        data-index={index}
-                        data-current={state.currentIndex === index}
-                        aria-hidden={state.currentIndex === index}
-                        style={slidStyles(speed, fade)}
-                     >
-                        <img src={item.img} alt={item.title + 'Image'} />
-                        <h1>{item.title}</h1>
-                     </div>
-                  </>
-               ))}
+               {children({
+                  currentIndex: state.currentIndex,
+                  fade,
+                  SlideRef,
+                  speed,
+                  slidStyles,
+               })}
             </div>
             {NextArrowComponent?.({ nextSlide })}
             <CarouselPagination

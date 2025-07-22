@@ -1,6 +1,6 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import { useCarousel } from './useCarousel';
-import { Divider } from '../../Divider';
+
 import { Input } from '../../Input';
 
 export default {
@@ -15,22 +15,41 @@ for (let i = 0; i < 10; i++) {
 }
 
 export function HookDemo() {
-   const { state, nextSlide, prevSlide, goTo } = useCarousel({
+   const {
+      state,
+      nextSlide,
+      prevSlide,
+      goTo,
+      slidStyles,
+      slideContainerStyles,
+   } = useCarousel({
       currentIndex: 0,
       carouselLength: numbersArray.length,
       loop: false,
       // autoplay: { delay: 1000 },
    });
 
-   console.log(state.currentIndex);
-
    return (
-      <div className="text-white">
-         <button onClick={nextSlide}>next</button>
-         <Divider />
-         Data : {numbersArray[state.currentIndex]}
-         <Divider />
-         <button onClick={prevSlide}>prev</button>
+      <div className="text-white flex flex-col">
+         <div className="flex">
+            <button onClick={prevSlide}>prev</button>
+            <div style={slideContainerStyles()}>
+               {numbersArray.map((item, index) => (
+                  <>
+                     <div
+                        className="flex-shrink-0 w-full bg-gray-500"
+                        data-index={index}
+                        data-current={state.currentIndex === index}
+                        aria-hidden={state.currentIndex === index}
+                        style={slidStyles(500, false)}
+                     >
+                        {numbersArray[index]}
+                     </div>
+                  </>
+               ))}
+            </div>
+            <button onClick={nextSlide}>next</button>
+         </div>
          <Input
             InputSize="medium"
             type="text"

@@ -90,21 +90,23 @@ export const useCarousel = ({
    loop = true,
    autoplay,
 }: useHookType) => {
+   const SlideRef = React.useRef<any>({ hover: false });
    const [state, dispatch] = React.useReducer(carouselReducer, {
       carouselLength,
       currentIndex,
       loop,
    });
 
-   // need work for giving ablity to stop the loop if needed.
    React.useEffect(() => {
       let interval: number;
       if (autoplay) {
          interval = setInterval(() => {
-            dispatch({
-               type: 'nextSlide',
-               payload: {},
-            });
+            if (SlideRef.current.hover !== true) {
+               dispatch({
+                  type: 'nextSlide',
+                  payload: {},
+               });
+            }
          }, autoplay?.delay);
       }
       return () => clearInterval(interval);
@@ -131,10 +133,43 @@ export const useCarousel = ({
          },
       });
    };
+
+   const slideContainerStyles = React.useCallback(() => {
+      return {
+         display: 'flex',
+         position: 'relative',
+         overflow: 'hidden',
+      } as React.CSSProperties;
+   }, []);
+
+   const slidStyles = React.useCallback(
+      (speed: number, fade: boolean) => {
+         const fadeStyles = {
+            transform: `translateX(-${(state.currentIndex * 100) / 1}%)`,
+         } as React.CSSProperties;
+
+         const slideStyle = {
+            transform: `translateX(-${(state.currentIndex * 100) / 1}%)`,
+            transitionProperty: 'transform',
+         };
+
+         return {
+            flexShrink: 0,
+            transitionDuration: `${speed / 1000}s`,
+            transitionTimingFunction: 'ease-in-out',
+            ...(fade ? fadeStyles : slideStyle),
+         } as React.CSSProperties;
+      },
+      [state.currentIndex]
+   );
+
    return {
       state,
+      SlideRef,
       nextSlide,
       prevSlide,
       goTo,
+      slidStyles,
+      slideContainerStyles,
    };
 };
