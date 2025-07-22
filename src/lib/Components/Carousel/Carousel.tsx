@@ -5,7 +5,6 @@ import { CarouselPagination } from './components/Pagination';
 import './Carousel.scss';
 import clsx from 'clsx';
 
-// Auto Play stop on hover
 // Focus On Select
 
 export interface CarouselProps extends React.ComponentPropsWithoutRef<'div'> {
@@ -41,10 +40,12 @@ function Carousel({
    PrevArrowComponent = ({ prevSlide }) => <PrevArrow prevSlide={prevSlide} />,
    ...props
 }: CarouselProps) {
-   const { state, nextSlide, prevSlide, slidStyles, goTo } = useCarousel({
-      currentIndex: 0,
-      carouselLength: carouselData.length,
-   });
+   const { state, SlideRef, nextSlide, prevSlide, slidStyles, goTo } =
+      useCarousel({
+         currentIndex: 0,
+         carouselLength: carouselData.length,
+         autoplay: { delay: 1000 },
+      });
 
    return (
       <>
@@ -57,6 +58,8 @@ function Carousel({
                         className={clsx('carousel-slide', {
                            fade: 'fade',
                         })}
+                        onMouseEnter={() => (SlideRef.current.hover = true)}
+                        onMouseLeave={() => (SlideRef.current.hover = false)}
                         data-index={index}
                         data-current={state.currentIndex === index}
                         aria-hidden={state.currentIndex === index}
