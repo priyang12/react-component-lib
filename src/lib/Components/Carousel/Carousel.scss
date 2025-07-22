@@ -1,15 +1,44 @@
-.carousel-track {
+.carousel {
    display: flex;
+   justify-content: center;
+   align-items: center;
    position: relative;
-   overflow: hidden;
-}
+   padding-bottom: 3rem; // this to create separation between pagination and track
+   &-track {
+      display: flex;
+      position: relative;
+      overflow: hidden;
+   }
 
-.carousel-slide {
-   width: 100%;
-   background-color: var(--bg-surface);
-   padding: 1rem;
-   border-radius: var(--radius-lg);
-   color: var(--text-primary);
+   &-slide {
+      width: 100%;
+      background-color: var(--bg-surface);
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      color: var(--text-primary);
+   }
+
+   &-pagination {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+   }
+
+   &-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: var(--bg-surface);
+      border: 2px solid var(--primary-100);
+      cursor: pointer;
+
+      &.active {
+         background-color: var(--primary-400);
+      }
+   }
 }
 
 .arrow {

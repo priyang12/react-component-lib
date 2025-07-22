@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useCarousel } from './Hook/useCarousel';
 import { NextArrow, PrevArrow } from './components/Arrows';
+import { CarouselPagination } from './components/Pagination';
 import './Carousel.scss';
 
-// CustomPaging number
 // fade in effect
 // Auto Play stop on hover
 // Focus On Select
@@ -39,31 +39,38 @@ function Carousel({
    PrevArrowComponent = ({ prevSlide }) => <PrevArrow prevSlide={prevSlide} />,
    ...props
 }: CarouselProps) {
-   const { state, nextSlide, prevSlide, slidStyles } = useCarousel({
+   const { state, nextSlide, prevSlide, slidStyles, goTo } = useCarousel({
       currentIndex: 0,
       carouselLength: carouselData.length,
    });
 
    return (
       <>
-         {PrevArrowComponent?.({ prevSlide })}
-         <div {...props} className="carousel-track w-1/2">
-            {carouselData.map((item, index) => (
-               <>
-                  <div
-                     className="carousel-slide"
-                     data-index={index}
-                     data-current={state.currentIndex === index}
-                     aria-hidden={state.currentIndex === index}
-                     style={slidStyles(speed)}
-                  >
-                     <img src={item.img} alt={item.title + 'Image'} />
-                     <h1>{item.title}</h1>
-                  </div>
-               </>
-            ))}
+         <div className="carousel">
+            {PrevArrowComponent?.({ prevSlide })}
+            <div {...props} className="carousel-track w-1/2">
+               {carouselData.map((item, index) => (
+                  <>
+                     <div
+                        className="carousel-slide"
+                        data-index={index}
+                        data-current={state.currentIndex === index}
+                        aria-hidden={state.currentIndex === index}
+                        style={slidStyles(speed)}
+                     >
+                        <img src={item.img} alt={item.title + 'Image'} />
+                        <h1>{item.title}</h1>
+                     </div>
+                  </>
+               ))}
+            </div>
+            {NextArrowComponent?.({ nextSlide })}
+            <CarouselPagination
+               currentIndex={state.currentIndex}
+               onDotClick={(index) => goTo(index)}
+               total={state.carouselLength}
+            />
          </div>
-         {NextArrowComponent?.({ nextSlide })}
       </>
    );
 }
