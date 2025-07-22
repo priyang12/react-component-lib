@@ -1,11 +1,8 @@
 import * as React from 'react';
-import './Carousel.scss';
 import { useCarousel } from './Hook/useCarousel';
-import { Button } from '../Button';
 import { NextArrow, PrevArrow } from './components/Arrows';
+import './Carousel.scss';
 
-// nextArrow: <SampleNextArrow />,
-//  prevArrow: <SamplePrevArrow />
 // CustomPaging number
 // fade in effect
 // Auto Play stop on hover
