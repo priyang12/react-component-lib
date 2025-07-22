@@ -3,13 +3,14 @@ import { useCarousel } from './Hook/useCarousel';
 import { NextArrow, PrevArrow } from './components/Arrows';
 import { CarouselPagination } from './components/Pagination';
 import './Carousel.scss';
+import clsx from 'clsx';
 
-// fade in effect
 // Auto Play stop on hover
 // Focus On Select
 
 export interface CarouselProps extends React.ComponentPropsWithoutRef<'div'> {
-   speed: number;
+   speed?: number;
+   fade?: boolean;
    PrevArrowComponent?: (props: { prevSlide: () => void }) => React.ReactNode;
    NextArrowComponent?: (props: { nextSlide: () => void }) => React.ReactNode;
 }
@@ -34,6 +35,7 @@ const carouselData = [
 ];
 
 function Carousel({
+   fade = false,
    speed = 500,
    NextArrowComponent = ({ nextSlide }) => <NextArrow nextSlide={nextSlide} />,
    PrevArrowComponent = ({ prevSlide }) => <PrevArrow prevSlide={prevSlide} />,
@@ -52,11 +54,13 @@ function Carousel({
                {carouselData.map((item, index) => (
                   <>
                      <div
-                        className="carousel-slide"
+                        className={clsx('carousel-slide', {
+                           fade: 'fade',
+                        })}
                         data-index={index}
                         data-current={state.currentIndex === index}
                         aria-hidden={state.currentIndex === index}
-                        style={slidStyles(speed)}
+                        style={slidStyles(speed, fade)}
                      >
                         <img src={item.img} alt={item.title + 'Image'} />
                         <h1>{item.title}</h1>
