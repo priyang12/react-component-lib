@@ -1,15 +1,13 @@
 import * as React from 'react';
-import { useCarousel } from './Hook/useCarousel';
+import { getSlidePropsType, useCarousel } from './Hook/useCarousel';
 import { NextArrow, PrevArrow } from './components/Arrows';
 import { CarouselPagination } from './components/Pagination';
 import './Carousel.scss';
 
 // export slide component
 // still need to add Announce slide changes for screen readers.
-// change state on touch gestures.
 // auto adjust on half touch (need to change how transformation get perform).
 // multiple slides.
-// pass getter prop fn.
 
 export interface CarouselProps
    extends Omit<React.ComponentPropsWithoutRef<'div'>, 'children'> {
@@ -19,17 +17,11 @@ export interface CarouselProps
    PrevArrowComponent?: (props: { prevSlide: () => void }) => React.ReactNode;
    NextArrowComponent?: (props: { nextSlide: () => void }) => React.ReactNode;
    children: ({
-      SlideRef,
       currentIndex,
-      speed,
-      fade,
-      slidStyles,
+      getSlideProps,
    }: {
-      SlideRef: React.MutableRefObject<any>;
       currentIndex: number;
-      speed: number;
-      fade: boolean;
-      slidStyles: (speed: number, fade: boolean) => React.CSSProperties;
+      getSlideProps: getSlidePropsType;
    }) => React.ReactNode;
 }
 
@@ -42,21 +34,14 @@ function Carousel({
    children,
    ...props
 }: CarouselProps) {
-   const {
-      state,
-      SlideRef,
-      swipeHandle,
-      nextSlide,
-      prevSlide,
-      slidStyles,
-      goTo,
-   } = useCarousel({
-      currentIndex: 0,
-      carouselLength: carouselData.length,
-      // autoplay: {
-      //    delay: 1000,
-      // },
-   });
+   const { state, swipeHandle, nextSlide, prevSlide, goTo, getSlideProps } =
+      useCarousel({
+         currentIndex: 0,
+         carouselLength: carouselData.length,
+         autoplay: {
+            delay: 1000,
+         },
+      });
 
    return (
       <>
@@ -65,10 +50,7 @@ function Carousel({
             <div {...props} className="carousel-track w-1/2" {...swipeHandle}>
                {children({
                   currentIndex: state.currentIndex,
-                  fade,
-                  SlideRef,
-                  speed,
-                  slidStyles,
+                  getSlideProps: getSlideProps({ fade: fade, speed: speed }),
                })}
             </div>
             {NextArrowComponent?.({ nextSlide })}

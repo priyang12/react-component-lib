@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import * as React from 'react';
 import { useSwipeable } from 'react-swipeable';
 
@@ -85,6 +86,18 @@ type useHookType = {
 // loop through slides if needed
 // auto change the next slides.
 
+export type getSlidePropsType = (index: number) => {
+   'data-index': number;
+   'data-current': boolean;
+   'aria-hidden': boolean;
+   className: string;
+   style: React.CSSProperties;
+   onMouseEnter: () => void;
+   onMouseLeave: () => void;
+   onTouchStart: () => void;
+   onTouchEnd: () => void;
+};
+
 export const useCarousel = ({
    carouselLength = 0,
    currentIndex = 0,
@@ -141,6 +154,40 @@ export const useCarousel = ({
       onSwipedRight: () => nextSlide(),
    });
 
+   const onMouseEnter = () => {
+      SlideRef.current.hover = true;
+   };
+   const onMouseLeave = () => {
+      SlideRef.current.hover = false;
+   };
+   const onTouchStart = () => {
+      SlideRef.current.hover = true;
+   };
+   const onTouchEnd = () => {
+      SlideRef.current.hover = false;
+   };
+
+   const stopSlides = () => {
+      return { onMouseEnter, onMouseLeave, onTouchStart, onTouchEnd };
+   };
+
+   const getSlideProps = (para: { speed: number; fade: boolean }) => {
+      const styles = slidStyles(para.speed, para.fade);
+      return (index: number) => {
+         return {
+            'data-index': index,
+            'data-current': currentIndex === index,
+            'aria-hidden': currentIndex === index,
+            className: `carousel-slide ${para.fade ? 'fade' : ''}`,
+            style: styles,
+            onMouseEnter,
+            onMouseLeave,
+            onTouchStart,
+            onTouchEnd,
+         };
+      };
+   };
+
    const slideContainerStyles = React.useCallback(() => {
       return {
          display: 'flex',
@@ -177,7 +224,9 @@ export const useCarousel = ({
       nextSlide,
       prevSlide,
       goTo,
+      stopSlides,
       slidStyles,
       slideContainerStyles,
+      getSlideProps,
    };
 };
