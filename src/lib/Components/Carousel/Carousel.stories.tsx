@@ -27,27 +27,43 @@ const carouselData = [
    },
 ];
 
-export const Template: StoryFn<typeof Carousel> = (args) => (
-   <Carousel {...args} carouselData={carouselData}>
-      {({ SlideRef, currentIndex, speed, fade, slidStyles }) => (
-         <>
-            {carouselData.map((item, index) => (
-               <>
-                  <div
-                     className={clsx(`carousel-slide ${fade ? 'fade' : ''}`)}
-                     onMouseEnter={() => (SlideRef.current.hover = true)}
-                     onMouseLeave={() => (SlideRef.current.hover = false)}
-                     data-index={index}
-                     data-current={currentIndex === index}
-                     aria-hidden={currentIndex === index}
-                     style={slidStyles(speed, fade)}
-                  >
-                     <img src={item.img} alt={item.title + 'Image'} />
-                     <h1>{item.title}</h1>
-                  </div>
-               </>
-            ))}
-         </>
-      )}
-   </Carousel>
-);
+type StoryType = StoryFn<typeof Carousel>;
+
+export const Default: StoryType = (args) => {
+   return (
+      <Carousel {...args} carouselData={carouselData}>
+         {({ SlideRef, currentIndex, speed, fade, slidStyles }) => (
+            <>
+               {carouselData.map((item, index) => (
+                  <>
+                     <div
+                        className={clsx(`carousel-slide ${fade ? 'fade' : ''}`)}
+                        onMouseEnter={() => (SlideRef.current.hover = true)}
+                        onMouseLeave={() => (SlideRef.current.hover = false)}
+                        onTouchStart={() => (SlideRef.current.hover = true)}
+                        onTouchEnd={() => (SlideRef.current.hover = false)}
+                        data-index={index}
+                        data-current={currentIndex === index}
+                        aria-hidden={currentIndex === index}
+                        style={slidStyles(speed, fade)}
+                     >
+                        <img src={item.img} alt={item.title + 'Image'} />
+                        <h1>{item.title}</h1>
+                     </div>
+                  </>
+               ))}
+            </>
+         )}
+      </Carousel>
+   );
+};
+
+export const Speed = Default.bind({});
+Speed.args = {
+   speed: 5000,
+};
+
+export const FadeAnimation = Default.bind({});
+FadeAnimation.args = {
+   fade: true,
+};

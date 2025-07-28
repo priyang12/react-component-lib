@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useSwipeable } from 'react-swipeable';
 
 export type carouselState = {
    carouselLength: number;
@@ -98,7 +99,7 @@ export const useCarousel = ({
    });
 
    React.useEffect(() => {
-      let interval: number;
+      let interval: ReturnType<typeof setTimeout>;
       if (autoplay) {
          interval = setInterval(() => {
             if (SlideRef.current.hover !== true) {
@@ -134,6 +135,12 @@ export const useCarousel = ({
       });
    };
 
+   // later create a own hook and replace the package.
+   const swipeHandle = useSwipeable({
+      onSwipedLeft: () => prevSlide(),
+      onSwipedRight: () => nextSlide(),
+   });
+
    const slideContainerStyles = React.useCallback(() => {
       return {
          display: 'flex',
@@ -166,6 +173,7 @@ export const useCarousel = ({
    return {
       state,
       SlideRef,
+      swipeHandle,
       nextSlide,
       prevSlide,
       goTo,

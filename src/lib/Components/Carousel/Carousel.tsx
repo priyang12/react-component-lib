@@ -6,6 +6,10 @@ import './Carousel.scss';
 
 // export slide component
 // still need to add Announce slide changes for screen readers.
+// change state on touch gestures.
+// auto adjust on half touch (need to change how transformation get perform).
+// multiple slides.
+// pass getter prop fn.
 
 export interface CarouselProps
    extends Omit<React.ComponentPropsWithoutRef<'div'>, 'children'> {
@@ -38,17 +42,27 @@ function Carousel({
    children,
    ...props
 }: CarouselProps) {
-   const { state, SlideRef, nextSlide, prevSlide, slidStyles, goTo } =
-      useCarousel({
-         currentIndex: 0,
-         carouselLength: carouselData.length,
-      });
+   const {
+      state,
+      SlideRef,
+      swipeHandle,
+      nextSlide,
+      prevSlide,
+      slidStyles,
+      goTo,
+   } = useCarousel({
+      currentIndex: 0,
+      carouselLength: carouselData.length,
+      // autoplay: {
+      //    delay: 1000,
+      // },
+   });
 
    return (
       <>
          <div className="carousel">
             {PrevArrowComponent?.({ prevSlide })}
-            <div {...props} className="carousel-track w-1/2">
+            <div {...props} className="carousel-track w-1/2" {...swipeHandle}>
                {children({
                   currentIndex: state.currentIndex,
                   fade,
