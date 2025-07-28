@@ -31,7 +31,7 @@ type StoryType = StoryFn<typeof Carousel>;
 
 export const Default: StoryType = (args) => {
    return (
-      <Carousel {...args} carouselData={carouselData}>
+      <Carousel {...args} carouselLength={carouselData.length}>
          {({ getSlideProps }) => {
             return (
                <>
@@ -48,9 +48,10 @@ export const Default: StoryType = (args) => {
    );
 };
 
+// need to fix animation should complete before state change trigger.
 export const Speed = Default.bind({});
 Speed.args = {
-   speed: 5000,
+   speed: 2000,
 };
 
 export const FadeAnimation = Default.bind({});
@@ -60,7 +61,7 @@ FadeAnimation.args = {
 
 export const CustomProps: StoryType = (args) => {
    return (
-      <Carousel {...args} carouselData={carouselData}>
+      <Carousel {...args} carouselLength={carouselData.length}>
          {({ getSlideProps, currentIndex }) => (
             <>
                {carouselData.map((item, index) => {
@@ -96,3 +97,24 @@ export const CustomProps: StoryType = (args) => {
       </Carousel>
    );
 };
+
+// // still working on this
+
+// export const Multiple: StoryType = (args) => {
+//    return (
+//       <Carousel {...args} carouselLength={carouselData.length}>
+//          {({ getSlideProps }) => {
+//             return (
+//                <div className="w-1/2 flex">
+//                   {carouselData.map((item, index) => (
+//                      <div {...getSlideProps(index)}>
+//                         <img src={item.img} alt={item.title + 'Image'} />
+//                         <h1>{item.title}</h1>
+//                      </div>
+//                   ))}
+//                </div>
+//             );
+//          }}
+//       </Carousel>
+//    );
+// };

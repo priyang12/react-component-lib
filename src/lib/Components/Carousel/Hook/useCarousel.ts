@@ -177,7 +177,7 @@ export const useCarousel = ({
          return {
             'data-index': index,
             'data-current': currentIndex === index,
-            'aria-hidden': currentIndex === index,
+            'aria-hidden': !(currentIndex === index),
             className: `carousel-slide ${para.fade ? 'fade' : ''}`,
             style: styles,
             onMouseEnter,
