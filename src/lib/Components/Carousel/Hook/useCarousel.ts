@@ -13,7 +13,7 @@ export type carouselReducerAction = {
    payload: any;
 };
 
-const carouselReducer = (
+export const carouselReducer = (
    state: carouselState,
    action: carouselReducerAction
 ) => {
